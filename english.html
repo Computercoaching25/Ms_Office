@@ -59,6 +59,19 @@
     .switch-btn:hover {
       background-color: #d35400;
     }
+    .switch-btn2 { 
+      display: block;
+      margin: 10px auto;
+      padding: 05px 10px;
+      background-color: #e67e22;
+      color: red;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .switch-btn2:hover {
+      background-color: #d35400;
   </style>
 </head>
 <body>
@@ -134,11 +147,14 @@
   </div>
 
   <button class="switch-btn" onclick="switchToHindi()">स्विच करें हिंदी में</button>
-  <button class="switch-btn" onclick="switchToHindi()">स्विच करें हिंदी में</button>
+  <button class="switch-btn2" onclick="switchToShortcut()">स्विच करें शॉर्टकट पर</button>
 
   <script>
     function switchToHindi() {
       window.location.href = "index.html";
+    }
+    function switchToShortcut() {
+      window.location.href = "shortcut.html";
     }
   </script>
 
