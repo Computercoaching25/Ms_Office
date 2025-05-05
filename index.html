@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chitragupt Academy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 30px;
+      background-color: #ffffff;
+      border-bottom: 3px double #000;
+      position: relative;
+    }
+
+    .academy-info {
+      text-align: right;
+    }
+
+    .academy-info h1 {
+      margin: 0;
+      font-size: 50px;
+      color: #2c3e50;
+    }
+
+    .academy-info p {
+      margin: 0;
+      font-size: 25px;
+      font-weight: bold;
+      color: #2980b9;
+    }
+
+    .logo-box {
+      width: 100px;
+      height: 100px;
+      background-color: #ddd;
+      border: 2px dashed #999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .logo-box img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 30px 20px;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      gap: 20px;
+    }
+
+    .nav-button {
+      background-color: #fff;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .nav-button:hover {
+      background-color: #ecf0f1;
+      transform: scale(1.05);
+    }
+
+    .login-container {
+      max-width: 400px;
+      background-color: #fff;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .login-container label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-container button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #2980b9;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #21618c;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-box" id="logo-box">
+      <img src="https://www.shutterstock.com/image-photo/majestic-bald-eagle-perched-on-260nw-2554398695.jpg" alt="Logo" id="logo-img" />
+    </div>
+
+    <div class="academy-info">
+      <h1>CHITRAGUPT ACADEMY</h1>
+      <p>AN ISO CERTIFIED INSTITUTION</p>
+    </div>
+  </header>
+
+  <nav>
+    <button class="nav-button">Home</button>
+    <button class="nav-button">About Us</button>
+    <button class="nav-button">Courses</button>
+    <button class="nav-button">Admissions</button>
+    <button class="nav-button">Vedio</button>
+    <button class="nav-button">Contact</button>
+  </nav>
+
+  <div class="login-container">
+    <h2>Student Login</h2>
+    <label for="student-id">Student ID Number</label>
+    <input type="text" id="student-id" placeholder="Enter your ID" required />
+
+    <label for="student-pass">Password</label>
+    <input type="password" id="student-pass" placeholder="Enter your password" required />
+
+    <button onclick="login()">Login</button>
+    <div class="message" id="login-message"></div>
+  </div>
+
+  <script>
+    // Dummy student data (You can later connect to a real database)
+    const students = {
+      "Ps": "101",
+    };
+
+    function updateLogo(url) {
+      document.getElementById('logo-img').src = url;
+    }
+
+    function login() {
+  const id = document.getElementById('student-id').value.trim();
+  const pass = document.getElementById('student-pass').value.trim();
+  const msg = document.getElementById('login-message');
+
+  if (students[id] && students[id] === pass) {
+    msg.style.color = 'green';
+    msg.innerText = 'Login Successful! Redirecting...';
+    // Save student name (you can customize this later)
+    localStorage.setItem("studentName", id);
+    // Redirect after short delay
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 1500);
+  } else {
+    msg.style.color = 'red';
+    msg.innerText = 'Invalid ID or Password!';
+  }
+}
+  </script>
+
+</body>
+</html>
