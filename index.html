@@ -59,6 +59,20 @@
     .switch-btn:hover {
       background-color: #d35400;
     }
+     .switch-btn1 {
+      display: block;
+      margin: 10px auto;
+      padding: 05px 10px;
+      background-color: #0dd883;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .switch-btn1:hover {
+      background-color: #0dd883;
+    }
   </style>
 </head>
 <body>
@@ -134,10 +148,14 @@
   </div>
 
   <button class="switch-btn" onclick="switchToEnglish()">Switch to English</button>
+   <button class="switch-btn" onclick="switchToS()">Goto Shortcut Keys Page</button>
 
   <script>
     function switchToEnglish() {
       window.location.href = "english.html";
+    }
+     function switchToS() {
+      window.location.href = "shortcutkey.html";
     }
   </script>
 
