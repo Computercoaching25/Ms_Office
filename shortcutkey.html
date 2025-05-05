@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MS Word Shortcut Keys</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2b5876, #4e4376);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .toggle-button {
+      background-color: #FFD700;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin: 10px;
+      width: 200px;
+    }
+    button.unlock-btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #fff;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .contact {
+      margin-top: 40px;
+      background-color: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MS Word Shortcut Keys</h1>
+    <button class="toggle-button" onclick="toggleLanguage()">Change Language</button>
+    <br />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button class="unlock-btn" onclick="unlockShortcuts()">Unlock</button>
 
+    <div class="shortcuts" id="shortcuts"></div>
+
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p><strong>Owner Name:</strong> Pawan Soni</p>
+      <p><strong>Mobile No:</strong> 7067779214</p>
+    </div>
+  </div>
+
+  <script>
+    let language = "en";
+    const shortcutsData = [
+  { key: "Ctrl + C", en: "Copy selected text or object", hi: "चयनित टेक्स्ट या वस्तु की कॉपी करें" },
+  { key: "Ctrl + V", en: "Paste copied content", hi: "कॉपी किए गए कंटेंट को चिपकाएं" },
+  { key: "Ctrl + X", en: "Cut selected content", hi: "चयनित कंटेंट को काटें" },
+  { key: "Ctrl + Z", en: "Undo last action", hi: "अंतिम क्रिया को पूर्ववत करें" },
+  { key: "Ctrl + Y", en: "Redo last undone action", hi: "पूर्ववत की गई क्रिया को दोबारा करें" },
+  { key: "Ctrl + B", en: "Bold text", hi: "टेक्स्ट को बोल्ड करें" },
+  { key: "Ctrl + I", en: "Italic text", hi: "टेक्स्ट को इटालिक करें" },
+  { key: "Ctrl + U", en: "Underline text", hi: "टेक्स्ट को रेखांकित करें" },
+  { key: "Ctrl + A", en: "Select all text", hi: "सभी टेक्स्ट का चयन करें" },
+  { key: "Ctrl + N", en: "Create new document", hi: "नया दस्तावेज़ बनाएं" },
+  { key: "Ctrl + O", en: "Open document", hi: "दस्तावेज़ खोलें" },
+  { key: "Ctrl + S", en: "Save document", hi: "दस्तावेज़ सहेजें" },
+  { key: "Ctrl + P", en: "Print document", hi: "दस्तावेज़ प्रिंट करें" },
+  { key: "Ctrl + F", en: "Find text", hi: "टेक्स्ट खोजें" },
+  { key: "Ctrl + H", en: "Find and replace", hi: "खोजें और बदलें" },
+  { key: "Ctrl + K", en: "Insert hyperlink", hi: "हाइपरलिंक जोड़ें" },
+  { key: "Ctrl + L", en: "Align text left", hi: "टेक्स्ट को बाएं संरेखित करें" },
+  { key: "Ctrl + E", en: "Center align text", hi: "टेक्स्ट को केंद्र में संरेखित करें" },
+  { key: "Ctrl + R", en: "Align text right", hi: "टेक्स्ट को दाएं संरेखित करें" },
+  { key: "Ctrl + M", en: "Increase indent", hi: "इंडेंट बढ़ाएं" },
+  { key: "Ctrl + Shift + M", en: "Decrease indent", hi: "इंडेंट घटाएं" },
+  { key: "Ctrl + T", en: "Create hanging indent", hi: "हैंगिंग इंडेंट बनाएं" },
+  { key: "Ctrl + Shift + >", en: "Increase font size", hi: "फ़ॉन्ट आकार बढ़ाएं" },
+  { key: "Ctrl + Shift + <", en: "Decrease font size", hi: "फ़ॉन्ट आकार घटाएं" },
+  { key: "Ctrl + 1", en: "Single line spacing", hi: "एकल पंक्ति अंतराल" },
+  { key: "Ctrl + 2", en: "Double line spacing", hi: "दोहरी पंक्ति अंतराल" },
+  { key: "Ctrl + 5", en: "1.5 line spacing", hi: "1.5 पंक्ति अंतराल" },
+  { key: "Ctrl + Shift + L", en: "Apply bullet list", hi: "बुलेट लिस्ट लागू करें" },
+  { key: "Ctrl + Q", en: "Remove paragraph formatting", hi: "पैरा फॉर्मेटिंग हटाएं" },
+  { key: "Ctrl + Shift + C", en: "Copy formatting", hi: "फॉर्मेटिंग कॉपी करें" },
+  { key: "Ctrl + Shift + V", en: "Paste formatting", hi: "फॉर्मेटिंग चिपकाएं" },
+  { key: "Alt + Ctrl + 1", en: "Apply Heading 1", hi: "हेडिंग 1 लागू करें" },
+  { key: "Alt + Ctrl + 2", en: "Apply Heading 2", hi: "हेडिंग 2 लागू करें" },
+  { key: "Alt + Ctrl + 3", en: "Apply Heading 3", hi: "हेडिंग 3 लागू करें" },
+  { key: "Ctrl + Shift + N", en: "Apply Normal style", hi: "नॉर्मल स्टाइल लागू करें" },
+  { key: "Ctrl + Spacebar", en: "Remove character formatting", hi: "अक्षर फॉर्मेट हटाएं" },
+  { key: "Ctrl + Enter", en: "Insert page break", hi: "पेज ब्रेक डालें" },
+  { key: "Ctrl + Shift + Enter", en: "Insert column break", hi: "कॉलम ब्रेक डालें" },
+  { key: "Ctrl + Tab", en: "Insert tab in table cell", hi: "टेबल सेल में टैब डालें" },
+  { key: "Alt + Shift + D", en: "Insert current date", hi: "वर्तमान तिथि डालें" },
+  { key: "Alt + Shift + T", en: "Insert current time", hi: "वर्तमान समय डालें" },
+  { key: "Ctrl + W", en: "Close document", hi: "दस्तावेज़ बंद करें" },
+  { key: "Alt + F4", en: "Close Word", hi: "वर्ड बंद करें" },
+  { key: "F12", en: "Save As", hi: "इस रूप में सहेजें" },
+  { key: "Alt + Ctrl + F", en: "Insert footnote", hi: "फुटनोट जोड़ें" },
+  { key: "Alt + Ctrl + D", en: "Insert endnote", hi: "एंडनोट जोड़ें" },
+  { key: "Ctrl + Shift + E", en: "Track changes", hi: "परिवर्तन ट्रैक करें" },
+  { key: "Ctrl + Shift + A", en: "All caps text", hi: "पूरे अक्षर बड़े करें" },
+  { key: "Shift + F3", en: "Change case", hi: "अक्षर केस बदलें" },
+  { key: "Ctrl + Shift + K", en: "Small caps text", hi: "छोटे कैप्स टेक्स्ट करें" },
+  { key: "Alt + Shift + C", en: "Close reviewing pane", hi: "समीक्षा फलक बंद करें" },
+  { key: "Alt + Shift + E", en: "Open comment pane", hi: "टिप्पणी फलक खोलें" },
+  { key: "Alt + Shift + A", en: "Accept all changes", hi: "सभी परिवर्तन स्वीकारें" },
+  { key: "Alt + Shift + R", en: "Reject all changes", hi: "सभी परिवर्तन अस्वीकारें" }
+];
+    function toggleLanguage() {
+      language = language === "en" ? "hi" : "en";
+      if (document.getElementById("shortcuts").style.display === "block") {
+        unlockShortcuts();
+      }
+    }
+
+    function unlockShortcuts() {
+      const password = document.getElementById("password").value;
+      const container = document.getElementById("shortcuts");
+
+      if (password === "7067") {
+        container.innerHTML = `
+          <table>
+            <thead>
+              <tr>
+                <th>Shortcut Key</th>
+                <th>Description (${language === "en" ? "English" : "हिंदी"})</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${shortcutsData.map(s => `
+                <tr>
+                  <td>${s.key}</td>
+                  <td>${s[language]}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        `;
+        container.style.display = "block";
+      } else {
+        alert("Incorrect password!");
+      }
+    }
+  </script>
+</body>
+</html>
