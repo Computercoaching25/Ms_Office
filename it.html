@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction of Computer - Chitragupt Academy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fffde7, #fff9c4);
+      color: #333;
+      line-height: 1.6;
+      padding: 0;
+      user-select: none;
+    }
+
+    header {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 3px solid #fbc02d;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      color: #f9a825;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+      background: #fffde7;
+    }
+
+    h2 {
+      color: #f57f17;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #fbc02d;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-home:hover {
+      background-color: #f9a825;
+    }
+
+    /* Security: Disable right-click, inspect, and copy */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body::selection {
+      background: none;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['u', 'U', 'c', 'C', 's', 'S'].includes(e.key)) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>Introduction of Computer</h1>
+    <p>CHITRAGUPT ACADEMY - AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+
+  <div class="content">
+    <h2>What is a Computer?</h2>
+    <p>A computer is an electronic device that processes input data and delivers output results based on instructions given through programs. It is used for calculations, data processing, communication, design, and automation.</p>
+
+    <h2>Characteristics of a Computer:</h2>
+    <ul>
+      <li>Speed</li>
+      <li>Accuracy</li>
+      <li>Automation</li>
+      <li>Storage</li>
+      <li>Versatility</li>
+      <li>Diligence</li>
+    </ul>
+
+    <h2>Types of Computers:</h2>
+    <ul>
+      <li>Supercomputer</li>
+      <li>Mainframe Computer</li>
+      <li>Mini Computer</li>
+      <li>Microcomputer (Personal Computer)</li>
+    </ul>
+
+    <h2>Basic Components of a Computer:</h2>
+    <ul>
+      <li>Input Unit (Keyboard, Mouse)</li>
+      <li>Central Processing Unit (CPU)</li>
+      <li>Output Unit (Monitor, Printer)</li>
+      <li>Storage Devices (HDD, SSD, Pen Drive)</li>
+    </ul>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Pawan Soni<br>
+    <a href="computer_notes.html" class="back-home">Back to Notes</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
