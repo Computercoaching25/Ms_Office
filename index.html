@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Login - Chitragupt Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     * {
       box-sizing: border-box;
@@ -28,18 +28,19 @@
     }
 
     header img {
-      max-height: 80px;
+      max-height: 90px;
+      margin-bottom: 10px;
     }
 
     header h1 {
       margin: 10px 0 5px;
-      font-size: 32px;
+      font-size: 36px;
       color: #0072ff;
     }
 
     header p {
       margin: 0;
-      font-size: 18px;
+      font-size: 20px;
       color: #444;
     }
 
@@ -47,44 +48,44 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 180px);
-      padding: 20px;
+      height: calc(100vh - 200px);
+      padding: 30px 20px;
     }
 
     .login-box {
       background: #fff;
-      padding: 30px 25px;
-      border-radius: 14px;
+      padding: 40px 30px;
+      border-radius: 16px;
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
       width: 100%;
-      max-width: 360px;
+      max-width: 420px;
       animation: fadeIn 0.7s ease;
     }
 
     .login-box h2 {
       text-align: center;
-      margin-bottom: 25px;
-      font-size: 24px;
+      margin-bottom: 30px;
+      font-size: 28px;
       color: #0072ff;
     }
 
     .login-box input {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
+      padding: 14px;
+      margin: 15px 0;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .login-box button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       background: #0072ff;
       color: white;
       border: none;
-      font-size: 16px;
-      border-radius: 6px;
+      font-size: 18px;
+      border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -95,9 +96,9 @@
 
     .error {
       color: red;
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     @keyframes fadeIn {
@@ -106,13 +107,18 @@
     }
 
     @media (max-width: 480px) {
-      header h1 { font-size: 24px; }
+      header h1 { font-size: 26px; }
       header p { font-size: 14px; }
-      .login-box { padding: 25px 15px; }
-      .login-box h2 { font-size: 20px; }
+      .login-box { padding: 35px 25px; }
+      .login-box h2 { font-size: 22px; }
+      .login-box input, .login-box button {
+        font-size: 16px;
+        padding: 12px;
+      }
     }
   </style>
   <script>
+    // Disable Right-click and Keyboard Shortcuts
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", function(e) {
       if (
@@ -131,8 +137,8 @@
       const correctPassword = '7067';
 
       if (id && password === correctPassword) {
-        alert("Login Successful!");
         localStorage.setItem('student_name', id);
+        alert("Login Successful!");
         window.location.href = 'home.html';
       } else {
         document.getElementById('errorMsg').innerText = 'Invalid ID or Password';
@@ -142,7 +148,7 @@
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="Chitragupt Logo">
+    <img src="logo.jpg" alt="Chitragupt Academy Logo" />
     <h1>CHITRAGUPT ACADEMY</h1>
     <p>AN ISO CERTIFIED INSTITUTION</p>
   </header>
@@ -153,7 +159,7 @@
       <input type="text" id="studentID" placeholder="Enter Student ID" />
       <input type="password" id="password" placeholder="Enter Password" />
       <button onclick="login()">Login</button>
-      <div class="error" id="errorMsg"></div>
+      <p class="error" id="errorMsg"></p>
     </div>
   </div>
 </body>
