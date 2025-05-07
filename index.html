@@ -16,8 +16,10 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      overflow: hidden;
+      background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -50,10 +52,11 @@
     .certified {
       font-size: 18px;
       color: #444;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .login-container {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -147,8 +150,7 @@
 
       if (id && password === correctPassword) {
         localStorage.setItem('student_name', id);
-        alert("Login Successful!");
-        window.location.href = 'home.html';
+        window.location.href = 'home.html'; // Direct redirect without alert
       } else {
         document.getElementById('errorMsg').innerText = 'Invalid ID or Password';
       }
