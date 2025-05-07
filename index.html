@@ -2,97 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Student Login</title>
+  <title>Student Login - Chitragupt Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
+    * {
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
       overflow: hidden;
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
+      padding: 20px 10px 10px;
       background: white;
-      padding: 10px 20px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .logo {
-      height: 60px;
+    header img {
+      max-height: 100px;
+      margin-bottom: 15px;
     }
 
-    .academy-info {
-      text-align: right;
-    }
-
-    .academy-info h1 {
-      margin: 0;
-      font-size: 40px;
+    .welcome-text {
+      font-size: 36px;
+      font-weight: bold;
       color: #0072ff;
+      text-shadow: 1px 1px 3px #aaa;
+      margin-bottom: 10px;
     }
 
-    .academy-info p {
-      margin: 0;
-      font-size: 20px;
-      color: #555;
+    .institute-name {
+      font-size: 28px;
+      font-weight: 600;
+      color: #222;
+      margin: 5px 0;
+    }
+
+    .certified {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 20px;
     }
 
     .login-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 80px);
+      padding: 30px 20px;
     }
 
     .login-box {
       background: #fff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      width: 305px;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      max-width: 420px;
+      animation: fadeIn 0.7s ease;
     }
 
     .login-box h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #0072ff;
     }
 
     .login-box input {
-      width: 93%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
+      width: 100%;
+      padding: 16px;
+      margin: 15px 0;
+      border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 18px;
     }
 
     .login-box button {
       width: 100%;
-      padding: 10px;
+      padding: 16px;
       background: #0072ff;
       color: white;
       border: none;
-      border-radius: 5px;
+      font-size: 18px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #005fca;
     }
 
     .error {
       color: red;
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
+      margin-top: 10px;
     }
 
-    /* Disable copy, selection, screenshot (best effort) */
-    * {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 500px) {
+      .welcome-text { font-size: 28px; }
+      .institute-name { font-size: 20px; }
+      .certified { font-size: 14px; }
+      .login-box { padding: 35px 25px; }
+      .login-box h2 { font-size: 22px; }
+      .login-box input, .login-box button {
+        font-size: 16px;
+        padding: 14px;
+      }
     }
   </style>
+
   <script>
+    // Disable copy, right-click, and keyboard shortcuts
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", function(e) {
       if (
@@ -107,11 +143,11 @@
     function login() {
       const id = document.getElementById('studentID').value.trim();
       const password = document.getElementById('password').value.trim();
-
       const correctPassword = '7067';
 
       if (id && password === correctPassword) {
         localStorage.setItem('student_name', id);
+        alert("Login Successful!");
         window.location.href = 'home.html';
       } else {
         document.getElementById('errorMsg').innerText = 'Invalid ID or Password';
@@ -119,13 +155,13 @@
     }
   </script>
 </head>
+
 <body>
   <header>
-    <img src="logo.jpg" class="logo" alt="Logo" />
-    <div class="academy-info">
-      <h1>CHITRAGUPT ACADEMY</h1>
-      <p>AN ISO CERTIFIED INSTITUTION</p>
-    </div>
+    <img src="logo.jpg" alt="Logo" />
+    <div class="welcome-text">WELCOME</div>
+    <div class="institute-name">CHITRAGUPT ACADEMY</div>
+    <div class="certified">AN ISO CERTIFIED INSTITUTION</div>
   </header>
 
   <div class="login-container">
