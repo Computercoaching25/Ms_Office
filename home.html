@@ -5,240 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chitragupt Academy</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f7f9;
-      user-select: none;
+      background-color: #f4f7f9;
+      color: #2c3e50;
     }
-
     header {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 15px 25px;
+      flex-direction: column;
+      align-items: center;
       background-color: #fff;
       border-bottom: 2px solid #ccc;
-      position: relative;
-    }
-
-    .logo-box img {
-      height: 105px;
-    }
-
-    .academy-info {
-      text-align: right;
-    }
-
-    .academy-info h1 {
-      margin: 0;
-      font-size: 35px;
-      color: #2c3e50;
-    }
-
-    .academy-info p {
-      margin: 0;
-      font-size: 20px;
-      font-weight: bold;
-      color: #2980b9;
-    }
-
-    .welcome-time {
-      font-size: 15px;
-      font-weight: bold;
-      margin-top: 10px;
-      color: #444;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 178px;
-      right: 1vw;
-    }
-
-    .dot-btn {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 30px;
-      background-color: #fff;
-      min-width: 120px;
-      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-      z-index: 1;
-      border-radius: 5px;
-    }
-
-    .dropdown-content a {
-      padding: 10px 15px;
-      display: block;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    nav {
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      padding: 20px 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .nav-button {
-      background-color: #fff;
-      border: none;
-      padding: 10px 16px;
-      font-weight: bold;
-      font-size: 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-
-    .nav-button:hover {
-      background-color: #ecf0f1;
-    }
-
-    .content {
       padding: 20px;
-      background-color: #fff;
-      margin: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-    .content h2 {
-      color: #2c3e50;
+    .logo-box img { height: 80px; }
+    nav { margin-top: 10px; }
+    .nav-button {
+      background-color: #2980b9;
+      color: #fff;
+      padding: 10px 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      display: inline-block;
     }
-
-    .Welcome {
+    .nav-button:hover { background-color: #3498db; }
+    main { padding: 20px; }
+    .hero {
       text-align: center;
-      margin-top: 30px;
-      font-size: 18px;
-      font-style: italic;
+      margin-bottom: 30px;
     }
-
-    /* Disable text copy/select and right-click */
-    * {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    .courses, .resources {
+      margin-bottom: 20px;
     }
-
-    body::selection {
-      background: none;
+    .courses ul, .resources ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #fff;
+      border-top: 2px solid #ccc;
+      margin-top: 20px;
+    }
+    @media (max-width: 768px) {
+      .nav-button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+      }
     }
   </style>
-
-  <script>
-    // Disable right-click and dev tools
-    document.addEventListener("contextmenu", e => e.preventDefault());
-    document.addEventListener("keydown", function(e) {
-      if (
-        (e.ctrlKey && ['u', 'U', 'c', 'C', 's', 'S'].includes(e.key)) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        e.key === 'F12'
-      ) {
-        e.preventDefault();
-      }
-    });
-
-    // Load student name and check login
-    window.onload = function () {
-      const studentName = localStorage.getItem("student_name");
-      if (studentName) {
-        document.getElementById("student-name").innerText = studentName;
-      } else {
-        window.location.href = "index.html";
-      }
-
-      updateDateTime();
-      setInterval(updateDateTime, 1000);
-    };
-
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-      const dateStr = now.toLocaleDateString('en-IN', options);
-      const timeStr = now.toLocaleTimeString();
-      document.getElementById("current-time").innerText = `${dateStr} | ${timeStr}`;
-    }
-
-    function logoutStudent() {
-      localStorage.removeItem("student_name");
-      window.location.href = "index.html";
-    }
-  </script>
 </head>
 <body>
-
   <header>
     <div class="logo-box">
-      <img src="logo.jpg" alt="Logo" />
+      <img src="logo.jpg" alt="Chitragupt Academy Logo" />
     </div>
-
-    <div class="academy-info">
-      <h1>CHITRAGUPT ACADEMY</h1>
-      <p>AN ISO CERTIFIED INSTITUTION</p>
-      <div class="welcome-time">
-        Welcome, <span id="student-name"></span><br>
-        <span id="current-time"></span>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dot-btn">⋮</button>
-      <div class="dropdown-content">
-        <a href="#" onclick="logoutStudent()">Logout</a>
-      </div>
-    </div>
+    <nav>
+      <a href="#" class="nav-button">Home</a>
+      <a href="#" class="nav-button">Notes</a>
+      <a href="#" class="nav-button">Exams</a>
+      <a href="#" class="nav-button">Form</a>
+      <a href="#" class="nav-button">Projects</a>
+      <a href="#" class="nav-button">About Us</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="home.html"><button class="nav-button">Home</button></a>
-    <a href="notes.html"><button class="nav-button">Notes</button></a>
-    <a href="#"><button class="nav-button">Exams</button></a>
-    <a href="#"><button class="nav-button">Form</button></a>
-    <a href="#"><button class="nav-button">Projects</button></a>
-    <a href="#"><button class="nav-button">About Us</button></a>
-  </nav>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Chitragupt Academy</h1>
+      <p>Your journey to knowledge begins here.</p>
+    </section>
 
-  <div class="content">
-    <h2>Our Courses:</h2>
-    <ul>
-      <li><strong>Basic Computer Course</strong> – Basic Parts Details, Important Accesories, Notepad, Basic Ms Office, File Handling with MCQ based exam and Certificate etc.</li>
-      <li><strong>Advance Computer Course</strong> – Advanced Ms Office Course - Word, Excel, PowerPoint, Access, Outlook with large data sheet.</li>
-      <li><strong>CPCT Preparation</strong> – Hindi/English Typing, MCQ Tests, Important CPCT Topics and more.</li>
-      <li><strong>Internet & Email</strong> – Browsing, Searching, Email Handling.</li>
-      <li><strong>Tally with GST</strong> – Basic Accounting Software Knowledge.</li>
-      <li><strong>Graphic Design</strong> – Photoshop, CorelDRAW.</li>
-      <li><strong>Ms PowerBi</strong> – Creating Attractive Dashboards, Maintaining Large Numbers of Data etc.</li>
-      <li><strong>Web Designing</strong> – Basic Web Designing, Creating Attractive Web sites and web pages, and More details of webdesigning.</li>
+    <section class="courses">
+      <h2>Our Courses</h2>
+      <ul>
+        <li>Basic Computer Course</li>
+        <li>Advanced Computer Course</li>
+        <li>CPCT Preparation</li>
+        <li>Internet & Email</li>
+        <li>Tally with GST</li>
+        <li>Graphic Design</li>
+        <li>Ms PowerBi</li>
+        <li>Web Designing</li>
+      </ul>
+    </section>
 
-    </ul>
-  </div>
+    <section class="resources">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="download/sample.pdf" target="_blank">Download Sample PDF</a></li>
+        <li><a href="certificate/certificate.pdf" target="_blank">View Certificate</a></li>
+      </ul>
+    </section>
+  </main>
 
-  <div class="Welcome">
-    <p>&copy; Creator - Pawan Soni</p>
-  </div>
-    
+  <footer>
+    <p>&copy; 2025 Chitragupt Academy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Example placeholder login functionality (optional)
+    // You can expand this as needed
+    console.log("Page loaded successfully.");
+  </script>
 </body>
 </html>
