@@ -2,123 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Student Login - Chitragupt Academy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Login</title>
   <style>
-    * {
-      box-sizing: border-box;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #00c6ff, #0072ff);
+      margin: 0;
       overflow: hidden;
     }
 
     header {
-      text-align: center;
-      padding: 20px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: white;
+      padding: 10px 20px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    header img {
-      max-height: 120px;
-      margin-bottom: 10px;
+    .logo {
+      height: 60px;
     }
 
-    header h1 {
-      margin: 30px 1 10px;
-      font-size: 50px;
+    .academy-info {
+      text-align: right;
+    }
+
+    .academy-info h1 {
+      margin: 0;
+      font-size: 40px;
       color: #0072ff;
     }
 
-    header p {
+    .academy-info p {
       margin: 0;
-      font-size: 30px;
-      color: #444;
+      font-size: 20px;
+      color: #555;
     }
 
     .login-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 200px);
-      padding: 30px 20px;
+      height: calc(100vh - 80px);
     }
 
     .login-box {
       background: #fff;
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-      width: 100%;
-      max-width: 100%;
-      animation: fadeIn 0.7s ease;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      width: 305px;
     }
 
     .login-box h2 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 40px;
-      color: #0072ff;
+      margin-bottom: 20px;
     }
 
     .login-box input {
-      width: 100%;
-      padding: 14px;
-      margin: 15px 0;
-      border-radius: 8px;
+      width: 93%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 25px;
     }
 
     .login-box button {
       width: 100%;
-      padding: 14px;
+      padding: 10px;
       background: #0072ff;
       color: white;
       border: none;
-      font-size: 30px;
-      border-radius: 8px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .login-box button:hover {
-      background: #005fca;
     }
 
     .error {
       color: red;
-      font-size: 30px;
+      font-size: 14px;
       text-align: center;
-      margin-top: 10px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 480px) {
-      header h1 { font-size: 26px; }
-      header p { font-size: 14px; }
-      .login-box { padding: 35px 25px; }
-      .login-box h2 { font-size: 22px; }
-      .login-box input, .login-box button {
-        font-size: 16px;
-        padding: 12px;
-      }
+    /* Disable copy, selection, screenshot (best effort) */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
   </style>
   <script>
-    // Disable Right-click and Keyboard Shortcuts
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", function(e) {
       if (
@@ -138,7 +112,6 @@
 
       if (id && password === correctPassword) {
         localStorage.setItem('student_name', id);
-        alert("Login Successful!");
         window.location.href = 'home.html';
       } else {
         document.getElementById('errorMsg').innerText = 'Invalid ID or Password';
@@ -148,9 +121,11 @@
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="Chitragupt Academy Logo" />
-    <h1>CHITRAGUPT ACADEMY</h1>
-    <p>AN ISO CERTIFIED INSTITUTION</p>
+    <img src="logo.jpg" class="logo" alt="Logo" />
+    <div class="academy-info">
+      <h1>CHITRAGUPT ACADEMY</h1>
+      <p>AN ISO CERTIFIED INSTITUTION</p>
+    </div>
   </header>
 
   <div class="login-container">
