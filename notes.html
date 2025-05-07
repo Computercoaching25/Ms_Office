@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Notes - Chitragupt Academy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #bbdefb);
+      color: #2c3e50;
+      user-select: none;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #007acc;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #007acc;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .notes-section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .course-link {
+      background: white;
+      margin: 15px 0;
+      padding: 15px 25px;
+      border-left: 8px solid #007acc;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #2c3e50;
+      display: block;
+      font-size: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .course-link:hover {
+      transform: translateX(5px);
+      background-color: #f0faff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-home:hover {
+      background-color: #005fa3;
+    }
+
+    /* Disable right-click and text selection */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body::selection {
+      background: none;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['u', 'U', 'c', 'C', 's', 'S'].includes(e.key)) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+
+  <div class="notes-section">
+    <a class="course-link" href="#">Basic Computer Course Notes</a>
+    <a class="course-link" href="#">Advanced Computer Course Notes</a>
+    <a class="course-link" href="#">CPCT Preparation Notes</a>
+    <a class="course-link" href="#">Internet & Email Notes</a>
+    <a class="course-link" href="#">Tally  with GST Notes</a>
+    <a class="course-link" href="#">Graphic Design Notes</a>
+    <a class="course-link" href="#">MS Power BI Notes</a>
+    <a class="course-link" href="#">Web Designing Notes</a>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Pawan Soni<br>
+    <a href="home.html" class="back-home">Back to Home</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
