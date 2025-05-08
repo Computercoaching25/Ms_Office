@@ -91,35 +91,33 @@
       line-height: 1.6;
     }
     .screenshot-container {
-        position: relative;
-        max-width: 600px;
-        margin: 3rem auto 2rem;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
-        cursor: not-allowed;
-        user-select: none;
-        animation: zoomIn 1.5s ease forwards;
+      position: relative;
+      max-width: 600px;
+      margin: 3rem auto 2rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+      cursor: not-allowed;
+      user-select: none;
+      animation: zoomIn 1.5s ease forwards;
     }
     .screenshot-container img {
-        width: 100%;
-        height: auto;
-        filter: brightness(0.8);
-        pointer-events: none;
+      width: 100%;
+      height: auto;
+      filter: brightness(0.8);
+      pointer-events: none;
     }
     .lock-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 4rem;
-        color: #b39ddb99;
-        pointer-events: none;
-        user-select: none;
-        animation: pulseLock 3s ease-in-out infinite;
-        text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
-    }
-
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: #b39ddb99;
+      pointer-events: none;
+      user-select: none;
+      animation: pulseLock 3s ease-in-out infinite;
+      text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
     }
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(40px);}
@@ -129,11 +127,13 @@
       from { filter: drop-shadow(0 0 8px #43cea2cc);}
       to { filter: drop-shadow(0 0 24px #43cea2);}
     }
+
+    /* Updated Back Button */
     .back-btn {
       position: static;
       left: 50%;
+      bottom: 70px;
       transform: translateX(-50%);
-      bottom: 60px;
       background: linear-gradient(90deg, #7c4dff 60%, #3b82f6 100%);
       border: none;
       border-radius: 40px;
@@ -155,6 +155,8 @@
       transform: translateX(-50%) scale(1.05) rotate(-2deg);
       box-shadow: 0 4px 24px #43cea2a2;
     }
+
+    /* Footer pinned bottom */
     footer {
       position: static;
       bottom: 0;
@@ -171,17 +173,16 @@
       z-index: 100;
       font-family: 'Montserrat', sans-serif;
     }
+
     /* Responsive */
     @media (max-width: 600px) {
       header h1 { font-size: 1.4rem; letter-spacing: 2px; }
       header .iso { font-size: 0.9rem; padding: 4px 16px; }
-      .snip-demo-area { min-height: 80px; border-radius: 18px;}
-      .snip-demo-area .lock-icon { font-size: 2.2rem; }
-      .snip-demo-area .snip-text { font-size: 0.98rem;}
-      .back-btn { font-size: 1rem; padding: 12px 30px; bottom: 52px;}
+      .back-btn { font-size: 1rem; padding: 12px 30px; bottom: 70px;}
       footer { font-size: 0.9rem; padding: 8px 0; letter-spacing: 1.5px; }
       body { padding-bottom: 200px; }
     }
+
     /* Disable selection and copying */
     body, .back-btn, .snip-demo-area, .lock-icon, .snip-text {
       -webkit-user-select: none;
@@ -195,7 +196,6 @@
     }
   </style>
   <script>
-    // Disable right click, copy, cut, paste, and PrintScreen keys
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('cut', e => e.preventDefault());
@@ -210,7 +210,6 @@
         e.preventDefault();
       }
     });
-    // Attempt to clear clipboard on PrintScreen
     window.addEventListener("keyup", function(e) {
       if (e.key === "PrintScreen") {
         navigator.clipboard.writeText('');
@@ -228,52 +227,45 @@
   <div class="main-content">
     <h2>Snipping Tool</h2>
     <ul>
-      <li>
-        <b>Snipping Tool</b> is a Windows utility for capturing screenshots (snips) of any area of your screen. You can annotate, save, or share your snips easily.
-      </li>
-      <li>
-        It supports several snip types: <b>Free-form Snip</b>, <b>Rectangular Snip</b>, <b>Window Snip</b>, and <b>Full-screen Snip</b>.
-      </li>
-      <li>
-        After capturing, you can highlight, write, or draw on your snip before saving or sharing.
-      </li>
+      <li><b>Snipping Tool</b> is a Windows utility for capturing screenshots (snips)...</li>
+      <li>It supports: <b>Free-form</b>, <b>Rectangular</b>, <b>Window</b>, and <b>Full-screen</b> snips.</li>
+      <li>You can annotate, save, or share your snips easily.</li>
     </ul>
     <h2>How to Open Snipping Tool</h2>
     <ol>
-      <li>Click <b>Start</b>, type <b>snipping tool</b>, and select it from the results.</li>
-      <li>Or press <b>Windows logo key + Shift + S</b> to launch the snipping bar instantly.</li>
-      <li>You can also use the <b>Print Screen (PrtSc)</b> key on some devices.</li>
+      <li>Click <b>Start</b> > Type <b>snipping tool</b>.</li>
+      <li>Press <b>Windows + Shift + S</b>.</li>
+      <li>Or use the <b>Print Screen</b> key.</li>
     </ol>
     <h2>Snip Types</h2>
     <ul>
-      <li><b>Free-form Snip:</b> Draw a free-form shape around an object.</li>
-      <li><b>Rectangular Snip:</b> Drag the cursor to form a rectangle.</li>
-      <li><b>Window Snip:</b> Select a window, such as a dialog box, to capture.</li>
+      <li><b>Free-form Snip:</b> Draw around an object.</li>
+      <li><b>Rectangular Snip:</b> Drag to select a rectangle.</li>
+      <li><b>Window Snip:</b> Select a specific window.</li>
       <li><b>Full-screen Snip:</b> Capture the entire screen.</li>
     </ul>
     <h2>Features</h2>
     <ul>
-      <li>Delay capture by 1-5 seconds to open menus before snipping.</li>
-      <li>Annotate, highlight, and draw on snips.</li>
-      <li>Copy to clipboard, save, print, or share your snip.</li>
-      <li>Edit snips in Paint or Paint 3D for more options.</li>
+      <li>Delay capture</li>
+      <li>Annotate and highlight</li>
+      <li>Copy, save, print, or share</li>
+      <li>Edit in Paint / Paint 3D</li>
     </ul>
     <h2>Common Shortcut Keys</h2>
     <ul>
-      <li><b>Windows + Shift + S</b>: Open snipping bar</li>
-      <li><b>Ctrl + S</b>: Save snip</li>
-      <li><b>Ctrl + C</b>: Copy snip to clipboard</li>
-      <li><b>Alt + N</b>: Create a new snip in the same mode</li>
-      <li><b>Ctrl + P</b>: Print snip</li>
-      <li><b>Alt + M</b>: Choose a snipping mode</li>
-      <li><b>Alt + D</b>: Set delay for snip</li>
-      <li><b>Esc</b>: Cancel snip</li>
+      <li><b>Windows + Shift + S</b>: Snip bar</li>
+      <li><b>Ctrl + S</b>: Save</li>
+      <li><b>Ctrl + C</b>: Copy</li>
+      <li><b>Alt + N</b>: New snip</li>
+      <li><b>Ctrl + P</b>: Print</li>
+      <li><b>Alt + M</b>: Mode</li>
+      <li><b>Alt + D</b>: Delay</li>
+      <li><b>Esc</b>: Cancel</li>
     </ul>
-    <div class="screenshot-container" aria-label="MS Paint interface screenshot is locked and unavailable">
-      <img src="https://softwareg.com.au/cdn/shop/articles/306267e6-253b-df4f-8a77-cc714bb7a149_53a4b9b9-e9be-47d5-8ccf-7538ce3e1f29.png?v=1707805932" alt="MS Paint interface screenshot" draggable="false" />
-      <div class="lock-overlay" aria-hidden="true">🔒</div>
-  </div>
-   
+    <div class="screenshot-container">
+      <img src="https://softwareg.com.au/cdn/shop/articles/306267e6-253b-df4f-8a77-cc714bb7a149_53a4b9b9-e9be-47d5-8ccf-7538ce3e1f29.png?v=1707805932" alt="Screenshot" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
   </div>
 
   <button class="back-btn" onclick="window.history.back()">Back</button>
