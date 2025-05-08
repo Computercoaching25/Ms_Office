@@ -53,9 +53,10 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, background 0.2s;
       position: relative;
-      cursor: pointer;
-      pointer-events: auto;
+      cursor: not-allowed;
+      pointer-events: none;
       user-select: none;
+      opacity: 0.7;
     }
     .course-link .lock {
       font-size: 1.2em;
@@ -63,12 +64,34 @@
       color: #007acc;
       transition: color 0.2s;
     }
-    .course-link:hover {
-      transform: translateX(5px);
-      background-color: #f0faff;
+    .course-link.unlocked {
+      border-left: 8px solid #2ecc40;
+      background: #e8f5e9;
+      color: #2e7d32;
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 1;
+      font-weight: bold;
     }
-    .course-link:hover .lock {
-      color: #e65100;
+    .course-link.unlocked .lock {
+      color: #2ecc40;
+    }
+    .course-link.unlocked:hover {
+      transform: translateX(5px);
+      background-color: #d0f8ce;
+    }
+    .course-link.unlocked .lock {
+      content: "🔓";
+    }
+
+    .course-link .lock-open {
+      display: none;
+    }
+    .course-link.unlocked .lock-closed {
+      display: none;
+    }
+    .course-link.unlocked .lock-open {
+      display: inline;
     }
 
     footer {
@@ -105,54 +128,31 @@
       background: none;
     }
   </style>
-
   <script>
-    // Passwords for each course (change as you like)
-    const coursePasswords = {
-      "bcc": "bcc2025",
-      "advanced": "adv2025",
-      "cpct": "cpct2025",
-      "internet": "inet2025",
-      "tally": "tallygst2025",
-      "graphic": "gd2025",
-      "powerbi": "bi2025",
-      "webdesign": "web2025"
+    // Course id to page mapping
+    const coursePages = {
+      "bcc": "BCC.html",
+      "advanced": "Advanced.html",
+      "cpct": "CPCT.html",
+      "internet": "Internet.html",
+      "tally": "Tally.html",
+      "graphic": "Graphic.html",
+      "powerbi": "PowerBI.html",
+      "webdesign": "WebDesign.html"
     };
 
-    // Course links and their hrefs
-    const courseLinks = [
-      { id: "bcc", href: "BCC.html" },
-      { id: "advanced", href: "#" },
-      { id: "cpct", href: "#" },
-      { id: "internet", href: "#" },
-      { id: "tally", href: "#" },
-      { id: "graphic", href: "#" },
-      { id: "powerbi", href: "#" },
-      { id: "webdesign", href: "#" }
+    // Password to course id mapping (should be set at login page)
+    // e.g., localStorage.setItem('courseAccess', 'bcc');
+    const courseOrder = [
+      { id: "bcc", label: "Basic Computer Course Notes" },
+      { id: "advanced", label: "Advanced Computer Course Notes" },
+      { id: "cpct", label: "CPCT Preparation Notes" },
+      { id: "internet", label: "Internet & Email Notes" },
+      { id: "tally", label: "Tally with GST Notes" },
+      { id: "graphic", label: "Graphic Design Notes" },
+      { id: "powerbi", label: "MS Power BI Notes" },
+      { id: "webdesign", label: "Web Designing Notes" }
     ];
-
-    // Attach event listeners after DOM loaded
-    document.addEventListener('DOMContentLoaded', function() {
-      courseLinks.forEach(link => {
-        const el = document.getElementById("course-" + link.id);
-        if (el) {
-          el.addEventListener("click", function(e) {
-            e.preventDefault();
-            const pwd = prompt("Enter password to unlock this course:");
-            if (pwd === coursePasswords[link.id]) {
-              // Open link in same tab if not '#'
-              if (link.href && link.href !== "#") {
-                window.location.href = link.href;
-              } else {
-                alert("Course notes coming soon!");
-              }
-            } else if (pwd !== null) {
-              alert("Incorrect password! Please try again.");
-            }
-          });
-        }
-      });
-    });
 
     // Disable right click, dev tools, copy, etc.
     document.addEventListener('contextmenu', e => e.preventDefault());
@@ -165,6 +165,49 @@
         e.preventDefault();
       }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get which course is unlocked from localStorage
+      const access = localStorage.getItem('courseAccess');
+      // Render all course links with correct lock/unlock state
+      const section = document.querySelector('.notes-section');
+      section.innerHTML = '';
+      courseOrder.forEach(course => {
+        // Create link element
+        const a = document.createElement('a');
+        a.className = 'course-link';
+        a.id = 'course-' + course.id;
+        a.href = coursePages[course.id] || '#';
+        // Lock icons: closed and open
+        a.innerHTML = `
+          <span class="lock lock-closed">🔒</span>
+          <span class="lock lock-open">🔓</span>
+          ${course.label}
+        `;
+        // If this is the unlocked course, enable it
+        if (access === course.id) {
+          a.classList.add('unlocked');
+          a.tabIndex = 0;
+          a.addEventListener('click', function(e) {
+            // Only go to the page if the file exists (you can adjust as needed)
+            if (a.href.endsWith('.html')) {
+              // Allow navigation
+            } else {
+              e.preventDefault();
+              alert('Course notes coming soon!');
+            }
+          });
+        } else {
+          // Locked: prevent navigation
+          a.tabIndex = -1;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This course is locked for your account.');
+          });
+        }
+        section.appendChild(a);
+      });
+    });
   </script>
 </head>
 <body>
@@ -175,14 +218,7 @@
   </header>
 
   <div class="notes-section">
-    <a class="course-link" id="course-bcc" href="BCC.html"><span class="lock">🔒</span>Basic Computer Course Notes</a>
-    <a class="course-link" id="course-advanced" href="#"><span class="lock">🔒</span>Advanced Computer Course Notes</a>
-    <a class="course-link" id="course-cpct" href="#"><span class="lock">🔒</span>CPCT Preparation Notes</a>
-    <a class="course-link" id="course-internet" href="#"><span class="lock">🔒</span>Internet & Email Notes</a>
-    <a class="course-link" id="course-tally" href="#"><span class="lock">🔒</span>Tally with GST Notes</a>
-    <a class="course-link" id="course-graphic" href="#"><span class="lock">🔒</span>Graphic Design Notes</a>
-    <a class="course-link" id="course-powerbi" href="#"><span class="lock">🔒</span>MS Power BI Notes</a>
-    <a class="course-link" id="course-webdesign" href="#"><span class="lock">🔒</span>Web Designing Notes</a>
+    <!-- Course links will be rendered by JS -->
   </div>
 
   <footer>
