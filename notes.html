@@ -47,15 +47,28 @@
       border-radius: 8px;
       text-decoration: none;
       color: #2c3e50;
-      display: block;
+      display: flex;
+      align-items: center;
       font-size: 18px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s;
+      position: relative;
+      cursor: pointer;
+      pointer-events: auto;
+      user-select: none;
     }
-
+    .course-link .lock {
+      font-size: 1.2em;
+      margin-right: 12px;
+      color: #007acc;
+      transition: color 0.2s;
+    }
     .course-link:hover {
       transform: translateX(5px);
       background-color: #f0faff;
+    }
+    .course-link:hover .lock {
+      color: #e65100;
     }
 
     footer {
@@ -81,7 +94,6 @@
       background-color: #005fa3;
     }
 
-    /* Disable right-click and text selection */
     * {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -95,6 +107,54 @@
   </style>
 
   <script>
+    // Passwords for each course (change as you like)
+    const coursePasswords = {
+      "bcc": "bcc2025",
+      "advanced": "adv2025",
+      "cpct": "cpct2025",
+      "internet": "inet2025",
+      "tally": "tallygst2025",
+      "graphic": "gd2025",
+      "powerbi": "bi2025",
+      "webdesign": "web2025"
+    };
+
+    // Course links and their hrefs
+    const courseLinks = [
+      { id: "bcc", href: "BCC.html" },
+      { id: "advanced", href: "#" },
+      { id: "cpct", href: "#" },
+      { id: "internet", href: "#" },
+      { id: "tally", href: "#" },
+      { id: "graphic", href: "#" },
+      { id: "powerbi", href: "#" },
+      { id: "webdesign", href: "#" }
+    ];
+
+    // Attach event listeners after DOM loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      courseLinks.forEach(link => {
+        const el = document.getElementById("course-" + link.id);
+        if (el) {
+          el.addEventListener("click", function(e) {
+            e.preventDefault();
+            const pwd = prompt("Enter password to unlock this course:");
+            if (pwd === coursePasswords[link.id]) {
+              // Open link in same tab if not '#'
+              if (link.href && link.href !== "#") {
+                window.location.href = link.href;
+              } else {
+                alert("Course notes coming soon!");
+              }
+            } else if (pwd !== null) {
+              alert("Incorrect password! Please try again.");
+            }
+          });
+        }
+      });
+    });
+
+    // Disable right click, dev tools, copy, etc.
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', function(e) {
       if (
@@ -115,14 +175,14 @@
   </header>
 
   <div class="notes-section">
-    <a class="course-link" href="BCC.html">Basic Computer Course Notes</a>
-    <a class="course-link" href="#">Advanced Computer Course Notes</a>
-    <a class="course-link" href="#">CPCT Preparation Notes</a>
-    <a class="course-link" href="#">Internet & Email Notes</a>
-    <a class="course-link" href="#">Tally  with GST Notes</a>
-    <a class="course-link" href="#">Graphic Design Notes</a>
-    <a class="course-link" href="#">MS Power BI Notes</a>
-    <a class="course-link" href="#">Web Designing Notes</a>
+    <a class="course-link" id="course-bcc" href="BCC.html"><span class="lock">🔒</span>Basic Computer Course Notes</a>
+    <a class="course-link" id="course-advanced" href="#"><span class="lock">🔒</span>Advanced Computer Course Notes</a>
+    <a class="course-link" id="course-cpct" href="#"><span class="lock">🔒</span>CPCT Preparation Notes</a>
+    <a class="course-link" id="course-internet" href="#"><span class="lock">🔒</span>Internet & Email Notes</a>
+    <a class="course-link" id="course-tally" href="#"><span class="lock">🔒</span>Tally with GST Notes</a>
+    <a class="course-link" id="course-graphic" href="#"><span class="lock">🔒</span>Graphic Design Notes</a>
+    <a class="course-link" id="course-powerbi" href="#"><span class="lock">🔒</span>MS Power BI Notes</a>
+    <a class="course-link" id="course-webdesign" href="#"><span class="lock">🔒</span>Web Designing Notes</a>
   </div>
 
   <footer>
