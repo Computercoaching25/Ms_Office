@@ -110,23 +110,34 @@
       pointer-events: none;
       user-select: none;
     }
-    .math-panel-demo .lock-icon {
-      font-size: 3.5rem;
-      color: #43cea2;
-      margin-bottom: 8px;
-      animation: lockPulse 2s infinite alternate;
-      filter: drop-shadow(0 0 12px #43cea2cc);
-      user-select: none;
+    .screenshot-container {
+        position: relative;
+        max-width: 600px;
+        margin: 3rem auto 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+        cursor: not-allowed;
+        user-select: none;
+        animation: zoomIn 1.5s ease forwards;
     }
-    .math-panel-demo .panel-text {
-      font-size: 1.13rem;
-      color: #fff;
-      letter-spacing: 1.1px;
-      font-weight: 600;
-      opacity: 0.85;
-      text-align: center;
-      text-shadow: 0 1.5px 8px #23252655;
-      user-select: none;
+    .screenshot-container img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+        pointer-events: none;
+    }
+    .lock-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: #b39ddb99;
+        pointer-events: none;
+        user-select: none;
+        animation: pulseLock 3s ease-in-out infinite;
+        text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
     }
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(40px);}
@@ -267,10 +278,11 @@
       <li>Easy correction with erase and select tools</li>
       <li>Supports fractions, exponents, roots, integrals, summations, and more</li>
     </ul>
-    <div class="math-panel-demo">
-      <div class="lock-icon">🔒</div>
-      <div class="panel-text">Math Input Panel<br />Locked Preview</div>
-    </div>
+    <div class="screenshot-container" aria-label="MS Paint interface screenshot is locked and unavailable">
+      <img src="https://obieosobalu.wordpress.com/wp-content/uploads/2010/10/math-input-panel-for-windows-7.png?w=640" alt="MS Paint interface screenshot" draggable="false" />
+      <div class="lock-overlay" aria-hidden="true">🔒</div>
+  </div>
+
  
   </div>
 
