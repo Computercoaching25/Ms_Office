@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Character Map Tools Detailed Notes - Chitragupt Academy</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Mono&display=swap');
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+        margin: 0; padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #22c55e, #2563eb);
+        color: #f0f0f7;
+        user-select: none;
+        overflow-x: hidden;
+    }
+    .container {
+        max-width: 900px;
+        margin: 2rem auto 9rem;
+        background: rgba(255 255 255 / 0.07);
+        border-radius: 1rem;
+        padding: 2.5rem 2.5rem 4rem;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255 255 255 / 0.15);
+        animation: containerFadeIn 1.3s ease forwards;
+    }
+    header {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: 2.5px;
+        margin: 0;
+        text-transform: uppercase;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        animation: slideInDown 1.3s ease forwards;
+    }
+    header h2 {
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin: 6px 0 0;
+        color: #d3cce3aa;
+        animation: slideInDown 1.5s ease forwards;
+        user-select: text;
+    }
+    main {
+        font-size: 1.12rem;
+        line-height: 1.75;
+        color: #e3ddff;
+        animation: fadeInUp 1.4s ease forwards;
+    }
+    main h3 {
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: #b2f7ef;
+        text-transform: uppercase;
+        border-left: 6px solid #22c55e;
+        padding-left: 12px;
+        letter-spacing: 1.3px;
+    }
+    main p { margin: 0 0 1rem; user-select: none; }
+    main ul { margin: 0 0 1.5rem 1.5rem; list-style-type: disc; }
+    main ul li { margin-bottom: 0.6rem; }
+    .tools-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .tool-card {
+        background: rgba(18, 46, 8, 0.18);
+        flex: 2 1 280px;
+        border-radius: 14px;
+        padding: 1.5rem 1.6rem;
+        box-shadow: 0 6px 20px rgba(34, 197, 94, 0.32);
+        user-select: none;
+        color: #ffffff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: default;
+    }
+    .tool-card:hover {
+        box-shadow: 0 12px 30px rgba(17, 36, 10, 0.6);
+        transform: translateY(-6px);
+    }
+    .tool-icon {
+        font-size: 3.6rem;
+        margin-bottom: 1rem;
+        color: #a7f3d0;
+        filter: drop-shadow(0 0 4px #6ee7b7b0);
+    }
+    .tool-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.6rem;
+        text-align: center;
+        text-shadow: 0 0 8px #b2f7ef99;
+    }
+    .tool-desc {
+        font-weight: 400;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 1.5;
+        color: #b2f7efdd;
+        user-select: none;
+    }
+    .screenshot-container {
+        position: relative;
+        max-width: 600px;
+        margin: 3rem auto 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(34,197,94,0.4);
+        cursor: not-allowed;
+        user-select: none;
+        animation: zoomIn 1.5s ease forwards;
+    }
+    .screenshot-container img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+        pointer-events: none;
+    }
+    .lock-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: #bbf7d0cc;
+        pointer-events: none;
+        user-select: none;
+        animation: pulseLock 3s ease-in-out infinite;
+        text-shadow: 0 0 10px #bbf7d0bb, 0 0 18px #22c55ecc;
+    }
+    .back-button {
+        position: fixed;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #22c55e;
+        color: white;
+        font-weight: 700;
+        padding: 14px 36px;
+        border-radius: 30px;
+        border: none;
+        box-shadow: 0 10px 30px #22c55ebb;
+        font-size: 1.25rem;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.35s ease, box-shadow 0.35s ease;
+        text-align: center;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        z-index: 999;
+    }
+    .back-button:hover, .back-button:focus {
+        background: #15803d;
+        box-shadow: 0 14px 40px #15803dcc;
+        outline: none;
+    }
+    .watermark {
+        position: fixed;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Roboto Mono', monospace;
+        font-size: 14px;
+        color: rgb(179, 241, 137);
+        letter-spacing: 2px;
+        user-select: none;
+        pointer-events: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        z-index: 1;
+    }
+    @keyframes containerFadeIn {
+        from {opacity: 0; transform: translateY(40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+        from {opacity: 0; transform: translateY(24px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInDown {
+        from {opacity: 0; transform: translateY(-40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes zoomIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
+    }
+    @keyframes pulseLock {
+        0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+        50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
+    }
+    @media (max-width: 400px) {
+        .container {
+            margin: 1rem 1rem 7rem;
+            padding: 2rem 1.5rem 3.5rem;
+        }
+        header h1 { font-size: 2.2rem; }
+        header h2 { font-size: 1rem; }
+        .tool-card { flex: 1 1 100%; }
+        .back-button {
+            font-size: 1rem;
+            padding: 12px 28px;
+            bottom: 3.8rem;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('paste', e => e.preventDefault());
+</script>
+</head>
+<body>
+    <div class="container" role="main">
+        <header>
+            <h1>CHITRAGUPT ACADEMY</h1>
+            <h2>AN ISO CERTIFIED INSTITUTE</h2>
+        </header>
+        <main>
+            <h3>Character Map सॉफ्टवेयर - डिटेल्ड नोट्स</h3>
+            <p>Character Map विंडोज़ का एक उपयोगी टूल है, जिससे आप किसी भी फॉन्ट के सभी कैरेक्टर (अक्षर, चिन्ह, सिंबल) देख सकते हैं और उन्हें आसानी से कॉपी कर सकते हैं। यह खासकर उन अक्षरों के लिए फायदेमंद है जो कीबोर्ड पर सीधे उपलब्ध नहीं होते।</p>
+
+            <div class="tools-grid" aria-label="Character Map tool descriptions">
+                <article class="tool-card" tabindex="0" aria-describedby="tool-view-desc">
+                    <div class="tool-icon" aria-hidden="true">🔡</div>
+                    <div class="tool-title">View Characters</div>
+                    <p class="tool-desc" id="tool-view-desc">सभी फॉन्ट्स के अलग-अलग अक्षर, चिन्ह और सिंबल्स को एक जगह देख सकते हैं।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-font-desc">
+                    <div class="tool-icon" aria-hidden="true">🔤</div>
+                    <div class="tool-title">Font Selection</div>
+                    <p class="tool-desc" id="tool-font-desc">कोई भी फॉन्ट चुनें और उसके सभी कैरेक्टर की सूची देखें। Unicode, Symbol, Wingdings आदि भी सपोर्टेड हैं।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-copy-desc">
+                    <div class="tool-icon" aria-hidden="true">📋</div>
+                    <div class="tool-title">Copy Characters</div>
+                    <p class="tool-desc" id="tool-copy-desc">कोई भी अक्षर या सिंबल चुनकर 'Select' और 'Copy' बटन से उसे क्लिपबोर्ड पर कॉपी करें।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-advanced-desc">
+                    <div class="tool-icon" aria-hidden="true">🔎</div>
+                    <div class="tool-title">Advanced View</div>
+                    <p class="tool-desc" id="tool-advanced-desc">'Advanced View' ऑप्शन से कैरेक्टर को Unicode, Group, या नाम से सर्च कर सकते हैं।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-unicode-desc">
+                    <div class="tool-icon" aria-hidden="true">🧩</div>
+                    <div class="tool-title">Unicode Info</div>
+                    <p class="tool-desc" id="tool-unicode-desc">हर कैरेक्टर का Unicode नंबर, नाम और कोड पॉइंट देख सकते हैं।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-insert-desc">
+                    <div class="tool-icon" aria-hidden="true">📝</div>
+                    <div class="tool-title">Insert in Document</div>
+                    <p class="tool-desc" id="tool-insert-desc">कॉपी किए गए अक्षर को Word, Excel, या किसी भी टेक्स्ट फाइल में पेस्ट कर सकते हैं।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-favorites-desc">
+                    <div class="tool-icon" aria-hidden="true">⭐</div>
+                    <div class="tool-title">Frequently Used</div>
+                    <p class="tool-desc" id="tool-favorites-desc">अक्सर इस्तेमाल होने वाले सिंबल्स को आसानी से ढूंढ सकते हैं, जैसे: ©, ®, ™, €, ₹ आदि।</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-shortcut-desc">
+                    <div class="tool-icon" aria-hidden="true">⌨️</div>
+                    <div class="tool-title">Shortcut & Access</div>
+                    <p class="tool-desc" id="tool-shortcut-desc">Character Map खोलने के लिए Run में <b>charmap</b> टाइप करें या Start Menu से सर्च करें।</p>
+                </article>
+            </div>
+
+            <div class="screenshot-container" aria-label="Character Map interface screenshot is locked and unavailable">
+                <img src="https://i.imgur.com/2wYzjXQ.png" alt="Character Map interface screenshot" draggable="false" />
+                <div class="lock-overlay" aria-hidden="true">🔒</div>
+            </div>
+
+            <p style="text-align:center; font-style:italic; font-size: 0.95rem; color: #ccc; user-select:none;">
+                स्क्रीनशॉट और कंटेंट कॉपी करना डिसेबल्ड है ताकि इस ओरिजिनल कंटेंट की सुरक्षा बनी रहे।
+            </p>
+        </main>
+        <a href="javascript:history.back()" class="back-button" aria-label="Go back to the previous page">Back</a>
+        <div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div>
+    </div>
+</body>
+  </html>
+    
