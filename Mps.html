@@ -66,7 +66,7 @@
       margin: 0 auto 40px auto;
       background: rgba(255,255,255,0.14);
       border-radius: 24px;
-      box-shadow: 0 8px 32px #2d2d4d44, 0 1.5px 8px #43cea2a0;
+      box-shadow: 0 8px 32px #5959a344, 0 1.5px 8px #43cea2a0;
       padding: 30px 18px 18px 18px;
       overflow-x: auto;
       animation: fadeInUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
@@ -81,18 +81,18 @@
     th, td {
       padding: 12px 8px;
       text-align: left;
-      border-bottom: 1px solid #3b82f666;
-      color: #fff;
+      border-bottom: 1px solid #7cabf5c9;
+      color: #ffffff;
     }
     th {
-      background: linear-gradient(90deg, #43cea2 30%, #185a9d 100%);
+      background: linear-gradient(90deg, #1cb383 30%, #185a9d 100%);
       color: #fff;
       font-size: 1.12rem;
       letter-spacing: 1px;
       position: sticky;
       top: 0;
       z-index: 2;
-      text-shadow: 0 1px 8px #23252644;
+      text-shadow: 0 1px 8px #e1eaee44;
       border-radius: 6px;
       animation: thFadeIn 1.2s;
     }
@@ -100,7 +100,7 @@
       transition: background 0.2s;
     }
     tr:hover {
-      background: rgba(67,206,162,0.16);
+      background: rgba(204, 238, 227, 0.16);
       animation: rowHover 0.5s;
     }
     @keyframes rowHover {
@@ -113,7 +113,7 @@
     }
     /* Back button fixed above copyright */
     .back-btn {
-      position: fixed;
+      position: static;
       left: 50%;
       transform: translateX(-50%);
       bottom: 48px;
@@ -139,7 +139,7 @@
     }
     /* Copyright fixed at the bottom */
     .watermark {
-      position: fixed;
+      position: relative;
       left: 0;
       bottom: 0;
       width: 100vw;
