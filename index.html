@@ -12,7 +12,6 @@
       -ms-user-select: none;
       user-select: none;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -21,19 +20,16 @@
       display: flex;
       flex-direction: column;
     }
-
     header {
       text-align: center;
       padding: 20px 10px 10px;
       background: white;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-
     header img {
       max-height: 100px;
       margin-bottom: 15px;
     }
-
     .welcome-text {
       font-size: 36px;
       font-weight: bold;
@@ -41,20 +37,17 @@
       text-shadow: 1px 1px 3px #aaa;
       margin-bottom: 10px;
     }
-
     .institute-name {
       font-size: 28px;
       font-weight: 600;
       color: #222;
       margin: 5px 0;
     }
-
     .certified {
       font-size: 18px;
       color: #444;
       margin-bottom: 10px;
     }
-
     .login-container {
       flex: 1;
       display: flex;
@@ -62,7 +55,6 @@
       align-items: center;
       padding: 30px 20px;
     }
-
     .login-box {
       background: #fff;
       padding: 40px 30px;
@@ -72,14 +64,12 @@
       max-width: 420px;
       animation: fadeIn 0.7s ease;
     }
-
     .login-box h2 {
       text-align: center;
       margin-bottom: 30px;
       font-size: 28px;
       color: #0072ff;
     }
-
     .login-box input {
       width: 100%;
       padding: 16px;
@@ -88,7 +78,6 @@
       border: 1px solid #ccc;
       font-size: 18px;
     }
-
     .login-box button {
       width: 100%;
       padding: 16px;
@@ -100,23 +89,19 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-
     .login-box button:hover {
       background: #005fca;
     }
-
     .error {
       color: red;
       font-size: 16px;
       text-align: center;
       margin-top: 10px;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @media (max-width: 500px) {
       .welcome-text { font-size: 28px; }
       .institute-name { font-size: 20px; }
@@ -129,7 +114,6 @@
       }
     }
   </style>
-
   <script>
     // Disable copy, right-click, and keyboard shortcuts
     document.addEventListener("contextmenu", e => e.preventDefault());
@@ -143,21 +127,39 @@
       }
     });
 
+    // Password to course mapping
+    const passwordToCourse = {
+      "7067": "bcc",
+      "706": "advanced",
+      "7061": "cpct",
+      "7062": "internet",
+      "7001": "tally",
+      "7101": "graphic",
+      "8080": "powerbi",
+      "9011": "webdesign"
+    };
+
     function login() {
       const id = document.getElementById('studentID').value.trim();
       const password = document.getElementById('password').value.trim();
-      const correctPassword = '7067';
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.innerText = "";
 
-      if (id && password === correctPassword) {
+      if (!id || !password) {
+        errorMsg.innerText = "Please enter both Student ID and Password";
+        return;
+      }
+
+      if (passwordToCourse[password]) {
         localStorage.setItem('student_name', id);
-        window.location.href = 'home.html'; // Direct redirect without alert
+        localStorage.setItem('courseAccess', passwordToCourse[password]);
+        window.location.href = 'home.html';
       } else {
-        document.getElementById('errorMsg').innerText = 'Invalid ID or Password';
+        errorMsg.innerText = 'Invalid ID or Password';
       }
     }
   </script>
 </head>
-
 <body>
   <header>
     <img src="logo.jpg" alt="Logo" />
@@ -165,12 +167,11 @@
     <div class="institute-name">CHITRAGUPT ACADEMY</div>
     <div class="certified">AN ISO CERTIFIED INSTITUTION</div>
   </header>
-
   <div class="login-container">
     <div class="login-box">
       <h2>Student Login</h2>
-      <input type="text" id="studentID" placeholder="Enter Student ID" />
-      <input type="password" id="password" placeholder="Enter Password" />
+      <input type="text" id="studentID" placeholder="Enter Student ID" autocomplete="off" />
+      <input type="password" id="password" placeholder="Enter Password" autocomplete="off" />
       <button onclick="login()">Login</button>
       <p class="error" id="errorMsg"></p>
     </div>
