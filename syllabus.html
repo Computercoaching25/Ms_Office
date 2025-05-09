@@ -182,27 +182,37 @@
     .course-card.unlocked .lock.lock-open { display: inline; }
     .course-card.unlocked .lock.lock-closed { display: none; }
 
-    .footer {
+    footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
+      padding: 22px 0 14px 0;
+      font-size: 1.1rem;
       color: #555;
-      border-top: 1px solid #ccc;
+      margin-top: 40px;
+      background: #f3e8ff;
+      border-top: 2px solid #e0e7ff;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
     }
-
     .back-home {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007acc;
+      margin-top: 14px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #7c3aed 60%, #06b6d4 100%);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
       font-weight: bold;
+      font-size: 1.13rem;
+      letter-spacing: 1px;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px #7c3aed22;
     }
-
     .back-home:hover {
-      background-color: #005fa3;
+      background: linear-gradient(90deg, #06b6d4 60%, #7c3aed 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #06b6d444;
     }
 
     /* Responsive Design */
@@ -248,7 +258,7 @@
     };
     // Course id to syllabus page mapping
     const coursePages = {
-      "bcc": "syl/basic.html",
+      "bcc": "syllabus-basic-computer.html",
       "advanced": "syllabus-advanced-computer.html",
       "cpct": "syllabus-cpct.html",
       "internet": "syllabus-internet-email.html",
@@ -259,14 +269,14 @@
     };
     // Course list
     const courseOrder = [
-      { id: "bcc", label: "Basic Computer Course", desc: "Welcome" },
-      { id: "advanced", label: "Advanced Computer Course", desc: "Welcome" },
-      { id: "cpct", label: "CPCT Preparation", desc: "Welcome" },
-      { id: "internet", label: "Internet & Email", desc: "Welcome" },
-      { id: "tally", label: "Tally with GST", desc: "Welcome" },
-      { id: "graphic", label: "Graphic Design", desc: "Welcome" },
-      { id: "powerbi", label: "MS Power BI", desc: "Welcome" },
-      { id: "webdesign", label: "Web Designing", desc: "Welcome" }
+      { id: "bcc", label: "Basic Computer Course", desc: "Parts, Accessories, Notepad, MS Office Basics, File Handling, MCQ exam & Certificate." },
+      { id: "advanced", label: "Advanced Computer Course", desc: "Word, Excel, PowerPoint, Access, Outlook - all advanced modules." },
+      { id: "cpct", label: "CPCT Preparation", desc: "Hindi/English Typing, MCQ Tests, Key CPCT Topics, Practice Sessions." },
+      { id: "internet", label: "Internet & Email", desc: "Internet Browsing, Email Handling, Online Safety & Etiquette." },
+      { id: "tally", label: "Tally with GST", desc: "Accounting Software Basics, GST Implementation, Practical Training." },
+      { id: "graphic", label: "Graphic Design", desc: "Photoshop, CorelDRAW, Creative Projects, Portfolio Building." },
+      { id: "powerbi", label: "MS Power BI", desc: "Dashboards, Data Analysis, Large Data Management, Visualization." },
+      { id: "webdesign", label: "Web Designing", desc: "Web Layouts, Responsive Pages, HTML/CSS/JS, Live Projects." }
     ];
     // Disable right click, dev tools, copy, etc.
     document.addEventListener('contextmenu', e => e.preventDefault());
@@ -324,11 +334,10 @@
   <div class="courses-container">
     <!-- Course cards will be rendered by JS -->
   </div>
- <footer>
+  <footer>
     &copy; <span id="year"></span> Pawan Soni<br>
     <a href="home.html" class="back-home">Back to Home</a>
   </footer>
-  
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
