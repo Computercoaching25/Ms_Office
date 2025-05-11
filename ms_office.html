@@ -123,8 +123,7 @@
   </style>
   <script>
     document.addEventListener('contextmenu', e => {
-      e.preventDefault();
-      alert("Right-click is disabled.");
+      e.preventDefault()
     });
     document.addEventListener('keydown', function (e) {
       if (
@@ -132,7 +131,6 @@
         e.key === 'PrintScreen' || e.keyCode === 123
       ) {
         e.preventDefault();
-        alert("Copying or developer shortcuts are disabled.");
       }
     });
     document.addEventListener('selectstart', e => e.preventDefault());
