@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Office</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #e0e7ff 0%, #f3f4f6 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #23235b;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(90deg, #3b5bdb 0%, #6c63ff 100%);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(59, 91, 219, 0.5);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      letter-spacing: 2px;
+      font-weight: 800;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .header p {
+      margin: 10px 0 0 0;
+      font-size: 1.2em;
+      font-weight: 800;
+      color: #d1d5fa;
+      letter-spacing: 1px;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    @keyframes fadeInDown {
+      0% {opacity: 0; transform: translateY(-30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 40px auto 20px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 10px;
+    }
+    a.button {
+      background: linear-gradient(90deg, #6c63ff 0%, #3b5bdb 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      font-weight: 600;
+      display: inline-block;
+      box-shadow: 0 4px 16px rgba(60, 60, 100, 0.15);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      user-select: none;
+      min-width: 220px;
+      text-align: center;
+    }
+    a.button:hover {
+      background: linear-gradient(90deg, #ff0303 0%, #ffbb00 100%);
+      color: #39ffef;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 24px rgba(60, 60, 100, 0.25);
+    }
+    a.button:active {
+      transform: scale(0.97);
+    }
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-weight: 600;
+      color: #3b5bdb;
+      letter-spacing: 1px;
+      user-select: none;
+      background: #f3f4f6;
+      box-shadow: inset 0 1px 0 #d1d5db;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      a.button {
+        min-width: 100%;
+        font-size: 1em;
+        padding: 14px 20px;
+      }
+      main {
+        margin: 30px 15px 20px 15px;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+  <main>
+    <a href="introduction-ms-office.html" class="button" target="_blank" rel="noopener">Introduction of MS Office</a>
+    <a href="ms-word.html" class="button" target="_blank" rel="noopener">MS Word</a>
+    <a href="ms-word-shortcut-keys.html" class="button" target="_blank" rel="noopener">MS Word Shortcut Keys</a>
+    <a href="ms-excel.html" class="button" target="_blank" rel="noopener">MS Excel</a>
+    <a href="ms-excel-shortcut-keys.html" class="button" target="_blank" rel="noopener">MS Excel Shortcut Keys</a>
+    <a href="ms-powerpoint.html" class="button" target="_blank" rel="noopener">MS PowerPoint</a>
+    <a href="ms-powerpoint-shortcut-keys.html" class="button" target="_blank" rel="noopener">MS PowerPoint Shortcut Keys</a>
+    <a href="ms-access.html" class="button" target="_blank" rel="noopener">MS Access</a>
+    <a href="ms-outlook.html" class="button" target="_blank" rel="noopener">MS Outlook</a>
+    <a href="ms-publisher.html" class="button" target="_blank" rel="noopener">MS Publisher</a>
+    <a href="ms-onenote.html" class="button" target="_blank" rel="noopener">MS OneNote</a>
+  </main>
+  <footer>
+    &copy; Pawan Soni
+  </footer>
+</body>
+</html>
