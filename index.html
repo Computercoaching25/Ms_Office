@@ -390,84 +390,51 @@
     Creator - Pawan Soni &nbsp; | &nbsp; Powered by Chitragupt Academy
   </div>
   <script>
-    // Disable right-click context menu
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
+    const passwordToCourse = {
+      "7067": "bcc",
+      "706": "advanced",
+      "7061": "cpct",
+      "7062": "internet",
+      "7001": "tally",
+      "7101": "graphic",
+      "8080": "powerbi",
+      "9011": "webdesign",
+      "1190": "exams"
+    };
 
-    // Disable keyboard shortcuts for copy, paste, cut, print, view source, screenshot, etc.
-    document.addEventListener('keydown', function(e) {
-      // Ctrl/Command + C, X, V, U, S, A, P, I, J, F12, PrintScreen, etc.
-      if (
-        (e.ctrlKey || e.metaKey) && 
-        (
-          e.key.toLowerCase() === 'c' ||
-          e.key.toLowerCase() === 'x' ||
-          e.key.toLowerCase() === 'v' ||
-          e.key.toLowerCase() === 'u' ||
-          e.key.toLowerCase() === 's' ||
-          e.key.toLowerCase() === 'a' ||
-          e.key.toLowerCase() === 'p' ||
-          e.key.toLowerCase() === 'i' ||
-          e.key.toLowerCase() === 'j'
-        )
-        ||
-        e.key === 'F12'
-        ||
-        e.key === 'PrintScreen'
-      ) {
-        e.preventDefault();
-        return false;
-      }
-    });
-
-    // Try to block PrintScreen key (for some browsers)
-    window.addEventListener("keyup", function(e) {
-      if (e.key === "PrintScreen") {
-        navigator.clipboard.writeText('');
-        alert("Screenshots are disabled on this page!");
-      }
-    });
-
-    // Disable drag
-    document.addEventListener('dragstart', function(e) {
-      e.preventDefault();
-    });
-
-    // Disable selection on double click
-    document.addEventListener('selectstart', function(e) {
-      e.preventDefault();
-    });
-
-    // Disable copy/cut/paste events
-    document.addEventListener('copy', function(e) {
-      e.preventDefault();
-    });
-    document.addEventListener('cut', function(e) {
-      e.preventDefault();
-    });
-    document.addEventListener('paste', function(e) {
-      e.preventDefault();
-    });
-
-    // Allowed passwords
-    const allowedPasswords = ["7067", "706", "7061", "7062", "7001", "7101", "8080", "9011", "1190"];
-    document.getElementById('loginForm').addEventListener('submit', function(e){
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('studentId').value.trim();
       const pass = document.getElementById('password').value.trim();
       const errorMsg = document.getElementById('errorMsg');
-      if(name === "") {
+
+      if (!name) {
         errorMsg.textContent = "Please enter your name.";
         return;
       }
-      if(allowedPasswords.includes(pass)) {
-        // Redirect to home page with student name as query param
-        window.location.href = "home.html?name=" + encodeURIComponent(name);
+
+      const courseCode = passwordToCourse[pass];
+      if (courseCode) {
+        localStorage.setItem('studentName', name);
+        localStorage.setItem('courseAccess', courseCode);
+        window.location.href = "home.html";
       } else {
-        errorMsg.textContent = "Incorrect password! Please enter the correct password.";
+        errorMsg.textContent = "Incorrect password! Please try again.";
+      }
+    });
+
+    // Security: Disable right-click and keys
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", function(e) {
+      if (
+        (e.ctrlKey && ['c', 'x', 'v', 'u', 's', 'p', 'i', 'j'].includes(e.key.toLowerCase())) ||
+        ['F12', 'PrintScreen'].includes(e.key)
+      ) {
+        e.preventDefault();
+        alert("Function disabled");
       }
     });
   </script>
+   
 </body>
 </html>
