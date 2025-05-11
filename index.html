@@ -1,180 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Student Login - Chitragupt Academy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHITRAGUPT ACADEMY - Student Login</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    /* --- Your Existing Styles --- */
+    html, body, * {
+      -webkit-user-select: none !important; /* Chrome/Safari */
+      -moz-user-select: none !important;    /* Firefox */
+      -ms-user-select: none !important;     /* IE10+ */
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
     }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+      padding: 0;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+      overflow-x: hidden;
     }
-    header {
+    .header {
+      background: rgba(35,47,62,0.92);
+      color: #fff;
       text-align: center;
-      padding: 20px 10px 10px;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px 10px 24px 10px;
+      position: relative;
+      box-shadow: 0 2px 16px rgba(44,62,80,0.13);
+      border-bottom-left-radius: 38px;
+      border-bottom-right-radius: 38px;
     }
-    header img {
-      max-height: 100px;
-      margin-bottom: 15px;
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #00d9ff, #00ffea, #20d2ff);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      font-size: 2.8rem;
+      color: #232f3e;
+      border: 4px solid #fff;
+      animation: logoPulse 2.2s infinite alternate;
+      overflow: hidden;
     }
-    .welcome-text {
-      font-size: 36px;
-      font-weight: bold;
-      color: #0072ff;
-      text-shadow: 1px 1px 3px #aaa;
-      margin-bottom: 10px;
+    .logo img {
+      width: 100px;
+      height: 110px;
+      object-fit: contain;
+      border-radius: 50%;
+      display: block;
+      margin: auto;
+    }
+    @keyframes logoPulse {
+      0% { box-shadow: 0 0 0 0 #ffcc33; }
+      100% { box-shadow: 0 0 32px 12px #ffecb399; }
     }
     .institute-name {
-      font-size: 28px;
-      font-weight: 600;
-      color: #222;
-      margin: 5px 0;
+      font-size: 2.5rem;
+      font-weight: 1000;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      text-shadow: 0 2px 12px #232f3e55;
     }
-    .certified {
-      font-size: 18px;
-      color: #444;
-      margin-bottom: 10px;
+    .iso {
+      font-size: 1.12rem;
+      letter-spacing: 1px;
+      font-weight: 900;
+      color: #ffd700;
+      margin-bottom: 5px;
+      text-shadow: 0 1px 6px #232f3e33;
     }
-    .login-container {
-      flex: 1;
+    .ad-section {
+      background: rgba(255,255,255,0.70);
+      margin: 38px auto 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.11);
+      padding: 32px 18px 18px 18px;
+      max-width: 1100px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(6px);
+    }
+    .ad-headline {
+      font-size: 1.65rem;
+      font-weight: bold;
+      color: #2d3a4e;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #fff;
+      line-height: 1.4;
+    }
+    .ad-highlight {
+      color: #ffb347;
+      font-weight: 900;
+      font-size: 1.25em;
+      text-shadow: 0 2px 8px #fff8;
+    }
+    .courses-grid {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 22px;
+      margin-bottom: 18px;
+    }
+    .course-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(44,62,80,0.13);
+      padding: 22px 20px 18px 20px;
+      width: 260px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .course-card:hover {
+      transform: translateY(-8px) scale(1.045) rotate(-1deg);
+      box-shadow: 0 10px 32px rgba(44,62,80,0.19);
+      background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+      border: 2px solid #ffb347;
+    }
+    .course-icon {
+      font-size: 2.3rem;
+      color: #ffb347;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 8px #ffe082;
+    }
+    .course-title {
+      font-weight: bold;
+      font-size: 1.18rem;
+      color: #232f3e;
+      margin-bottom: 4px;
+    }
+    .course-desc {
+      font-size: 1.03rem;
+      color: #444;
+      margin-bottom: 2px;
+    }
+    .buy-now {
+      display: inline-block;
+      margin: 28px auto 5px auto;
+      background: linear-gradient(90deg, #b154c9, #1c71d8, #9943ca);
+      color: #fff;
+      font-weight: bold;
+      padding: 14px 44px;
+      border-radius: 32px;
+      font-size: 1.18rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgb(52, 122, 214);
+      border: none;
+      letter-spacing: 1px;
+      opacity: 0.95;
+      cursor: default;
+      pointer-events: none;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+      filter: grayscale(0.2);
+      user-select: none;
+    }
+    .buy-now:active,
+    .buy-now:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .login-section {
+      margin: 70px auto 0 auto;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 30px 20px;
+      z-index: 2;
+      position: relative;
     }
     .login-box {
-      background: #fff;
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+      background: rgba(209, 255, 255, 0.97);
       width: 100%;
-      max-width: 420px;
-      animation: fadeIn 0.7s ease;
-    }
-    .login-box h2 {
+      padding: 36px 36px 26px 36px;
+      border-radius: 22px;
+      box-shadow: 0 10px 36px rgba(44,62,80,0.13);
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-      color: #0072ff;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(4px);
     }
-    .login-box input {
-      width: 100%;
-      padding: 16px;
-      margin: 15px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 18px;
+    .login-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #232f3e;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
     }
-    .login-box button {
+    .input-group {
+      margin-bottom: 22px;
+      text-align: left;
+    }
+    .input-group label {
+      font-size: 1.05rem;
+      color: #2d3a4e;
+      font-weight: 500;
+      margin-bottom: 7px;
+      display: block;
+      letter-spacing: 0.5px;
+    }
+    .input-group input {
+      width: 92%;
+      padding: 12px 16px;
+      border: 1.5px solid #bdbdbd;
+      border-radius: 9px;
+      font-size: 1.12rem;
+      outline: none;
+      transition: border 0.2s;
+      margin-bottom: 5px;
+      background: #f7fafc;
+    }
+    .input-group input:focus {
+      border: 1.5px solid #ffb347;
+    }
+    .submit-btn {
       width: 100%;
-      padding: 16px;
-      background: #0072ff;
-      color: white;
+      background: linear-gradient(90deg, #ffb347, #ffcc33, #ffecb3);
+      color: #232f3e;
+      font-weight: bold;
       border: none;
-      font-size: 18px;
-      border-radius: 8px;
+      border-radius: 9px;
+      padding: 13px 0;
+      font-size: 1.15rem;
       cursor: pointer;
-      transition: background 0.3s;
+      box-shadow: 0 2px 10px rgba(255, 204, 51, 0.13);
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+      margin-top: 4px;
     }
-    .login-box button:hover {
-      background: #005fca;
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #ffecb3, #ffb347, #ffcc33);
+      color: #232f3e;
+      transform: scale(1.03);
     }
-    .error {
-      color: red;
-      font-size: 16px;
+    .error-msg {
+      color: #d32f2f;
+      font-size: 1.08rem;
+      margin-top: 12px;
+      min-height: 22px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .watermark {
+      position: relative;
+      bottom: 18px;
+      left: 0;
+      width: 100vw;
       text-align: center;
-      margin-top: 10px;
+      pointer-events: none;
+      z-index: 999;
+      user-select: none;
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #232f3e, #3d3d3d, #5c5c5c, #8ec5fc, #e0c3fc);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: watermark-move 6s linear infinite;
+      padding-left: 24px;
+      opacity: 0.98;
+      filter: drop-shadow(0 1px 4px #232f3e99);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes watermark-move {
+      0% {background-position: 0% 50%;}
+      100% {background-position: 100% 50%;}
+    }
+    .login-section { margin-bottom: 120px; }
+    @media (max-width: 1100px) {
+      .courses-grid {flex-wrap: wrap;}
+      .course-card {width: 90vw;}
+    }
+    @media (max-width: 700px) {
+      .ad-section {padding: 16px 2vw;}
+      .login-section {margin-top: 40px;}
+      .login-box {padding: 18px 5vw;}
+      .course-card {padding: 14px 7px;}
+      .header {padding: 18px 2px 12px 2px;}
     }
     @media (max-width: 500px) {
-      .welcome-text { font-size: 28px; }
-      .institute-name { font-size: 20px; }
-      .certified { font-size: 14px; }
-      .login-box { padding: 35px 25px; }
-      .login-box h2 { font-size: 22px; }
-      .login-box input, .login-box button {
-        font-size: 16px;
-        padding: 14px;
-      }
+      .institute-name {font-size: 1.3rem;}
+      .login-box {padding: 12px 2vw;}
+      .ad-headline {font-size: 1.08rem;}
+      .watermark {font-size: 0.92rem;}
+      .course-card {width: 98vw;}
+      .logo img {width: 60px; height: 60px;}
     }
   </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="logo.jpg.png" alt="Chitragupt Academy Logo">
+    </div>
+    <div class="institute-name">CHITRAGUPT ACADEMY</div>
+    <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
+  </div>
+  <div class="ad-section">
+    <div class="ad-headline">
+      <span class="ad-highlight">All Computer Courses, Notes, Practice Tests & Extra Materials</span><br>
+      <span style="color:#2d3a4e; font-weight: 600;">Now in <span class="ad-highlight">One Place!</span></span>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-desktop"></i></span>
+        <span class="course-title">Basic Computer Course</span>
+        <span class="course-desc">Parts, Accessories, Notepad, MS Office, File Handling, MCQ exam & Certificate.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-laptop"></i></span>
+        <span class="course-title">Advanced Computer Course</span>
+        <span class="course-desc">Word, Excel, PowerPoint, Access, Outlook - all advanced modules.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-keyboard"></i></span>
+        <span class="course-title">CPCT Preparation</span>
+        <span class="course-desc">Hindi/English Typing, MCQ Tests, Key Tips, CPCT Topics & Practice Materials.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-globe"></i></span>
+        <span class="course-title">Internet & Email</span>
+        <span class="course-desc">Internet Browsing, Email Handling, Online Safety & Etiquette.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-calculator"></i></span>
+        <span class="course-title">Tally with GST</span>
+        <span class="course-desc">Accounting Software Basics, GST Implementation, Practical Training Notes.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-paint-brush"></i></span>
+        <span class="course-title">Graphic Design</span>
+        <span class="course-desc">Photoshop, CorelDRAW, Creative Projects & Tools Information.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-chart-bar"></i></span>
+        <span class="course-title">MS Power BI</span>
+        <span class="course-desc">Dashboards, Data Analysis, Large Data Management, Visualization.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-code"></i></span>
+        <span class="course-title">Web Designing</span>
+        <span class="course-desc">Web Layouts, Responsive Pages, HTML/CSS/JS, Live Projects.</span>
+      </div>
+      <div class="course-card">
+  <span class="course-icon"><i class="fas fa-bolt"></i></span>
+  <span class="course-title">Competitive Exams Computer Materials</span>
+  <span class="course-desc">
+    Comprehensive MCQs, theory notes, and practice sets for all computer-related competitive exams and previous year questions.
+  </span>
+</div>
+
+    </div>
+    <button class="buy-now" tabindex="-1" aria-disabled="true">
+      Enroll Now & Build Your Future!
+    </button>
+  </div>
+  <div class="login-section">
+    <div class="login-box">
+      <div class="login-title">Student Login</div>
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <label for="studentId">Student Name</label>
+          <input type="text" id="studentId" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+        <div class="error-msg" id="errorMsg"></div>
+      </form>
+    </div>
+  </div>
+  <div class="watermark">
+    Creator - Pawan Soni &nbsp; | &nbsp; Powered by Chitragupt Academy
+  </div>
   <script>
-    // Disable copy, right-click, and keyboard shortcuts
-    document.addEventListener("contextmenu", e => e.preventDefault());
-    document.addEventListener("keydown", function(e) {
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable keyboard shortcuts for copy, paste, cut, print, view source, screenshot, etc.
+    document.addEventListener('keydown', function(e) {
+      // Ctrl/Command + C, X, V, U, S, A, P, I, J, F12, PrintScreen, etc.
       if (
-        (e.ctrlKey && ['u','c','s','x','a'].includes(e.key.toLowerCase())) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        e.key === 'F12' || e.key === 'PrintScreen'
+        (e.ctrlKey || e.metaKey) && 
+        (
+          e.key.toLowerCase() === 'c' ||
+          e.key.toLowerCase() === 'x' ||
+          e.key.toLowerCase() === 'v' ||
+          e.key.toLowerCase() === 'u' ||
+          e.key.toLowerCase() === 's' ||
+          e.key.toLowerCase() === 'a' ||
+          e.key.toLowerCase() === 'p' ||
+          e.key.toLowerCase() === 'i' ||
+          e.key.toLowerCase() === 'j'
+        )
+        ||
+        e.key === 'F12'
+        ||
+        e.key === 'PrintScreen'
       ) {
         e.preventDefault();
+        return false;
       }
     });
 
-    // Password to course mapping
-    const passwordToCourse = {
-      "7067": "bcc",
-      "706": "advanced",
-      "7061": "cpct",
-      "7062": "internet",
-      "7001": "tally",
-      "7101": "graphic",
-      "8080": "powerbi",
-      "9011": "webdesign"
-    };
+    // Try to block PrintScreen key (for some browsers)
+    window.addEventListener("keyup", function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText('');
+        alert("Screenshots are disabled on this page!");
+      }
+    });
 
-    function login() {
-      const id = document.getElementById('studentID').value.trim();
-      const password = document.getElementById('password').value.trim();
+    // Disable drag
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable selection on double click
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable copy/cut/paste events
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+    });
+    document.addEventListener('cut', function(e) {
+      e.preventDefault();
+    });
+    document.addEventListener('paste', function(e) {
+      e.preventDefault();
+    });
+
+    // Allowed passwords
+    const allowedPasswords = ["7067", "706", "7061", "7062", "7001", "7101", "8080", "9011", "1190"];
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('studentId').value.trim();
+      const pass = document.getElementById('password').value.trim();
       const errorMsg = document.getElementById('errorMsg');
-      errorMsg.innerText = "";
-
-      if (!id || !password) {
-        errorMsg.innerText = "Please enter both Student ID and Password";
+      if(name === "") {
+        errorMsg.textContent = "Please enter your name.";
         return;
       }
-
-      if (passwordToCourse[password]) {
-        localStorage.setItem('student_name', id);
-        localStorage.setItem('courseAccess', passwordToCourse[password]);
-        window.location.href = 'home.html';
+      if(allowedPasswords.includes(pass)) {
+        // Redirect to home page with student name as query param
+        window.location.href = "home.html?name=" + encodeURIComponent(name);
       } else {
-        errorMsg.innerText = 'Invalid ID or Password';
+        errorMsg.textContent = "Incorrect password! Please enter the correct password.";
       }
-    }
+    });
   </script>
-</head>
-<body>
-  <header>
-    <img src="logo.jpg" alt="Logo" />
-    <div class="welcome-text">WELCOME</div>
-    <div class="institute-name">CHITRAGUPT ACADEMY</div>
-    <div class="certified">AN ISO CERTIFIED INSTITUTION</div>
-  </header>
-  <div class="login-container">
-    <div class="login-box">
-      <h2>Student Login</h2>
-      <input type="text" id="studentID" placeholder="Enter Student ID" autocomplete="off" />
-      <input type="password" id="password" placeholder="Enter Password" autocomplete="off" />
-      <button onclick="login()">Login</button>
-      <p class="error" id="errorMsg"></p>
-    </div>
-  </div>
 </body>
 </html>
