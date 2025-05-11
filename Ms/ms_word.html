@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MS Word - CHITRAGUPT ACADEMY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #f0f4ff, #e8f0ff);
+      color: #1a237e;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    header {
+      background: linear-gradient(90deg, #3f51b5, #5c6bc0);
+      text-align: center;
+      color: white;
+      padding: 30px 20px 10px 20px;
+      animation: slideDown 1s ease;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+      color: #d1d9ff;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 80, 0.1);
+      animation: fadeIn 1.5s ease;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #3949ab;
+      margin-top: 20px;
+      border-bottom: 3px solid #7986cb;
+      padding-bottom: 10px;
+    }
+    section {
+      margin-bottom: 25px;
+    }
+    ul {
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    ul li::before {
+      content: "✓ ";
+      color: #3f51b5;
+      margin-right: 8px;
+    }
+    ul li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .back-button {
+      display: block;
+      text-align: center;
+      margin: 40px auto 10px;
+      background: linear-gradient(90deg, #3949ab, #5c6bc0);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      width: fit-content;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .back-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: linear-gradient(90deg, #ff4081, #ff8a65);
+    }
+    footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 1rem;
+      color: #3949ab;
+      font-weight: 600;
+      background-color: #e8eaf6;
+      box-shadow: inset 0 1px 0 #c5cae9;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .back-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+  <!-- Content Protection Scripts -->
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable copy, cut, paste, and certain keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey && ['c','x','v','u','s','p','a'].includes(e.key.toLowerCase())) || e.key === 'PrintScreen' || e.keyCode === 123) {
+        e.preventDefault();
+      }
+    });
+
+    // Attempt to block PrintScreen
+    document.addEventListener('keyup', function(e) {
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText('');
+      }
+    });
+
+    // Disable drag
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+  <main>
+    <h2>Introduction to Microsoft Word</h2>
+    <section>
+      <p>Microsoft Word is a powerful word processing software developed by Microsoft. It enables users to create, edit, format, and share text-based documents efficiently. As part of the Microsoft Office suite, Word is widely used for personal, academic, and professional documentation tasks.</p>
+    </section>
+
+    <h2>Key Features of Microsoft Word</h2>
+    <section>
+      <ul>
+        <li><strong>User-Friendly Interface:</strong> Intuitive layout with Ribbon tabs for easy navigation.</li>
+        <li><strong>Advanced Text Formatting:</strong> Customize fonts, colors, spacing, bullet points, and alignment.</li>
+        <li><strong>Built-in Templates:</strong> Access a variety of pre-designed templates for resumes, letters, reports, and more.</li>
+        <li><strong>Real-Time Spell Check and Grammar Correction:</strong> Automatically detect and correct errors as you type.</li>
+        <li><strong>Insert Tables, Images, Charts, and Hyperlinks:</strong> Enhance documents with visual elements and functional links.</li>
+        <li><strong>Page Layout and Design Tools:</strong> Adjust margins, orientation, page size, and apply themes, borders, and watermarks.</li>
+        <li><strong>Collaboration and Track Changes:</strong> Share documents online, co-author in real time, and use comments and track changes for smooth collaboration.</li>
+        <li><strong>Mail Merge Functionality:</strong> Automate the creation of personalized letters, labels, and emails using data from Excel or Outlook.</li>
+        <li><strong>Cloud Storage with OneDrive:</strong> Access and edit documents from anywhere with Microsoft 365 cloud integration.</li>
+        <li><strong>Document Security and Protection:</strong> Add passwords, restrict editing, and use digital signatures to protect sensitive content.</li>
+      </ul>
+    </section>
+
+    <h2>Common Uses of Microsoft Word</h2>
+    <section>
+      <ul>
+        <li>Creating professional documents such as resumes, cover letters, and reports.</li>
+        <li>Designing newsletters, brochures, and flyers.</li>
+        <li>Drafting academic papers and research articles.</li>
+        <li>Preparing business documents like invoices and meeting minutes.</li>
+        <li>Collaborating on documents with real-time editing and feedback.</li>
+      </ul>
+    </section>
+
+    <h2>Microsoft Word Interface Overview</h2>
+    <section>
+      <p>The Microsoft Word interface features a structured layout with the Title Bar at the top, followed by Ribbon tabs like Home, Insert, and Layout. Below that, the workspace allows users to create, edit, and format documents efficiently using a wide range of tools.</p>
+    </section>
+
+    <h2>Conclusion</h2>
+    <section>
+      <p>Microsoft Word is an essential tool for creating and managing text-based documents. Its user-friendly interface, advanced features, and collaboration capabilities make it suitable for students, professionals, and businesses alike.</p>
+    </section>
+
+    <a href="../ms_office.html" class="back-button">⮌ Back to Home</a>
+  </main>
+  <footer>&copy; Pawan Soni</footer>
+</body>
+</html>
