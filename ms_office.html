@@ -76,6 +76,15 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       animation: fadeInZoom 0.6s ease forwards;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7em;
+    }
+    a.button span.emoji {
+      font-size: 1.5em;
+      display: inline-block;
+      vertical-align: middle;
     }
     a.button:hover {
       background: linear-gradient(120deg, #ff0303, #ffbb00);
@@ -96,8 +105,6 @@
       color: var(--primary);
       box-shadow: inset 0 1px 0 rgba(0,0,0,0.05);
     }
-
-    /* Mobile Adjustments */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
@@ -108,6 +115,9 @@
       a.button {
         font-size: 1rem;
         padding: 16px;
+      }
+      a.button span.emoji {
+        font-size: 1.2em;
       }
     }
   </style>
@@ -135,17 +145,17 @@
     <p>AN ISO CERTIFIED INSTITUTION</p>
   </header>
   <main>
-    <a class="button" href="introduction-ms-office.html" target="_blank">Introduction of MS Office</a>
-    <a class="button" href="ms-word.html" target="_blank">MS Word</a>
-    <a class="button" href="ms-word-shortcut-keys.html" target="_blank">MS Word Shortcut Keys</a>
-    <a class="button" href="ms-excel.html" target="_blank">MS Excel</a>
-    <a class="button" href="ms-excel-shortcut-keys.html" target="_blank">MS Excel Shortcut Keys</a>
-    <a class="button" href="ms-powerpoint.html" target="_blank">MS PowerPoint</a>
-    <a class="button" href="ms-powerpoint-shortcut-keys.html" target="_blank">MS PowerPoint Shortcut Keys</a>
-    <a class="button" href="ms-access.html" target="_blank">MS Access</a>
-    <a class="button" href="ms-outlook.html" target="_blank">MS Outlook</a>
-    <a class="button" href="ms-publisher.html" target="_blank">MS Publisher</a>
-    <a class="button" href="ms-onenote.html" target="_blank">MS OneNote</a>
+    <a class="button" href="introduction-ms-office.html" target="_blank"><span class="emoji">💡</span>Introduction of MS Office</a>
+    <a class="button" href="ms-word.html" target="_blank"><span class="emoji">📝</span>MS Word</a>
+    <a class="button" href="ms-word-shortcut-keys.html" target="_blank"><span class="emoji">⌨️</span>MS Word Shortcut Keys</a>
+    <a class="button" href="ms-excel.html" target="_blank"><span class="emoji">📊</span>MS Excel</a>
+    <a class="button" href="ms-excel-shortcut-keys.html" target="_blank"><span class="emoji">⌨️</span>MS Excel Shortcut Keys</a>
+    <a class="button" href="ms-powerpoint.html" target="_blank"><span class="emoji">📈</span>MS PowerPoint</a>
+    <a class="button" href="ms-powerpoint-shortcut-keys.html" target="_blank"><span class="emoji">⌨️</span>MS PowerPoint Shortcut Keys</a>
+    <a class="button" href="ms-access.html" target="_blank"><span class="emoji">🗄️</span>MS Access</a>
+    <a class="button" href="ms-outlook.html" target="_blank"><span class="emoji">✉️</span>MS Outlook</a>
+    <a class="button" href="ms-publisher.html" target="_blank"><span class="emoji">📰</span>MS Publisher</a>
+    <a class="button" href="ms-onenote.html" target="_blank"><span class="emoji">📒</span>MS OneNote</a>
   </main>
   <footer>
     &copy; Pawan Soni
