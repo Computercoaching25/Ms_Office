@@ -124,7 +124,7 @@
       position: relative;
       overflow: hidden;
       border: 2px solid transparent;
-      cursor: all-scroll;
+      cursor: move;
     }
     .course-card:hover {
       transform: translateY(-8px) scale(1.045) rotate(-1deg);
@@ -314,6 +314,23 @@
       <span class="ad-highlight">All Computer Courses, Notes, Practice Tests & Extra Materials</span><br>
       <span style="color:#2d3a4e; font-weight: 600;">Now in <span class="ad-highlight">One Place!</span></span>
     </div>
+      <div class="login-section">
+    <div class="login-box">
+      <div class="login-title">Student Login</div>
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <label for="studentId">Student Name</label>
+          <input type="text" id="studentId" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+        <div class="error-msg" id="errorMsg"></div>
+      </form>
+    </div>
+  </div>
     <div class="courses-grid">
       <div class="course-card">
         <span class="course-icon"><i class="fas fa-desktop"></i></span>
@@ -368,23 +385,7 @@
       Enroll Now & Build Your Future!
     </button>
   </div>
-  <div class="login-section">
-    <div class="login-box">
-      <div class="login-title">Student Login</div>
-      <form id="loginForm" autocomplete="off">
-        <div class="input-group">
-          <label for="studentId">Student Name</label>
-          <input type="text" id="studentId" placeholder="Enter your name" required>
-        </div>
-        <div class="input-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter password" required>
-        </div>
-        <button type="submit" class="submit-btn">Login</button>
-        <div class="error-msg" id="errorMsg"></div>
-      </form>
-    </div>
-  </div>
+<br><br><br><br><br><br>
   <div class="watermark">
     Creator - Pawan Soni &nbsp; | &nbsp; Powered by Chitragupt Academy
   </div>
