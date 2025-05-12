@@ -127,6 +127,29 @@
       background-color: #187086;
     }
   </style>
+  <script>
+    // Disable right-click
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    // Disable common keyboard shortcuts (Ctrl+S, Ctrl+P, Ctrl+C, etc.)
+    document.addEventListener("keydown", function (e) {
+      if (
+        e.ctrlKey &&
+        ["s", "p", "c", "u", "a", "x", "v"].includes(e.key.toLowerCase())
+      ) {
+        e.preventDefault();
+      }
+
+      // Block Print Screen (basic method)
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText("Screenshot disabled by admin");
+        alert("Screenshot is disabled on this page!");
+      }
+    });
+
+    // Disable text selection
+    document.addEventListener("selectstart", e => e.preventDefault());
+  </script>
 </head>
 <body>
   <div class="container">
@@ -199,7 +222,7 @@
 </tbody>
     </table>
     <footer> 
-      <a href="ms_shortcut_2" class="Page">Goto Page 2</a>
+      <a href="ms_shortcut_2.html" class="Page">Goto Page 2</a><br>
      <a href="../ms_office.html" class="back-home">Back</a>
       <br><br><br><br>
          &copy; <span id="year"></span> Pawan Soni<br>
