@@ -2,157 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MS Word - CHITRAGUPT ACADEMY</title>
+  <title>MS Word Advanced Notes - CHITRAGUPT ACADEMY</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* Reset and Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #f0f4ff, #e8f0ff);
-      color: #1a237e;
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #d1e3ff);
+      color: #0d1b2a;
+      padding: 20px;
       user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
     }
     header {
-      background: linear-gradient(90deg, #3f51b5, #5c6bc0);
-      text-align: center;
+      background: linear-gradient(90deg, #1a237e, #3949ab);
       color: white;
-      padding: 30px 20px 10px 20px;
-      animation: slideDown 1s ease;
+      text-align: center;
+      padding: 40px 20px 20px;
+      animation: slideIn 1s ease-out;
     }
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 800;
     }
     header p {
-      margin: 5px 0 0;
-      font-size: 1.2rem;
-      color: #d1d9ff;
+      font-size: 1.1rem;
+      color: #c5cae9;
+      margin-top: 5px;
     }
-    main {
-      max-width: 900px;
+    .container {
+      max-width: 1200px;
       margin: 30px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 80, 0.1);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
       animation: fadeIn 1.5s ease;
     }
-    h2 {
-      font-size: 1.8rem;
-      color: #3949ab;
-      margin-top: 20px;
-      border-bottom: 3px solid #7986cb;
-      padding-bottom: 10px;
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 80, 0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+      position: relative;
+      overflow: hidden;
     }
-    section {
-      margin-bottom: 25px;
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50px; left: -50px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, #e3f2fd 10%, transparent 70%);
+      z-index: 0;
     }
-    ul {
-      padding-left: 20px;
-      list-style-type: none;
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(0, 0, 80, 0.2);
     }
-    ul li::before {
-      content: "✓ ";
-      color: #3f51b5;
-      margin-right: 8px;
+    .card h3 {
+      font-size: 1.4rem;
+      color: #1a237e;
+      margin-bottom: 12px;
+      z-index: 1;
+      position: relative;
     }
-    ul li {
-      margin-bottom: 10px;
+    .card p {
+      font-size: 1rem;
+      color: #333;
       line-height: 1.6;
+      z-index: 1;
+      position: relative;
+    }
+             /* Screenshot container with lock */
+    .screenshot-container {
+        position: relative;
+        max-width: 600px;
+        margin: 3rem auto 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+        cursor: not-allowed;
+        user-select: none;
+        animation: zoomIn 1.5s ease forwards;
+    }
+    .screenshot-container img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+        pointer-events: none;
+    }
+    .lock-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: #b39ddb99;
+        pointer-events: none;
+        user-select: none;
+        animation: pulseLock 3s ease-in-out infinite;
+        text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
     }
     .back-button {
       display: block;
-      text-align: center;
-      margin: 40px auto 10px;
-      background: linear-gradient(90deg, #3949ab, #5c6bc0);
+      margin: 50px auto 10px;
+      background: linear-gradient(90deg, #283593, #5c6bc0);
       color: white;
-      padding: 12px 24px;
-      border-radius: 30px;
+      padding: 14px 32px;
+      border-radius: 35px;
       text-decoration: none;
+      font-size: 1.2rem;
       font-weight: 600;
-      font-size: 1.1rem;
-      width: fit-content;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      text-align: center;
+      width: max-content;
     }
     .back-button:hover {
-      transform: translateY(-3px) scale(1.05);
-      background: linear-gradient(90deg, #ff4081, #ff8a65);
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff4081, #ff7043);
     }
     footer {
       text-align: center;
-      padding: 12px;
+      margin-top: 20px;
+      padding: 14px;
       font-size: 1rem;
-      color: #3949ab;
       font-weight: 600;
-      background-color: #e8eaf6;
-      box-shadow: inset 0 1px 0 #c5cae9;
+      color: #1a237e;
+      background: #e3f2fd;
+      border-top: 1px solid #cfd8dc;
+    }
+     @keyframes pulseLock {
+        0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+        50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      main {
-        padding: 20px;
-      }
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      .back-button {
-        font-size: 1rem;
-        padding: 10px 20px;
-      }
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
-  <!-- Content Protection Scripts -->
   <script>
-    // Disable right-click
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
-
-    // Disable text selection
-    document.addEventListener('selectstart', function(e) {
-      e.preventDefault();
-    });
-
-    // Disable copy, cut, paste, and certain keyboard shortcuts
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('keydown', function(e) {
       if ((e.ctrlKey && ['c','x','v','u','s','p','a'].includes(e.key.toLowerCase())) || e.key === 'PrintScreen' || e.keyCode === 123) {
         e.preventDefault();
       }
     });
-
-    // Attempt to block PrintScreen
     document.addEventListener('keyup', function(e) {
       if (e.key === 'PrintScreen') {
         navigator.clipboard.writeText('');
       }
     });
-
-    // Disable drag
-    document.addEventListener('dragstart', function(e) {
-      e.preventDefault();
-    });
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
   </script>
 </head>
 <body>
@@ -160,51 +166,29 @@
     <h1>CHITRAGUPT ACADEMY</h1>
     <p>AN ISO CERTIFIED INSTITUTION</p>
   </header>
-  <main>
-    <h2>Introduction to Microsoft Word</h2>
-    <section>
-      <p>Microsoft Word is a powerful word processing software developed by Microsoft. It enables users to create, edit, format, and share text-based documents efficiently. As part of the Microsoft Office suite, Word is widely used for personal, academic, and professional documentation tasks.</p>
-    </section>
 
-    <h2>Key Features of Microsoft Word</h2>
-    <section>
-      <ul>
-        <li><strong>User-Friendly Interface:</strong> Intuitive layout with Ribbon tabs for easy navigation.</li>
-        <li><strong>Advanced Text Formatting:</strong> Customize fonts, colors, spacing, bullet points, and alignment.</li>
-        <li><strong>Built-in Templates:</strong> Access a variety of pre-designed templates for resumes, letters, reports, and more.</li>
-        <li><strong>Real-Time Spell Check and Grammar Correction:</strong> Automatically detect and correct errors as you type.</li>
-        <li><strong>Insert Tables, Images, Charts, and Hyperlinks:</strong> Enhance documents with visual elements and functional links.</li>
-        <li><strong>Page Layout and Design Tools:</strong> Adjust margins, orientation, page size, and apply themes, borders, and watermarks.</li>
-        <li><strong>Collaboration and Track Changes:</strong> Share documents online, co-author in real time, and use comments and track changes for smooth collaboration.</li>
-        <li><strong>Mail Merge Functionality:</strong> Automate the creation of personalized letters, labels, and emails using data from Excel or Outlook.</li>
-        <li><strong>Cloud Storage with OneDrive:</strong> Access and edit documents from anywhere with Microsoft 365 cloud integration.</li>
-        <li><strong>Document Security and Protection:</strong> Add passwords, restrict editing, and use digital signatures to protect sensitive content.</li>
-      </ul>
-    </section>
-
-    <h2>Common Uses of Microsoft Word</h2>
-    <section>
-      <ul>
-        <li>Creating professional documents such as resumes, cover letters, and reports.</li>
-        <li>Designing newsletters, brochures, and flyers.</li>
-        <li>Drafting academic papers and research articles.</li>
-        <li>Preparing business documents like invoices and meeting minutes.</li>
-        <li>Collaborating on documents with real-time editing and feedback.</li>
-      </ul>
-    </section>
-
-    <h2>Microsoft Word Interface Overview</h2>
-    <section>
-      <p>The Microsoft Word interface features a structured layout with the Title Bar at the top, followed by Ribbon tabs like Home, Insert, and Layout. Below that, the workspace allows users to create, edit, and format documents efficiently using a wide range of tools.</p>
-    </section>
-
-    <h2>Conclusion</h2>
-    <section>
-      <p>Microsoft Word is an essential tool for creating and managing text-based documents. Its user-friendly interface, advanced features, and collaboration capabilities make it suitable for students, professionals, and businesses alike.</p>
-    </section>
-
-    <a href="../ms_office.html" class="back-button">Back</a>
-  </main>
+  <div class="container">
+    <div class="card"><h3>1. Introduction to MS Word</h3><p>MS Word is a powerful word processing tool used to create, format, edit, and print professional documents including letters, reports, resumes, and books.</p></div>
+    <div class="card"><h3>2. Types of Alignment and Line Spacing</h3><p>Alignments (Left, Center, Right, Justify) control horizontal text alignment. Line spacing controls vertical space between lines (e.g., Single, 1.5, Double).</p></div>
+    <div class="card"><h3>3. Tables and Creating Ads</h3><p>Tables help organize data in rows and columns. They're used in resumes, invoices, forms, and advertisements for layout precision.</p></div>
+    <div class="card"><h3>4. Insert Picture and Editing</h3><p>Insert images to visually enrich documents. Use features like crop, brightness/contrast, styles, and layout options for customization.</p></div>
+    <div class="card"><h3>5. Insert Shapes</h3><p>Add visual interest and illustrations using shapes such as rectangles, arrows, stars, and flowchart symbols.</p></div>
+    <div class="card"><h3>6. Insert Text Box and Cover Page</h3><p>Text boxes allow flexible text placement. Cover pages provide a professional front page with title, author, and date.</p></div>
+    <div class="card"><h3>7. Create Template in MS Word</h3><p>Templates save layout and design for repeated use (e.g., business letters, invoices), saving time and maintaining consistency.</p></div>
+    <div class="card"><h3>8. Insert SmartArt, Chart, Hyperlink, Header & Footer</h3><p>Use SmartArt and Charts for diagrams/data. Hyperlinks link to websites/files. Headers/Footers display info like titles, dates, page numbers.</p></div>
+    <div class="card"><h3>9. Complete Page Layout Menu</h3><p>Customize document setup: margins, orientation, size, columns, page breaks, themes, borders, and watermarks.</p></div>
+    <div class="card"><h3>10. References Menu in MS Word</h3><p>Useful for academic writing: manage citations, insert bibliographies, footnotes, endnotes, and a table of contents.</p></div>
+    <div class="card"><h3>11. Insert Caption and Mark Citation</h3><p>Add captions to images/tables. Mark citations to automatically reference sources and generate bibliographies.</p></div>
+    <div class="card"><h3>12. Envelopes and Labels in Mailings Menu</h3><p>Create and print professional envelopes and address labels directly from Word using mailing tools.</p></div>
+    <div class="card"><h3>13. Use of Mail Merge</h3><p>Mail Merge automates personalized letters/emails by connecting to databases like Excel to insert individual names/addresses.</p></div>
+    <div class="card"><h3>14. Spelling, Grammar and Track Changes</h3><p>Use spell check, grammar tools to correct text. Track Changes lets multiple users edit collaboratively with visible revisions.</p></div>
+    <div class="card"><h3>15. View Menu in MS Word</h3><p>Switch views: Read Mode, Web Layout, Print Layout. Access navigation pane, zoom, gridlines, rulers for layout control.</p></div>
+  </div>
+<div class="screenshot-container" aria-label="Ms Word Screenshot Lock">
+                <img src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1844/2017/04/25180106/blankdocument1.png" alt="MS Word Interface" draggable="false" />
+                <div class="lock-overlay" aria-hidden="true">🔒</div>
+            </div>
+  <a href="../ms_office.html" class="back-button">Back</a>
   <footer>&copy; Pawan Soni</footer>
 </body>
 </html>
