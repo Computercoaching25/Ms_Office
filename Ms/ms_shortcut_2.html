@@ -111,6 +111,29 @@
       background-color: #1b5e20;
     }
   </style>
+  <script>
+    // Disable right-click
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    // Disable common keyboard shortcuts (Ctrl+S, Ctrl+P, Ctrl+C, etc.)
+    document.addEventListener("keydown", function (e) {
+      if (
+        e.ctrlKey &&
+        ["s", "p", "c", "u", "a", "x", "v"].includes(e.key.toLowerCase())
+      ) {
+        e.preventDefault();
+      }
+
+      // Block Print Screen (basic method)
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText("Screenshot disabled by admin");
+        alert("Screenshot is disabled on this page!");
+      }
+    });
+
+    // Disable text selection
+    document.addEventListener("selectstart", e => e.preventDefault());
+  </script>
 </head>
 <body>
   <div class="container">
