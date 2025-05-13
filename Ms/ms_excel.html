@@ -27,7 +27,7 @@
     }
     header p {
       font-size: 1.1rem;
-      color: #c5cae9;
+      color: #7e8ef8;
       margin-top: 5px;
     }
     .container {
@@ -52,7 +52,6 @@
       position: absolute;
       top: -50px; left: -50px;
       width: 200px; height: 200px;
-      background: radial-gradient(circle, #e3f2fd 10%, transparent 70%);
       z-index: 0;
     }
     .card:hover {
@@ -132,6 +131,31 @@
       background: #e3f2fd;
       border-top: 1px solid #cfd8dc;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1px 0;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #d0e2f2;
+      padding: 1px 5px;
+      text-align: left;
+    }
+    th {
+      background: #3a7bd5;
+      color: #fff;
+      font-weight: 600;
+    }
+    code, pre {
+      background: #f2f2f2;
+      color: #1a237e;
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-size: 1em;
+    }
      @keyframes pulseLock {
         0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
         50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
@@ -168,29 +192,203 @@
   </header>
 
   <div class="container">
-    <div class="card"><h3>1. Introduction to MS Excel</h3><ul>
+
+    <div class="card">
+    <h2>1. Introduction to MS Excel</h2>
+    <ul>
       <li>MS Excel is a spreadsheet program by Microsoft used for organizing, analyzing, and visualizing data.</li>
       <li>It consists of rows (numbered) and columns (lettered), forming cells where data is entered.</li>
       <li>Common uses: calculations, data analysis, charts, pivot tables, data management, and automation via formulas and macros.</li>
       <li>Key features: Home, Insert, Page Layout, Formulas, Data, Review, and View tabs on the Ribbon[1][2][3][4][7].</li>
-    </ul></div>
-    <div class="card"><h3>2. Types of Alignment and Line Spacing</h3><p>Alignments (Left, Center, Right, Justify) control horizontal text alignment. Line spacing controls vertical space between lines (e.g., Single, 1.5, Double).</p></div>
-    <div class="card"><h3>3. Tables and Creating Ads</h3><p>Tables help organize data in rows and columns. They're used in resumes, invoices, forms, and advertisements for layout precision.</p></div>
-    <div class="card"><h3>4. Insert Picture and Editing</h3><p>Insert images to visually enrich documents. Use features like crop, brightness/contrast, styles, and layout options for customization.</p></div>
-    <div class="card"><h3>5. Insert Shapes</h3><p>Add visual interest and illustrations using shapes such as rectangles, arrows, stars, and flowchart symbols.</p></div>
-    <div class="card"><h3>6. Insert Text Box and Cover Page</h3><p>Text boxes allow flexible text placement. Cover pages provide a professional front page with title, author, and date.</p></div>
-    <div class="card"><h3>7. Create Template in MS Word</h3><p>Templates save layout and design for repeated use (e.g., business letters, invoices), saving time and maintaining consistency.</p></div>
-    <div class="card"><h3>8. Insert SmartArt, Chart, Hyperlink, Header & Footer</h3><p>Use SmartArt and Charts for diagrams/data. Hyperlinks link to websites/files. Headers/Footers display info like titles, dates, page numbers.</p></div>
-    <div class="card"><h3>9. Complete Page Layout Menu</h3><p>Customize document setup: margins, orientation, size, columns, page breaks, themes, borders, and watermarks.</p></div>
-    <div class="card"><h3>10. References Menu in MS Word</h3><p>Useful for academic writing: manage citations, insert bibliographies, footnotes, endnotes, and a table of contents.</p></div>
-    <div class="card"><h3>11. Insert Caption and Mark Citation</h3><p>Add captions to images/tables. Mark citations to automatically reference sources and generate bibliographies.</p></div>
-    <div class="card"><h3>12. Envelopes and Labels in Mailings Menu</h3><p>Create and print professional envelopes and address labels directly from Word using mailing tools.</p></div>
-    <div class="card"><h3>13. Use of Mail Merge</h3><p>Mail Merge automates personalized letters/emails by connecting to databases like Excel to insert individual names/addresses.</p></div>
-    <div class="card"><h3>14. Spelling, Grammar and Track Changes</h3><p>Use spell check, grammar tools to correct text. Track Changes lets multiple users edit collaboratively with visible revisions.</p></div>
-    <div class="card"><h3>15. View Menu in MS Word</h3><p>Switch views: Read Mode, Web Layout, Print Layout. Access navigation pane, zoom, gridlines, rulers for layout control.</p></div>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>2. If Condition in MS Excel</h2>
+    <ul>
+      <li>The <code>IF</code> function checks a condition and returns one value if TRUE, another if FALSE.</li>
+      <li>Syntax: <code>=IF(logical_test, value_if_true, value_if_false)</code></li>
+      <li>Example: <code>=IF(A1&gt;10, "High", "Low")</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3. Advanced If Condition in MS Excel</h2>
+    <ul>
+      <li>Nested IF: Multiple IF statements inside each other for complex logic.<br>
+        Example: <code>=IF(A1&gt;80, "A", IF(A1&gt;60, "B", IF(A1&gt;40, "C", "Fail")))</code></li>
+      <li>Combined with <code>AND</code>, <code>OR</code> for multiple conditions:<br>
+        <code>=IF(AND(A1&gt;=50, B1="Pass"), "Eligible", "Not Eligible")</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Create Table App in MS Excel</h2>
+    <ul>
+      <li>Select your data range, go to <b>Insert</b> &rarr; <b>Table</b>.</li>
+      <li>Tables allow sorting, filtering, and structured references for formulas.</li>
+      <li>Tables auto-format and add features like total rows and banded rows for readability.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>5. Conditional Formatting in MS Excel</h2>
+    <ul>
+      <li>Conditional Formatting highlights cells based on rules (e.g., color cells &gt; 100 in green).</li>
+      <li>Found under <b>Home</b> &rarr; <b>Conditional Formatting</b>.</li>
+      <li>Options: Highlight Cell Rules, Top/Bottom Rules, Data Bars, Color Scales, Icon Sets.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>6. Conditional Formatting in Detail in MS Excel</h2>
+    <ul>
+      <li>Custom rules using formulas: <code>=A1&gt;50</code> to color cells above 50.</li>
+      <li>Applies to ranges, can use multiple rules with priority order.</li>
+      <li>Manage rules: <b>Conditional Formatting</b> &rarr; <b>Manage Rules</b> for editing, deleting, or reordering.</li>
+      <li>Useful for dashboards, trend highlighting, error spotting, etc.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>7. Format Option in Home Menu in MS Excel</h2>
+    <ul>
+      <li>Formatting options: font, size, color, bold, italics, underline, cell fill color, borders, alignment, number formats, cell styles, and more.</li>
+      <li>Found in the <b>Home</b> tab for quick access to common formatting tools[1].</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>8. Pivot Table in MS Excel</h2>
+    <ul>
+      <li>Pivot Tables summarize and analyze large datasets easily.</li>
+      <li>Create via <b>Insert</b> &rarr; <b>PivotTable</b>, select data range.</li>
+      <li>Drag fields into Rows, Columns, Values, and Filters to rearrange and analyze data dynamically.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>9. Page Layout in MS Excel</h2>
+    <ul>
+      <li>Set up print area, orientation (portrait/landscape), margins, size, background, and themes.</li>
+      <li>Found in <b>Page Layout</b> tab for preparing sheets for printing or presentation[1].</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>10. Basic to Advanced Formulas in Excel</h2>
+    <ul>
+      <li><b>Basic:</b> <code>SUM</code>, <code>AVERAGE</code>, <code>MIN</code>, <code>MAX</code>, <code>COUNT</code></li>
+      <li><b>Intermediate:</b> <code>IF</code>, <code>SUMIF</code>, <code>COUNTIF</code>, <code>VLOOKUP</code>, <code>HLOOKUP</code></li>
+      <li><b>Advanced:</b> <code>INDEX</code>, <code>MATCH</code>, <code>OFFSET</code>, <code>INDIRECT</code>, <code>ARRAY FORMULAS</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>11. VLOOKUP, HLOOKUP, and LOOKUP Formulas in Excel</h2>
+    <table>
+      <tr>
+        <th>Function</th>
+        <th>Purpose</th>
+        <th>Syntax</th>
+      </tr>
+      <tr>
+        <td>VLOOKUP</td>
+        <td>Vertical lookup in a table</td>
+        <td><code>=VLOOKUP(lookup_value, table_array, col_index, [range_lookup])</code></td>
+      </tr>
+      <tr>
+        <td>HLOOKUP</td>
+        <td>Horizontal lookup in a table</td>
+        <td><code>=HLOOKUP(lookup_value, table_array, row_index, [range_lookup])</code></td>
+      </tr>
+      <tr>
+        <td>LOOKUP</td>
+        <td>General lookup (vertical/horizontal)</td>
+        <td><code>=LOOKUP(lookup_value, lookup_vector, [result_vector])</code></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>12. Create Invoice/Bill in Excel</h2>
+    <ul>
+      <li>Design table with columns: Item, Description, Quantity, Unit Price, Total.</li>
+      <li>Use formulas: <code>=Quantity*Unit Price</code> for line totals, <code>=SUM(Total Range)</code> for grand total.</li>
+      <li>Add company logo, customer details, and formatting for professional look.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>13. Picture Lookup in Excel</h2>
+    <ul>
+      <li>Use <b>Camera Tool</b> or <b>Linked Pictures</b> to display images based on cell values.</li>
+      <li>Combine with <code>INDEX</code>/<code>MATCH</code> to change pictures dynamically (requires named ranges and some setup).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>14. Define Name and Name Manager in Excel</h2>
+    <ul>
+      <li><b>Define Name:</b> Assign a name to a cell or range for easy reference (Formulas &rarr; Define Name).</li>
+      <li><b>Name Manager:</b> View, edit, or delete named ranges (Formulas &rarr; Name Manager).</li>
+      <li>Names make formulas more readable and manageable.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>15. Age Calculator in Excel</h2>
+    <ul>
+      <li>Use <code>=DATEDIF(Birthdate, TODAY(), "Y")</code> to calculate age in years.</li>
+      <li>For full details: <code>=DATEDIF(A1, TODAY(), "Y") & " Years, " & DATEDIF(A1, TODAY(), "YM") & " Months"</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>16. Formula Auditing in Excel</h2>
+    <ul>
+      <li>Tools for tracing and debugging formulas: Trace Precedents, Trace Dependents, Error Checking.</li>
+      <li>Found in <b>Formulas</b> tab &rarr; <b>Formula Auditing</b> group.</li>
+      <li>Helps find errors and understand formula logic in complex sheets.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>17. Data Menu in Excel</h2>
+    <ul>
+      <li>Data tab includes: Sort, Filter, Data Tools (Remove Duplicates, Data Validation), Get External Data, Group/Ungroup, What-If Analysis, Consolidate, and more[1].</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>18. Consolidate, What-If Analysis, and Data Validation in Excel</h2>
+    <ul>
+      <li><b>Consolidate:</b> Combine data from multiple ranges/sheets.</li>
+      <li><b>What-If Analysis:</b> Tools like Scenario Manager, Goal Seek, Data Tables to test different outcomes.</li>
+      <li><b>Data Validation:</b> Restrict data entry (e.g., only numbers, dates, dropdown lists).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>19. Calculation of EMI using PMT, IPMT, PPMT Functions in Excel</h2>
+    <ul>
+      <li><b>PMT:</b> Calculates loan EMI: <code>=PMT(rate, nper, pv)</code></li>
+      <li><b>IPMT:</b> Interest portion for a period: <code>=IPMT(rate, per, nper, pv)</code></li>
+      <li><b>PPMT:</b> Principal portion for a period: <code>=PPMT(rate, per, nper, pv)</code></li>
+      <li><b>Example:</b> <code>=PMT(10%/12, 60, 500000)</code> (for 5-year loan, 10% annual rate, ₹5,00,000 principal)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>20. Review Menu in Excel</h2>
+    <ul>
+      <li>Spell Check, Comments, Notes, Protect Sheet/Workbook, Track Changes.</li>
+      <li>Helps in proofreading, collaboration, and security of your Excel files[1].</li>
+    </ul>
+  </div>
   </div>
 <div class="screenshot-container" aria-label="Ms Word Screenshot Lock">
-                <img src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1844/2017/04/25180106/blankdocument1.png" alt="MS Word Interface" draggable="false" />
+                <img src="https://cdn.ablebits.com/_img-blog/ribbon/excel-ribbon.png" alt="MS Word Interface" draggable="false" />
                 <div class="lock-overlay" aria-hidden="true">🔒</div>
             </div>
   <a href="../ms_office.html" class="back-button">Back</a>
