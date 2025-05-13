@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>MS Excel - 200 Shortcut Keys & Uses</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #72c9e2 0%, #2a6f97 100%);
+    color: #111;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  body::after {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 16vw;
+    font-weight: 700;
+    color: #1d3d6a22;
+    pointer-events: none;
+    z-index: 0;
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+    transform: translate(-10%, 0) rotate(-25deg);
+    letter-spacing: 4px;
+  }
+  body::before {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    font-size: 5vw;
+    color: #2a6f97aa;
+    font-weight: 900;
+    z-index: 9999;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: 8px;
+    text-shadow: 0 0 16px #fff, 0 0 32px #2a6f97;
+    opacity: 0.18;
+  }
+  header {
+    background: linear-gradient(90deg, #12264e, #164072, #2d6ca2);
+    color: #e6f0fa;
+    text-align: center;
+    padding: 25px 10px 28px;
+    box-shadow: 0 6px 18px rgb(0 0 0 / 0.35);
+    position: relative;
+    z-index: 10;
+    font-weight: 700;
+  }
+  header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+  header p { margin: 8px 0 0; font-weight: 500; font-style: italic; font-size: 1rem; color: #a9ccff; letter-spacing: 1px; }
+  main.content {
+    flex: 1 1 auto;
+    max-width: 1100px;
+    background: #ffffffee;
+    margin: 30px auto 40px;
+    border-radius: 16px;
+    box-shadow: 0 16px 42px rgb(0 0 0 / 0.18);
+    padding: 24px 32px 36px;
+    overflow: auto;
+    animation: fadeInScale 1.6s ease forwards;
+  }
+  @keyframes fadeInScale {
+    from {opacity: 0; transform: scale(0.98);}
+    to {opacity: 1; transform: scale(1);}
+  }
+  h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #064273;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px #6ea4d8bb;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #222;
+    margin-bottom: 18px;
+  }
+  thead th {
+    background: linear-gradient(90deg, #3f6ea7, #1b3d6c);
+    color: #e8f1ff;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.2);
+  }
+  tbody tr:nth-child(odd) { background: #f4f9ff; }
+  tbody tr:hover { background: #d0e4fb; transition: background-color 0.3s ease; }
+  td { padding: 9px 14px; vertical-align: top; }
+  .shortcut { font-weight: 600; color: #144a7a; white-space: nowrap; }
+  .description { color: #333; }
+  .serial { font-weight: 600; color: #144a7a; text-align: center; }
+  
+   footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #f7e1e1;
+      border-top: 1px solid #ccc;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #2e7d32;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-home:hover {
+      background-color: #1b5e20;
+    }
+    .Page
+    {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0b48cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .Page:hover {
+      background-color: #187086;
+    }
+    .watermark {
+        position: fixed;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Roboto Mono', monospace;
+        font-size: 20px;
+        color: rgb(253, 84, 84);
+        letter-spacing: 2px;
+        user-select: none;
+        pointer-events: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        z-index: 1;
+    }
+  @keyframes pulse {
+    to {
+      box-shadow:
+        0 0 28px 11px #80bbffdd,
+        0 0 40px 14px #80bbffdd;
+      transform: translateY(-8px) scale(1.1);
+    }
+  }
+  main.content::-webkit-scrollbar { width: 10px; }
+  main.content::-webkit-scrollbar-track { background: #d0e4fb66; border-radius: 10px; }
+  main.content::-webkit-scrollbar-thumb { background: #3a6ca8cc; border-radius: 10px; }
+  main.content::-webkit-scrollbar-thumb:hover { background: #2a559c; }
+  @media (max-width: 550px){
+    body::after { font-size: 32vw; bottom: 20px; right: 20px; }
+    main.content { margin: 15px 6px 40px; padding: 12px 2px 18px; }
+    header h1 { font-size: 1.3rem; }
+    header p { font-size: 0.8rem; margin-top: 4px; }
+    h2 { font-size: 1.1rem; margin-bottom: 14px; }
+    table { font-size: 0.76rem; }
+    .back-btn a { padding: 8px 18px; font-size: 0.9rem; }
+  }
+</style>
+<script>
+  // Disable right-click, copy, cut, printscreen, and view-source
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 'U' || e.key === 'a' || e.key === 'A')) ||
+      (e.key === 'PrintScreen') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 's')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+  document.addEventListener('selectstart', function(e){ e.preventDefault(); });
+</script>
+</head>
+<body>
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTE</p>
+  </header>
+  <main class="content" tabindex="0" aria-label="Microsoft Excel Shortcut Keys and Their Uses with Serial Numbers">
+    <h2>MS Excel Shortcut Keys</h2>
+    <table role="table" aria-label="Excel Shortcut Keys Description Table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 8%;">S.No</th>
+          <th scope="col" style="width: 24%;">Shortcut Key(s)</th>
+          <th scope="col" style="width: 68%;">Use / Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1-200 Excel Shortcut Keys (Windows) -->
+        <tr><td class="serial">101</td><td class="shortcut">Shift + F11</td><td class="description">Insert new worksheet.</td></tr>
+        <tr><td class="serial">102</td><td class="shortcut">Shift + F12</td><td class="description">Save workbook.</td></tr>
+        <tr><td class="serial">103</td><td class="shortcut">Alt + F8</td><td class="description">Open Macro dialog box.</td></tr>
+        <tr><td class="serial">104</td><td class="shortcut">Alt + F11</td><td class="description">Open Visual Basic Editor.</td></tr>
+        <tr><td class="serial">105</td><td class="shortcut">Alt + F1</td><td class="description">Insert chart in current worksheet.</td></tr>
+        <tr><td class="serial">106</td><td class="shortcut">Alt + =</td><td class="description">Insert AutoSum formula.</td></tr>
+        <tr><td class="serial">107</td><td class="shortcut">Ctrl + Shift + Enter</td><td class="description">Enter an array formula.</td></tr>
+        <tr><td class="serial">108</td><td class="shortcut">F4</td><td class="description">Repeat last action or toggle cell reference in formula.</td></tr>
+        <tr><td class="serial">109</td><td class="shortcut">F9</td><td class="description">Calculate all worksheets.</td></tr>
+        <tr><td class="serial">110</td><td class="shortcut">Ctrl + Alt + F9</td><td class="description">Force calculate all worksheets.</td></tr>
+        <tr><td class="serial">111</td><td class="shortcut">Ctrl + Alt + Shift + F9</td><td class="description">Recheck dependent formulas and recalculate all cells.</td></tr>
+        <tr><td class="serial">112</td><td class="shortcut">Ctrl + [`]</td><td class="description">Show formulas in worksheet.</td></tr>
+        <tr><td class="serial">113</td><td class="shortcut">Ctrl + [</td><td class="description">Select direct precedents.</td></tr>
+        <tr><td class="serial">114</td><td class="shortcut">Ctrl + ]</td><td class="description">Select direct dependents.</td></tr>
+        <tr><td class="serial">115</td><td class="shortcut">Ctrl + Shift + {</td><td class="description">Select all precedents.</td></tr>
+        <tr><td class="serial">116</td><td class="shortcut">Ctrl + Shift + }</td><td class="description">Select all dependents.</td></tr>
+        <tr><td class="serial">117</td><td class="shortcut">Ctrl + Shift + :</td><td class="description">Enter current time.</td></tr>
+        <tr><td class="serial">118</td><td class="shortcut">Ctrl + Shift + ;</td><td class="description">Enter current date.</td></tr>
+        <tr><td class="serial">119</td><td class="shortcut">Ctrl + Alt + T</td><td class="description">Create table.</td></tr>
+        <tr><td class="serial">120</td><td class="shortcut">Ctrl + Shift + U</td><td class="description">Expand or collapse the formula bar.</td></tr>
+        <tr><td class="serial">121</td><td class="shortcut">Ctrl + Shift + K</td><td class="description">Apply border to selection.</td></tr>
+        <tr><td class="serial">122</td><td class="shortcut">Ctrl + Shift + &</td><td class="description">Apply outline border.</td></tr>
+        <tr><td class="serial">123</td><td class="shortcut">Ctrl + Shift + _</td><td class="description">Remove outline border.</td></tr>
+        <tr><td class="serial">124</td><td class="shortcut">Alt + H + O + I</td><td class="description">Autofit column width.</td></tr>
+        <tr><td class="serial">125</td><td class="shortcut">Alt + H + O + W</td><td class="description">Set column width.</td></tr>
+        <tr><td class="serial">126</td><td class="shortcut">Alt + H + O + H</td><td class="description">Set row height.</td></tr>
+        <tr><td class="serial">127</td><td class="shortcut">Alt + H + D + C</td><td class="description">Delete column.</td></tr>
+        <tr><td class="serial">128</td><td class="shortcut">Alt + H + D + R</td><td class="description">Delete row.</td></tr>
+        <tr><td class="serial">129</td><td class="shortcut">Alt + H + I + C</td><td class="description">Insert column.</td></tr>
+        <tr><td class="serial">130</td><td class="shortcut">Alt + H + I + R</td><td class="description">Insert row.</td></tr>
+        <tr><td class="serial">131</td><td class="shortcut">Alt + H + O + U + H</td><td class="description">Hide row.</td></tr>
+        <tr><td class="serial">132</td><td class="shortcut">Alt + H + O + U + L</td><td class="description">Unhide row.</td></tr>
+        <tr><td class="serial">133</td><td class="shortcut">Alt + H + O + U + C</td><td class="description">Hide column.</td></tr>
+        <tr><td class="serial">134</td><td class="shortcut">Alt + H + O + U + O</td><td class="description">Unhide column.</td></tr>
+        <tr><td class="serial">135</td><td class="shortcut">Alt + N + V</td><td class="description">Insert PivotTable.</td></tr>
+        <tr><td class="serial">136</td><td class="shortcut">Alt + N + S + H</td><td class="description">Insert chart.</td></tr>
+        <tr><td class="serial">137</td><td class="shortcut">Alt + N + Q</td><td class="description">Insert Quick Analysis.</td></tr>
+        <tr><td class="serial">138</td><td class="shortcut">Alt + N + X</td><td class="description">Insert SmartArt.</td></tr>
+        <tr><td class="serial">139</td><td class="shortcut">Alt + N + S + F</td><td class="description">Insert screenshot.</td></tr>
+        <tr><td class="serial">140</td><td class="shortcut">Alt + H + F + C</td><td class="description">Font color.</td></tr>
+        <tr><td class="serial">141</td><td class="shortcut">Alt + H + H</td><td class="description">Fill color.</td></tr>
+        <tr><td class="serial">142</td><td class="shortcut">Alt + H + B</td><td class="description">Add border.</td></tr>
+        <tr><td class="serial">143</td><td class="shortcut">Alt + H + F + N</td><td class="description">Font name.</td></tr>
+        <tr><td class="serial">144</td><td class="shortcut">Alt + H + F + S</td><td class="description">Font size.</td></tr>
+        <tr><td class="serial">145</td><td class="shortcut">Alt + H + A + L</td><td class="description">Align left.</td></tr>
+        <tr><td class="serial">146</td><td class="shortcut">Alt + H + A + C</td><td class="description">Align center.</td></tr>
+        <tr><td class="serial">147</td><td class="shortcut">Alt + H + A + R</td><td class="description">Align right.</td></tr>
+        <tr><td class="serial">148</td><td class="shortcut">Alt + H + M + C</td><td class="description">Merge & Center.</td></tr>
+        <tr><td class="serial">149</td><td class="shortcut">Alt + H + M + A</td><td class="description">Unmerge cells.</td></tr>
+        <tr><td class="serial">150</td><td class="shortcut">Alt + H + W</td><td class="description">Wrap text.</td></tr>
+        </tbody>
+    </table>
+    <footer> 
+      <a href="ms_Eshortcut_4.html" class="Page">Goto Page 4</a><br>
+     <a href="ms_Eshortcut_3.html" class="back-home">Back</a>
+    </footer>
+    <br>
+    <div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div>
+  </main><br><br>
+</body>
+</html>
+
+
+
+
+        
+        
