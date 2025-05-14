@@ -303,6 +303,22 @@
     <br>
     <div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div>
   </main><br><br>
+  <script>
+    // Table search/filter function
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      const filter = this.value.toUpperCase();
+      const rows = document.querySelectorAll('#shortcutTable tbody tr');
+      rows.forEach(row => {
+        const key = row.cells[1].textContent.toUpperCase();
+        const use = row.cells[2].textContent.toUpperCase();
+        if (key.indexOf(filter) > -1 || use.indexOf(filter) > -1) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 
