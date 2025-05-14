@@ -156,6 +156,23 @@
       }
     }
   </style>
+  <script>
+  // Disable right-click, copy, cut, printscreen, and view-source
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 'U' || e.key === 'a' || e.key === 'A')) ||
+      (e.key === 'PrintScreen') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 's')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+  document.addEventListener('selectstart', function(e){ e.preventDefault(); });
+</script>
 </head>
 <body>
   <header>
