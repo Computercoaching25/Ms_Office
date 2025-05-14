@@ -308,7 +308,7 @@
     // Table search/filter function
     document.getElementById('searchInput').addEventListener('keyup', function() {
       const filter = this.value.toUpperCase();
-      const rows = document.querySelectorAll('#shortcutTable tbody tr');
+      const rows = document.querySelectorAll('#shortcutTable tbody tr th');
       rows.forEach(row => {
         const key = row.cells[1].textContent.toUpperCase();
         const use = row.cells[2].textContent.toUpperCase();
