@@ -83,39 +83,35 @@
   }
 
   /* Individual buttons */
-  .button {
-    background: linear-gradient(145deg, #ce93d8, #8e24aa);
-    color: #fff;
-    text-decoration: none;
-    padding: 20px 42px;
-    font-size: 1.28rem;
-    font-weight: 700;
-    border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(142, 36, 170, 0.6);
-    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-    letter-spacing: 1px;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  /* Hover and focus states with glowing effect */
-  .button:hover,
-  .button:focus {
-    background: linear-gradient(145deg, #9c27b0, #6a1b9a);
-    box-shadow:
-      0 0 12px #d05ce3,
-      0 0 24px #9c27b0,
-      0 0 38px #7b1fa2;
-    outline: none;
-    transform: translateY(-4px);
-  }
-  .button:active {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(142, 36, 170, 0.8);
-  }
-
+  .back-button {
+      display: block;
+      margin: 50px auto 10px;
+      background: linear-gradient(90deg, #283593, #5c6bc0);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      text-align: center;
+      width: max-content;
+    }
+    .back-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff4081, #ff7043);
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a237e;
+      background: #e3f2fd;
+      border-top: 1px solid #cfd8dc;
+    }
   /* Responsive adjustments */
   @media (max-width: 700px) {
     .button {
