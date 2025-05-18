@@ -306,50 +306,34 @@
   }
 
   .back-button {
-    position: relative;
-    bottom: 4rem;
-    text-align: center;
-    left: 40%;
-    transform: translateX(-50%);
-    background: #4214c2;
-    color: white;
-    font-weight: 700;
-    padding: 14px 36px;
-    border-radius: 30px;
-    border: none;
-    box-shadow: 0 10px 30px #7c4dffbb;
-    font-size: 1.25rem;
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.35s ease, box-shadow 0.35s ease;
-    text-align: center;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-    z-index: 999;
-  }
-
-  .back-button:hover, .back-button:focus {
-    background: #632ecd;
-    box-shadow: 0 14px 40px #632ecdcc;
-    outline: none;
-  }
-
-  .watermark {
-    position: relative;
-    bottom: 5px;
-    text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
-    color: rgb(174, 0, 255);
-    letter-spacing: 2px;
-    user-select: none;
-    pointer-events: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    z-index: 1;
-  }
+      display: block;
+      margin: 50px auto 10px;
+      background: linear-gradient(90deg, #283593, #5c6bc0);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      text-align: center;
+      width: max-content;
+    }
+    .back-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff4081, #ff7043);
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a237e;
+      background: #e3f2fd;
+      border-top: 1px solid #cfd8dc;
+    }
 
   @keyframes zoomIn {
     from {opacity: 0; transform: scale(0.9);}
@@ -661,9 +645,10 @@
   <img src="https://upload.wikimedia.org/wikipedia/hi/9/91/Microsoft_Office_Excel_2007.png" alt="Microsoft Excel 2007 interface screenshot" draggable="false" />
   <div class="lock-overlay" aria-hidden="true">🔒</div>
 </div>
-<br><br><br><br><br><br>
-<a href="../ms_office.html" class="back-button" aria-label="Go back to the previous page">Back</a>
-<div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div><br><br><br><br>
+<br>
+ <a href="../ms_office.html" class="back-button">Back</a>
+  <footer>&copy; Pawan Soni</footer>
+<br><br><br>
 
 <script>
   // Subtle scroll-based animations for section titles
