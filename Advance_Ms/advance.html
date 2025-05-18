@@ -24,18 +24,28 @@
 
   /* Header */
   header {
-    padding: 2rem 1rem;
+    background: #9c27b0;
+    background: linear-gradient(to right, #7b1fa2, #9c27b0);
+    color: #fff;
+    padding: 2rem;
     text-align: center;
-    background: rgba(33, 16, 45, 0.85);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    font-weight: 700;
-    letter-spacing: 3px;
-    font-size: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 2.8rem;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+  header p {
+    margin: 0.5rem 0 0;
+    font-weight: 500;
+    font-size: 1.85rem;
+    letter-spacing: 1px;
   }
 
   /* Footer */
