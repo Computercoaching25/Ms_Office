@@ -90,13 +90,6 @@
     font-size: 1rem;
   }
 
-  .icon-arrow {
-    display: inline-block;
-    margin-right: 8px;
-    vertical-align: middle;
-    animation: bounce 2s infinite;
-  }
-
   footer {
     text-align: center;
     padding: 1rem 1rem 3rem;
@@ -143,22 +136,97 @@
   }
 
   /* Responsive adjustments */
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     main {
-      margin: 1rem 1rem 3rem;
-      padding: 1.4rem 1.6rem;
+      margin: 1.5rem 1rem 3rem;
+      padding: 1.8rem 2rem;
+      border-radius: 15px;
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
 
     h2.section-title {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     }
 
     h3.subsection-title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      padding-left: 8px;
+      border-left-width: 4px;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .formula {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+    }
+
+    th, td {
+      font-size: 0.9rem;
+      padding: 8px 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    main {
+      margin: 1rem 0.8rem 3rem;
+      padding: 1.4rem 1.6rem;
+      border-radius: 12px;
+    }
+
+    header {
+      padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+    header p {
+      font-size: 1rem;
+    }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      margin-top: 2.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 8px;
+    }
+
+    h3.subsection-title {
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.7rem;
+      border-left-width: 3px;
+      padding-left: 6px;
+    }
+
+    ul li {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.intro {
+      font-size: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .formula {
+      font-size: 0.85rem;
+      padding: 5px 8px;
+      word-break: break-word;
+    }
+
+    table {
+      font-size: 0.85rem;
+    }
+
+    th, td {
+      padding: 6px 8px;
     }
   }
 
@@ -205,152 +273,137 @@
     }
   }
 
- .screenshot-container {
-        position: relative;
-        max-width: 600px;
-        margin: 3rem auto 2rem;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
-        cursor: not-allowed;
-        user-select: none;
-        animation: zoomIn 1.5s ease forwards;
-    }
-    .screenshot-container img {
-        width: 100%;
-        height: auto;
-        filter: brightness(0.8);
-        pointer-events: none;
-    }
-    .lock-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 4rem;
-        color: #b39ddb99;
-        pointer-events: none;
-        user-select: none;
-        animation: pulseLock 3s ease-in-out infinite;
-        text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
-    }
-    .back-button {
-        position: fixed;
-        bottom: 5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #4214c2;
-        color: white;
-        font-weight: 700;
-        padding: 14px 36px;
-        border-radius: 30px;
-        border: none;
-        box-shadow: 0 10px 30px #7c4dffbb;
-        font-size: 1.25rem;
-        cursor: pointer;
-        user-select: none;
-        transition: background 0.35s ease, box-shadow 0.35s ease;
-        text-align: center;
-        text-decoration: none;
-        -webkit-tap-highlight-color: transparent;
-        z-index: 999;
-    }
-    .back-button:hover, .back-button:focus {
-        background: #632ecd;
-        box-shadow: 0 14px 40px #632ecdcc;
-        outline: none;
-    }
-    .watermark {
-        position: fixed;
-        bottom: 5px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: 'Roboto Mono', monospace;
-        font-size: 14px;
-        color: rgb(174, 0, 255);
-        letter-spacing: 2px;
-        user-select: none;
-        pointer-events: none;
-        text-transform: uppercase;
-        font-weight: 600;
-        z-index: 1;
-    }
-    @keyframes containerFadeIn {
-        from {opacity: 0; transform: translateY(40px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeInUp {
-        from {opacity: 0; transform: translateY(24px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes slideInDown {
-        from {opacity: 0; transform: translateY(-40px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes zoomIn {
-        from {opacity: 0; transform: scale(0.9);}
-        to {opacity: 1; transform: scale(1);}
-    }
-    @keyframes pulseLock {
-        0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
-        50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
-    }
-    @media (max-width: 400px) {
-        .container {
-            margin: 1rem 1rem 7rem;
-            padding: 2rem 1.5rem 3.5rem;
-        }
-        .tool-card { flex: 1 1 100%; }
-        .back-button {
-            font-size: 1rem;
-            padding: 12px 28px;
-            bottom: 3.8rem;
-        }
-    }
+  .screenshot-container {
+    position: relative;
+    max-width: 600px;
+    margin: 3rem auto 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+    cursor: not-allowed;
+    user-select: none;
+    animation: zoomIn 1.5s ease forwards;
+  }
 
-    /* Disable selection and copying */
-    body, .back-btn, .snip-demo-area, .lock-icon, .snip-text {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -webkit-touch-callout: none;
-    }
-    @media print {
-      html, body { display: none !important; }
-    }
+  .screenshot-container img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.8);
+    pointer-events: none;
+  }
+
+  .lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #b39ddb99;
+    pointer-events: none;
+    user-select: none;
+    animation: pulseLock 3s ease-in-out infinite;
+    text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
+  }
+
+  .back-button {
+    position: fixed;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4214c2;
+    color: white;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 10px 30px #7c4dffbb;
+    font-size: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+    text-align: center;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 999;
+  }
+
+  .back-button:hover, .back-button:focus {
+    background: #632ecd;
+    box-shadow: 0 14px 40px #632ecdcc;
+    outline: none;
+  }
+
+  .watermark {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    color: rgb(174, 0, 255);
+    letter-spacing: 2px;
+    user-select: none;
+    pointer-events: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    z-index: 1;
+  }
+
+  @keyframes zoomIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes pulseLock {
+    0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+    50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
+  }
+
+  /* Disable selection and copying */
+  body, .back-button, .screenshot-container, .lock-overlay {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  @media print {
+    html, body { display: none !important; }
+  }
 </style>
 <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('copy', e => e.preventDefault());
-    document.addEventListener('cut', e => e.preventDefault());
-    document.addEventListener('paste', e => e.preventDefault());
-    document.addEventListener('keydown', function(e) {
-      if (
-        e.key === 'PrintScreen' ||
-        (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c')) ||
-        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
-        e.key === 'F12'
-      ) {
-        e.preventDefault();
-      }
-    });
-    window.addEventListener("keyup", function(e) {
-      if (e.key === "PrintScreen") {
-        navigator.clipboard.writeText('');
-        alert("Screenshot is locked on this page.");
-      }
-    });
-  </script>
+  // Disable right-click and keyboard shortcuts to lock content
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'PrintScreen' ||
+      (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c')) ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener("keyup", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert("Screenshot is locked on this page.");
+    }
+  });
+</script>
 </head>
 <body>
 <header>
   <h1>CHITRAGUPT ACADEMY</h1>
   <p>AN ISO CERTIFIED INSTITUTION</p>
 </header>
-<main>
+<main role="main" aria-label="MS Excel Detailed Notes">
 
-  <h2 class="section-title">1. Introduction to MS Excel</h2>
+  <h2 class="section-title" tabindex="0">1. Introduction to MS Excel</h2>
   <p class="intro">
     Microsoft Excel is a powerful spreadsheet application used for data analysis, calculation, charting, and reporting. It is widely used in offices, educational institutes, and businesses to manage and analyze numerical data effectively.
   </p>
@@ -361,10 +414,8 @@
     <li>Used for accounting, data entry, statistical analysis, graphing, and more</li>
   </ul>
 
-  <h2 class="section-title">2. Excel Interface and Ribbon</h2>
-  <p class="intro">
-    Familiarize yourself with the Excel components to work efficiently:
-  </p>
+  <h2 class="section-title" tabindex="0">2. Excel Interface and Ribbon</h2>
+  <p class="intro">Familiarize yourself with the Excel components to work efficiently:</p>
   <ul>
     <li><strong>Title Bar:</strong> Displays workbook name and program info</li>
     <li><strong>Ribbon:</strong> Contains tabs like Home, Insert, Page Layout, Formulas, Data, Review, View</li>
@@ -374,7 +425,7 @@
     <li><strong>Worksheet Area:</strong> Cells organized in rows (numbers) and columns (letters)</li>
   </ul>
 
-  <h2 class="section-title">3. Worksheets and Workbooks</h2>
+  <h2 class="section-title" tabindex="0">3. Worksheets and Workbooks</h2>
   <ul>
     <li><strong>Workbook:</strong> Excel file containing one or more worksheets</li>
     <li><strong>Worksheet:</strong> Individual sheets/tabs within a workbook</li>
@@ -383,7 +434,7 @@
     <li>Use sheet tabs at the bottom to navigate</li>
   </ul>
 
-  <h2 class="section-title">4. Data Entry and Cell Basics</h2>
+  <h2 class="section-title" tabindex="0">4. Data Entry and Cell Basics</h2>
   <ul>
     <li>Click on a cell to make it active (borders highlight it)</li>
     <li>Enter text, numbers, or formulas in cell</li>
@@ -392,7 +443,7 @@
     <li>Use arrow keys or mouse to navigate cells</li>
   </ul>
 
-  <h2 class="section-title">5. Formatting Cells</h2>
+  <h2 class="section-title" tabindex="0">5. Formatting Cells</h2>
   <ul>
     <li>Change font style, size, color</li>
     <li>Use bold, italic, underline</li>
@@ -402,12 +453,12 @@
     <li>Format Painter copies formatting from one cell to others</li>
   </ul>
 
-  <h2 class="section-title">6. Formulas and Functions in MS Excel</h2>
+  <h2 class="section-title" tabindex="0">6. Formulas and Functions in MS Excel</h2>
   <p class="intro">
     Formulas in Excel always begin with an equal sign <span class="formula">=</span> and perform calculations using cell references, constants, operators, and functions.
   </p>
 
-  <h3 class="subsection-title">6.1. Writing Basic Formulas</h3>
+  <h3 class="subsection-title" tabindex="0">6.1. Writing Basic Formulas</h3>
   <ul>
     <li>Start with <span class="formula">=</span> followed by expression or function</li>
     <li>Example: <span class="formula">=A1+B1</span> adds values in cells A1 and B1</li>
@@ -424,7 +475,7 @@
     <li>Example: <span class="formula">=(A1+B1)*C1</span> adds A1 and B1, then multiplies the result by C1</li>
   </ul>
 
-  <h3 class="subsection-title">6.2. Relative, Absolute, and Mixed References</h3>
+  <h3 class="subsection-title" tabindex="0">6.2. Relative, Absolute, and Mixed References</h3>
   <ul>
     <li><strong>Relative Reference</strong>: Changes when copying formulas (e.g., <code>A1</code>)</li>
     <li><strong>Absolute Reference</strong>: Stays fixed when copying formulas (e.g., <code>$A$1</code>)</li>
@@ -432,14 +483,14 @@
     <li>Use <span class="formula">F4</span> key to toggle between references while editing formula</li>
   </ul>
 
-  <h3 class="subsection-title">6.3. Common Functions and Their Use Cases</h3>
+  <h3 class="subsection-title" tabindex="0">6.3. Common Functions and Their Use Cases</h3>
 
-  <table>
+  <table role="table" aria-label="Common Excel functions">
     <thead>
       <tr>
-        <th>Function</th>
-        <th>Syntax</th>
-        <th>Description &amp; Example</th>
+        <th scope="col">Function</th>
+        <th scope="col">Syntax</th>
+        <th scope="col">Description &amp; Example</th>
       </tr>
     </thead>
     <tbody>
@@ -516,7 +567,7 @@
     </tbody>
   </table>
 
-  <h3 class="subsection-title">6.4. Logical &amp; Comparison Operators</h3>
+  <h3 class="subsection-title" tabindex="0">6.4. Logical &amp; Comparison Operators</h3>
   <ul>
     <li><code>=</code> Equal to</li>
     <li><code>&lt;&gt;</code> Not equal to</li>
@@ -526,7 +577,7 @@
     <li><code>&lt;=</code> Less than or equal to</li>
   </ul>
 
-  <h3 class="subsection-title">6.5. Text Functions</h3>
+  <h3 class="subsection-title" tabindex="0">6.5. Text Functions</h3>
   <ul>
     <li><span class="formula">=UPPER(text)</span> - converts text to uppercase.</li>
     <li><span class="formula">=LOWER(text)</span> - converts text to lowercase.</li>
@@ -536,7 +587,7 @@
     <li><span class="formula">=TRIM(text)</span> - removes extra spaces.</li>
   </ul>
 
-  <h3 class="subsection-title">6.6. Date &amp; Time Functions</h3>
+  <h3 class="subsection-title" tabindex="0">6.6. Date &amp; Time Functions</h3>
   <ul>
     <li><span class="formula">=DATE(year, month, day)</span> - constructs a date from parts.</li>
     <li><span class="formula">=YEAR(date)</span>, <span class="formula">=MONTH(date)</span>, <span class="formula">=DAY(date)</span> - extract parts from date.</li>
@@ -544,7 +595,7 @@
     <li><span class="formula">=NOW()</span> and <span class="formula">=TODAY()</span> - current date and time.</li>
   </ul>
 
-  <h3 class="subsection-title">6.7. Example Formula Use Cases</h3>
+  <h3 class="subsection-title" tabindex="0">6.7. Example Formula Use Cases</h3>
   <ul>
     <li><strong>Calculate total sales for a range:</strong><br />
       <span class="formula">=SUM(B2:B15)</span></li>
@@ -560,7 +611,7 @@
       <span class="formula">=YEAR(C2)</span></li>
   </ul>
 
-  <h2 class="section-title">7. Working with Rows and Columns</h2>
+  <h2 class="section-title" tabindex="0">7. Working with Rows and Columns</h2>
   <ul>
     <li>Select entire row or column by clicking on row number or column letter</li>
     <li>Insert or delete rows and columns</li>
@@ -569,7 +620,7 @@
     <li>Freeze panes to keep rows or columns visible while scrolling</li>
   </ul>
 
-  <h2 class="section-title">8. Charts and Graphs</h2>
+  <h2 class="section-title" tabindex="0">8. Charts and Graphs</h2>
   <ul>
     <li>Insert various chart types: Column, Line, Pie, Bar, Area, Scatter etc.</li>
     <li>Select data range and choose Insert &gt; Chart</li>
@@ -577,7 +628,7 @@
     <li>Move and resize charts on worksheet</li>
   </ul>
 
-  <h2 class="section-title">9. Sorting and Filtering Data</h2>
+  <h2 class="section-title" tabindex="0">9. Sorting and Filtering Data</h2>
   <ul>
     <li>Sort data ascending or descending based on selected columns</li>
     <li>Filter data to view rows meeting criteria</li>
@@ -585,7 +636,7 @@
     <li>Clear filter to display all data</li>
   </ul>
 
-  <h2 class="section-title">10. Printing and Page Setup</h2>
+  <h2 class="section-title" tabindex="0">10. Printing and Page Setup</h2>
   <ul>
     <li>Setup margins, orientation, page size from Page Layout tab</li>
     <li>Set print area to print selected cells</li>
@@ -594,7 +645,7 @@
     <li>Fit content to one page width or height</li>
   </ul>
 
-  <h2 class="section-title">11. Basic Data Analysis Tools</h2>
+  <h2 class="section-title" tabindex="0">11. Basic Data Analysis Tools</h2>
   <ul>
     <li><strong>AutoSum:</strong> Quickly add a column or row of numbers</li>
     <li><strong>Conditional Formatting:</strong> Highlight data based on rules</li>
@@ -604,15 +655,13 @@
 
 </main>
 
-<div class="screenshot-container" aria-label="Control Panel interface screenshot is locked and unavailable">
-                <img src="https://upload.wikimedia.org/wikipedia/hi/9/91/Microsoft_Office_Excel_2007.png" alt="Control Panel interface screenshot" draggable="false" />
-                <div class="lock-overlay" aria-hidden="true">🔒</div>
-            </div>
-<br><br><br><br><br><br>
-        
-        <a href="javascript:history.back()" class="back-button" aria-label="Go back to the previous page">Back</a>
-        <div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div>
-    </div>
+<div class="screenshot-container" aria-label="MS Excel 2007 interface screenshot is locked and unavailable">
+  <img src="https://upload.wikimedia.org/wikipedia/hi/9/91/Microsoft_Office_Excel_2007.png" alt="Microsoft Excel 2007 interface screenshot" draggable="false" />
+  <div class="lock-overlay" aria-hidden="true">🔒</div>
+</div>
+
+<a href="javascript:history.back()" class="back-button" aria-label="Go back to the previous page">Back</a>
+<div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div>
 
 <script>
   // Subtle scroll-based animations for section titles
@@ -627,6 +676,27 @@
     });
   });
 
+  // Disable right-click and keyboard shortcuts to lock content
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'PrintScreen' ||
+      (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c')) ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener("keyup", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert("Screenshot is locked on this page.");
+    }
+  });
 </script>
 </body>
 </html>
