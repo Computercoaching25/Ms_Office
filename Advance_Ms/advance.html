@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CHITRAGUPT ACADEMY - Microsoft Office Notes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  /* Global styles */
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #8e24aa 0%, #ce93d8 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    user-select: none; /* disables text selection globally */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* Header */
+  header {
+    padding: 2rem 1rem;
+    text-align: center;
+    background: rgba(33, 16, 45, 0.85);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1rem 1rem 2rem;
+    text-align: center;
+    background: rgba(33, 16, 45, 0.85);
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Main content */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    gap: 3rem;
+  }
+
+  /* Buttons container */
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    max-width: 960px;
+    width: 100%;
+  }
+
+  /* Individual buttons */
+  .button {
+    background: linear-gradient(145deg, #ce93d8, #8e24aa);
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 42px;
+    font-size: 1.28rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(142, 36, 170, 0.6);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: 1px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Hover and focus states with glowing effect */
+  .button:hover,
+  .button:focus {
+    background: linear-gradient(145deg, #9c27b0, #6a1b9a);
+    box-shadow:
+      0 0 12px #d05ce3,
+      0 0 24px #9c27b0,
+      0 0 38px #7b1fa2;
+    outline: none;
+    transform: translateY(-4px);
+  }
+  .button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(142, 36, 170, 0.8);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 700px) {
+    .button {
+      width: 100%;
+      max-width: 300px;
+      padding: 18px 28px;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Screenshot lock overlay container */
+  .screenshot-container {
+    position: relative;
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto 2rem;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 15px 40px rgba(142, 36, 170, 0.7),
+      inset 0 0 25px rgba(255, 255, 255, 0.15);
+    user-select: none;
+    cursor: not-allowed;
+    background: #4a148c;
+    animation: zoomIn 1.5s ease forwards;
+  }
+
+  .screenshot-container img {
+    width: 100%;
+    display: block;
+    pointer-events: none;
+    filter: brightness(0.75);
+    user-select: none;
+  }
+
+  .lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    color: #ce93d8cc;
+    pointer-events: none;
+    user-select: none;
+    animation: pulseLock 3s ease-in-out infinite;
+    text-shadow:
+      0 0 15px #ce93d8bb,
+      0 0 30px #8e24aa99;
+  }
+
+  /* Animations */
+  @keyframes zoomIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes pulseLock {
+    0%, 100% {opacity: 0.7; transform: translate(-50%, -50%) scale(1);}
+    50% {opacity: 1; transform: translate(-50%, -50%) scale(1.2);}
+  }
+
+  @keyframes fadeInDown {
+    0% {opacity: 0; transform: translateY(-30px);}
+    100% {opacity:1; transform: translateY(0);}
+  }
+
+  @keyframes fadeInUp {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity:1; transform: translateY(0);}
+  }
+
+  @keyframes slideInLeft {
+    0% {opacity: 0; transform: translateX(-40px);}
+    100% {opacity: 1; transform: translateX(0);}
+  }
+</style>
+<script>
+  // Disable right-click, selection, and certain key shortcuts to protect content
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'PrintScreen' ||
+      (e.ctrlKey && (e.key === 's' || e.key === 'c' || e.key === 'u')) ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener('keyup', function(e) {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText('');
+      alert('Screenshot is locked on this page.');
+    }
+  });
+</script>
+</head>
+<body>
+
+<header>
+  CHITRAGUPT ACADEMY
+</header>
+
+<main>
+ 
+  <div class="button-container" role="navigation" aria-label="Microsoft Office notes navigation">
+    <a href="ms-word-notes.html" class="button" aria-label="MS Word Notes">MS Word</a>
+    <a href="ms-excel-notes.html" class="button" aria-label="MS Excel Notes">MS Excel</a>
+    <a href="ms-powerpoint-notes.html" class="button" aria-label="MS PowerPoint Notes">MS PowerPoint</a>
+    <a href="ms-access-notes.html" class="button" aria-label="MS Access Notes">MS Access</a>
+    <a href="ms-outlook-notes.html" class="button" aria-label="MS Outlook Notes">MS Outlook</a>
+    <a href="internet-research-notes.html" class="button" aria-label="Internet Research Notes">Internet Research</a>
+  </div>
+</main>
+ <div class="screenshot-container" aria-label="Screenshot locked and unavailable">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Office_logo_%282019-present%29.svg" alt="Microsoft Office Logo" draggable="false" />
+    <div class="lock-overlay" aria-hidden="true">🔒</div>
+  </div>
+
+<footer>
+  AN ISO CERTIFIED INSTITUTION
+</footer>
+
+</body>
+</html>
