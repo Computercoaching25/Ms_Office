@@ -24,18 +24,28 @@
 
   /* Header */
   header {
-    padding: 2rem 1rem;
+    background: #9c27b0;
+    background: linear-gradient(to right, #7b1fa2, #9c27b0);
+    color: #fff;
+    padding: 2rem;
     text-align: center;
-    background: rgba(33, 16, 45, 0.85);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    font-weight: 700;
-    letter-spacing: 3px;
-    font-size: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 2.8rem;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+  header p {
+    margin: 0.5rem 0 0;
+    font-weight: 500;
+    font-size: 1.85rem;
+    letter-spacing: 1px;
   }
   /* Main content */
   main {
@@ -128,6 +138,35 @@
     0% {opacity: 0; transform: translateX(-40px);}
     100% {opacity: 1; transform: translateX(0);}
   }
+   .back-button {
+      display: block;
+      margin: 50px auto 10px;
+      background: linear-gradient(90deg, #283593, #5c6bc0);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      text-align: center;
+      width: max-content;
+    }
+    .back-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff4081, #ff7043);
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a237e;
+      background: #e3f2fd;
+      border-top: 1px solid #cfd8dc;
+    }
 </style>
 <script>
   // Disable right-click, selection, and certain key shortcuts to protect content
@@ -154,11 +193,10 @@
 </script>
 </head>
 <body>
-
 <header>
-  CHITRAGUPT ACADEMY
+  <h1>CHITRAGUPT ACADEMY</h1>
+  <p>AN ISO CERTIFIED INSTITUTION</p>
 </header>
-
 <main>
   <div class="button-container" role="navigation" aria-label="Microsoft Office notes navigation">
     <a href="ms-word-notes.html" class="button" aria-label="MS Word Notes">MS Word</a>
@@ -169,7 +207,9 @@
     <a href="internet-research-notes.html" class="button" aria-label="Internet Research Notes">Internet Research</a>
   </div>
 </main>
-
-
+<br>
+ <a href="../ms_office.html" class="back-button">Back</a>
+  <footer>&copy; Pawan Soni</footer>
+<br><br><br>
 </body>
 </html>
