@@ -3,28 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>What is a Computer?</title>
+  <title>What is a Computer? - Full Detailed Notes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#11998e,#38ef7d 100%); color:#222; min-height:100vh; padding:2vw;}
-    header { text-align:center; color:#fff; margin-bottom:2rem;}
-    .smartart-container { max-width:900px; margin:0 auto 30px auto; background:#e7fff2; border-radius:16px; box-shadow:0 2px 12px #38ef7d33;}
+    body {
+      margin:0; 
+      font-family:'Poppins',sans-serif; 
+      background:linear-gradient(135deg,#11998e,#38ef7d 100%);
+      color:#222; 
+      min-height:100vh; 
+      padding:2vw;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+      -moz-user-select: none !important;
+    }
+    header { 
+      text-align:center; 
+      color:#fff; 
+      margin-bottom:2rem;
+      text-shadow: 0 2px 12px #11998e88;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 0 auto 24px auto;
+      padding: 13px 38px;
+      background: linear-gradient(90deg, #38ef7d 0%, #11998e 100%);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.12em;
+      letter-spacing: 1.5px;
+      box-shadow: 0 8px 32px 0 #11998e55;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 30px;
+      outline: none;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+      color: #fff;
+      transform: translateX(-50%) scale(1.06);
+      box-shadow: 0 12px 36px 0 #38ef7d88;
+    }
+    .smartart-container { 
+      max-width:900px; 
+      margin:0 auto 30px auto; 
+      background:#e7fff2; 
+      border-radius:16px; 
+      box-shadow:0 2px 12px #38ef7d33;
+    }
     .smartart-inner { min-width:600px; padding:20px 0 10px 0;}
-    main { max-width:900px; margin:0 auto; background:#fff; border-radius:15px; box-shadow:0 8px 22px rgba(0,0,0,0.13); padding:2rem 2.2rem;}
+    main { 
+      max-width:900px; 
+      margin:0 auto; 
+      background:#fff; 
+      border-radius:15px; 
+      box-shadow:0 8px 22px rgba(0,0,0,0.13); 
+      padding:2rem 2.2rem;
+    }
     h2 { color:#11998e; border-bottom:3px solid #38ef7d; padding-bottom:0.4rem;}
-    ul, p { font-size:1.07rem; line-height:1.6;}
+    ul, p, ol { font-size:1.07rem; line-height:1.6;}
     table { width:100%; border-collapse:collapse; margin:18px 0 0 0;}
     th, td { border:1.5px solid #c8f7e7; padding:10px 8px; text-align:left;}
     th { background:#11998e; color:#fff;}
     tr:nth-child(even) { background:#f5fff9;}
-    @media(max-width:700px){.smartart-inner{min-width:320px;} main{padding:1.5rem 1.2rem;}}
+    .faq { background:#e7fff2; border-radius:10px; padding:1em 1.5em; margin:1.5em 0;}
+    .faq h3 { color:#11998e; margin-bottom: 0.5em;}
+    .copyright {
+      text-align: center;
+      color: #fff;
+      font-size: 1.08em;
+      letter-spacing: 1.3px;
+      margin: 36px auto 0 auto;
+      opacity: 0.9;
+      text-shadow: 0 2px 10px #11998e99;
+      font-weight: 600;
+      padding-bottom: 14px;
+    }
+    @media(max-width:700px){
+      .smartart-inner{min-width:320px;}
+      main{padding:1.5rem 1.2rem;}
+      .back-btn {width: 90vw; font-size: 1em;}
+    }
+    ::selection { background: transparent; }
   </style>
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    // Disable copy, cut, paste
+    document.addEventListener('copy', event => event.preventDefault());
+    document.addEventListener('cut', event => event.preventDefault());
+    document.addEventListener('paste', event => event.preventDefault());
+    // Disable drag
+    document.addEventListener('dragstart', event => event.preventDefault());
+    // Disable PrintScreen, Print, Save
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText('');
+        alert('Screenshots are disabled on this page.');
+        e.preventDefault();
+      }
+      if (e.ctrlKey && (e.key.toLowerCase() === 'p' || e.key.toLowerCase() === 's')) {
+        alert('Printing and saving are disabled on this page.');
+        e.preventDefault();
+      }
+    });
+    // Try to block screenshots via PrintScreen (works in modern browsers)
+    window.addEventListener('keyup', function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText('');
+        alert('Screenshots are disabled on this page.');
+      }
+    });
+    // Remove selection
+    document.addEventListener('selectstart', event => event.preventDefault());
+    document.addEventListener('mousedown', event => event.preventDefault());
+  </script>
 </head>
 <body>
 <header>
   <h1>What is a Computer?</h1>
-  <p>Definition, Block Diagram, Features, and Overview</p>
+  <p>Definition, Block Diagram, Features, Functions, Working, and More</p>
 </header>
+
+<a href="javascript:history.back()" class="back-btn">← Back</a>
+
 <div class="smartart-container">
   <div class="smartart-inner">
     <svg viewBox="0 0 800 180" width="100%" height="150">
@@ -64,34 +173,160 @@
 <main>
   <h2>Definition</h2>
   <p>
-    A <b>computer</b> is an electronic device that can store, manipulate, and process data according to a set of instructions (programs). It can accept data (input), process it, store it, and produce results (output).<br>
-    <b>Origin:</b> The word "computer" comes from the Latin "computare", meaning "to calculate".<br>
-    <b>Basic Function:</b> Accepts input, processes data, stores information, and produces output.<br>
-    <b>Example:</b> Desktop, laptop, smartphone, ATM, etc.<br>
+    A <b>computer</b> is an electronic device that can store, retrieve, and process data according to a set of instructions called programs. It can accept input (data), process it, store it, and produce output (results). Computers can perform complex calculations, logical operations, and data manipulation with speed, accuracy, and reliability.
   </p>
+  <ul>
+    <li><b>Origin:</b> The word "computer" comes from the Latin "computare", meaning "to calculate".</li>
+    <li><b>Basic Function:</b> Accepts input, processes data, stores information, and produces output.</li>
+    <li><b>Examples:</b> Desktop, laptop, smartphone, ATM, server, embedded systems, etc.</li>
+  </ul>
+
   <h2>Block Diagram of a Computer</h2>
   <ul>
-    <li><b>Input Unit:</b> Devices like keyboard, mouse, scanner used to enter data.</li>
-    <li><b>Central Processing Unit (CPU):</b> The "brain" that processes instructions. Consists of ALU (Arithmetic Logic Unit), CU (Control Unit), and registers.</li>
-    <li><b>Memory/Storage Unit:</b> Stores data temporarily (RAM) or permanently (HDD, SSD).</li>
-    <li><b>Output Unit:</b> Devices like monitor, printer, speaker that display results.</li>
+    <li><b>Input Unit:</b> Devices like keyboard, mouse, scanner, microphone, etc. used to enter data and instructions into the computer.</li>
+    <li><b>Central Processing Unit (CPU):</b> The "brain" of the computer that processes instructions. It consists of:
+      <ul>
+        <li><b>ALU (Arithmetic Logic Unit):</b> Performs arithmetic and logical operations.</li>
+        <li><b>CU (Control Unit):</b> Controls and coordinates all operations of the computer.</li>
+        <li><b>Registers:</b> Small, fast memory locations inside the CPU for temporary data storage.</li>
+      </ul>
+    </li>
+    <li><b>Memory/Storage Unit:</b> Stores data temporarily (RAM) or permanently (HDD, SSD, ROM).</li>
+    <li><b>Output Unit:</b> Devices like monitor, printer, speaker, projector, etc. that display or present results to the user.</li>
   </ul>
-  <h2>Features of a Computer</h2>
+
+  <h2>Major Functions of a Computer</h2>
   <ul>
-    <li><b>High Speed:</b> Can process millions of instructions per second.</li>
-    <li><b>Accuracy:</b> Performs calculations with 100% accuracy.</li>
-    <li><b>Diligence:</b> Can work for hours without getting tired or bored.</li>
-    <li><b>Storage:</b> Can store vast amounts of data and recall it instantly.</li>
-    <li><b>Versatility:</b> Can perform a wide variety of tasks (calculations, graphics, games, etc.).</li>
+    <li><b>Input:</b> Accepting data and instructions from the user.</li>
+    <li><b>Processing:</b> Performing calculations, comparisons, and data manipulation as per instructions.</li>
+    <li><b>Output:</b> Presenting processed data (information) to the user.</li>
+    <li><b>Storage:</b> Saving data and instructions for future use.</li>
+    <li><b>Control:</b> Directing the sequence of operations and managing resources.</li>
+  </ul>
+
+  <h2>Features / Characteristics of a Computer</h2>
+  <ul>
+    <li><b>High Speed:</b> Can process millions/billions of instructions per second.</li>
+    <li><b>Accuracy:</b> Performs calculations and operations with 100% accuracy (if input and program are correct).</li>
+    <li><b>Diligence:</b> Can work for long hours without fatigue or loss of concentration.</li>
+    <li><b>Storage Capacity:</b> Can store vast amounts of data and recall it instantly.</li>
+    <li><b>Versatility:</b> Can perform a wide variety of tasks (calculations, graphics, communication, etc.).</li>
     <li><b>Automation:</b> Works automatically once programmed.</li>
     <li><b>Consistency:</b> Gives the same result for the same input every time.</li>
     <li><b>Remembrance Power:</b> Can remember data for years (non-volatile storage).</li>
+    <li><b>Connectivity:</b> Can connect to other devices/networks to share data and resources.</li>
+    <li><b>Logical Decision Making:</b> Can perform simple logical decisions (using IF, ELSE, etc.).</li>
   </ul>
+
+  <h2>Limitations of a Computer</h2>
+  <ul>
+    <li><b>No Intelligence:</b> Cannot think or make decisions on its own; follows instructions blindly.</li>
+    <li><b>No Feelings:</b> Cannot feel emotions like humans (joy, pain, etc.).</li>
+    <li><b>Dependent on Instructions:</b> Needs programs to function; cannot work without instructions.</li>
+    <li><b>Cannot Learn from Experience:</b> Cannot learn from past experiences (unless programmed with AI).</li>
+    <li><b>Garbage In, Garbage Out (GIGO):</b> Wrong input or instructions produce wrong output.</li>
+    <li><b>Requires Power:</b> Needs electricity to operate; stops working if power fails.</li>
+  </ul>
+
+  <h2>Types of Computers (by Size & Purpose)</h2>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Examples</th>
+    </tr>
+    <tr>
+      <td>Supercomputer</td>
+      <td>Most powerful, used for scientific research, weather forecasting</td>
+      <td>PARAM, Cray</td>
+    </tr>
+    <tr>
+      <td>Mainframe</td>
+      <td>Large, multi-user, used by banks, airlines</td>
+      <td>IBM Z series</td>
+    </tr>
+    <tr>
+      <td>Mini Computer</td>
+      <td>Mid-sized, used in small organizations</td>
+      <td>PDP-11</td>
+    </tr>
+    <tr>
+      <td>Microcomputer</td>
+      <td>Personal computers, laptops, tablets</td>
+      <td>PC, MacBook</td>
+    </tr>
+    <tr>
+      <td>Embedded Computer</td>
+      <td>Built into other devices for specific tasks</td>
+      <td>ATM, microwave, car system</td>
+    </tr>
+  </table>
+
+  <h2>Applications of Computers</h2>
+  <ul>
+    <li><b>Education:</b> E-learning, online classes, research, digital libraries.</li>
+    <li><b>Business:</b> Payroll, accounting, sales, inventory, communication.</li>
+    <li><b>Banking:</b> Online banking, ATMs, transactions.</li>
+    <li><b>Health:</b> Patient records, diagnostics, telemedicine.</li>
+    <li><b>Home:</b> Entertainment, shopping, communication.</li>
+    <li><b>Government:</b> Administration, record keeping, e-governance.</li>
+    <li><b>Industry:</b> Automation, design, manufacturing.</li>
+    <li><b>Transport:</b> Ticket booking, traffic control.</li>
+    <li><b>Science & Research:</b> Data analysis, simulations.</li>
+  </ul>
+
+  <h2>Working of a Computer (Step-by-Step)</h2>
+  <ol>
+    <li>User provides input using input devices (keyboard, mouse, etc.).</li>
+    <li>Input is converted into binary form and sent to memory.</li>
+    <li>CPU fetches instructions and data from memory.</li>
+    <li>CPU processes data as per instructions (using ALU and CU).</li>
+    <li>Processed data is sent to output devices or stored for future use.</li>
+    <li>User receives output (on screen, printer, etc.).</li>
+  </ol>
+
+  <h2>Advantages of Computers</h2>
+  <ul>
+    <li>Fast and accurate calculations</li>
+    <li>Can store and retrieve large amounts of data</li>
+    <li>Can perform repetitive tasks without error</li>
+    <li>Can connect and communicate globally</li>
+    <li>Reduces paperwork and saves time</li>
+  </ul>
+
+  <h2>Disadvantages of Computers</h2>
+  <ul>
+    <li>Can lead to unemployment (automation)</li>
+    <li>Data security and privacy issues</li>
+    <li>Addiction and health problems (if overused)</li>
+    <li>Risk of viruses and hacking</li>
+    <li>High initial cost for advanced systems</li>
+  </ul>
+
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQs)</h3>
+    <ul>
+      <li><b>Q:</b> Who is known as the father of the computer?<br>
+          <b>A:</b> Charles Babbage is known as the father of the computer.</li>
+      <li><b>Q:</b> What is the full form of CPU?<br>
+          <b>A:</b> Central Processing Unit.</li>
+      <li><b>Q:</b> What is the difference between data and information?<br>
+          <b>A:</b> Data is raw facts and figures; information is processed data that is meaningful.</li>
+      <li><b>Q:</b> Name two input and two output devices.<br>
+          <b>A:</b> Input: Keyboard, Mouse. Output: Monitor, Printer.</li>
+      <li><b>Q:</b> What is software?<br>
+          <b>A:</b> Software is a set of instructions/programs that tell the computer what to do.</li>
+    </ul>
+  </div>
+
   <h2>Conclusion</h2>
   <p>
-    Computers have become an essential part of modern life, used in education, business, entertainment, science, and more. They are powerful, fast, and reliable, but require proper instructions (programs) to function.
+    Computers are essential tools in the modern world, enabling us to perform tasks quickly, accurately, and efficiently. Understanding their working, features, and limitations helps us use them wisely and effectively.
   </p>
 </main>
-<footer style="text-align:center; color:#aaa; margin-top:2rem;">&copy; 2025 What is a Computer? - Detailed Notes</footer>
+
+<div class="copyright">
+  © Pawan Soni
+</div>
 </body>
 </html>
