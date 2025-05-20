@@ -4,26 +4,34 @@
   <meta charset="UTF-8">
   <title>CPU Topics - Chitragupt Academy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for style -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-gradient: linear-gradient(-45deg, #6f42c1, #d63384, #f8f9fa, #e9ecef, #5a32a3);
-      --glass-bg: rgba(255,255,255,0.17);
+      --primary: #6f42c1;
+      --secondary: #d63384;
+      --accent: #20c997;
+      --glass: rgba(255,255,255,0.16);
       --glass-border: rgba(255,255,255,0.30);
       --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      --neon: 0 0 12px #d63384, 0 0 24px #6f42c1;
     }
     * {
       margin: 0; padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-family: 'Quicksand', 'Montserrat', 'Segoe UI', sans-serif;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+      -moz-user-select: none !important;
     }
     body {
       min-height: 100vh;
       width: 100vw;
-      background: var(--main-gradient);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: #222;
+      background: linear-gradient(135deg, #6f42c1 0%, #d63384 40%, #20c997 100%);
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease-in-out infinite;
+      color: #fff;
       text-align: center;
       padding: 0;
       overflow-x: hidden;
@@ -35,127 +43,141 @@
       100% {background-position: 0% 50%;}
     }
     header {
-      padding: 36px 0 18px 0;
-      animation: fadeInDown 1.2s;
+      padding: 38px 0 10px 0;
+      animation: fadeInDown 1.1s;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-60px);}
       to { opacity: 1; transform: translateY(0);}
     }
     header h1 {
-      font-size: 2.3em;
+      font-size: 2.5em;
+      font-family: 'Montserrat', sans-serif;
       color: #fff;
       letter-spacing: 2px;
       font-weight: 700;
-      text-shadow: 0 2px 18px #6f42c1aa;
+      text-shadow: var(--neon);
       margin-bottom: 8px;
     }
     header h2 {
-      font-size: 1.05em;
-      color: #f8f9fa;
-      font-weight: 400;
-      letter-spacing: 1.5px;
-      margin-bottom: 30px;
+      font-size: 1.08em;
+      color: #e9ecef;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 34px;
       opacity: 0.92;
+      text-shadow: 0 2px 8px #6f42c1aa;
     }
     .button-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 28px;
-      margin-bottom: 54px;
+      gap: 30px;
+      margin-bottom: 55px;
       animation: fadeInUp 1.2s;
     }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(60px);}
       to { opacity: 1; transform: translateY(0);}
     }
-    .btn {
-      background: var(--glass-bg);
-      color: #6f42c1;
-      padding: 22px 32px;
-      font-size: 1.05em;
-      border: 2px solid var(--glass-border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
+    .card-btn {
+      background: var(--glass);
+      color: #fff;
+      padding: 28px 36px 24px 36px;
+      font-size: 1.16em;
+      border: 2.5px solid var(--glass-border);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(31,38,135,0.22), 0 0 0 0 #fff;
       transition: 
-        transform 0.32s cubic-bezier(.17,.67,.83,.67),
-        background 0.32s,
-        color 0.32s,
-        box-shadow 0.32s;
+        transform 0.28s cubic-bezier(.17,.67,.83,.67),
+        background 0.28s,
+        color 0.28s,
+        box-shadow 0.28s;
       text-decoration: none;
-      display: inline-block;
-      min-width: 240px;
+      min-width: 260px;
       font-weight: 700;
-      letter-spacing: 1px;
-      backdrop-filter: blur(6px);
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(7px);
       position: relative;
       overflow: hidden;
-      z-index: 1;
       outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 18px;
+      cursor: pointer;
+      box-sizing: border-box;
+      margin: 0 0 0 0;
+      z-index: 1;
+      opacity: 0.97;
     }
-    .btn:before {
-      content: "";
-      position: absolute;
-      left: -60%;
-      top: 0;
-      width: 220%;
-      height: 100%;
-      background: linear-gradient(90deg, #d63384 0%, #6f42c1 100%);
-      opacity: 0.13;
-      z-index: 0;
-      transition: opacity 0.3s;
+    .card-btn .icon {
+      font-size: 1.6em;
+      margin-right: 6px;
+      filter: drop-shadow(0 2px 4px #0002);
+      transition: color 0.3s;
     }
-    .btn:hover, .btn:focus {
+    .card-btn:hover, .card-btn:focus {
+      background: linear-gradient(90deg, #6f42c1 0%, #d63384 50%, #20c997 100%);
       color: #fff;
-      background: linear-gradient(90deg, #6f42c1 0%, #d63384 100%);
-      box-shadow: 0 8px 32px 0 rgba(111, 66, 193, 0.25);
-      transform: scale(1.07) translateY(-2px);
+      box-shadow: 0 16px 48px 0 #d6338455, 0 0 12px #fff2;
+      transform: scale(1.07) translateY(-3px);
+      border-color: #fff;
+      opacity: 1;
     }
-    .btn:hover:before, .btn:focus:before {
-      opacity: 0.25;
+    .card-btn:hover .icon, .card-btn:focus .icon {
+      color: #ffe066;
+      filter: drop-shadow(0 0 6px #fff7);
     }
     .back-button {
       margin-top: 30px;
-      padding: 13px 30px;
-      background: #dc3545;
+      padding: 14px 36px;
+      background: linear-gradient(90deg, #dc3545 60%, #6f42c1 100%);
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
-      font-size: 1em;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 4px 18px rgba(220,53,69,0.11);
+      font-size: 1.12em;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 18px #dc354555;
       display: inline-block;
-      animation: fadeInUp 1.7s;
+      animation: fadeInUp 1.5s;
     }
     .back-button:hover, .back-button:focus {
-      background: #bb2d3b;
+      background: linear-gradient(90deg, #bb2d3b 60%, #6f42c1 100%);
       transform: scale(1.05);
+      box-shadow: 0 8px 32px #dc354555;
     }
     footer {
-      margin-top: 28px;
-      font-size: 1em;
+      margin-top: 38px;
+      font-size: 1.05em;
       color: #fff;
-      opacity: 0.7;
-      letter-spacing: 1px;
+      opacity: 0.8;
+      letter-spacing: 1.5px;
       text-shadow: 0 1px 8px #6f42c1aa;
       animation: fadeIn 2.2s;
     }
     @keyframes fadeIn {
       from { opacity: 0;}
-      to { opacity: 0.7;}
+      to { opacity: 0.8;}
     }
     /* Responsive Design */
-    @media (max-width: 700px) {
-      header h1 { font-size: 1.5em; }
-      .button-container { gap: 16px; }
-      .btn { min-width: 90vw; padding: 16px 0; font-size: 1em; }
+    @media (max-width: 900px) {
+      .button-container { gap: 18px; }
+      .card-btn { min-width: 90vw; padding: 18px 0; font-size: 1em; }
       .back-button { width: 90vw; }
-      main { padding: 8px; }
     }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.3em; }
+      header h2 { font-size: 0.95em; }
+      .card-btn { font-size: 0.97em; border-radius: 16px; padding: 13px 0 13px 12vw; }
+      .back-button { font-size: 1em; padding: 12px 0; border-radius: 8px;}
+      .button-container { flex-direction: column; align-items: stretch;}
+    }
+    /* Remove selection */
+    ::selection { background: transparent; }
   </style>
   <script>
     // Disable right-click
@@ -198,14 +220,24 @@
   </header>
 
   <div class="button-container">
-    <a href="intro.html" class="btn" tabindex="1">What is a Computer?</a>
-    <a href="char.html" class="btn" tabindex="2">Characteristics &amp; Limitations</a>
-    <a href="types.html" class="btn" tabindex="3">Types of Computers</a>
-    <a href="gen.html" class="btn" tabindex="4">Generation of Computers</a>
-    <a href="app.html" class="btn" tabindex="5">Applications in Daily Life</a>
+    <a href="what-is-computer.html" class="card-btn" tabindex="1">
+      <span class="icon">💻</span> What is a Computer?
+    </a>
+    <a href="characteristics-limitations.html" class="card-btn" tabindex="2">
+      <span class="icon">⚡</span> Characteristics &amp; Limitations
+    </a>
+    <a href="types-of-computers.html" class="card-btn" tabindex="3">
+      <span class="icon">🖥️</span> Types of Computers
+    </a>
+    <a href="generation-of-computers.html" class="card-btn" tabindex="4">
+      <span class="icon">⏳</span> Generation of Computers
+    </a>
+    <a href="applications-of-computers.html" class="card-btn" tabindex="5">
+      <span class="icon">🌐</span> Applications in Daily Life
+    </a>
   </div>
 
-  <a href="../BCC.html" class="back-button" tabindex="6">Back to Home</a>
+  <a href="home.html" class="back-button" tabindex="6">Back to Home</a>
 
   <footer>
     © Pawan Soni
