@@ -4,66 +4,275 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Characteristics & Limitations of a Computer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#11998e,#38ef7d 100%); color:#222; min-height:100vh; padding:2vw;}
-    header { text-align:center; color:#fff; margin-bottom:2rem;}
-    main { max-width:900px; margin:0 auto; background:#fff; border-radius:15px; box-shadow:0 8px 22px rgba(0,0,0,0.13); padding:2rem 2.2rem;}
-    h2 { color:#11998e; border-bottom:3px solid #38ef7d; padding-bottom:0.4rem;}
-    ul, p { font-size:1.07rem; line-height:1.6;}
-    table { width:100%; border-collapse:collapse; margin:18px 0 0 0;}
+    body {
+      margin:0; 
+      font-family:'Poppins',sans-serif; 
+      background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+      color:#222; 
+      min-height:100vh; 
+      padding:2vw;
+      overflow-x: hidden;
+      animation: bgmove 12s ease-in-out infinite alternate;
+    }
+    @keyframes bgmove {
+      0% {background-position: 0% 50%;}
+      100% {background-position: 100% 50%;}
+    }
+    header {
+      text-align:center; 
+      color:#fff; 
+      margin-bottom:2rem;
+      text-shadow: 0 2px 12px #11998e77;
+      animation: fadeInDown 1.1s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 0 auto 24px auto;
+      padding: 13px 38px;
+      background: linear-gradient(90deg, #38ef7d 0%, #11998e 100%);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.12em;
+      letter-spacing: 1.5px;
+      box-shadow: 0 8px 32px 0 #11998e55;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 30px;
+      outline: none;
+      animation: fadeInUp 1.3s;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+      color: #fff;
+      transform: translateX(-50%) scale(1.06);
+      box-shadow: 0 12px 36px 0 #38ef7d88;
+    }
+    main {
+      max-width:900px; 
+      margin:0 auto; 
+      background:rgba(255,255,255,0.88); 
+      border-radius:18px; 
+      box-shadow:0 8px 32px rgba(56,239,125,0.15); 
+      padding:2.2rem 2.5rem;
+      animation: fadeInUp 1.4s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    h2 {
+      color:#11998e; 
+      border-bottom:3px solid #38ef7d; 
+      padding-bottom:0.4rem;
+      margin-top: 1.7em;
+      margin-bottom: 0.7em;
+      letter-spacing: 1px;
+    }
+    ul, p, ol { font-size:1.08rem; line-height:1.7;}
+    table {
+      width:100%; 
+      border-collapse:collapse; 
+      margin:18px 0 0 0;
+      background: #e7fff2;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px #38ef7d33;
+    }
     th, td { border:1.5px solid #c8f7e7; padding:10px 8px; text-align:left;}
-    th { background:#11998e; color:#fff;}
+    th {
+      background: linear-gradient(90deg, #11998e 70%, #38ef7d 100%);
+      color:#fff;
+      font-weight: 700;
+    }
     tr:nth-child(even) { background:#f5fff9;}
-    @media(max-width:700px){main{padding:1.5rem 1.2rem;}}
+    .faq {
+      background:#e7fff2; 
+      border-radius:12px; 
+      padding:1.3em 1.6em; 
+      margin:2em 0 1.7em 0;
+      box-shadow: 0 2px 12px #38ef7d33;
+      animation: fadeIn 2.2s;
+    }
+    .faq h3 { color:#11998e; margin-bottom: 0.5em;}
+    .example {
+      background: #d9fff7;
+      border-left: 6px solid #38ef7d;
+      padding: 0.8em 1.2em;
+      margin: 1.2em 0;
+      border-radius: 7px;
+      color: #11998e;
+      font-size: 1em;
+    }
+    .copyright {
+      text-align: center;
+      color: #fff;
+      font-size: 1.08em;
+      letter-spacing: 1.3px;
+      margin: 36px auto 0 auto;
+      opacity: 0.9;
+      text-shadow: 0 2px 10px #11998e99;
+      font-weight: 600;
+      padding-bottom: 14px;
+    }
+    @media(max-width:700px){
+      main{padding:1.3rem 0.6rem;}
+      .back-btn {width: 92vw; font-size: 1em;}
+    }
+    ::selection { background: transparent; }
   </style>
 </head>
 <body>
 <header>
-  <h1>Characteristics & Limitations of a Computer</h1>
-  <p>Features, Advantages, and Drawbacks</p>
+  <h1>Characteristics &amp; Limitations of a Computer</h1>
+  <p>Features, Advantages, Drawbacks, and FAQs</p>
 </header>
+
+<a href="javascript:history.back()" class="back-btn">← Back</a>
+
 <main>
-  <h2>Major Characteristics of a Computer</h2>
+  <h2>What are the Characteristics of a Computer?</h2>
   <ul>
-    <li><b>Speed:</b> Performs billions of calculations per second, much faster than humans.</li>
-    <li><b>Accuracy:</b> 100% correct results if input and instructions are correct.</li>
-    <li><b>Diligence:</b> Can work for long hours without fatigue or errors.</li>
-    <li><b>Versatility:</b> Can perform a wide range of tasks (calculation, graphics, communication, etc.).</li>
-    <li><b>Reliability:</b> Consistent and dependable performance.</li>
-    <li><b>Automation:</b> Works automatically once programmed.</li>
-    <li><b>Storage Capacity:</b> Can store and recall huge amounts of data.</li>
-    <li><b>Remembrance Power:</b> Can remember data for years (non-volatile storage).</li>
-    <li><b>Consistency:</b> Same output for same input every time.</li>
+    <li><b>Speed:</b> Can perform billions of calculations per second (measured in microseconds, nanoseconds, or even picoseconds).</li>
+    <li><b>Accuracy:</b> Delivers 100% correct results if the input and instructions are correct (no calculation errors).</li>
+    <li><b>Diligence:</b> Can work for hours or days without getting tired, bored, or making mistakes due to fatigue.</li>
+    <li><b>Versatility:</b> Can perform a wide range of tasks: calculations, graphics, internet, games, communications, etc.</li>
+    <li><b>Reliability:</b> Provides consistent and dependable performance over time.</li>
+    <li><b>Automation:</b> Executes tasks automatically once programmed, needing minimal human intervention.</li>
+    <li><b>Storage Capacity:</b> Can store huge amounts of data (from MBs to TBs and beyond), and retrieve it instantly.</li>
+    <li><b>Remembrance Power (Memory):</b> Can remember stored data for years (non-volatile storage).</li>
+    <li><b>Consistency:</b> Produces the same output for the same input every time.</li>
+    <li><b>Connectivity:</b> Can connect to networks and other devices for sharing and communication.</li>
   </ul>
+
   <table>
     <tr>
       <th>Characteristic</th>
       <th>Description</th>
+      <th>Example</th>
     </tr>
-    <tr><td>Speed</td><td>Processes data at extremely high speeds (microseconds, nanoseconds).</td></tr>
-    <tr><td>Accuracy</td><td>Performs calculations without errors (unless input is wrong).</td></tr>
-    <tr><td>Diligence</td><td>Never gets tired or bored, can work for hours.</td></tr>
-    <tr><td>Versatility</td><td>Can perform various types of tasks.</td></tr>
-    <tr><td>Storage</td><td>Stores large data and retrieves it instantly.</td></tr>
-    <tr><td>Automation</td><td>Works automatically after instructions are given.</td></tr>
-    <tr><td>Consistency</td><td>Gives same result for same input every time.</td></tr>
+    <tr>
+      <td>Speed</td>
+      <td>Processes data at extremely high speeds (microseconds, nanoseconds).</td>
+      <td>Calculating 1,000,000 sums in a second</td>
+    </tr>
+    <tr>
+      <td>Accuracy</td>
+      <td>Performs calculations without errors (unless input is wrong).</td>
+      <td>Bank transactions, scientific calculations</td>
+    </tr>
+    <tr>
+      <td>Diligence</td>
+      <td>Never gets tired or bored, can work for hours.</td>
+      <td>Running servers 24/7</td>
+    </tr>
+    <tr>
+      <td>Versatility</td>
+      <td>Can perform various types of tasks.</td>
+      <td>Browsing, gaming, designing</td>
+    </tr>
+    <tr>
+      <td>Storage</td>
+      <td>Stores large data and retrieves it instantly.</td>
+      <td>Storing movies, documents, backups</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td>Works automatically after instructions are given.</td>
+      <td>Automatic backups, scheduled tasks</td>
+    </tr>
+    <tr>
+      <td>Consistency</td>
+      <td>Gives same result for same input every time.</td>
+      <td>Printing 1000 copies of a document</td>
+    </tr>
   </table>
+
+  <div class="example">
+    <b>Example:</b> Google Search can process and display millions of results in less than a second, showing the computer's speed, accuracy, and reliability.
+  </div>
+
   <h2>Limitations of a Computer</h2>
   <ul>
-    <li><b>No Intelligence:</b> Cannot think or make decisions on its own; follows instructions blindly.</li>
-    <li><b>No Feelings:</b> Cannot feel emotions like humans (joy, pain, etc.).</li>
-    <li><b>Dependent on Instructions:</b> Needs programs to function; cannot work without instructions.</li>
-    <li><b>No Learning from Experience:</b> Cannot learn from past experiences (unless programmed with AI).</li>
+    <li><b>No Intelligence:</b> Cannot think, reason, or make decisions on its own; only follows instructions.</li>
+    <li><b>No Feelings or Emotions:</b> Cannot feel emotions such as happiness, pain, or excitement.</li>
+    <li><b>Dependent on Instructions:</b> Needs clear, correct programs to function; cannot work without them.</li>
+    <li><b>No Learning from Experience:</b> Cannot learn from past mistakes or experiences (unless programmed with AI).</li>
     <li><b>Requires Power:</b> Needs electricity to operate; stops working if power fails.</li>
     <li><b>Garbage In, Garbage Out (GIGO):</b> Wrong input or instructions produce wrong output.</li>
     <li><b>Cannot Work Without Human Intervention:</b> Needs to be started and given tasks by humans.</li>
+    <li><b>Vulnerability:</b> Prone to viruses, hacking, and data loss if not protected.</li>
+    <li><b>Unemployment:</b> Automation may reduce the need for human workers in some sectors.</li>
   </ul>
+
+  <table>
+    <tr>
+      <th>Limitation</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>No Intelligence</td>
+      <td>Cannot make decisions, only follows instructions</td>
+      <td>Needs a program for every task</td>
+    </tr>
+    <tr>
+      <td>No Emotions</td>
+      <td>Cannot feel or understand feelings</td>
+      <td>Cannot comfort or motivate</td>
+    </tr>
+    <tr>
+      <td>GIGO</td>
+      <td>Wrong input gives wrong output</td>
+      <td>Typing wrong data in Excel gives wrong results</td>
+    </tr>
+    <tr>
+      <td>Needs Power</td>
+      <td>Stops working if electricity fails</td>
+      <td>Computer shuts down during power cut</td>
+    </tr>
+    <tr>
+      <td>Security Risks</td>
+      <td>Prone to viruses, hacking, data theft</td>
+      <td>Phishing, malware attacks</td>
+    </tr>
+  </table>
+
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQs)</h3>
+    <ul>
+      <li><b>Q:</b> What is the main characteristic that makes computers better than humans for calculations?<br>
+          <b>A:</b> Speed and accuracy.</li>
+      <li><b>Q:</b> What does GIGO stand for?<br>
+          <b>A:</b> Garbage In, Garbage Out.</li>
+      <li><b>Q:</b> Can computers make decisions on their own?<br>
+          <b>A:</b> No, they need instructions/programs.</li>
+      <li><b>Q:</b> Name two limitations of a computer.<br>
+          <b>A:</b> No intelligence, needs power to work.</li>
+      <li><b>Q:</b> Are computers always reliable?<br>
+          <b>A:</b> Yes, if input and instructions are correct and hardware is working.</li>
+    </ul>
+  </div>
+
   <h2>Conclusion</h2>
   <p>
-    Computers are powerful, fast, and reliable, but they have limitations such as lack of intelligence, emotions, and dependence on human instructions. Understanding both features and drawbacks helps us use computers more effectively.
+    Computers are powerful, fast, and reliable, but they have limitations such as lack of intelligence, emotions, and dependence on human instructions. Understanding both features and drawbacks helps us use computers more effectively and responsibly.
   </p>
 </main>
-<footer style="text-align:center; color:#aaa; margin-top:2rem;">&copy; 2025 Characteristics & Limitations of Computer - Detailed Notes</footer>
+
+<div class="copyright">
+  © Pawan Soni
+</div>
 </body>
 </html>
