@@ -28,8 +28,8 @@
       display: inline-block;
       margin: 0 auto 24px auto;
       padding: 13px 38px;
-      background: linear-gradient(90deg, #38ef7d 0%, #11998e 100%);
-      color: #fff;
+      background: linear-gradient(90deg, #c8ff00 0%, #ffb005 100%);
+      color: #0004ff;
       border: none;
       border-radius: 16px;
       font-weight: 700;
@@ -60,7 +60,7 @@
     }
     .smartart-inner { min-width:600px; padding:20px 0 10px 0;}
     main { 
-      max-width:900px; 
+      max-width:1000px; 
       margin:0 auto; 
       background:#fff; 
       border-radius:15px; 
@@ -132,44 +132,59 @@
   <p>Definition, Block Diagram, Features, Functions, Working, and More</p>
 </header>
 
-<a href="javascript:history.back()" class="back-btn">← Back</a>
+
 
 <div class="smartart-container">
   <div class="smartart-inner">
-    <svg viewBox="0 0 800 180" width="100%" height="150">
-      <!-- Main Node -->
-      <rect x="320" y="20" width="160" height="50" rx="16" fill="#11998e"/>
-      <text x="400" y="53" text-anchor="middle" fill="#fff" font-size="22" font-family="Poppins">Computer</text>
-      <!-- Arrows to Input/Process/Output/Storage -->
-      <line x1="400" y1="70" x2="180" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <line x1="400" y1="70" x2="400" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <line x1="400" y1="70" x2="620" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <!-- Input -->
-      <rect x="120" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="180" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Input</text>
-      <text x="180" y="165" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Keyboard, Mouse</text>
-      <!-- Processing -->
-      <rect x="340" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="400" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Processing</text>
-      <text x="400" y="165" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">CPU</text>
-      <!-- Output -->
-      <rect x="580" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="640" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Output</text>
-      <text x="640" y="165" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Monitor, Printer</text>
-      <!-- Storage -->
-      <rect x="250" y="80" width="300" height="30" rx="8" fill="#e7fff2"/>
-      <text x="400" y="100" text-anchor="middle" fill="#11998e" font-size="14" font-family="Poppins">Storage (HDD, SSD, RAM, etc.)</text>
+    <svg viewBox="0 0 900 350" width="100%" height="350">
+      <!-- Marker Definition -->
       <defs>
-        <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
-          <polygon points="0,0 8,4 0,8" fill="#38ef7d"/>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+          <polygon points="0,0 10,5 0,10" fill="#38ef7d"/>
         </marker>
       </defs>
+
+      <!-- Main Node: Computer -->
+      <rect x="370" y="30" width="160" height="50" rx="16" fill="#11998e"/>
+      <text x="450" y="62" text-anchor="middle" fill="#fff" font-size="22" font-family="Poppins">Computer</text>
+
+      <!-- Arrow to Storage -->
+      <line x1="450" y1="80" x2="450" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+
+      <!-- Storage Box -->
+      <rect x="320" y="120" width="260" height="30" rx="8" fill="#e7fff2"/>
+      <text x="450" y="140" text-anchor="middle" fill="#11998e" font-size="14" font-family="Poppins">
+        Storage (HDD, SSD, RAM, etc.)
+      </text>
+
+      <!-- Arrows from Storage to components -->
+      <line x1="450" y1="150" x2="200" y2="220" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="150" x2="450" y2="220" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="150" x2="700" y2="220" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+
+      <!-- Input Box -->
+      <rect x="140" y="230" width="120" height="60" rx="10" fill="#ffffff" stroke="#11998e" stroke-width="1.5"/>
+      <text x="200" y="252" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Input</text>
+      <text x="200" y="274" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Keyboard, Mouse</text>
+
+      <!-- Processing Box -->
+      <rect x="390" y="230" width="120" height="60" rx="10" fill="#ffffff" stroke="#11998e" stroke-width="1.5"/>
+      <text x="450" y="252" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Processing</text>
+      <text x="450" y="274" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">CPU</text>
+
+      <!-- Output Box -->
+      <rect x="640" y="230" width="120" height="60" rx="10" fill="#ffffff" stroke="#11998e" stroke-width="1.5"/>
+      <text x="700" y="252" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Output</text>
+      <text x="700" y="274" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Monitor, Printer</text>
     </svg>
-    <div style="text-align:center; color:#11998e; font-size:1em; margin-top:8px;">
-      <b>SmartArt:</b> Block diagram of a computer (Input → Processing → Output, with Storage)
+
+    <!-- Caption -->
+    <div style="text-align:center; color:#11998e; font-size:1em; margin-top:10px;">
+      <b>SmartArt:</b> Block diagram of a computer system (Input → Processing → Output, with Storage)
     </div>
   </div>
 </div>
+
 <main>
   <h2>Definition</h2>
   <p>
@@ -324,6 +339,8 @@
     Computers are essential tools in the modern world, enabling us to perform tasks quickly, accurately, and efficiently. Understanding their working, features, and limitations helps us use them wisely and effectively.
   </p>
 </main>
+<br><br><br>
+<a href="javascript:history.back()" class="back-btn">Back</a>
 
 <div class="copyright">
   © Pawan Soni
