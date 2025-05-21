@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Types of Computers - Full Detailed Notes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin:0;
@@ -67,7 +67,11 @@
       box-shadow:0 2px 12px #38ef7d33;
       animation: fadeInUp 1.3s;
     }
-    .smartart-inner { min-width:600px; padding:20px 0 10px 0;}
+    .smartart-inner {
+      min-width:320px; 
+      padding:20px 0 10px 0;
+      overflow-x: auto;
+    }
     main {
       max-width:950px;
       margin:0 auto;
@@ -85,7 +89,7 @@
       margin-bottom: 0.7em;
       letter-spacing: 1px;
     }
-    ul, p, ol { font-size:1.08rem; line-height:1.7;}
+    ul, p, ol { font-size:1.07rem; line-height:1.7;}
     table {
       width:100%;
       border-collapse:collapse;
@@ -94,6 +98,7 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 2px 10px #38ef7d33;
+      font-size: 1em;
     }
     th, td { border:1.5px solid #c8f7e7; padding:10px 8px; text-align:left;}
     th {
@@ -111,6 +116,15 @@
       color: #11998e;
       font-size: 1em;
     }
+    .faq {
+      background:#e7fff2; 
+      border-radius:12px; 
+      padding:1.3em 1.6em; 
+      margin:2em 0 1.7em 0;
+      box-shadow: 0 2px 12px #38ef7d33;
+      animation: fadeIn 2.2s;
+    }
+    .faq h3 { color:#11998e; margin-bottom: 0.5em;}
     .copyright {
       text-align: center;
       color: #fff;
@@ -124,8 +138,9 @@
     }
     @media(max-width:700px){
       .smartart-inner{min-width:320px;}
-      main{padding:1.3rem 0.6rem;}
-      .back-btn {width: 92vw; font-size: 1em;}
+      main{padding:1.1rem 0.4rem;}
+      .back-btn {width: 96vw; font-size: 1em;}
+      table, th, td {font-size: 0.98em;}
     }
     ::selection { background: transparent; }
   </style>
@@ -189,20 +204,20 @@
 <main>
   <h2>What are the Types of Computers?</h2>
   <p>
-    Computers are classified by size, purpose, and function. Each type is designed for specific tasks and users.
+    Computers are classified by size, purpose, and function. Each type is designed for specific tasks and users. Below are the main types:
   </p>
   <ul>
-    <li><b>Desktop:</b> Personal computers for home/office, not portable. Examples: PC, workstation.</li>
-    <li><b>Laptop/Notebook:</b> Portable computers with battery, suitable for mobile use. Examples: Laptop, netbook, ultrabook.</li>
-    <li><b>Server:</b> Powerful computers that provide services/data to other computers over a network. Examples: Web server, file server, database server.</li>
-    <li><b>Mainframe:</b> Large, powerful, used by big organizations for bulk data processing. Handles thousands of users. Example: IBM Z series.</li>
-    <li><b>Supercomputer:</b> Extremely powerful, used for scientific calculations, weather forecasting, AI, and research. Example: PARAM, Cray.</li>
-    <li><b>Tablet:</b> Touchscreen portable device, larger than a smartphone. Examples: iPad, Android tablet.</li>
-    <li><b>Smartphone:</b> Mobile phone with advanced computing features.</li>
-    <li><b>Embedded Systems:</b> Computers built into other devices for specific tasks. Examples: ATM, washing machine, microwave, car control system, IoT devices.</li>
-    <li><b>Mini Computer:</b> Midsize, used in small organizations (rare today).</li>
-    <li><b>Wearable Computers:</b> Devices worn on the body. Examples: Smartwatches, fitness bands.</li>
-    <li><b>Hybrid Computers:</b> Combine features of analog and digital computers. Used in hospitals, scientific labs.</li>
+    <li><b>Desktop:</b> Personal computers for home/office, not portable. Used for general tasks, gaming, and work. <br><b>Examples:</b> PC, workstation.</li>
+    <li><b>Laptop/Notebook:</b> Portable computers with battery, suitable for mobile use. Used by students, professionals, travelers. <br><b>Examples:</b> Laptop, netbook, ultrabook.</li>
+    <li><b>Server:</b> Powerful computers that provide services/data to other computers over a network. Used in organizations for websites, databases, file sharing.<br><b>Examples:</b> Web server, file server, database server.</li>
+    <li><b>Mainframe:</b> Large, powerful, used by big organizations for bulk data processing. Handles thousands of users at once.<br><b>Examples:</b> IBM Z series, used in banks, airlines, government.</li>
+    <li><b>Supercomputer:</b> Extremely powerful, used for scientific calculations, weather forecasting, AI, and research. Can perform trillions of calculations per second.<br><b>Examples:</b> PARAM, Cray, Fugaku.</li>
+    <li><b>Tablet:</b> Touchscreen portable device, larger than a smartphone. Used for reading, browsing, drawing, and media.<br><b>Examples:</b> iPad, Android tablet.</li>
+    <li><b>Smartphone:</b> Mobile phone with advanced computing features. Used for communication, apps, internet, and entertainment.<br><b>Examples:</b> iPhone, Android phones.</li>
+    <li><b>Embedded Systems:</b> Computers built into other devices for specific tasks. Used in ATMs, appliances, cars, IoT devices.<br><b>Examples:</b> ATM, washing machine, microwave, car control system, smart fridge.</li>
+    <li><b>Mini Computer:</b> Midsize, used in small organizations (rare today).<br><b>Examples:</b> PDP-11, VAX.</li>
+    <li><b>Wearable Computers:</b> Devices worn on the body. Used for health tracking, notifications, and fitness.<br><b>Examples:</b> Smartwatches, fitness bands.</li>
+    <li><b>Hybrid Computers:</b> Combine features of analog and digital computers. Used in hospitals, scientific labs.<br><b>Examples:</b> ICU monitoring systems, medical equipment.</li>
   </ul>
 
   <h2>Comparison Table: Types of Computers</h2>
@@ -281,16 +296,50 @@
 
   <h2>Classification by Data Handling</h2>
   <ul>
-    <li><b>Analog Computers:</b> Process continuous data (temperature, speedometer, ECG machine).</li>
-    <li><b>Digital Computers:</b> Process discrete data (PCs, laptops, calculators).</li>
-    <li><b>Hybrid Computers:</b> Combine analog and digital features (ICU monitoring systems).</li>
+    <li><b>Analog Computers:</b> Process continuous data (temperature, speedometer, ECG machine). Used in scientific and engineering applications.</li>
+    <li><b>Digital Computers:</b> Process discrete data (PCs, laptops, calculators). Most common type today.</li>
+    <li><b>Hybrid Computers:</b> Combine analog and digital features (ICU monitoring systems, hospital equipment).</li>
   </ul>
 
   <h2>Classification by Purpose</h2>
   <ul>
-    <li><b>General Purpose:</b> Can perform a variety of tasks (PC, laptop, smartphone).</li>
+    <li><b>General Purpose:</b> Can perform a variety of tasks (PC, laptop, smartphone, server).</li>
     <li><b>Special Purpose:</b> Designed for specific tasks (ATM, embedded systems, washing machine controller).</li>
   </ul>
+
+  <h2>Advantages of Different Types of Computers</h2>
+  <ul>
+    <li><b>Desktops & Laptops:</b> Versatile, upgradable, suitable for most tasks.</li>
+    <li><b>Servers:</b> Handle multiple users, high reliability, centralize resources.</li>
+    <li><b>Mainframes & Supercomputers:</b> Process huge data, support thousands of users, solve complex problems.</li>
+    <li><b>Tablets/Smartphones:</b> Portable, easy to use, always connected.</li>
+    <li><b>Embedded & Wearables:</b> Specialized, efficient, small size, low power.</li>
+  </ul>
+
+  <h2>Disadvantages / Limitations</h2>
+  <ul>
+    <li><b>Supercomputers:</b> Very expensive, require special environment.</li>
+    <li><b>Mainframes:</b> High cost, need skilled operators.</li>
+    <li><b>Desktops:</b> Not portable.</li>
+    <li><b>Laptops/Tablets:</b> Limited upgradability, battery issues.</li>
+    <li><b>Embedded:</b> Not flexible, can do only one task.</li>
+  </ul>
+
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQs)</h3>
+    <ul>
+      <li><b>Q:</b> What is the difference between a server and a desktop?<br>
+          <b>A:</b> A server is designed to manage network resources and handle multiple users, while a desktop is for individual use.</li>
+      <li><b>Q:</b> Which type of computer is used in hospitals for monitoring patients?<br>
+          <b>A:</b> Hybrid computers and embedded computers.</li>
+      <li><b>Q:</b> What is an embedded computer?<br>
+          <b>A:</b> A computer built into another device for a specific task (e.g., ATM, microwave).</li>
+      <li><b>Q:</b> Name two examples of wearable computers.<br>
+          <b>A:</b> Smartwatch, fitness band.</li>
+      <li><b>Q:</b> What is the main advantage of a supercomputer?<br>
+          <b>A:</b> Extremely high processing speed for scientific and engineering tasks.</li>
+    </ul>
+  </div>
 
   <h2>Conclusion</h2>
   <p>
