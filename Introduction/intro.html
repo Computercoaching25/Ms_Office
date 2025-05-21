@@ -32,6 +32,35 @@
       text-shadow: 0 2px 12px #11998e88;
       padding: 1.2em 0 0.4em 0;
     }
+    .screenshot-container {
+        position: relative;
+        max-width: 600px;
+        margin: 3rem auto 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+        cursor: not-allowed;
+        user-select: none;
+        animation: zoomIn 1.5s ease forwards;
+    }
+    .screenshot-container img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+        pointer-events: none;
+    }
+    .lock-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: #ffe082cc;
+        pointer-events: none;
+        user-select: none;
+        animation: pulseLock 3s ease-in-out infinite;
+        text-shadow: 0 0 10px #ffe082bb, 0 0 18px #7c4dffcc;
+    }
     .back-btn {
       display: inline-block;
       text-align: center;
@@ -251,7 +280,10 @@
     <li><b>Memory/Storage Unit:</b> Stores data temporarily (RAM) or permanently (HDD, SSD, ROM).</li>
     <li><b>Output Unit:</b> Devices like monitor, printer, speaker, projector, etc. that display or present results to the user.</li>
   </ul>
-
+<div class="screenshot-container" aria-label="Sticky Notes interface screenshot is locked and unavailable">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fposts%2Fsimi-kaithal-8b608b207_block-diagram-of-computer-explained-with-activity-7166918859646529537-rgDM&psig=AOvVaw2gxv6Bieq5bLi448FQDXNq&ust=1747941597137000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLCPm4OktY0DFQAAAAAdAAAAABAT" alt="Sticky Notes interface screenshot" draggable="false" />
+                <div class="lock-overlay" aria-hidden="true">🔒</div>
+</div>
    <div class="section" id="terms">
         <h2>Important Computer Terms</h2>
         <ul>
