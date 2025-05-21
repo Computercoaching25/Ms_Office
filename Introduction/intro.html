@@ -61,6 +61,10 @@
         animation: pulseLock 3s ease-in-out infinite;
         text-shadow: 0 0 10px #ffe082bb, 0 0 18px #7c4dffcc;
     }
+        @keyframes lockPulse {
+      from { filter: drop-shadow(0 0 8px #43cea2cc);}
+      to { filter: drop-shadow(0 0 24px #43cea2);}
+        }
     .back-btn {
       display: inline-block;
       text-align: center;
@@ -300,42 +304,31 @@
             <li><b>Software:</b> A collection of programs and instructions that tell the hardware what to do. Software can be system software (like Windows, Linux) or application software (like MS Word, Photoshop).</li>
         </ul>
     </div>
-    <div class="section" id="components">
-        <h2>Main Components of a Computer</h2>
+    <h2>Main Components of a Computer</h2>
         <div class="component-card">
             <span class="component-icon">🖥️</span>
             <div>
-                <b>Central Processing Unit (CPU):</b> The "brain" of the computer, responsible for executing instructions and processing data. It consists of the Arithmetic Logic Unit (ALU), Control Unit (CU), and registers.
+                <li><b>Central Processing Unit (CPU):</b> The "brain" of the computer, responsible for executing instructions and processing data. It consists of the Arithmetic Logic Unit (ALU), Control Unit (CU), and registers.</li>
             </div>
         </div>
         <div class="component-card">
             <span class="component-icon">💾</span>
             <div>
-                <b>Memory Unit:</b> Stores data, instructions, and results. It includes RAM (temporary memory) and ROM (permanent memory).
+                <li><b>Memory Unit:</b> Stores data, instructions, and results. It includes RAM (temporary memory) and ROM (permanent memory).</li>
             </div>
         </div>
         <div class="component-card">
             <span class="component-icon">⌨️</span>
             <div>
-                <b>Input Devices:</b> Allow users to enter data and instructions into the computer (e.g., keyboard, mouse, scanner).
+                <li><b>Input Devices:</b> Allow users to enter data and instructions into the computer (e.g., keyboard, mouse, scanner).</li>
             </div>
         </div>
         <div class="component-card">
             <span class="component-icon">🖨️</span>
             <div>
-                <b>Output Devices:</b> Display or produce the processed results (e.g., monitor, printer, speakers).
+                <li><b>Output Devices:</b> Display or produce the processed results (e.g., monitor, printer, speakers).</li>
             </div>
         </div>
-    </div>
-
-  <h2>Limitations of a Computer</h2>
-  <ul>
-    <li><b>No Intelligence:</b> Cannot think or make decisions on its own; follows instructions blindly.</li>
-    <li><b>No Feelings:</b> Cannot feel emotions like humans (joy, pain, etc.).</li>
-    <li><b>Dependent on Instructions:</b> Needs programs to function; cannot work without instructions.</li>
-    <li><b>Cannot Learn from Experience:</b> Cannot learn from past experiences (unless programmed with AI).</li>
-    <li><b>Garbage In, Garbage Out (GIGO):</b> Wrong input or instructions produce wrong output.</li>
-    <li><b>Requires Power:</b> Needs electricity to operate; stops working if power fails.</li>
   </ul>
   <h2>Applications of Computers</h2>
   <ul>
@@ -350,7 +343,7 @@
     <li><b>Science & Research:</b> Data analysis, simulations.</li>
   </ul>
 
-  <h2>Working of a Computer (Step-by-Step)</h2>
+  <h2>Working of a Computer</h2>
   <ol>
     <li>User provides input using input devices (keyboard, mouse, etc.).</li>
     <li>Input is converted into binary form and sent to memory.</li>
