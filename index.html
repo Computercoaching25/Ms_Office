@@ -299,47 +299,56 @@
       .course-card {width: 98vw;}
       .logo img {width: 60px; height: 60px;}
     }
-     .marquee-container {
-      width: 80vw;
-      max-width: 900px;
-      overflow: hidden;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
-      background: rgba(255,255,255,0.8);
-      border: 1.5px solid #e3e8ee;
-      padding: 14px 0;
-      position: relative;
-    }
-    .marquee-content {
-      display: inline-block;
-      white-space: nowrap;
-      padding-left: 100%;
-      font-size: 1.6rem;
-      color: #1a3a4a;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      text-shadow: 0 2px 8px rgba(34,52,68,0.07);
-      animation: marquee 14s linear infinite;
-      transition: color 0.3s;
-    }
-    .marquee-container:hover .marquee-content {
-      animation-play-state: paused;
-      color: #0a7cff;
-    }
-    @keyframes marquee {
-      0%   { transform: translateX(0%);}
-      100% { transform: translateX(-100%);}
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      .marquee-container {
-        width: 98vw;
-        font-size: 1.1rem;
-      }
-      .marquee-content {
-        font-size: 1.1rem;
-      }
-    }
+    .marquee-container {
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto 18px auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(44, 62, 80, 0.12);
+  background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+  border: 1.5px solid #e3e8ee;
+  padding: 12px 0;
+  position: relative;
+  top: -20px;
+  z-index: 10;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  font-size: 1.25rem;
+  color: #1a3a4a;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(34,52,68,0.07);
+  animation: marquee 25s linear infinite;
+  transition: color 0.3s;
+  vertical-align: middle;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+  color: #0a7cff;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0%);}
+  100% { transform: translateX(-100%);}
+}
+
+@media (max-width: 800px) {
+  .marquee-container {
+    width: 99vw;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 7px 0;
+  }
+  .marquee-content {
+    font-size: 0.98rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -350,11 +359,16 @@
     <div class="institute-name">CHITRAGUPT ACADEMY</div>
     <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
   </div>
-  <div class="marquee-container">
-    <span class="marquee-content">
-      Address: Rajendra Ward Nearest of Govt. Girls Hr. Sec. School Sohagpur. Contact No. 7067779214
-    </span>
-  </div>
+ <!-- Marquee Section (Header ke niche) -->
+<div class="marquee-container">
+  <span class="marquee-content">
+    <i class="fas fa-map-marker-alt" style="color:#ff4d4d;margin-right:10px;"></i>
+    <b>Address:-</b> Rajendra Ward Nearest of Govt. Girls Hr. Sec. School Sohagpur. Dist. Naramadapuram (M.P.)
+    <i class="fas fa-phone" style="color:#2196f3;margin-left:20px;margin-right:4px;"></i>
+    <b>Contact No.:-</b> 7067779214, 9907808044.
+  </span>
+</div>
+
   <div class="ad-section">
     <div class="ad-headline">
       <span class="ad-highlight">All Computer Courses, Notes, Practice Tests & Extra Materials</span><br>
