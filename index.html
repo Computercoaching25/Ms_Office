@@ -299,6 +299,47 @@
       .course-card {width: 98vw;}
       .logo img {width: 60px; height: 60px;}
     }
+     .marquee-container {
+      width: 80vw;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+      background: rgba(255,255,255,0.8);
+      border: 1.5px solid #e3e8ee;
+      padding: 14px 0;
+      position: relative;
+    }
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+      font-size: 1.6rem;
+      color: #1a3a4a;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(34,52,68,0.07);
+      animation: marquee 14s linear infinite;
+      transition: color 0.3s;
+    }
+    .marquee-container:hover .marquee-content {
+      animation-play-state: paused;
+      color: #0a7cff;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0%);}
+      100% { transform: translateX(-100%);}
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .marquee-container {
+        width: 98vw;
+        font-size: 1.1rem;
+      }
+      .marquee-content {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -308,6 +349,11 @@
     </div>
     <div class="institute-name">CHITRAGUPT ACADEMY</div>
     <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
+  </div>
+  <div class="marquee-container">
+    <span class="marquee-content">
+      Address: Rajendra Ward Nearest of Govt. Girls Hr. Sec. School Sohagpur. Contact No. 7067779214
+    </span>
   </div>
   <div class="ad-section">
     <div class="ad-headline">
