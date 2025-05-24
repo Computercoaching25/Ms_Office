@@ -115,6 +115,7 @@
   .card:nth-child(6) { animation-delay: 1.2s;}
   .card:nth-child(7) { animation-delay: 1.4s;}
   .card:nth-child(8) { animation-delay: 1.6s;}
+  .card:nth-child(9) { animation-delay: 1.8s;}
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(40px);}
     to { opacity: 1; transform: translateY(0);}
@@ -168,6 +169,37 @@
   @keyframes imgPop {
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
+  }
+  .faq-list {
+    margin: 0.5rem 0 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.06em;
+  }
+  .faq-list li {
+    margin-bottom: 1.1em;
+    padding-left: 0.5em;
+    border-left: 4px solid #ff512f;
+    background: #fff2f2;
+    border-radius: 8px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    transition: border-color 0.2s;
+  }
+  .faq-list li:hover {
+    border-color: #dd2476;
+    background: #ffe3e3;
+  }
+  .faq-q {
+    font-weight: 700;
+    color: #ff512f;
+    margin-bottom: 0.2em;
+    display: block;
+  }
+  .faq-a {
+    color: #333;
+    margin-left: 0.2em;
+    display: block;
   }
   .back-btn {
     display: block;
@@ -334,6 +366,39 @@
         <li>Do not overload speakers with excessive volume or power.</li>
         <li>Check connections and cables regularly for secure fit.</li>
         <li>Use surge protectors to guard against power spikes.</li>
+      </ul>
+    </section>
+    <section class="card" id="speaker-faq">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <ul class="faq-list">
+        <li>
+          <span class="faq-q">Q1. What is the main function of a speaker?</span>
+          <span class="faq-a">A speaker converts electrical audio signals into sound waves, allowing us to hear music, voices, and other audio from computers and devices.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q2. What is the difference between a woofer and a tweeter?</span>
+          <span class="faq-a">A woofer produces low-frequency (bass) sounds, while a tweeter produces high-frequency (treble) sounds. Both are often used together for full-range audio.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q3. What does "frequency response" mean for a speaker?</span>
+          <span class="faq-a">Frequency response is the range of sound frequencies (from low to high) that a speaker can reproduce, usually measured in Hertz (Hz).</span>
+        </li>
+        <li>
+          <span class="faq-q">Q4. What is a Bluetooth speaker?</span>
+          <span class="faq-a">A Bluetooth speaker is a wireless speaker that connects to devices using Bluetooth technology, allowing portable and cable-free audio playback.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q5. How can you take care of your speakers?</span>
+          <span class="faq-a">Keep them clean and dry, avoid excessive volume, use proper connections, and protect from power surges and physical damage.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q6. What is impedance in speakers?</span>
+          <span class="faq-a">Impedance is the electrical resistance of a speaker, measured in ohms (Ω). It affects how much power the speaker draws from an amplifier.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q7. Why are speakers important in computers?</span>
+          <span class="faq-a">Speakers make computers interactive and enjoyable by providing audio feedback, enabling communication, entertainment, and accessibility.</span>
+        </li>
       </ul>
     </section>
   </main>
