@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Basic Computer Course: Theory Questions & Answers</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #43cea2, #185a9d 100%);
+    color: #222;
+    min-height: 100vh;
+    padding: 1.5rem 0 0 0;
+    user-select: none;
+  }
+  .header {
+    width: 100vw;
+    background: rgba(24,90,157,0.97);
+    padding: 1.2em 0 0.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 24px #185a9d44;
+    margin-bottom: 0.3em;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    animation: fadeInDown 1.1s;
+  }
+  .header h1 {
+    font-size: 2.1em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 18px #43cea288;
+    animation: glow 2s infinite alternate;
+  }
+  .header h2 {
+    font-size: 1.02em;
+    color: #ffe066;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    text-shadow: 0 1px 8px #fff7;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 8px #fff, 0 0 16px #185a9d; }
+    to   { text-shadow: 0 0 24px #fff, 0 0 32px #43cea2; }
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.2em;
+  }
+  .qna-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px #43cea233;
+    margin-bottom: 1.5em;
+    padding: 1.4em 1.2em 1.1em 1.2em;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border-left: 6px solid #43cea2;
+  }
+  .qna-card:hover {
+    box-shadow: 0 8px 32px #185a9d33;
+    transform: scale(1.02);
+    border-left: 6px solid #185a9d;
+  }
+  .qna-q {
+    font-weight: 700;
+    color: #185a9d;
+    margin-bottom: 0.2em;
+    font-size: 1.08em;
+  }
+  .qna-a {
+    color: #222;
+    margin-left: 0.2em;
+    margin-bottom: 0.1em;
+    font-size: 1em;
+  }
+  .back-btn {
+    display: block;
+    margin: 3em auto 0 auto;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 32px 0 #185a9d55;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  .back-btn:hover, .back-btn:focus {
+    background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px 0 #43cea288;
+  }
+  .watermark {
+    width: 100vw;
+    text-align: center;
+    color: #185a9d;
+    font-size: 1.02em;
+    letter-spacing: 1.3px;
+    margin: 34px auto 0 auto;
+    opacity: 0.7;
+    text-shadow: 0 2px 10px #43cea299;
+    font-weight: 600;
+    padding-bottom: 14px;
+    user-select: none;
+    pointer-events: none;
+  }
+  @media (max-width: 500px) {
+    .qna-card { padding: 1em 0.7em;}
+    .header h1 { font-size: 1.2em;}
+  }
+</style>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('copy', event => event.preventDefault());
+  document.addEventListener('cut', event => event.preventDefault());
+  document.addEventListener('paste', event => event.preventDefault());
+  document.addEventListener('dragstart', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert('Screenshots are disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
+      alert('Printing is disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 's') {
+      alert('Saving is disabled on this page.');
+      e.preventDefault();
+    }
+  });
+</script>
+</head>
+<body>
+  <div class="header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTE</h2>
+    <h2>Basic Computer Course – Important Theory Questions & Answers</h2>
+  </div>
+  <div class="container">
+
+    <div class="qna-card">
+      <div class="qna-q">Q1. What is a computer?</div>
+      <div class="qna-a">A computer is an electronic device that processes data and performs tasks according to instructions given by a program. It can store, retrieve, and process information quickly and accurately.</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q2. What is the difference between data and information?</div>
+      <div class="qna-a">Data is a collection of raw facts and figures. Information is processed data that is meaningful and useful.<br><b>Example:</b> "100" is data; "Marks: 100" is information.</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q3. What are the main components of a computer?</div>
+      <div class="qna-a">The main components are: <b>Input devices</b> (e.g., keyboard, mouse), <b>Output devices</b> (e.g., monitor, printer), <b>CPU</b> (Central Processing Unit), <b>Memory</b> (RAM, ROM), and <b>Storage devices</b> (e.g., hard disk, pen drive).</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q4. What is hardware and software?</div>
+      <div class="qna-a"><b>Hardware</b> is the physical part of the computer that you can touch (like monitor, keyboard, CPU).<br>
+      <b>Software</b> is a set of instructions or programs that run on the hardware (like Windows, MS Word).</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q5. What is the function of the CPU?</div>
+      <div class="qna-a">The CPU (Central Processing Unit) is the "brain" of the computer. It processes instructions, performs calculations, and manages the flow of information through the computer.[1]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q6. What are the two main types of computer memory?</div>
+      <div class="qna-a">Primary memory (RAM and ROM) and Secondary memory (Hard disk, CD, Pen drive, etc.). Primary memory is fast and temporary; secondary memory is permanent and used for storage.[1]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q7. What is RAM and ROM?</div>
+      <div class="qna-a"><b>RAM</b> (Random Access Memory) is temporary, volatile memory used to store data and instructions while the computer is running.<br>
+      <b>ROM</b> (Read Only Memory) is permanent memory that stores important instructions needed to start the computer.[1]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q8. What is an input device? Give two examples.</div>
+      <div class="qna-a">An input device is used to enter data and instructions into a computer. Examples: Keyboard and Mouse.[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q9. What is an output device? Give two examples.</div>
+      <div class="qna-a">An output device displays or prints the results of computer processing. Examples: Monitor and Printer.[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q10. What is the difference between system software and application software?</div>
+      <div class="qna-a"><b>System software</b> controls and manages the hardware (e.g., Windows, Linux).<br>
+      <b>Application software</b> is used to perform specific tasks (e.g., MS Word, Excel, Tally).[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q11. What is the full form of CPU, ALU, and RAM?</div>
+      <div class="qna-a">
+        <ul>
+          <li>CPU: Central Processing Unit</li>
+          <li>ALU: Arithmetic Logic Unit</li>
+          <li>RAM: Random Access Memory</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q12. What is the function of ALU and Control Unit?</div>
+      <div class="qna-a">
+        <b>ALU</b> performs arithmetic and logical operations.<br>
+        <b>Control Unit</b> directs all operations in the computer by sending control signals to other units.[1]
+      </div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q13. What is a program?</div>
+      <div class="qna-a">A program is a set of instructions that tells the computer how to perform a specific task.[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q14. What is a byte, kilobyte, megabyte, gigabyte, and terabyte?</div>
+      <div class="qna-a">
+        <ul>
+          <li>1 byte = 8 bits</li>
+          <li>1 KB = 1024 bytes</li>
+          <li>1 MB = 1024 KB</li>
+          <li>1 GB = 1024 MB</li>
+          <li>1 TB = 1024 GB</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q15. What is the full form of URL and what does it mean?</div>
+      <div class="qna-a">URL stands for Uniform Resource Locator. It is the address used to access websites on the Internet (e.g., https://www.google.com).[3]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q16. What is the Internet?</div>
+      <div class="qna-a">The Internet is a global network that connects millions of computers worldwide, allowing sharing of information and communication.[3]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q17. What is an operating system? Give two examples.</div>
+      <div class="qna-a">An operating system is system software that manages computer hardware and software resources. Examples: Windows and Linux.[1]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q18. What is a supercomputer? Give one example.</div>
+      <div class="qna-a">A supercomputer is the most powerful type of computer, used for complex scientific calculations. Example: PARAM (India).[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q19. What is the difference between primary and secondary memory?</div>
+      <div class="qna-a">
+        <b>Primary memory</b> (RAM, ROM) is fast but temporary and limited in size.<br>
+        <b>Secondary memory</b> (hard disk, CD, pen drive) is slower but permanent and larger in size.[1]
+      </div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q20. What is the function of a printer?</div>
+      <div class="qna-a">A printer is an output device that produces a hard copy (printed paper) of documents, images, or graphics stored on a computer.[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q21. What is a database?</div>
+      <div class="qna-a">A database is an organized collection of data that can be easily accessed, managed, and updated.[2]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q22. What is a virus in computers?</div>
+      <div class="qna-a">A computer virus is a malicious program that can infect and damage computer files and software.[3]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q23. What is a file and a folder?</div>
+      <div class="qna-a">A <b>file</b> is a collection of data or information stored on a computer. A <b>folder</b> is used to organize and store multiple files together.[1]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q24. What is the full form of HTML?</div>
+      <div class="qna-a">HTML stands for HyperText Markup Language. It is used to create web pages.[3]</div>
+    </div>
+
+    <div class="qna-card">
+      <div class="qna-q">Q25. What is the function of a modem?</div>
+      <div class="qna-a">A modem is a device that converts digital signals to analog and vice versa, allowing computers to connect to the Internet over telephone lines.[3]</div>
+    </div>
+
+    <!-- Add more Q&A as needed for your syllabus -->
+  </div>
+  <a href="javascript:history.back()" class="back-btn">Back</a>
+  <div class="watermark">
+    © Pawan Soni
+  </div>
+</body>
+  </html>
+        
