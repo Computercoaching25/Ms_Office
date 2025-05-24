@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Detailed Notes on Printer - Stylish & Attractive</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -15,11 +15,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 0 0 0;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
+  }
+  .academy-header {
+    width: 100vw;
+    background: rgba(0,195,255,0.93);
+    padding: 1.2em 0 0.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 24px #00c3ff44;
+    margin-bottom: 0.3em;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    animation: fadeInDown 1.1s;
+  }
+  .academy-header h1 {
+    font-size: 2.1em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 18px #00c3ff88;
+    animation: glow 2s infinite alternate;
+  }
+  .academy-header h2 {
+    font-size: 1.02em;
+    color: #ffff1c;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    text-shadow: 0 1px 8px #fff7;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 8px #fff, 0 0 16px #00c3ff; }
+    to   { text-shadow: 0 0 24px #fff, 0 0 32px #ffff1c; }
   }
   header {
     text-align: center;
@@ -27,28 +64,25 @@
     color: #fff;
     animation: fadeInDown 1.1s;
   }
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-50px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
   header h1 {
     font-weight: 700;
-    font-size: 2.6rem;
+    font-size: 2.1rem;
     letter-spacing: 2px;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     animation: glow 2s infinite alternate;
-  }
-  @keyframes glow {
-    from { text-shadow: 0 0 8px #fff, 0 0 16px #00c3ff; }
-    to   { text-shadow: 0 0 24px #fff, 0 0 32px #ffff1c; }
+    margin-bottom: 0.2em;
   }
   header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     margin-top: 0.4rem;
     color: #fffde7;
     letter-spacing: 1px;
     animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
   }
   main {
     max-width: 1100px;
@@ -80,6 +114,8 @@
   .card:nth-child(5) { animation-delay: 1s;}
   .card:nth-child(6) { animation-delay: 1.2s;}
   .card:nth-child(7) { animation-delay: 1.4s;}
+  .card:nth-child(8) { animation-delay: 1.6s;}
+  .card:nth-child(9) { animation-delay: 1.8s;}
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(40px);}
     to { opacity: 1; transform: translateY(0);}
@@ -119,7 +155,7 @@
   .card:hover ul li {
     color: #00c3ff;
   }
-  .printer-img {
+  .topic-img {
     width: 100%;
     max-width: 210px;
     display: block;
@@ -134,8 +170,47 @@
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
   }
+  .back-btn {
+    display: block;
+    margin: 3.5em auto 0 auto;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #00c3ff 0%, #ffff1c 100%);
+    color: #222;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 32px 0 #00c3ff55;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  .back-btn:hover, .back-btn:focus {
+    background: linear-gradient(90deg, #ffff1c 0%, #00c3ff 100%);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px 0 #ffff1c88;
+  }
+  .watermark {
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-size: 1.02em;
+    letter-spacing: 1.3px;
+    margin: 34px auto 0 auto;
+    opacity: 0.7;
+    text-shadow: 0 2px 10px #00c3ff99;
+    font-weight: 600;
+    padding-bottom: 14px;
+    user-select: none;
+    pointer-events: none;
+  }
   footer {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     font-size: 0.95rem;
     color: #aaa;
     text-align: center;
@@ -152,24 +227,18 @@
     background: transparent;
   }
   @media(max-width: 400px) {
-    header h1 {
-      font-size: 2rem;
-    }
-    .card {
-      padding: 1.5rem 1.2rem;
-    }
+    .academy-header h1 { font-size: 1.3rem; }
+    header h1 { font-size: 1.1rem; }
+    .card { padding: 1.5rem 1.2rem; }
+    .back-btn { width: 96vw; font-size: 1em;}
   }
 </style>
 <script>
-  // Disable right-click
   document.addEventListener('contextmenu', event => event.preventDefault());
-  // Disable copy, cut, and paste
   document.addEventListener('copy', event => event.preventDefault());
   document.addEventListener('cut', event => event.preventDefault());
   document.addEventListener('paste', event => event.preventDefault());
-  // Disable drag
   document.addEventListener('dragstart', event => event.preventDefault());
-  // Disable PrintScreen (PrtSc)
   document.addEventListener('keydown', function(e) {
     if (e.key === "PrintScreen") {
       navigator.clipboard.writeText('');
@@ -188,125 +257,100 @@
 </script>
 </head>
 <body>
-<header>
-  <h1>Printer - Detailed Notes</h1>
-  <p>Understanding the Main Output Device of a Computer</p>
-</header>
-<img src="https://cdn.pixabay.com/photo/2013/07/13/12/46/printer-146423_1280.png" alt="Printer Illustration" class="printer-img" draggable="false">
-<main>
-  <section class="card" id="printer-definition">
-    <h2>What is a Printer?</h2>
-    <p>
-      A <strong>printer</strong> is an output device that produces a hard copy (physical print) of documents, images, or graphics stored on a computer. It converts digital information into text or images on paper or other printable media.
-    </p>
-  </section>
-
-  <section class="card" id="printer-types">
-    <h2>Types of Printers</h2>
-    <ul>
-      <li><strong>Inkjet Printer:</strong> Sprays tiny droplets of ink onto paper. Good for color images and home use.</li>
-      <li><strong>Laser Printer:</strong> Uses a laser beam and toner powder. Fast, high-quality, and cost-effective for large volumes.</li>
-      <li><strong>Dot Matrix Printer:</strong> Uses pins to strike an ink ribbon, creating dots on paper. Durable, used for receipts and multipart forms.</li>
-      <li><strong>Thermal Printer:</strong> Uses heat to produce images on special thermal paper. Common in billing machines and ATMs.</li>
-      <li><strong>3D Printer:</strong> Creates three-dimensional objects by layering material, used in prototyping and manufacturing.</li>
-      <li><strong>Photo Printer:</strong> Specially designed for high-quality photo printing.</li>
-      <li><strong>All-in-One Printer:</strong> Combines printing, scanning, copying, and sometimes faxing in one device.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="printer-parts">
-    <h2>Main Parts of a Printer</h2>
-    <ul>
-      <li><strong>Print Head:</strong> The component that applies ink or toner to the paper.</li>
-      <li><strong>Cartridge/Toner:</strong> Contains the ink (inkjet) or powder (laser) used for printing.</li>
-      <li><strong>Paper Tray:</strong> Holds blank sheets of paper for printing.</li>
-      <li><strong>Rollers:</strong> Move the paper through the printer.</li>
-      <li><strong>Control Panel:</strong> Buttons and display for operating the printer.</li>
-      <li><strong>Ports:</strong> For connecting the printer to a computer (USB, Wi-Fi, Ethernet, etc.).</li>
-    </ul>
-  </section>
-
-  <section class="card" id="printer-working">
-    <h2>How Does a Printer Work?</h2>
-    <ul>
-      <li>The computer sends a print command and digital data to the printer.</li>
-      <li>The printer processes the data and prepares the print head or laser.</li>
-      <li>Ink, toner, or heat is applied to the paper as it moves through the printer.</li>
-      <li>The finished printout is delivered to the output tray.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="printer-features">
-    <h2>Key Features of Printers</h2>
-    <ul>
-      <li><strong>Print Quality (DPI):</strong> Dots per inch, higher DPI means sharper images.</li>
-      <li><strong>Print Speed:</strong> Pages per minute (PPM), important for office use.</li>
-      <li><strong>Color or Monochrome:</strong> Prints in color or only black and white.</li>
-      <li><strong>Connectivity:</strong> USB, Wi-Fi, Bluetooth, Ethernet, or Cloud Printing.</li>
-      <li><strong>Duplex Printing:</strong> Ability to print on both sides of the paper automatically.</li>
-      <li><strong>Paper Size Support:</strong> A4, Letter, Legal, envelopes, etc.</li>
-      <li><strong>Operating Cost:</strong> Cost per page, cartridge/toner yield.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="printer-uses">
-    <h2>Uses of Printer</h2>
-    <ul>
-      <li>Printing documents, assignments, and reports.</li>
-      <li>Printing photographs and graphics.</li>
-      <li>Generating bills, receipts, and tickets.</li>
-      <li>Producing marketing materials like flyers and brochures.</li>
-      <li>Creating 3D models and prototypes (3D printers).</li>
-      <li>Office, home, school, and industrial uses.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="printer-importance">
-    <h2>Importance of Printer</h2>
-    <p>
-      Printers are essential output devices that provide a tangible record of digital information. They are widely used in offices, schools, homes, and industries for documentation, communication, and creativity.
-    </p>
-  </section>
-
-  <section class="card" id="printer-care">
-    <h2>Care and Maintenance</h2>
-    <ul>
-      <li>Keep the printer clean and dust-free.</li>
-      <li>Use the correct type of paper and ink/toner.</li>
-      <li>Replace cartridges/toner when needed.</li>
-      <li>Perform regular maintenance like print head cleaning.</li>
-      <li>Keep firmware/software updated for best performance.</li>
-    </ul>
-  </section>
-</main>
-<footer>
-  &copy; 2025 Detailed Printer Notes. Designed for enhanced learning.
-</footer>
-<script>
-  // Disable right-click
-  document.addEventListener('contextmenu', event => event.preventDefault());
-  // Disable copy, cut, and paste
-  document.addEventListener('copy', event => event.preventDefault());
-  document.addEventListener('cut', event => event.preventDefault());
-  document.addEventListener('paste', event => event.preventDefault());
-  // Disable drag
-  document.addEventListener('dragstart', event => event.preventDefault());
-  // Disable PrintScreen (PrtSc)
-  document.addEventListener('keydown', function(e) {
-    if (e.key === "PrintScreen") {
-      navigator.clipboard.writeText('');
-      alert('Screenshots are disabled on this page.');
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
-      alert('Printing is disabled on this page.');
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key.toLowerCase() === 's') {
-      alert('Saving is disabled on this page.');
-      e.preventDefault();
-    }
-  });
-</script>
+  <div class="academy-header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTE</h2>
+  </div>
+  <main>
+    <section class="card" id="printer-definition">
+      <h2>What is a Printer?</h2>
+      <img src="https://cdn.pixabay.com/photo/2013/07/13/12/46/printer-146423_1280.png" alt="Printer Illustration" class="topic-img" draggable="false">
+      <p>
+        A <strong>printer</strong> is an output device that produces a hard copy (physical print) of documents, images, or graphics stored on a computer. It converts digital information into text or images on paper or other printable media.
+      </p>
+    </section>
+    <section class="card" id="printer-types">
+      <h2>Types of Printers</h2>
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Types of Printers" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Inkjet Printer:</strong> Sprays tiny droplets of ink onto paper. Good for color images and home use.</li>
+        <li><strong>Laser Printer:</strong> Uses a laser beam and toner powder. Fast, high-quality, and cost-effective for large volumes.</li>
+        <li><strong>Dot Matrix Printer:</strong> Uses pins to strike an ink ribbon, creating dots on paper. Durable, used for receipts and multipart forms.</li>
+        <li><strong>Thermal Printer:</strong> Uses heat to produce images on special thermal paper. Common in billing machines and ATMs.</li>
+        <li><strong>3D Printer:</strong> Creates three-dimensional objects by layering material, used in prototyping and manufacturing.</li>
+        <li><strong>Photo Printer:</strong> Specially designed for high-quality photo printing.</li>
+        <li><strong>All-in-One Printer:</strong> Combines printing, scanning, copying, and sometimes faxing in one device.</li>
+      </ul>
+    </section>
+    <section class="card" id="printer-parts">
+      <h2>Main Parts of a Printer</h2>
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Printer Parts" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Print Head:</strong> The component that applies ink or toner to the paper.</li>
+        <li><strong>Cartridge/Toner:</strong> Contains the ink (inkjet) or powder (laser) used for printing.</li>
+        <li><strong>Paper Tray:</strong> Holds blank sheets of paper for printing.</li>
+        <li><strong>Rollers:</strong> Move the paper through the printer.</li>
+        <li><strong>Control Panel:</strong> Buttons and display for operating the printer.</li>
+        <li><strong>Ports:</strong> For connecting the printer to a computer (USB, Wi-Fi, Ethernet, etc.).</li>
+      </ul>
+    </section>
+    <section class="card" id="printer-working">
+      <h2>How Does a Printer Work?</h2>
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Printer Working" class="topic-img" draggable="false">
+      <ul>
+        <li>The computer sends a print command and digital data to the printer.</li>
+        <li>The printer processes the data and prepares the print head or laser.</li>
+        <li>Ink, toner, or heat is applied to the paper as it moves through the printer.</li>
+        <li>The finished printout is delivered to the output tray.</li>
+      </ul>
+    </section>
+    <section class="card" id="printer-features">
+      <h2>Key Features of Printers</h2>
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Printer Features" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Print Quality (DPI):</strong> Dots per inch, higher DPI means sharper images.</li>
+        <li><strong>Print Speed:</strong> Pages per minute (PPM), important for office use.</li>
+        <li><strong>Color or Monochrome:</strong> Prints in color or only black and white.</li>
+        <li><strong>Connectivity:</strong> USB, Wi-Fi, Bluetooth, Ethernet, or Cloud Printing.</li>
+        <li><strong>Duplex Printing:</strong> Ability to print on both sides of the paper automatically.</li>
+        <li><strong>Paper Size Support:</strong> A4, Letter, Legal, envelopes, etc.</li>
+        <li><strong>Operating Cost:</strong> Cost per page, cartridge/toner yield.</li>
+      </ul>
+    </section>
+    <section class="card" id="printer-uses">
+      <h2>Uses of Printer</h2>
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" alt="Printer Uses" class="topic-img" draggable="false">
+      <ul>
+        <li>Printing documents, assignments, and reports.</li>
+        <li>Printing photographs and graphics.</li>
+        <li>Generating bills, receipts, and tickets.</li>
+        <li>Producing marketing materials like flyers and brochures.</li>
+        <li>Creating 3D models and prototypes (3D printers).</li>
+        <li>Office, home, school, and industrial uses.</li>
+      </ul>
+    </section>
+    <section class="card" id="printer-importance">
+      <h2>Importance of Printer</h2>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Importance of Printer" class="topic-img" draggable="false">
+      <p>
+        Printers are essential output devices that provide a tangible record of digital information. They are widely used in offices, schools, homes, and industries for documentation, communication, and creativity.
+      </p>
+    </section>
+    <section class="card" id="printer-care">
+      <h2>Care and Maintenance</h2>
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Printer Care" class="topic-img" draggable="false">
+      <ul>
+        <li>Keep the printer clean and dust-free.</li>
+        <li>Use the correct type of paper and ink/toner.</li>
+        <li>Replace cartridges/toner when needed.</li>
+        <li>Perform regular maintenance like print head cleaning.</li>
+        <li>Keep firmware/software updated for best performance.</li>
+      </ul>
+    </section>
+  </main>
+  <a href="javascript:history.back()" class="back-btn">Back</a>
+  <div class="watermark">
+    © Pawan Soni
+  </div>
 </body>
 </html>
