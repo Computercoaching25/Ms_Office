@@ -114,6 +114,7 @@
   .card:nth-child(5) { animation-delay: 1s;}
   .card:nth-child(6) { animation-delay: 1.2s;}
   .card:nth-child(7) { animation-delay: 1.4s;}
+  .card:nth-child(8) { animation-delay: 1.6s;}
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(40px);}
     to { opacity: 1; transform: translateY(0);}
@@ -167,6 +168,37 @@
   @keyframes imgPop {
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
+  }
+  .faq-list {
+    margin: 0.5rem 0 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.06em;
+  }
+  .faq-list li {
+    margin-bottom: 1.1em;
+    padding-left: 0.5em;
+    border-left: 4px solid #764ba2;
+    background: #f7f3ff;
+    border-radius: 8px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    transition: border-color 0.2s;
+  }
+  .faq-list li:hover {
+    border-color: #667eea;
+    background: #e3e6ff;
+  }
+  .faq-q {
+    font-weight: 700;
+    color: #5a3e85;
+    margin-bottom: 0.2em;
+    display: block;
+  }
+  .faq-a {
+    color: #333;
+    margin-left: 0.2em;
+    display: block;
   }
   .back-btn {
     display: block;
@@ -326,6 +358,39 @@
         <li><strong>Number of Cores:</strong> More cores can handle more simultaneous processes.</li>
         <li><strong>Hyper-Threading & Multithreading:</strong> Techniques that allow more efficient core utilization by running multiple threads per core.</li>
         <li><strong>Thermal Design Power (TDP):</strong> Heat generated affects CPU’s ability to sustain performance under load.</li>
+      </ul>
+    </section>
+    <section class="card" id="cpu-faq">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <ul class="faq-list">
+        <li>
+          <span class="faq-q">Q1. Why is the CPU called the "brain" of the computer?</span>
+          <span class="faq-a">Because it controls all operations, processes data, and executes instructions, similar to how a brain controls body functions.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q2. What is the difference between RAM and CPU cache?</span>
+          <span class="faq-a">RAM is main memory used for running programs, while cache is much faster, smaller memory inside or near the CPU used for frequently accessed data.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q3. What is the function of the Control Unit?</span>
+          <span class="faq-a">The Control Unit fetches, decodes, and directs the execution of instructions, coordinating all CPU operations.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q4. What is the difference between CISC and RISC CPUs?</span>
+          <span class="faq-a">CISC CPUs have many complex instructions; RISC CPUs use fewer, simpler instructions for faster execution.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q5. How does multi-core technology improve performance?</span>
+          <span class="faq-a">Multiple cores allow parallel processing, so more tasks can be executed simultaneously, improving multitasking and speed.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q6. What is overclocking?</span>
+          <span class="faq-a">Overclocking is running the CPU at a higher speed than its rated clock speed for better performance, but it can increase heat and risk.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q7. Why is CPU cooling important?</span>
+          <span class="faq-a">Proper cooling prevents overheating, which can damage the CPU or reduce its performance and lifespan.</span>
+        </li>
       </ul>
     </section>
   </main>
