@@ -3,221 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Generation of Computers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>History of Computers | Chitragupt Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="https://img.icons8.com/color/48/000000/computer.png" />
   <style>
     :root {
-      --main-bg: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-      --glass-bg: rgba(255,255,255,0.18);
-      --glass-border: rgba(56,239,125,0.2);
-      --accent: #38ef7d;
-      --primary: #11998e;
-      --text-dark: #222;
-      --text-light: #fff;
-      --shadow: 0 8px 32px 0 rgba(31,38,135,0.17);
+      --primary: #5f2eea;
+      --secondary: #00c9a7;
+      --bg: linear-gradient(120deg, #f8fafc 0%, #dbeafe 100%);
+      --card-bg: #fff;
+      --accent: #ffb300;
+      --shadow: 0 6px 32px 0 rgba(31,38,135,0.13);
+      --text: #23272f;
+      --faq-bg: #f3f6fd;
+      --faq-border: #e0e7ef;
     }
     html, body {
       margin: 0; padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--main-bg);
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
       min-height: 100vh;
-      color: var(--text-dark);
-      user-select: none; /* Prevent text selection */
-    }
-    body {
-      padding: 2vw;
+      color: var(--text);
+      user-select: none;
       overflow-x: hidden;
     }
     header {
       text-align: center;
-      color: var(--text-light);
-      margin-bottom: 2.5rem;
-      letter-spacing: 1.2px;
+      background: linear-gradient(90deg, #5f2eea 0%, #00c9a7 100%);
+      color: #fff;
+      padding: 2.3rem 0 1.2rem 0;
+      letter-spacing: 1px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 8px 32px #5f2eea33;
+      position: relative;
     }
     header h1 {
-      font-size: 2.7rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 0 0 0.2rem 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #23272f33;
+    }
+    header .iso {
+      font-size: 1.1rem;
+      color: var(--accent);
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 12px #11998e88;
-      letter-spacing: 1.5px;
+      margin-bottom: 0.4rem;
+      letter-spacing: 1.2px;
     }
-    header p {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: #e7fff2;
-      margin-bottom: 0;
-    }
-    .glass {
-      background: var(--glass-bg);
-      border: 2.5px solid var(--glass-border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
-      margin-bottom: 2.2rem;
-      padding: 1.5rem 1.5rem 1rem 1.5rem;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Timeline SmartArt */
+    /* Timeline with expandable notes */
     .timeline {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin: 0 auto 18px auto;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2.5rem 0 2.5rem 0;
       position: relative;
-      max-width: 1000px;
-      min-width: 320px;
-      padding: 0 1vw;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7%;
-      right: 7%;
-      top: 50%;
-      height: 5px;
-      background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
       z-index: 1;
-      border-radius: 5px;
     }
-    .timeline-node {
-      position: relative;
-      z-index: 2;
-      background: #fff;
-      border: 2.5px solid var(--accent);
-      border-radius: 15px;
-      padding: 14px 22px;
-      min-width: 120px;
-      text-align: center;
-      box-shadow: 0 4px 16px #11998e22;
-      transition: transform 0.18s, box-shadow 0.18s;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .timeline-node:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: scale(1.07);
-      box-shadow: 0 6px 24px #11998e44;
-    }
-    .timeline-node span {
-      display: block;
-      font-size: 1.1em;
-      margin-bottom: 2px;
-    }
-    .timeline-node small {
-      font-size: 0.95em;
-      color: #11998e;
-      font-weight: 400;
-    }
-    /* Details Section */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: #fff;
+    .timeline-card {
+      background: var(--card-bg);
       border-radius: 18px;
       box-shadow: var(--shadow);
-      padding: 2.2rem 2.5rem;
-      position: relative;
-      overflow: hidden;
-      border: 2.5px solid #e7fff2;
-    }
-    h2 {
-      color: var(--primary);
-      border-bottom: 3px solid var(--accent);
-      padding-bottom: 0.4rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.1rem;
-      font-size: 2rem;
+      padding: 1.3rem 1.4rem 1.1rem 1.4rem;
+      min-width: 200px;
+      max-width: 270px;
+      text-align: center;
+      border: 2.5px solid #e0e7ef;
+      transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+      cursor: pointer;
       font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .generation-section {
-      margin-bottom: 2.7rem;
+      font-size: 1.08em;
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 1.8rem;
-      background: #e7fff2;
-      border-radius: 15px;
-      padding: 1.2rem 1.5rem 1.2rem 1.2rem;
-      box-shadow: 0 2px 14px #38ef7d22;
-      border-left: 7px solid var(--primary);
-      transition: box-shadow 0.2s;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      animation: popIn 0.7s;
+      overflow: hidden;
     }
-    .generation-section:hover {
-      box-shadow: 0 6px 32px #11998e33;
-      border-left: 7px solid var(--accent);
-    }
-    .generation-icon {
-      font-size: 2.3rem;
-      margin-right: 1.2rem;
-      margin-top: 0.6rem;
+    .timeline-card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
       color: var(--primary);
-      min-width: 40px;
+      transition: color 0.2s;
     }
-    .generation-content {
-      flex: 1;
-      min-width: 220px;
-    }
-    .generation-content h3 {
+    .timeline-card .title {
+      font-family: 'Montserrat', sans-serif;
       color: var(--primary);
-      margin: 0 0 0.5rem 0;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.7px;
+      font-size: 1.09em;
+      margin-bottom: 0.2rem;
+      font-weight: 700;
     }
-    .generation-content ul {
-      margin: 0.3rem 0 0.7rem 1.1rem;
-      font-size: 1.07rem;
-      line-height: 1.6;
-    }
-    .generation-content .examples {
-      margin-top: 0.3rem;
-      font-size: 1.05rem;
-      color: #222;
+    .timeline-card .year {
+      color: var(--secondary);
+      font-size: 0.97em;
       font-weight: 500;
     }
-    .generation-content .impact {
+    .timeline-card:hover, .timeline-card.open {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 36px #00c9a744;
+      border-color: var(--secondary);
+    }
+    .timeline-card.open .icon {
+      color: var(--secondary);
+    }
+    .timeline-details {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+      background: #f8fafc;
+      margin: 0 -1.4rem -1.1rem -1.4rem;
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 2px 12px #5f2eea11;
+      padding: 0 1.3rem;
+    }
+    .timeline-card.open .timeline-details {
+      max-height: 400px;
+      opacity: 1;
+      pointer-events: auto;
+      padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+    }
+    .timeline-details ul {
+      font-size: 1.01rem;
+      text-align: left;
+      margin: 0.5rem 0 0.5rem 1.1rem;
+      line-height: 1.6;
+    }
+    .timeline-details .examples {
+      font-size: 0.99rem;
+      color: #23272f;
+      font-weight: 500;
       margin-top: 0.2rem;
-      font-size: 0.97rem;
-      color: #11998e;
+    }
+    .timeline-details .impact {
+      margin-top: 0.2rem;
+      font-size: 0.93rem;
+      color: var(--secondary);
       font-style: italic;
     }
-    /* Table Style */
-    table {
+    @keyframes popIn {
+      0% {transform: scale(0.7);}
+      100% {transform: scale(1);}
+    }
+    /* FAQ Accordion */
+    .faq-section {
       width: 100%;
-      border-collapse: collapse;
-      margin: 28px 0 0 0;
-      font-size: 1.08rem;
-      background: #e7fff2;
+      max-width: 700px;
+      margin: 2.5rem auto 0 auto;
+      background: var(--faq-bg);
       border-radius: 15px;
+      box-shadow: 0 2px 14px #5f2eea22;
+      border: 2.5px solid var(--faq-border);
+      padding: 1.7rem 2rem 1.3rem 2rem;
+      animation: fadeIn 1.6s;
+    }
+    .faq-section h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      margin-bottom: 1.4rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .faq {
+      background: #fff;
+      border-radius: 12px;
+      border: 1.5px solid #e0e7ef;
+      box-shadow: 0 2px 10px #00c9a71a;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      transition: box-shadow 0.18s, border 0.18s;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 14px #38ef7d22;
     }
-    th, td {
-      border: 1.5px solid #c8f7e7;
-      padding: 12px 10px;
-      text-align: left;
+    .faq:hover, .faq.open {
+      box-shadow: 0 6px 22px #5f2eea22;
+      border-color: var(--primary);
     }
-    th {
+    .faq-question {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.09rem;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-toggle {
+      font-size: 1.4rem;
+      color: var(--secondary);
+      transition: transform 0.2s;
+      margin-left: 1rem;
+    }
+    .faq.open .faq-toggle {
+      transform: rotate(90deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.32s cubic-bezier(0.4,0,0.2,1);
+      font-size: 1.01rem;
+      color: #23272f;
+      margin-top: 0.2rem;
+      padding-left: 0.2rem;
+    }
+    .faq.open .faq-answer {
+      max-height: 80px;
+      margin-top: 0.5rem;
+    }
+    .back-btn {
+      display: block;
+      margin: 3.2rem auto 1.2rem auto;
+      padding: 0.8rem 2.5rem;
       background: var(--primary);
       color: #fff;
-      font-weight: 600;
-      font-size: 1.09rem;
-      letter-spacing: 0.6px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.13rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 18px #5f2eea33;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      text-align: center;
+      letter-spacing: 1px;
     }
-    tr:nth-child(even) {
-      background: #f5fff9;
+    .back-btn:hover {
+      background: var(--secondary);
+      color: #23272f;
+      transform: scale(1.07);
+    }
+    footer {
+      text-align: center;
+      color: #5f2eea;
+      margin-top: 2.2rem;
+      font-size: 1.08rem;
+      background: #f3f6fd;
+      border-top: 2px solid #e0e7ef;
+      padding: 1rem 0 1rem 0;
+      letter-spacing: 1px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
     }
     /* Lock overlay */
     .lock-overlay {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(17,153,142,0.11);
+      background: rgba(95,46,234,0.09);
       z-index: 9999;
       pointer-events: none;
       display: none;
@@ -226,13 +268,13 @@
       position: fixed;
       top: 30%; left: 50%; transform: translate(-50%,-50%);
       background: #fff;
-      color: #11998e;
+      color: var(--primary);
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
       padding: 1.5rem 2.5rem;
       border-radius: 18px;
-      border: 3px solid #38ef7d;
-      box-shadow: 0 8px 32px #11998e33;
+      border: 3px solid var(--secondary);
+      box-shadow: 0 8px 32px #5f2eea33;
       z-index: 10000;
       display: none;
       text-align: center;
@@ -242,21 +284,16 @@
       from { opacity: 0; transform: translate(-50%,-65%) scale(0.95);}
       to { opacity: 1; transform: translate(-50%,-50%) scale(1);}
     }
-    /* Responsive */
     @media(max-width: 900px) {
-      main, .glass { padding: 1.2rem 0.7rem; }
-      .timeline { flex-wrap: wrap; min-width: 0; }
-      .generation-section { flex-direction: column; padding: 1rem 1rem 1rem 0.7rem;}
+      .timeline { gap: 1rem; }
     }
     @media(max-width: 600px) {
-      header h1 { font-size: 1.5rem;}
-      .timeline-node { min-width: 70px; padding: 10px 7px; font-size: 0.95em;}
-      .generation-section { padding: 0.7rem 0.3rem 0.7rem 0.3rem;}
-      th, td { font-size: 0.95rem; padding: 7px 4px;}
+      header h1 { font-size: 1.4rem;}
+      .timeline-card { min-width: 120px; max-width: 140px; padding: 0.8rem 0.5rem;}
+      .faq-section { padding: 1rem 0.5rem 0.7rem 0.5rem;}
     }
-    /* Prevent selection and copying */
-    *::selection { background: #38ef7d44; color: #fff; }
-    body, main, .glass, .generation-section, table, th, td, h1, h2, h3, p, ul, li {
+    *::selection { background: #5f2eea33; color: #fff; }
+    body, .timeline-card, .faq-section, h1, h2, h3, p, ul, li {
       -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
     }
   </style>
@@ -265,188 +302,200 @@
   <div class="lock-overlay" id="lockOverlay"></div>
   <div class="lock-msg" id="lockMsg">🔒 Screenshot & Copy Disabled</div>
   <header>
-    <img src="https://img.icons8.com/color/60/000000/computer.png" alt="Computer Icon" style="vertical-align:middle;margin-right:10px;">
-    <h1>Generation of Computers</h1>
-    <p>History, Features, Examples, and Impact of Each Generation</p>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
   </header>
-  <div class="glass">
-    <div class="timeline">
-      <div class="timeline-node" title="Vacuum Tubes Era">
-        <span>1st Gen</span>
-        <small>1940-1956</small>
-      </div>
-      <div class="timeline-node" title="Transistor Revolution">
-        <span>2nd Gen</span>
-        <small>1956-1963</small>
-      </div>
-      <div class="timeline-node" title="ICs Era">
-        <span>3rd Gen</span>
-        <small>1964-1971</small>
-      </div>
-      <div class="timeline-node" title="Microprocessors">
-        <span>4th Gen</span>
-        <small>1971-Now</small>
-      </div>
-      <div class="timeline-node" title="AI & Beyond">
-        <span>5th Gen</span>
-        <small>Now & Future</small>
-      </div>
-    </div>
-    <div style="text-align:center; color:#11998e; font-size:1em; margin-top:8px;">
-      <b>SmartArt:</b> Animated Timeline of Computer Generations
-    </div>
-  </div>
-  <main>
-    <h2>Overview</h2>
-    <p>
-      The evolution of computers is classified into five generations, each marked by revolutionary advances in technology, speed, size, and capability. Explore the journey from massive vacuum tube machines to today's AI-powered smart systems.
-    </p>
-    <!-- GENERATION 1 -->
-    <section class="generation-section">
-      <div class="generation-icon">🟦</div>
-      <div class="generation-content">
-        <h3>First Generation (1940-1956): Vacuum Tubes</h3>
+  <!-- Timeline Cards: Early Devices & Generations with Notes -->
+  <div class="timeline" id="timeline">
+    <!-- Abacus -->
+    <div class="timeline-card">
+      <span class="icon">🧮</span>
+      <div class="title">Abacus</div>
+      <div class="year">16th Century BC</div>
+      <div class="timeline-details">
         <ul>
-          <li><b>Main Technology:</b> Vacuum tubes for circuitry, magnetic drums for memory</li>
-          <li><b>Programming:</b> Machine language only</li>
-          <li><b>Size:</b> Room-sized, consumed huge electricity, generated heat</li>
-          <li><b>Speed:</b> Milliseconds per operation (very slow by modern standards)</li>
-          <li><b>Input/Output:</b> Punched cards, paper tape, printouts</li>
+          <li>Ancient Chinese tool using beads and rods for calculation.</li>
+          <li>Used for basic arithmetic like addition and subtraction.</li>
+        </ul>
+        <div class="examples"><b>Example:</b> Wooden/metal abacus.</div>
+        <div class="impact">Foundation for all future calculators.</div>
+      </div>
+    </div>
+    <!-- Pascal -->
+    <div class="timeline-card">
+      <span class="icon">🧑‍🔬</span>
+      <div class="title">Pascal's Calculator</div>
+      <div class="year">1642</div>
+      <div class="timeline-details">
+        <ul>
+          <li>Invented by Blaise Pascal in 1642 (France).</li>
+          <li>First mechanical calculator for addition, subtraction, multiplication, division.</li>
+        </ul>
+        <div class="examples"><b>Example:</b> Pascaline calculator.</div>
+        <div class="impact">First step towards automation in calculation.</div>
+      </div>
+    </div>
+    <!-- Babbage -->
+    <div class="timeline-card">
+      <span class="icon">⚙️</span>
+      <div class="title">Babbage’s Engines</div>
+      <div class="year">1822-1833</div>
+      <div class="timeline-details">
+        <ul>
+          <li>Charles Babbage designed Difference Engine (1822) and Analytical Engine (1833).</li>
+          <li>Introduced concepts of input, storage, processing, output.</li>
+        </ul>
+        <div class="examples"><b>Example:</b> Analytical Engine.</div>
+        <div class="impact">Babbage is the "Father of the Computer".</div>
+      </div>
+    </div>
+    <!-- Tabulating -->
+    <div class="timeline-card">
+      <span class="icon">💳</span>
+      <div class="title">Tabulating Machine</div>
+      <div class="year">1880</div>
+      <div class="timeline-details">
+        <ul>
+          <li>Invented by Herman Hollerith in 1880 (USA).</li>
+          <li>Used punched cards for data processing.</li>
+        </ul>
+        <div class="examples"><b>Example:</b> Punched card tabulator.</div>
+        <div class="impact">Became IBM, revolutionized data processing.</div>
+      </div>
+    </div>
+    <!-- Mark-1 -->
+    <div class="timeline-card">
+      <span class="icon">🔗</span>
+      <div class="title">Mark-1</div>
+      <div class="year">1930</div>
+      <div class="timeline-details">
+        <ul>
+          <li>Developed by Howard Aiken and IBM in 1930.</li>
+          <li>First electromechanical computer, used in WWII.</li>
+        </ul>
+        <div class="examples"><b>Example:</b> Harvard Mark-1.</div>
+        <div class="impact">Bridge between mechanical and electronic computers.</div>
+      </div>
+    </div>
+    <!-- ENIAC -->
+    <div class="timeline-card">
+      <span class="icon">💡</span>
+      <div class="title">ENIAC</div>
+      <div class="year">1946</div>
+      <div class="timeline-details">
+        <ul>
+          <li>Developed by Eckert & Mauchly in 1946 (USA).</li>
+          <li>First electronic general-purpose computer.</li>
+        </ul>
+        <div class="examples"><b>Example:</b> ENIAC, EDVAC.</div>
+        <div class="impact">Start of the electronic computer era.</div>
+      </div>
+    </div>
+    <!-- 1st Gen -->
+    <div class="timeline-card">
+      <span class="icon">🟦</span>
+      <div class="title">First Gen</div>
+      <div class="year">1940-1956</div>
+      <div class="timeline-details">
+        <ul>
+          <li>Vacuum tubes for circuitry, magnetic drums for memory.</li>
+          <li>Machine language only, room-sized, huge electricity, generated heat.</li>
+          <li>Punched cards, paper tape, printouts.</li>
         </ul>
         <div class="examples"><b>Examples:</b> ENIAC, UNIVAC I, IBM 701, EDVAC</div>
-        <div class="impact">Impact: Made large-scale calculations possible, but were unreliable and expensive.</div>
+        <div class="impact">Large-scale calculations possible, but unreliable and expensive.</div>
       </div>
-    </section>
-    <!-- GENERATION 2 -->
-    <section class="generation-section">
-      <div class="generation-icon">🟩</div>
-      <div class="generation-content">
-        <h3>Second Generation (1956-1963): Transistors</h3>
+    </div>
+    <!-- 2nd Gen -->
+    <div class="timeline-card">
+      <span class="icon">🟩</span>
+      <div class="title">Second Gen</div>
+      <div class="year">1956-1963</div>
+      <div class="timeline-details">
         <ul>
-          <li><b>Main Technology:</b> Transistors replaced vacuum tubes</li>
-          <li><b>Programming:</b> Assembly language and early high-level languages (COBOL, FORTRAN)</li>
-          <li><b>Size:</b> Much smaller, more reliable, less heat</li>
-          <li><b>Speed:</b> Microseconds per operation (faster)</li>
-          <li><b>Input/Output:</b> Magnetic tape, punched cards, printers</li>
+          <li>Transistors replaced vacuum tubes, assembly & early high-level languages.</li>
+          <li>Smaller, more reliable, less heat, faster.</li>
         </ul>
         <div class="examples"><b>Examples:</b> IBM 1401, IBM 7090, CDC 1604, UNIVAC 1108</div>
-        <div class="impact">Impact: Computing became more accessible and affordable for businesses and research.</div>
+        <div class="impact">Computing became more accessible and affordable.</div>
       </div>
-    </section>
-    <!-- GENERATION 3 -->
-    <section class="generation-section">
-      <div class="generation-icon">🟨</div>
-      <div class="generation-content">
-        <h3>Third Generation (1964-1971): Integrated Circuits (ICs)</h3>
+    </div>
+    <!-- 3rd Gen -->
+    <div class="timeline-card">
+      <span class="icon">🟨</span>
+      <div class="title">Third Gen</div>
+      <div class="year">1964-1971</div>
+      <div class="timeline-details">
         <ul>
-          <li><b>Main Technology:</b> Integrated Circuits (ICs) - thousands of transistors on a single chip</li>
-          <li><b>Programming:</b> High-level languages (BASIC, Pascal); operating systems introduced</li>
-          <li><b>Size:</b> Even smaller, more reliable, energy-efficient</li>
-          <li><b>Speed:</b> Nanoseconds per operation</li>
-          <li><b>Features:</b> Multi-programming, time-sharing, better user interfaces</li>
+          <li>Integrated Circuits (ICs) - thousands of transistors on a single chip.</li>
+          <li>High-level languages, operating systems, multiprogramming, time-sharing.</li>
         </ul>
         <div class="examples"><b>Examples:</b> IBM System/360, PDP-8, Honeywell 6000, ICL 1900</div>
-        <div class="impact">Impact: Computers entered universities, banks, and large organizations worldwide.</div>
+        <div class="impact">Computers entered universities, banks, and large organizations.</div>
       </div>
-    </section>
-    <!-- GENERATION 4 -->
-    <section class="generation-section">
-      <div class="generation-icon">🟥</div>
-      <div class="generation-content">
-        <h3>Fourth Generation (1971-Present): Microprocessors</h3>
+    </div>
+    <!-- 4th Gen -->
+    <div class="timeline-card">
+      <span class="icon">🟥</span>
+      <div class="title">Fourth Gen</div>
+      <div class="year">1971-Now</div>
+      <div class="timeline-details">
         <ul>
-          <li><b>Main Technology:</b> Microprocessors (entire CPU on a single chip)</li>
-          <li><b>Programming:</b> High-level languages, GUIs, networking</li>
-          <li><b>Size:</b> Desktop, laptop, mobile size (very compact)</li>
-          <li><b>Speed:</b> Picoseconds per operation, multi-core processors</li>
-          <li><b>Features:</b> Personal computers, graphical user interface, internet, multimedia</li>
+          <li>Microprocessors (entire CPU on a single chip), HLL, GUIs, networking.</li>
+          <li>Desktop, laptop, mobile size, personal computers, GUI, internet, multimedia.</li>
         </ul>
-        <div class="examples"><b>Examples:</b> IBM PC, Apple Macintosh, Intel 4004/8086, modern laptops/desktops</div>
-        <div class="impact">Impact: Computers became part of daily life, revolutionizing communication, business, and entertainment.</div>
+        <div class="examples"><b>Examples:</b> IBM PC, Apple Macintosh, Intel 4004/8086</div>
+        <div class="impact">Computers became part of daily life, revolutionizing everything.</div>
       </div>
-    </section>
-    <!-- GENERATION 5 -->
-    <section class="generation-section">
-      <div class="generation-icon">🟪</div>
-      <div class="generation-content">
-        <h3>Fifth Generation (Present & Beyond): Artificial Intelligence</h3>
+    </div>
+    <!-- 5th Gen -->
+    <div class="timeline-card">
+      <span class="icon">🟪</span>
+      <div class="title">Fifth Gen</div>
+      <div class="year">Now & Future</div>
+      <div class="timeline-details">
         <ul>
-          <li><b>Main Technology:</b> AI, Machine Learning, Quantum Computing, Parallel Processing</li>
-          <li><b>Programming:</b> Natural Language Processing, advanced algorithms</li>
-          <li><b>Size:</b> Wearables, IoT, cloud-based, ultra-compact</li>
-          <li><b>Features:</b> Voice assistants, robotics, self-learning systems, big data analytics</li>
-          <li><b>Speed:</b> Exponential increases with quantum and AI chips</li>
+          <li>AI, Machine Learning, Quantum Computing, Parallel Processing.</li>
+          <li>Natural Language Processing, robotics, self-learning systems, big data.</li>
         </ul>
         <div class="examples"><b>Examples:</b> IBM Watson, Google AlphaGo, Siri, Alexa, Quantum Computers</div>
-        <div class="impact">Impact: Computers now “think” and “learn”, transforming industries and society.</div>
+        <div class="impact">Computers now “think” and “learn”, transforming society.</div>
       </div>
-    </section>
-    <!-- SUMMARY TABLE -->
-    <h2>Comparison Table</h2>
-    <table>
-      <tr>
-        <th>Generation</th>
-        <th>Period</th>
-        <th>Main Technology</th>
-        <th>Programming</th>
-        <th>Features</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td>First</td>
-        <td>1940-1956</td>
-        <td>Vacuum Tubes</td>
-        <td>Machine Language</td>
-        <td>Large, slow, high power, unreliable</td>
-        <td>ENIAC, UNIVAC</td>
-      </tr>
-      <tr>
-        <td>Second</td>
-        <td>1956-1963</td>
-        <td>Transistors</td>
-        <td>Assembly, Early HLL</td>
-        <td>Smaller, faster, more reliable</td>
-        <td>IBM 1401, CDC 1604</td>
-      </tr>
-      <tr>
-        <td>Third</td>
-        <td>1964-1971</td>
-        <td>Integrated Circuits</td>
-        <td>High-level Languages</td>
-        <td>Multiprogramming, OS, user-friendly</td>
-        <td>IBM 360, PDP-8</td>
-      </tr>
-      <tr>
-        <td>Fourth</td>
-        <td>1971-Present</td>
-        <td>Microprocessors</td>
-        <td>HLL, GUIs, Networking</td>
-        <td>Personal computers, internet, multimedia</td>
-        <td>IBM PC, Apple Mac</td>
-      </tr>
-      <tr>
-        <td>Fifth</td>
-        <td>Present & Beyond</td>
-        <td>AI, Quantum Computing</td>
-        <td>Natural Language, AI Algorithms</td>
-        <td>AI, Robotics, IoT, Cloud, Big Data</td>
-        <td>Watson, AlphaGo, Siri</td>
-      </tr>
-    </table>
-    <h2>Conclusion</h2>
-    <p>
-      From room-sized machines to intelligent assistants in your pocket, computers have evolved dramatically in speed, size, and intelligence. Each generation paved the way for the next, making technology more accessible, powerful, and essential to modern life.
-    </p>
-  </main>
-  <footer style="text-align:center; color:#aaa; margin-top:2.2rem; font-size:1.08rem;">
-    &copy; 2025 Generation of Computers | <span style="color:#11998e;">All Rights Reserved</span>
-    <br>
-    <span style="font-size:0.9em;">Screenshot & Copy Protection Enabled</span>
+    </div>
+  </div>
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2>FAQs (Short Answers)</h2>
+    <div class="faq-list">
+      <div class="faq">
+        <div class="faq-question">Who is the Father of the Computer?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">Charles Babbage.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What was the first electronic computer?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">ENIAC.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What is the main difference between generations?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">Each uses a new technology (vacuum tube, transistor, IC, microprocessor, AI).</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What is AI in computers?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">AI means computers can learn and make decisions.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What is quantum computing?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">It uses quantum bits for super-fast calculations.</div>
+      </div>
+    </div>
+  </div>
+  <a href="javascript:history.back()" class="back-btn">⬅ Back</a>
+  <footer>
+    &copy; <span style="color:var(--primary);">Pawan Soni</span>
   </footer>
   <script>
     // Disable right-click context menu
     document.addEventListener('contextmenu', event => event.preventDefault());
-
     // Disable copy, cut, paste, drag
     ['copy','cut','paste','dragstart'].forEach(evt =>
       document.addEventListener(evt, function(e) {
@@ -454,10 +503,8 @@
         showLockMsg();
       })
     );
-
-    // Disable keyboard shortcuts for copy, print, screenshot (Win+Shift+S, PrtScn, Ctrl+P)
+    // Disable keyboard shortcuts for copy, print, screenshot
     document.addEventListener('keydown', function(e) {
-      // Ctrl+C, Ctrl+X, Ctrl+P, Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12
       if ((e.ctrlKey && ['c','x','p','s','u'].includes(e.key.toLowerCase())) ||
           (e.key === 'F12') ||
           (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
@@ -465,22 +512,17 @@
         e.preventDefault();
         showLockMsg();
       }
-      // Win+Shift+S (Screenshot on Windows)
       if (e.key === 'S' && e.shiftKey && e.metaKey) {
         e.preventDefault();
         showLockMsg();
       }
     });
-
-    // Attempt to blank clipboard on PrintScreen (not foolproof)
     window.addEventListener('keyup', function(e) {
       if (e.key === 'PrintScreen') {
         navigator.clipboard.writeText('Screenshot Disabled on this page!');
         showLockMsg();
       }
     });
-
-    // Show lock overlay/message
     function showLockMsg() {
       document.getElementById('lockOverlay').style.display = 'block';
       var msg = document.getElementById('lockMsg');
@@ -490,6 +532,24 @@
         msg.style.display = 'none';
       }, 1200);
     }
+    // Timeline card toggle
+    document.querySelectorAll('.timeline-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.querySelectorAll('.timeline-card').forEach(other => {
+          if (other !== this) other.classList.remove('open');
+        });
+      });
+    });
+    // FAQ toggle
+    document.querySelectorAll('.faq').forEach(faq => {
+      faq.addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.querySelectorAll('.faq').forEach(other => {
+          if (other !== this) other.classList.remove('open');
+        });
+      });
+    });
   </script>
 </body>
 </html>
