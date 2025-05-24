@@ -17,9 +17,6 @@
     align-items: center;
     padding: 2rem 0 0 0;
     user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
   }
   .academy-header {
     width: 100vw;
@@ -106,6 +103,7 @@
     transition: transform 0.35s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s cubic-bezier(.17,.67,.83,.67);
     opacity: 0;
     animation: cardFadeIn 1.1s forwards;
+    min-height: 180px;
   }
   .card:nth-child(1) { animation-delay: .2s;}
   .card:nth-child(2) { animation-delay: .4s;}
@@ -115,6 +113,7 @@
   .card:nth-child(6) { animation-delay: 1.2s;}
   .card:nth-child(7) { animation-delay: 1.4s;}
   .card:nth-child(8) { animation-delay: 1.6s;}
+  .card:nth-child(9) { animation-delay: 1.8s;}
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(40px);}
     to { opacity: 1; transform: translateY(0);}
@@ -154,20 +153,29 @@
   .card:hover ul li {
     color: #f7971e;
   }
-  .topic-img {
+  .key-table {
     width: 100%;
-    max-width: 260px;
-    display: block;
-    margin: 0 auto 1.5rem auto;
+    border-collapse: collapse;
+    margin-top: 1em;
+    font-size: 1.04em;
+    background: #fffbe7;
     border-radius: 12px;
-    box-shadow: 0 2px 12px #ffd200aa;
-    border: 3px solid #f7971e;
-    background: #fff;
-    animation: imgPop 1.2s;
+    overflow: hidden;
+    box-shadow: 0 2px 12px #ffd20033;
   }
-  @keyframes imgPop {
-    from { opacity: 0; transform: scale(0.8);}
-    to { opacity: 1; transform: scale(1);}
+  .key-table th, .key-table td {
+    border: 1.5px solid #ffe066;
+    padding: 9px 8px;
+    text-align: left;
+  }
+  .key-table th {
+    background: #f7971e;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .key-table tr:nth-child(even) {
+    background: #fffde7;
   }
   .faq-list {
     margin: 0.5rem 0 0 0.5rem;
@@ -261,6 +269,7 @@
     header h1 { font-size: 1.1rem; }
     .card { padding: 1.5rem 1.2rem; }
     .back-btn { width: 96vw; font-size: 1em;}
+    .key-table th, .key-table td { font-size: 0.92em;}
   }
 </style>
 <script>
@@ -294,14 +303,12 @@
   <main>
     <section class="card" id="keyboard-definition">
       <h2>What is a Keyboard?</h2>
-      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/keyboard-312856_1280.png" alt="Keyboard Illustration" class="topic-img" draggable="false">
       <p>
         A <strong>keyboard</strong> is the main input device used to enter data and commands into a computer. It consists of a set of keys that allow users to type letters, numbers, symbols, and perform various functions.
       </p>
     </section>
     <section class="card" id="keyboard-types">
       <h2>Types of Keyboards</h2>
-      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Types of Keyboards" class="topic-img" draggable="false">
       <ul>
         <li><strong>Standard Keyboard:</strong> The traditional keyboard with function keys, alphanumeric keys, and a numeric keypad (usually 104 keys).</li>
         <li><strong>Multimedia Keyboard:</strong> Includes extra keys for controlling media, volume, internet, etc.</li>
@@ -313,7 +320,6 @@
     </section>
     <section class="card" id="keyboard-layout">
       <h2>Keyboard Layout & Keys</h2>
-      <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c8a?auto=format&fit=crop&w=600&q=80" alt="Keyboard Layout" class="topic-img" draggable="false">
       <ul>
         <li><strong>Alphanumeric Keys:</strong> Letters (A-Z), numbers (0-9), and basic symbols.</li>
         <li><strong>Function Keys:</strong> F1 to F12, used for special tasks in software.</li>
@@ -324,9 +330,78 @@
         <li><strong>Special Keys:</strong> Enter, Spacebar, Backspace, Tab, Esc, Print Screen, Delete, Insert.</li>
       </ul>
     </section>
+    <section class="card" id="keyboard-all-keys">
+      <h2>All Keyboard Keys & Their Uses</h2>
+      <table class="key-table">
+        <tr>
+          <th>Key/Group</th>
+          <th>Examples</th>
+          <th>Uses</th>
+        </tr>
+        <tr>
+          <td><b>Alphanumeric Keys</b></td>
+          <td>A-Z, 0-9, !, @, #, $, %, etc.</td>
+          <td>Typing letters, numbers, and symbols in documents, forms, and data entry.</td>
+        </tr>
+        <tr>
+          <td><b>Function Keys</b></td>
+          <td>F1 – F12</td>
+          <td>Special functions like Help (F1), Refresh (F5), Save (F12), etc. Varies by software.</td>
+        </tr>
+        <tr>
+          <td><b>Control Keys</b></td>
+          <td>Ctrl, Alt, Windows, Command, Fn</td>
+          <td>Used in combination for shortcuts (e.g., Ctrl+C for copy, Alt+Tab for switching apps).</td>
+        </tr>
+        <tr>
+          <td><b>Modifier Keys</b></td>
+          <td>Shift, Caps Lock, Num Lock, Scroll Lock</td>
+          <td>Shift: Capital letters and symbols. Caps Lock: All caps. Num Lock/Scroll Lock: Toggle keypad/scrolling functions.</td>
+        </tr>
+        <tr>
+          <td><b>Navigation Keys</b></td>
+          <td>Arrow keys, Home, End, Page Up, Page Down</td>
+          <td>Move cursor or scroll within text, documents, or web pages.</td>
+        </tr>
+        <tr>
+          <td><b>Editing Keys</b></td>
+          <td>Backspace, Delete, Insert</td>
+          <td>Backspace: Delete left. Delete: Delete right. Insert: Toggle overwrite mode.</td>
+        </tr>
+        <tr>
+          <td><b>Special Keys</b></td>
+          <td>Enter, Spacebar, Tab, Esc, Print Screen, Pause/Break</td>
+          <td>
+            Enter: Confirm commands, new line.<br>
+            Spacebar: Insert space.<br>
+            Tab: Move to next field/indent.<br>
+            Esc: Cancel or exit.<br>
+            Print Screen: Take screenshot.<br>
+            Pause/Break: Rarely used, pauses processes.
+          </td>
+        </tr>
+        <tr>
+          <td><b>Numeric Keypad</b></td>
+          <td>0-9, +, -, *, /, ., Enter</td>
+          <td>Quick number entry, calculations (like a calculator), navigation (with Num Lock off).</td>
+        </tr>
+        <tr>
+          <td><b>Multimedia Keys</b></td>
+          <td>Volume, Mute, Play/Pause, Next, Previous</td>
+          <td>Control audio, video, and media playback directly from the keyboard.</td>
+        </tr>
+        <tr>
+          <td><b>Shortcut Keys</b></td>
+          <td>Ctrl+C, Ctrl+V, Ctrl+Z, Ctrl+S, Alt+Tab, etc.</td>
+          <td>Perform common actions quickly: copy, paste, undo, save, switch windows, etc.</td>
+        </tr>
+      </table>
+      <p style="margin-top: 0.8em; color: #f7971e; font-size: 1em;">
+        <b>Note:</b> Some keys may have different uses depending on the software or operating system.
+      </p>
+    </section>
     <section class="card" id="keyboard-working">
       <h2>How Does a Keyboard Work?</h2>
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Keyboard Working" class="topic-img" draggable="false">
       <ul>
         <li>When a key is pressed, it completes an electrical circuit beneath the key.</li>
         <li>The keyboard’s microprocessor detects which key was pressed and sends a signal to the computer.</li>
@@ -335,7 +410,6 @@
     </section>
     <section class="card" id="keyboard-uses">
       <h2>Uses of Keyboard</h2>
-      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Keyboard Uses" class="topic-img" draggable="false">
       <ul>
         <li>Typing text, numbers, and symbols into documents and applications.</li>
         <li>Using shortcuts for faster work (e.g., Ctrl+C to copy, Ctrl+V to paste).</li>
@@ -346,14 +420,12 @@
     </section>
     <section class="card" id="keyboard-importance">
       <h2>Importance of Keyboard</h2>
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Keyboard Importance" class="topic-img" draggable="false">
       <p>
         The keyboard is an essential input device for computers. It enables efficient communication with the computer, quick data entry, and control of software. Without a keyboard, most computer tasks would be slow and difficult.
       </p>
     </section>
     <section class="card" id="keyboard-care">
       <h2>Care and Maintenance</h2>
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Keyboard Care" class="topic-img" draggable="false">
       <ul>
         <li>Keep the keyboard clean and dust-free.</li>
         <li>Avoid eating or drinking near the keyboard to prevent spills.</li>
