@@ -139,6 +139,28 @@
       .header h1 { font-size: 1.2em;}
     }
   </style>
+  <script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('copy', event => event.preventDefault());
+  document.addEventListener('cut', event => event.preventDefault());
+  document.addEventListener('paste', event => event.preventDefault());
+  document.addEventListener('dragstart', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert('Screenshots are disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
+      alert('Printing is disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 's') {
+      alert('Saving is disabled on this page.');
+      e.preventDefault();
+    }
+  });
+  </script>
 </head>
 <body>
   <div class="header">
@@ -654,28 +676,5 @@
       &copy; Pawan Soni
     </div>
   </div>
-  <script>
-  // Disable right-click context menu
-  document.addEventListener('contextmenu', event => event.preventDefault());
-
-  // Disable copy, cut, paste, drag
-  document.addEventListener('copy', event => event.preventDefault());
-  document.addEventListener('cut', event => event.preventDefault());
-  document.addEventListener('paste', event => event.preventDefault());
-  document.addEventListener('dragstart', event => event.preventDefault());
-
-  // Disable PrintScreen key (screenshot)
-  document.addEventListener('keydown', function(e) {
-    if (e.key === "PrintScreen") {
-      navigator.clipboard.writeText('');
-      alert('Screenshots are disabled on this page.');
-      e.preventDefault();
-    }
-    if (e.ctrlKey && (e.key.toLowerCase() === 'p' || e.key.toLowerCase() === 's')) {
-      alert('Printing and saving are disabled on this page.');
-      e.preventDefault();
-    }
-  });
-  </script>
 </body>
 </html>
