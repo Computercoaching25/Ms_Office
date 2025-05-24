@@ -8,15 +8,14 @@
   <link rel="icon" href="https://img.icons8.com/color/48/000000/computer.png" />
   <style>
     :root {
-      --primary: #5f2eea;
-      --secondary: #00c9a7;
-      --bg: linear-gradient(120deg, #f8fafc 0%, #dbeafe 100%);
-      --card-bg: #fff;
-      --accent: #ffb300;
-      --shadow: 0 6px 32px 0 rgba(31,38,135,0.13);
+      --primary: #2d6cdf;
+      --secondary: #00b894;
+      --accent: #fdcb6e;
+      --bg: linear-gradient(120deg, #e0eafc 0%, #cfd9df 100%);
+      --card-bg: rgba(255,255,255,0.90);
+      --card-glass: rgba(255,255,255,0.65);
+      --shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
       --text: #23272f;
-      --faq-bg: #f3f6fd;
-      --faq-border: #e0e7ef;
     }
     html, body {
       margin: 0; padding: 0;
@@ -29,85 +28,109 @@
     }
     header {
       text-align: center;
-      background: linear-gradient(90deg, #5f2eea 0%, #00c9a7 100%);
+      background: linear-gradient(90deg, #2d6cdf 0%, #00b894 100%);
       color: #fff;
-      padding: 2.3rem 0 1.2rem 0;
-      letter-spacing: 1px;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
-      box-shadow: 0 8px 32px #5f2eea33;
+      padding: 2.1rem 0 1.1rem 0;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      box-shadow: 0 8px 32px #2d6cdf33;
       position: relative;
+      margin-bottom: 1.2rem;
     }
     header h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
+      font-size: 2.1rem;
       font-weight: 900;
       margin: 0 0 0.2rem 0;
       letter-spacing: 2px;
       text-shadow: 0 2px 12px #23272f33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
     }
     header .iso {
-      font-size: 1.1rem;
+      font-size: 1.01rem;
       color: var(--accent);
       font-weight: 700;
-      margin-bottom: 0.4rem;
       letter-spacing: 1.2px;
     }
-    /* Timeline with expandable notes */
     .timeline {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1.5rem;
       justify-content: center;
-      margin: 2.5rem 0 2.5rem 0;
+      margin: 0 auto 2.5rem auto;
+      max-width: 1200px;
+      padding: 0 2vw;
       position: relative;
       z-index: 1;
     }
     .timeline-card {
-      background: var(--card-bg);
-      border-radius: 18px;
+      background: var(--card-glass);
+      border-radius: 22px;
       box-shadow: var(--shadow);
-      padding: 1.3rem 1.4rem 1.1rem 1.4rem;
-      min-width: 200px;
-      max-width: 270px;
+      padding: 1.2rem 1.3rem 1rem 1.3rem;
       text-align: center;
       border: 2.5px solid #e0e7ef;
-      transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+      transition: 
+        transform 0.22s cubic-bezier(.2,.7,.4,1.1), 
+        box-shadow 0.18s, 
+        border 0.18s,
+        background 0.18s;
       cursor: pointer;
       font-weight: 700;
       font-size: 1.08em;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
+      min-height: 180px;
       animation: popIn 0.7s;
       overflow: hidden;
+      position: relative;
+      margin-bottom: 0.5rem;
+      backdrop-filter: blur(4px);
+      will-change: transform;
     }
     .timeline-card .icon {
-      font-size: 2.4rem;
+      font-size: 2.7rem;
       margin-bottom: 0.5rem;
       color: var(--primary);
       transition: color 0.2s;
+      filter: drop-shadow(0 3px 8px #2d6cdf22);
+      background: var(--accent);
+      border-radius: 50%;
+      padding: 0.3em;
+      margin-top: -0.6em;
+      margin-bottom: 0.2em;
+      box-shadow: 0 2px 12px #fdcb6e33;
     }
     .timeline-card .title {
       font-family: 'Montserrat', sans-serif;
       color: var(--primary);
-      font-size: 1.09em;
+      font-size: 1.15em;
       margin-bottom: 0.2rem;
       font-weight: 700;
+      letter-spacing: 1px;
     }
     .timeline-card .year {
       color: var(--secondary);
-      font-size: 0.97em;
+      font-size: 0.99em;
       font-weight: 500;
+      margin-bottom: 0.6rem;
     }
-    .timeline-card:hover, .timeline-card.open {
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 12px 36px #00c9a744;
+    .timeline-card:hover, .timeline-card.open, .timeline-card:focus {
+      transform: translateY(-7px) scale(1.045);
+      box-shadow: 0 16px 48px #00b89433;
       border-color: var(--secondary);
+      background: var(--card-bg);
+      outline: none;
     }
     .timeline-card.open .icon {
       color: var(--secondary);
+      background: var(--primary);
+      box-shadow: 0 4px 18px #2d6cdf55;
+      color: #fff;
     }
     .timeline-details {
       max-height: 0;
@@ -115,16 +138,21 @@
       pointer-events: none;
       transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
       background: #f8fafc;
-      margin: 0 -1.4rem -1.1rem -1.4rem;
-      border-radius: 0 0 16px 16px;
-      box-shadow: 0 2px 12px #5f2eea11;
-      padding: 0 1.3rem;
+      margin: 0 -1.3rem -1.1rem -1.3rem;
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 12px #2d6cdf11;
+      padding: 0 1.1rem;
+      width: calc(100% + 2.6rem);
+      position: relative;
+      left: -1.3rem;
+      color: #222;
+      font-size: 1em;
     }
     .timeline-card.open .timeline-details {
       max-height: 400px;
       opacity: 1;
       pointer-events: auto;
-      padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+      padding: 1.1rem 1.1rem 1rem 1.1rem;
     }
     .timeline-details ul {
       font-size: 1.01rem;
@@ -148,81 +176,40 @@
       0% {transform: scale(0.7);}
       100% {transform: scale(1);}
     }
-    /* FAQ Accordion */
-    .faq-section {
-      width: 100%;
-      max-width: 700px;
-      margin: 2.5rem auto 0 auto;
-      background: var(--faq-bg);
-      border-radius: 15px;
-      box-shadow: 0 2px 14px #5f2eea22;
-      border: 2.5px solid var(--faq-border);
-      padding: 1.7rem 2rem 1.3rem 2rem;
-      animation: fadeIn 1.6s;
+    /* Mobile styles */
+    @media (max-width: 900px) {
+      .timeline {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.1rem;
+        padding: 0 3vw;
+      }
     }
-    .faq-section h2 {
-      font-size: 1.5rem;
-      color: var(--primary);
-      font-family: 'Montserrat', sans-serif;
-      margin-top: 0;
-      margin-bottom: 1.4rem;
-      text-align: center;
-      letter-spacing: 1px;
+    @media (max-width: 600px) {
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 3vw;
+      }
+      .timeline-card {
+        min-width: 0;
+        font-size: 1em;
+        border-radius: 16px;
+        padding: 1.1rem 0.6rem 1.1rem 0.6rem;
+      }
+      .timeline-details {
+        width: calc(100% + 1.2rem);
+        left: -0.6rem;
+        font-size: 0.99em;
+      }
+      header h1 { font-size: 1.15rem;}
     }
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-    .faq {
-      background: #fff;
-      border-radius: 12px;
-      border: 1.5px solid #e0e7ef;
-      box-shadow: 0 2px 10px #00c9a71a;
-      padding: 0.8rem 1.2rem;
-      cursor: pointer;
-      transition: box-shadow 0.18s, border 0.18s;
-      position: relative;
-      overflow: hidden;
-    }
-    .faq:hover, .faq.open {
-      box-shadow: 0 6px 22px #5f2eea22;
-      border-color: var(--primary);
-    }
-    .faq-question {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 1.09rem;
-      font-family: 'Montserrat', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .faq-toggle {
-      font-size: 1.4rem;
-      color: var(--secondary);
-      transition: transform 0.2s;
-      margin-left: 1rem;
-    }
-    .faq.open .faq-toggle {
-      transform: rotate(90deg);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.32s cubic-bezier(0.4,0,0.2,1);
-      font-size: 1.01rem;
-      color: #23272f;
-      margin-top: 0.2rem;
-      padding-left: 0.2rem;
-    }
-    .faq.open .faq-answer {
-      max-height: 80px;
-      margin-top: 0.5rem;
+    .timeline-card:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px #2d6cdf55;
     }
     .back-btn {
       display: block;
-      margin: 3.2rem auto 1.2rem auto;
+      margin: 2.5rem auto 1.2rem auto;
       padding: 0.8rem 2.5rem;
       background: var(--primary);
       color: #fff;
@@ -231,20 +218,20 @@
       font-size: 1.13rem;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 18px #5f2eea33;
+      box-shadow: 0 4px 18px #2d6cdf33;
       transition: background 0.2s, transform 0.15s;
       text-decoration: none;
       text-align: center;
       letter-spacing: 1px;
     }
-    .back-btn:hover {
+    .back-btn:hover, .back-btn:focus {
       background: var(--secondary);
       color: #23272f;
       transform: scale(1.07);
     }
     footer {
       text-align: center;
-      color: #5f2eea;
+      color: #2d6cdf;
       margin-top: 2.2rem;
       font-size: 1.08rem;
       background: #f3f6fd;
@@ -255,60 +242,19 @@
       border-bottom-right-radius: 30px;
       font-family: 'Montserrat', sans-serif;
     }
-    /* Lock overlay */
-    .lock-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(95,46,234,0.09);
-      z-index: 9999;
-      pointer-events: none;
-      display: none;
-    }
-    .lock-msg {
-      position: fixed;
-      top: 30%; left: 50%; transform: translate(-50%,-50%);
-      background: #fff;
-      color: var(--primary);
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: 1.5rem 2.5rem;
-      border-radius: 18px;
-      border: 3px solid var(--secondary);
-      box-shadow: 0 8px 32px #5f2eea33;
-      z-index: 10000;
-      display: none;
-      text-align: center;
-      animation: fadein 0.4s;
-    }
-    @keyframes fadein {
-      from { opacity: 0; transform: translate(-50%,-65%) scale(0.95);}
-      to { opacity: 1; transform: translate(-50%,-50%) scale(1);}
-    }
-    @media(max-width: 900px) {
-      .timeline { gap: 1rem; }
-    }
-    @media(max-width: 600px) {
-      header h1 { font-size: 1.4rem;}
-      .timeline-card { min-width: 120px; max-width: 140px; padding: 0.8rem 0.5rem;}
-      .faq-section { padding: 1rem 0.5rem 0.7rem 0.5rem;}
-    }
-    *::selection { background: #5f2eea33; color: #fff; }
-    body, .timeline-card, .faq-section, h1, h2, h3, p, ul, li {
-      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
-    }
   </style>
 </head>
 <body oncontextmenu="return false;">
-  <div class="lock-overlay" id="lockOverlay"></div>
-  <div class="lock-msg" id="lockMsg">🔒 Screenshot & Copy Disabled</div>
   <header>
-    <h1>CHITRAGUPT ACADEMY</h1>
+    <h1>
+      <img src="https://img.icons8.com/color/48/000000/computer.png" alt="computer" style="vertical-align:middle;width:2.2em;margin-right:0.3em;">
+      CHITRAGUPT ACADEMY
+    </h1>
     <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
   </header>
-  <!-- Timeline Cards: Early Devices & Generations with Notes -->
   <div class="timeline" id="timeline">
     <!-- Abacus -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🧮</span>
       <div class="title">Abacus</div>
       <div class="year">16th Century BC</div>
@@ -322,7 +268,7 @@
       </div>
     </div>
     <!-- Pascal -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🧑‍🔬</span>
       <div class="title">Pascal's Calculator</div>
       <div class="year">1642</div>
@@ -336,7 +282,7 @@
       </div>
     </div>
     <!-- Babbage -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">⚙️</span>
       <div class="title">Babbage’s Engines</div>
       <div class="year">1822-1833</div>
@@ -350,7 +296,7 @@
       </div>
     </div>
     <!-- Tabulating -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">💳</span>
       <div class="title">Tabulating Machine</div>
       <div class="year">1880</div>
@@ -364,7 +310,7 @@
       </div>
     </div>
     <!-- Mark-1 -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🔗</span>
       <div class="title">Mark-1</div>
       <div class="year">1930</div>
@@ -378,7 +324,7 @@
       </div>
     </div>
     <!-- ENIAC -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">💡</span>
       <div class="title">ENIAC</div>
       <div class="year">1946</div>
@@ -392,7 +338,7 @@
       </div>
     </div>
     <!-- 1st Gen -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🟦</span>
       <div class="title">First Gen</div>
       <div class="year">1940-1956</div>
@@ -407,7 +353,7 @@
       </div>
     </div>
     <!-- 2nd Gen -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🟩</span>
       <div class="title">Second Gen</div>
       <div class="year">1956-1963</div>
@@ -421,7 +367,7 @@
       </div>
     </div>
     <!-- 3rd Gen -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🟨</span>
       <div class="title">Third Gen</div>
       <div class="year">1964-1971</div>
@@ -435,7 +381,7 @@
       </div>
     </div>
     <!-- 4th Gen -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🟥</span>
       <div class="title">Fourth Gen</div>
       <div class="year">1971-Now</div>
@@ -449,7 +395,7 @@
       </div>
     </div>
     <!-- 5th Gen -->
-    <div class="timeline-card">
+    <div class="timeline-card" tabindex="0">
       <span class="icon">🟪</span>
       <div class="title">Fifth Gen</div>
       <div class="year">Now & Future</div>
@@ -463,91 +409,24 @@
       </div>
     </div>
   </div>
-  <!-- FAQ Section -->
-  <div class="faq-section">
-    <h2>FAQs (Short Answers)</h2>
-    <div class="faq-list">
-      <div class="faq">
-        <div class="faq-question">Who is the Father of the Computer?<span class="faq-toggle">▶</span></div>
-        <div class="faq-answer">Charles Babbage.</div>
-      </div>
-      <div class="faq">
-        <div class="faq-question">What was the first electronic computer?<span class="faq-toggle">▶</span></div>
-        <div class="faq-answer">ENIAC.</div>
-      </div>
-      <div class="faq">
-        <div class="faq-question">What is the main difference between generations?<span class="faq-toggle">▶</span></div>
-        <div class="faq-answer">Each uses a new technology (vacuum tube, transistor, IC, microprocessor, AI).</div>
-      </div>
-      <div class="faq">
-        <div class="faq-question">What is AI in computers?<span class="faq-toggle">▶</span></div>
-        <div class="faq-answer">AI means computers can learn and make decisions.</div>
-      </div>
-      <div class="faq">
-        <div class="faq-question">What is quantum computing?<span class="faq-toggle">▶</span></div>
-        <div class="faq-answer">It uses quantum bits for super-fast calculations.</div>
-      </div>
-    </div>
-  </div>
   <a href="javascript:history.back()" class="back-btn">⬅ Back</a>
   <footer>
-    &copy; <span style="color:var(--primary);">Pawan Soni</span>
+    &copy; 2025 | <span style="color:var(--primary);">Pawan Soni</span>
   </footer>
   <script>
-    // Disable right-click context menu
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    // Disable copy, cut, paste, drag
-    ['copy','cut','paste','dragstart'].forEach(evt =>
-      document.addEventListener(evt, function(e) {
-        e.preventDefault();
-        showLockMsg();
-      })
-    );
-    // Disable keyboard shortcuts for copy, print, screenshot
-    document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey && ['c','x','p','s','u'].includes(e.key.toLowerCase())) ||
-          (e.key === 'F12') ||
-          (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
-          (e.key === 'PrintScreen')) {
-        e.preventDefault();
-        showLockMsg();
-      }
-      if (e.key === 'S' && e.shiftKey && e.metaKey) {
-        e.preventDefault();
-        showLockMsg();
-      }
-    });
-    window.addEventListener('keyup', function(e) {
-      if (e.key === 'PrintScreen') {
-        navigator.clipboard.writeText('Screenshot Disabled on this page!');
-        showLockMsg();
-      }
-    });
-    function showLockMsg() {
-      document.getElementById('lockOverlay').style.display = 'block';
-      var msg = document.getElementById('lockMsg');
-      msg.style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('lockOverlay').style.display = 'none';
-        msg.style.display = 'none';
-      }, 1200);
-    }
     // Timeline card toggle
     document.querySelectorAll('.timeline-card').forEach(card => {
-      card.addEventListener('click', function() {
+      card.addEventListener('click', function(e) {
+        if(e.target.closest('.timeline-details')) return;
         this.classList.toggle('open');
         document.querySelectorAll('.timeline-card').forEach(other => {
           if (other !== this) other.classList.remove('open');
         });
       });
-    });
-    // FAQ toggle
-    document.querySelectorAll('.faq').forEach(faq => {
-      faq.addEventListener('click', function() {
-        this.classList.toggle('open');
-        document.querySelectorAll('.faq').forEach(other => {
-          if (other !== this) other.classList.remove('open');
-        });
+      card.addEventListener('keypress', function(e) {
+        if (e.key === "Enter" || e.key === " ") {
+          this.click();
+        }
       });
     });
   </script>
