@@ -174,6 +174,31 @@
             user-select: none;
             pointer-events: none;
         }
+        .back-btn {
+    display: block;
+    margin: 3.5em auto 0 auto;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #c8ff00 0%, #43cea2 100%);
+    color: #185a9d;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 32px 0 #185a9d55;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  .back-btn:hover, .back-btn:focus {
+    background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px 0 #43cea288;
+  }
         footer {
             margin-top: 2.5rem;
             font-size: 0.95rem;
@@ -201,10 +226,6 @@
         <h1>CHITRAGUPT ACADEMY</h1>
         <h2>AN ISO CERTIFIED INSTITUTE</h2>
     </div>
-    <header>
-        <h1>Monitor - Detailed Notes</h1>
-        <p>Understanding the Visual Output Device of a Computer</p>
-    </header>
     <main>
         <section class="card" id="monitor-definition">
             <h2>What is a Monitor?</h2>
@@ -275,6 +296,7 @@
             </p>
         </section>
     </main>
+    <a href="javascript:history.back()" class="back-btn">Back</a>
     <div class="copyright">
         © Pawan Soni
     </div>
