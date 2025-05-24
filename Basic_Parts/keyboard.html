@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Detailed Notes on Keyboard - Stylish & Attractive</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -15,11 +15,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 0 0 0;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
+  }
+  .academy-header {
+    width: 100vw;
+    background: rgba(255,210,0,0.93);
+    padding: 1.2em 0 0.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 24px #ffd20044;
+    margin-bottom: 0.3em;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    animation: fadeInDown 1.1s;
+  }
+  .academy-header h1 {
+    font-size: 2.1em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 18px #f7971e88;
+    animation: glow 2s infinite alternate;
+  }
+  .academy-header h2 {
+    font-size: 1.02em;
+    color: #f7971e;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    text-shadow: 0 1px 8px #fff7;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 8px #fff, 0 0 16px #f7971e; }
+    to   { text-shadow: 0 0 24px #fff, 0 0 32px #ffd200; }
   }
   header {
     text-align: center;
@@ -27,28 +64,25 @@
     color: #fff;
     animation: fadeInDown 1.1s;
   }
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-50px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
   header h1 {
     font-weight: 700;
-    font-size: 2.6rem;
+    font-size: 2.1rem;
     letter-spacing: 2px;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     animation: glow 2s infinite alternate;
-  }
-  @keyframes glow {
-    from { text-shadow: 0 0 8px #fff, 0 0 16px #f7971e; }
-    to   { text-shadow: 0 0 24px #fff, 0 0 32px #ffd200; }
+    margin-bottom: 0.2em;
   }
   header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     margin-top: 0.4rem;
     color: #fff7cc;
     letter-spacing: 1px;
     animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
   }
   main {
     max-width: 1100px;
@@ -119,7 +153,7 @@
   .card:hover ul li {
     color: #f7971e;
   }
-  .keyboard-img {
+  .topic-img {
     width: 100%;
     max-width: 260px;
     display: block;
@@ -134,8 +168,47 @@
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
   }
+  .back-btn {
+    display: block;
+    margin: 3.5em auto 0 auto;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
+    color: #222;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 32px 0 #ffd20055;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  .back-btn:hover, .back-btn:focus {
+    background: linear-gradient(90deg, #ffd200 0%, #f7971e 100%);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px 0 #ffd20088;
+  }
+  .watermark {
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-size: 1.02em;
+    letter-spacing: 1.3px;
+    margin: 34px auto 0 auto;
+    opacity: 0.7;
+    text-shadow: 0 2px 10px #f7971e99;
+    font-weight: 600;
+    padding-bottom: 14px;
+    user-select: none;
+    pointer-events: none;
+  }
   footer {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     font-size: 0.95rem;
     color: #aaa;
     text-align: center;
@@ -152,24 +225,18 @@
     background: transparent;
   }
   @media(max-width: 400px) {
-    header h1 {
-      font-size: 2rem;
-    }
-    .card {
-      padding: 1.5rem 1.2rem;
-    }
+    .academy-header h1 { font-size: 1.3rem; }
+    header h1 { font-size: 1.1rem; }
+    .card { padding: 1.5rem 1.2rem; }
+    .back-btn { width: 96vw; font-size: 1em;}
   }
 </style>
 <script>
-  // Disable right-click
   document.addEventListener('contextmenu', event => event.preventDefault());
-  // Disable copy, cut, and paste
   document.addEventListener('copy', event => event.preventDefault());
   document.addEventListener('cut', event => event.preventDefault());
   document.addEventListener('paste', event => event.preventDefault());
-  // Disable drag
   document.addEventListener('dragstart', event => event.preventDefault());
-  // Disable PrintScreen (PrtSc)
   document.addEventListener('keydown', function(e) {
     if (e.key === "PrintScreen") {
       navigator.clipboard.writeText('');
@@ -188,109 +255,84 @@
 </script>
 </head>
 <body>
-<header>
-  <h1>Keyboard - Detailed Notes</h1>
-  <p>Understanding the Main Input Device of a Computer</p>
-</header>
-<img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/keyboard-312856_1280.png" alt="Keyboard Illustration" class="keyboard-img" draggable="false">
-<main>
-  <section class="card" id="keyboard-definition">
-    <h2>What is a Keyboard?</h2>
-    <p>
-      A <strong>keyboard</strong> is the main input device used to enter data and commands into a computer. It consists of a set of keys that allow users to type letters, numbers, symbols, and perform various functions.
-    </p>
-  </section>
-
-  <section class="card" id="keyboard-types">
-    <h2>Types of Keyboards</h2>
-    <ul>
-      <li><strong>Standard Keyboard:</strong> The traditional keyboard with function keys, alphanumeric keys, and a numeric keypad (usually 104 keys).</li>
-      <li><strong>Multimedia Keyboard:</strong> Includes extra keys for controlling media, volume, internet, etc.</li>
-      <li><strong>Wireless Keyboard:</strong> Connects to the computer via Bluetooth or RF, no wire required.</li>
-      <li><strong>Virtual Keyboard:</strong> On-screen keyboard used in smartphones, tablets, and touch devices.</li>
-      <li><strong>Mechanical Keyboard:</strong> Uses individual mechanical switches for each key, preferred by gamers and typists.</li>
-      <li><strong>Ergonomic Keyboard:</strong> Designed for comfort and to reduce strain during long typing sessions.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="keyboard-layout">
-    <h2>Keyboard Layout & Keys</h2>
-    <ul>
-      <li><strong>Alphanumeric Keys:</strong> Letters (A-Z), numbers (0-9), and basic symbols.</li>
-      <li><strong>Function Keys:</strong> F1 to F12, used for special tasks in software.</li>
-      <li><strong>Control Keys:</strong> Ctrl, Alt, Windows, Command, Fn, used in combination for shortcuts.</li>
-      <li><strong>Navigation Keys:</strong> Arrow keys, Home, End, Page Up, Page Down.</li>
-      <li><strong>Modifier Keys:</strong> Shift, Caps Lock, Num Lock, Scroll Lock.</li>
-      <li><strong>Numeric Keypad:</strong> Separate section for quick number entry (on full-size keyboards).</li>
-      <li><strong>Special Keys:</strong> Enter, Spacebar, Backspace, Tab, Esc, Print Screen, Delete, Insert.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="keyboard-working">
-    <h2>How Does a Keyboard Work?</h2>
-    <ul>
-      <li>When a key is pressed, it completes an electrical circuit beneath the key.</li>
-      <li>The keyboard’s microprocessor detects which key was pressed and sends a signal to the computer.</li>
-      <li>The computer’s operating system interprets the signal and displays the character or performs the function.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="keyboard-uses">
-    <h2>Uses of Keyboard</h2>
-    <ul>
-      <li>Typing text, numbers, and symbols into documents and applications.</li>
-      <li>Using shortcuts for faster work (e.g., Ctrl+C to copy, Ctrl+V to paste).</li>
-      <li>Controlling games and software.</li>
-      <li>Navigating menus and operating systems.</li>
-      <li>Programming, designing, and data entry tasks.</li>
-    </ul>
-  </section>
-
-  <section class="card" id="keyboard-importance">
-    <h2>Importance of Keyboard</h2>
-    <p>
-      The keyboard is an essential input device for computers. It enables efficient communication with the computer, quick data entry, and control of software. Without a keyboard, most computer tasks would be slow and difficult.
-    </p>
-  </section>
-
-  <section class="card" id="keyboard-care">
-    <h2>Care and Maintenance</h2>
-    <ul>
-      <li>Keep the keyboard clean and dust-free.</li>
-      <li>Avoid eating or drinking near the keyboard to prevent spills.</li>
-      <li>Use gentle pressure while typing to extend the lifespan of keys.</li>
-      <li>Disconnect or turn off wireless keyboards when not in use to save battery.</li>
-    </ul>
-  </section>
-</main>
-<footer>
-  &copy; 2025 Detailed Keyboard Notes. Designed for enhanced learning.
-</footer>
-<script>
-  // Disable right-click
-  document.addEventListener('contextmenu', event => event.preventDefault());
-  // Disable copy, cut, and paste
-  document.addEventListener('copy', event => event.preventDefault());
-  document.addEventListener('cut', event => event.preventDefault());
-  document.addEventListener('paste', event => event.preventDefault());
-  // Disable drag
-  document.addEventListener('dragstart', event => event.preventDefault());
-  // Disable PrintScreen (PrtSc)
-  document.addEventListener('keydown', function(e) {
-    if (e.key === "PrintScreen") {
-      navigator.clipboard.writeText('');
-      alert('Screenshots are disabled on this page.');
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
-      alert('Printing is disabled on this page.');
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key.toLowerCase() === 's') {
-      alert('Saving is disabled on this page.');
-      e.preventDefault();
-    }
-  });
-</script>
+  <div class="academy-header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTE</h2>
+  </div>
+  <main>
+    <section class="card" id="keyboard-definition">
+      <h2>What is a Keyboard?</h2>
+      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/keyboard-312856_1280.png" alt="Keyboard Illustration" class="topic-img" draggable="false">
+      <p>
+        A <strong>keyboard</strong> is the main input device used to enter data and commands into a computer. It consists of a set of keys that allow users to type letters, numbers, symbols, and perform various functions.
+      </p>
+    </section>
+    <section class="card" id="keyboard-types">
+      <h2>Types of Keyboards</h2>
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Types of Keyboards" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Standard Keyboard:</strong> The traditional keyboard with function keys, alphanumeric keys, and a numeric keypad (usually 104 keys).</li>
+        <li><strong>Multimedia Keyboard:</strong> Includes extra keys for controlling media, volume, internet, etc.</li>
+        <li><strong>Wireless Keyboard:</strong> Connects to the computer via Bluetooth or RF, no wire required.</li>
+        <li><strong>Virtual Keyboard:</strong> On-screen keyboard used in smartphones, tablets, and touch devices.</li>
+        <li><strong>Mechanical Keyboard:</strong> Uses individual mechanical switches for each key, preferred by gamers and typists.</li>
+        <li><strong>Ergonomic Keyboard:</strong> Designed for comfort and to reduce strain during long typing sessions.</li>
+      </ul>
+    </section>
+    <section class="card" id="keyboard-layout">
+      <h2>Keyboard Layout & Keys</h2>
+      <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c8a?auto=format&fit=crop&w=600&q=80" alt="Keyboard Layout" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Alphanumeric Keys:</strong> Letters (A-Z), numbers (0-9), and basic symbols.</li>
+        <li><strong>Function Keys:</strong> F1 to F12, used for special tasks in software.</li>
+        <li><strong>Control Keys:</strong> Ctrl, Alt, Windows, Command, Fn, used in combination for shortcuts.</li>
+        <li><strong>Navigation Keys:</strong> Arrow keys, Home, End, Page Up, Page Down.</li>
+        <li><strong>Modifier Keys:</strong> Shift, Caps Lock, Num Lock, Scroll Lock.</li>
+        <li><strong>Numeric Keypad:</strong> Separate section for quick number entry (on full-size keyboards).</li>
+        <li><strong>Special Keys:</strong> Enter, Spacebar, Backspace, Tab, Esc, Print Screen, Delete, Insert.</li>
+      </ul>
+    </section>
+    <section class="card" id="keyboard-working">
+      <h2>How Does a Keyboard Work?</h2>
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Keyboard Working" class="topic-img" draggable="false">
+      <ul>
+        <li>When a key is pressed, it completes an electrical circuit beneath the key.</li>
+        <li>The keyboard’s microprocessor detects which key was pressed and sends a signal to the computer.</li>
+        <li>The computer’s operating system interprets the signal and displays the character or performs the function.</li>
+      </ul>
+    </section>
+    <section class="card" id="keyboard-uses">
+      <h2>Uses of Keyboard</h2>
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Keyboard Uses" class="topic-img" draggable="false">
+      <ul>
+        <li>Typing text, numbers, and symbols into documents and applications.</li>
+        <li>Using shortcuts for faster work (e.g., Ctrl+C to copy, Ctrl+V to paste).</li>
+        <li>Controlling games and software.</li>
+        <li>Navigating menus and operating systems.</li>
+        <li>Programming, designing, and data entry tasks.</li>
+      </ul>
+    </section>
+    <section class="card" id="keyboard-importance">
+      <h2>Importance of Keyboard</h2>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Keyboard Importance" class="topic-img" draggable="false">
+      <p>
+        The keyboard is an essential input device for computers. It enables efficient communication with the computer, quick data entry, and control of software. Without a keyboard, most computer tasks would be slow and difficult.
+      </p>
+    </section>
+    <section class="card" id="keyboard-care">
+      <h2>Care and Maintenance</h2>
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Keyboard Care" class="topic-img" draggable="false">
+      <ul>
+        <li>Keep the keyboard clean and dust-free.</li>
+        <li>Avoid eating or drinking near the keyboard to prevent spills.</li>
+        <li>Use gentle pressure while typing to extend the lifespan of keys.</li>
+        <li>Disconnect or turn off wireless keyboards when not in use to save battery.</li>
+      </ul>
+    </section>
+  </main>
+  <a href="javascript:history.back()" class="back-btn">Back</a>
+  <div class="watermark">
+    © Pawan Soni
+  </div>
 </body>
 </html>
