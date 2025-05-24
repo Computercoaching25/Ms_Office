@@ -5,114 +5,491 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Generation of Computers</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/computer.png" />
   <style>
-    body { margin:0; font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#11998e,#38ef7d 100%); color:#222; min-height:100vh; padding:2vw;}
-    header { text-align:center; color:#fff; margin-bottom:2rem;}
-    .smartart-container { max-width:900px; margin:0 auto 30px auto; background:#e7fff2; border-radius:16px; box-shadow:0 2px 12px #38ef7d33;}
-    .smartart-inner { min-width:600px; padding:20px 0 10px 0;}
-    main { max-width:900px; margin:0 auto; background:#fff; border-radius:15px; box-shadow:0 8px 22px rgba(0,0,0,0.13); padding:2rem 2.2rem;}
-    h2 { color:#11998e; border-bottom:3px solid #38ef7d; padding-bottom:0.4rem;}
-    ul, p { font-size:1.07rem; line-height:1.6;}
-    table { width:100%; border-collapse:collapse; margin:18px 0 0 0;}
-    th, td { border:1.5px solid #c8f7e7; padding:10px 8px; text-align:left;}
-    th { background:#11998e; color:#fff;}
-    tr:nth-child(even) { background:#f5fff9;}
-    @media(max-width:700px){.smartart-inner{min-width:320px;} main{padding:1.5rem 1.2rem;}}
+    :root {
+      --main-bg: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      --glass-bg: rgba(255,255,255,0.18);
+      --glass-border: rgba(56,239,125,0.2);
+      --accent: #38ef7d;
+      --primary: #11998e;
+      --text-dark: #222;
+      --text-light: #fff;
+      --shadow: 0 8px 32px 0 rgba(31,38,135,0.17);
+    }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--main-bg);
+      min-height: 100vh;
+      color: var(--text-dark);
+      user-select: none; /* Prevent text selection */
+    }
+    body {
+      padding: 2vw;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      letter-spacing: 1.2px;
+    }
+    header h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 12px #11998e88;
+      letter-spacing: 1.5px;
+    }
+    header p {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #e7fff2;
+      margin-bottom: 0;
+    }
+    .glass {
+      background: var(--glass-bg);
+      border: 2.5px solid var(--glass-border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      margin-bottom: 2.2rem;
+      padding: 1.5rem 1.5rem 1rem 1.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Timeline SmartArt */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 0 auto 18px auto;
+      position: relative;
+      max-width: 1000px;
+      min-width: 320px;
+      padding: 0 1vw;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7%;
+      right: 7%;
+      top: 50%;
+      height: 5px;
+      background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+      z-index: 1;
+      border-radius: 5px;
+    }
+    .timeline-node {
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      border: 2.5px solid var(--accent);
+      border-radius: 15px;
+      padding: 14px 22px;
+      min-width: 120px;
+      text-align: center;
+      box-shadow: 0 4px 16px #11998e22;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .timeline-node:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.07);
+      box-shadow: 0 6px 24px #11998e44;
+    }
+    .timeline-node span {
+      display: block;
+      font-size: 1.1em;
+      margin-bottom: 2px;
+    }
+    .timeline-node small {
+      font-size: 0.95em;
+      color: #11998e;
+      font-weight: 400;
+    }
+    /* Details Section */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border: 2.5px solid #e7fff2;
+    }
+    h2 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .generation-section {
+      margin-bottom: 2.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1.8rem;
+      background: #e7fff2;
+      border-radius: 15px;
+      padding: 1.2rem 1.5rem 1.2rem 1.2rem;
+      box-shadow: 0 2px 14px #38ef7d22;
+      border-left: 7px solid var(--primary);
+      transition: box-shadow 0.2s;
+    }
+    .generation-section:hover {
+      box-shadow: 0 6px 32px #11998e33;
+      border-left: 7px solid var(--accent);
+    }
+    .generation-icon {
+      font-size: 2.3rem;
+      margin-right: 1.2rem;
+      margin-top: 0.6rem;
+      color: var(--primary);
+      min-width: 40px;
+    }
+    .generation-content {
+      flex: 1;
+      min-width: 220px;
+    }
+    .generation-content h3 {
+      color: var(--primary);
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+    }
+    .generation-content ul {
+      margin: 0.3rem 0 0.7rem 1.1rem;
+      font-size: 1.07rem;
+      line-height: 1.6;
+    }
+    .generation-content .examples {
+      margin-top: 0.3rem;
+      font-size: 1.05rem;
+      color: #222;
+      font-weight: 500;
+    }
+    .generation-content .impact {
+      margin-top: 0.2rem;
+      font-size: 0.97rem;
+      color: #11998e;
+      font-style: italic;
+    }
+    /* Table Style */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0 0 0;
+      font-size: 1.08rem;
+      background: #e7fff2;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px #38ef7d22;
+    }
+    th, td {
+      border: 1.5px solid #c8f7e7;
+      padding: 12px 10px;
+      text-align: left;
+    }
+    th {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.09rem;
+      letter-spacing: 0.6px;
+    }
+    tr:nth-child(even) {
+      background: #f5fff9;
+    }
+    /* Lock overlay */
+    .lock-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(17,153,142,0.11);
+      z-index: 9999;
+      pointer-events: none;
+      display: none;
+    }
+    .lock-msg {
+      position: fixed;
+      top: 30%; left: 50%; transform: translate(-50%,-50%);
+      background: #fff;
+      color: #11998e;
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 1.5rem 2.5rem;
+      border-radius: 18px;
+      border: 3px solid #38ef7d;
+      box-shadow: 0 8px 32px #11998e33;
+      z-index: 10000;
+      display: none;
+      text-align: center;
+      animation: fadein 0.4s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translate(-50%,-65%) scale(0.95);}
+      to { opacity: 1; transform: translate(-50%,-50%) scale(1);}
+    }
+    /* Responsive */
+    @media(max-width: 900px) {
+      main, .glass { padding: 1.2rem 0.7rem; }
+      .timeline { flex-wrap: wrap; min-width: 0; }
+      .generation-section { flex-direction: column; padding: 1rem 1rem 1rem 0.7rem;}
+    }
+    @media(max-width: 600px) {
+      header h1 { font-size: 1.5rem;}
+      .timeline-node { min-width: 70px; padding: 10px 7px; font-size: 0.95em;}
+      .generation-section { padding: 0.7rem 0.3rem 0.7rem 0.3rem;}
+      th, td { font-size: 0.95rem; padding: 7px 4px;}
+    }
+    /* Prevent selection and copying */
+    *::selection { background: #38ef7d44; color: #fff; }
+    body, main, .glass, .generation-section, table, th, td, h1, h2, h3, p, ul, li {
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+    }
   </style>
 </head>
-<body>
-<header>
-  <h1>Generation of Computers</h1>
-  <p>History, Features, and Examples of Each Generation</p>
-</header>
-<div class="smartart-container">
-  <div class="smartart-inner">
-    <svg viewBox="0 0 900 180" width="100%" height="150">
-      <!-- Main Node -->
-      <rect x="400" y="20" width="100" height="40" rx="12" fill="#11998e"/>
-      <text x="450" y="45" text-anchor="middle" fill="#fff" font-size="18" font-family="Poppins">Generations</text>
-      <!-- Arrows to generations -->
-      <line x1="450" y1="60" x2="150" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <line x1="450" y1="60" x2="300" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <line x1="450" y1="60" x2="600" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <line x1="450" y1="60" x2="750" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
-      <!-- 1st Gen -->
-      <rect x="90" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="150" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">1st Gen (1940-56)</text>
-      <!-- 2nd Gen -->
-      <rect x="240" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="300" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">2nd Gen (1956-63)</text>
-      <!-- 3rd Gen -->
-      <rect x="540" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="600" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">3rd Gen (1964-71)</text>
-      <!-- 4th Gen -->
-      <rect x="690" y="120" width="120" height="40" rx="10" fill="#fff"/>
-      <text x="750" y="145" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">4th Gen (1971-Now)</text>
-      <defs>
-        <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
-          <polygon points="0,0 8,4 0,8" fill="#38ef7d"/>
-        </marker>
-      </defs>
-    </svg>
+<body oncontextmenu="return false;">
+  <div class="lock-overlay" id="lockOverlay"></div>
+  <div class="lock-msg" id="lockMsg">🔒 Screenshot & Copy Disabled</div>
+  <header>
+    <img src="https://img.icons8.com/color/60/000000/computer.png" alt="Computer Icon" style="vertical-align:middle;margin-right:10px;">
+    <h1>Generation of Computers</h1>
+    <p>History, Features, Examples, and Impact of Each Generation</p>
+  </header>
+  <div class="glass">
+    <div class="timeline">
+      <div class="timeline-node" title="Vacuum Tubes Era">
+        <span>1st Gen</span>
+        <small>1940-1956</small>
+      </div>
+      <div class="timeline-node" title="Transistor Revolution">
+        <span>2nd Gen</span>
+        <small>1956-1963</small>
+      </div>
+      <div class="timeline-node" title="ICs Era">
+        <span>3rd Gen</span>
+        <small>1964-1971</small>
+      </div>
+      <div class="timeline-node" title="Microprocessors">
+        <span>4th Gen</span>
+        <small>1971-Now</small>
+      </div>
+      <div class="timeline-node" title="AI & Beyond">
+        <span>5th Gen</span>
+        <small>Now & Future</small>
+      </div>
+    </div>
     <div style="text-align:center; color:#11998e; font-size:1em; margin-top:8px;">
-      <b>SmartArt:</b> Timeline of computer generations
+      <b>SmartArt:</b> Animated Timeline of Computer Generations
     </div>
   </div>
-</div>
-<main>
-  <h2>Overview</h2>
-  <p>
-    The history of computers is divided into generations, each marked by major technological changes in hardware and software.
-  </p>
-  <table>
-    <tr>
-      <th>Generation</th>
-      <th>Period</th>
-      <th>Main Technology</th>
-      <th>Features</th>
-      <th>Example</th>
-    </tr>
-    <tr>
-      <td>First</td>
-      <td>1940-1956</td>
-      <td>Vacuum Tubes</td>
-      <td>Large, slow, high power, programming in machine language</td>
-      <td>ENIAC, UNIVAC</td>
-    </tr>
-    <tr>
-      <td>Second</td>
-      <td>1956-1963</td>
-      <td>Transistors</td>
-      <td>Smaller, faster, less power, assembly language</td>
-      <td>IBM 1401, CDC 1604</td>
-    </tr>
-    <tr>
-      <td>Third</td>
-      <td>1964-1971</td>
-      <td>Integrated Circuits (IC)</td>
-      <td>Even smaller, more reliable, high-level languages</td>
-      <td>IBM 360, PDP-8</td>
-    </tr>
-    <tr>
-      <td>Fourth</td>
-      <td>1971-Present</td>
-      <td>Microprocessors</td>
-      <td>Very small, very fast, personal computers, GUI</td>
-      <td>IBM PC, Apple Macintosh</td>
-    </tr>
-    <tr>
-      <td>Fifth</td>
-      <td>Present & Beyond</td>
-      <td>AI, Parallel Processing</td>
-      <td>Artificial Intelligence, Natural Language, Robotics</td>
-      <td>Modern AI systems</td>
-    </tr>
-  </table>
-  <h2>Conclusion</h2>
-  <p>
-    Each generation of computers brought major improvements in speed, size, cost, and usability. Today’s computers are millions of times more powerful than the early machines.
-  </p>
-</main>
-<footer style="text-align:center; color:#aaa; margin-top:2rem;">&copy; 2025 Generation of Computers - Detailed Notes</footer>
+  <main>
+    <h2>Overview</h2>
+    <p>
+      The evolution of computers is classified into five generations, each marked by revolutionary advances in technology, speed, size, and capability. Explore the journey from massive vacuum tube machines to today's AI-powered smart systems.
+    </p>
+    <!-- GENERATION 1 -->
+    <section class="generation-section">
+      <div class="generation-icon">🟦</div>
+      <div class="generation-content">
+        <h3>First Generation (1940-1956): Vacuum Tubes</h3>
+        <ul>
+          <li><b>Main Technology:</b> Vacuum tubes for circuitry, magnetic drums for memory</li>
+          <li><b>Programming:</b> Machine language only</li>
+          <li><b>Size:</b> Room-sized, consumed huge electricity, generated heat</li>
+          <li><b>Speed:</b> Milliseconds per operation (very slow by modern standards)</li>
+          <li><b>Input/Output:</b> Punched cards, paper tape, printouts</li>
+        </ul>
+        <div class="examples"><b>Examples:</b> ENIAC, UNIVAC I, IBM 701, EDVAC</div>
+        <div class="impact">Impact: Made large-scale calculations possible, but were unreliable and expensive.</div>
+      </div>
+    </section>
+    <!-- GENERATION 2 -->
+    <section class="generation-section">
+      <div class="generation-icon">🟩</div>
+      <div class="generation-content">
+        <h3>Second Generation (1956-1963): Transistors</h3>
+        <ul>
+          <li><b>Main Technology:</b> Transistors replaced vacuum tubes</li>
+          <li><b>Programming:</b> Assembly language and early high-level languages (COBOL, FORTRAN)</li>
+          <li><b>Size:</b> Much smaller, more reliable, less heat</li>
+          <li><b>Speed:</b> Microseconds per operation (faster)</li>
+          <li><b>Input/Output:</b> Magnetic tape, punched cards, printers</li>
+        </ul>
+        <div class="examples"><b>Examples:</b> IBM 1401, IBM 7090, CDC 1604, UNIVAC 1108</div>
+        <div class="impact">Impact: Computing became more accessible and affordable for businesses and research.</div>
+      </div>
+    </section>
+    <!-- GENERATION 3 -->
+    <section class="generation-section">
+      <div class="generation-icon">🟨</div>
+      <div class="generation-content">
+        <h3>Third Generation (1964-1971): Integrated Circuits (ICs)</h3>
+        <ul>
+          <li><b>Main Technology:</b> Integrated Circuits (ICs) - thousands of transistors on a single chip</li>
+          <li><b>Programming:</b> High-level languages (BASIC, Pascal); operating systems introduced</li>
+          <li><b>Size:</b> Even smaller, more reliable, energy-efficient</li>
+          <li><b>Speed:</b> Nanoseconds per operation</li>
+          <li><b>Features:</b> Multi-programming, time-sharing, better user interfaces</li>
+        </ul>
+        <div class="examples"><b>Examples:</b> IBM System/360, PDP-8, Honeywell 6000, ICL 1900</div>
+        <div class="impact">Impact: Computers entered universities, banks, and large organizations worldwide.</div>
+      </div>
+    </section>
+    <!-- GENERATION 4 -->
+    <section class="generation-section">
+      <div class="generation-icon">🟥</div>
+      <div class="generation-content">
+        <h3>Fourth Generation (1971-Present): Microprocessors</h3>
+        <ul>
+          <li><b>Main Technology:</b> Microprocessors (entire CPU on a single chip)</li>
+          <li><b>Programming:</b> High-level languages, GUIs, networking</li>
+          <li><b>Size:</b> Desktop, laptop, mobile size (very compact)</li>
+          <li><b>Speed:</b> Picoseconds per operation, multi-core processors</li>
+          <li><b>Features:</b> Personal computers, graphical user interface, internet, multimedia</li>
+        </ul>
+        <div class="examples"><b>Examples:</b> IBM PC, Apple Macintosh, Intel 4004/8086, modern laptops/desktops</div>
+        <div class="impact">Impact: Computers became part of daily life, revolutionizing communication, business, and entertainment.</div>
+      </div>
+    </section>
+    <!-- GENERATION 5 -->
+    <section class="generation-section">
+      <div class="generation-icon">🟪</div>
+      <div class="generation-content">
+        <h3>Fifth Generation (Present & Beyond): Artificial Intelligence</h3>
+        <ul>
+          <li><b>Main Technology:</b> AI, Machine Learning, Quantum Computing, Parallel Processing</li>
+          <li><b>Programming:</b> Natural Language Processing, advanced algorithms</li>
+          <li><b>Size:</b> Wearables, IoT, cloud-based, ultra-compact</li>
+          <li><b>Features:</b> Voice assistants, robotics, self-learning systems, big data analytics</li>
+          <li><b>Speed:</b> Exponential increases with quantum and AI chips</li>
+        </ul>
+        <div class="examples"><b>Examples:</b> IBM Watson, Google AlphaGo, Siri, Alexa, Quantum Computers</div>
+        <div class="impact">Impact: Computers now “think” and “learn”, transforming industries and society.</div>
+      </div>
+    </section>
+    <!-- SUMMARY TABLE -->
+    <h2>Comparison Table</h2>
+    <table>
+      <tr>
+        <th>Generation</th>
+        <th>Period</th>
+        <th>Main Technology</th>
+        <th>Programming</th>
+        <th>Features</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>First</td>
+        <td>1940-1956</td>
+        <td>Vacuum Tubes</td>
+        <td>Machine Language</td>
+        <td>Large, slow, high power, unreliable</td>
+        <td>ENIAC, UNIVAC</td>
+      </tr>
+      <tr>
+        <td>Second</td>
+        <td>1956-1963</td>
+        <td>Transistors</td>
+        <td>Assembly, Early HLL</td>
+        <td>Smaller, faster, more reliable</td>
+        <td>IBM 1401, CDC 1604</td>
+      </tr>
+      <tr>
+        <td>Third</td>
+        <td>1964-1971</td>
+        <td>Integrated Circuits</td>
+        <td>High-level Languages</td>
+        <td>Multiprogramming, OS, user-friendly</td>
+        <td>IBM 360, PDP-8</td>
+      </tr>
+      <tr>
+        <td>Fourth</td>
+        <td>1971-Present</td>
+        <td>Microprocessors</td>
+        <td>HLL, GUIs, Networking</td>
+        <td>Personal computers, internet, multimedia</td>
+        <td>IBM PC, Apple Mac</td>
+      </tr>
+      <tr>
+        <td>Fifth</td>
+        <td>Present & Beyond</td>
+        <td>AI, Quantum Computing</td>
+        <td>Natural Language, AI Algorithms</td>
+        <td>AI, Robotics, IoT, Cloud, Big Data</td>
+        <td>Watson, AlphaGo, Siri</td>
+      </tr>
+    </table>
+    <h2>Conclusion</h2>
+    <p>
+      From room-sized machines to intelligent assistants in your pocket, computers have evolved dramatically in speed, size, and intelligence. Each generation paved the way for the next, making technology more accessible, powerful, and essential to modern life.
+    </p>
+  </main>
+  <footer style="text-align:center; color:#aaa; margin-top:2.2rem; font-size:1.08rem;">
+    &copy; 2025 Generation of Computers | <span style="color:#11998e;">All Rights Reserved</span>
+    <br>
+    <span style="font-size:0.9em;">Screenshot & Copy Protection Enabled</span>
+  </footer>
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable copy, cut, paste, drag
+    ['copy','cut','paste','dragstart'].forEach(evt =>
+      document.addEventListener(evt, function(e) {
+        e.preventDefault();
+        showLockMsg();
+      })
+    );
+
+    // Disable keyboard shortcuts for copy, print, screenshot (Win+Shift+S, PrtScn, Ctrl+P)
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+C, Ctrl+X, Ctrl+P, Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12
+      if ((e.ctrlKey && ['c','x','p','s','u'].includes(e.key.toLowerCase())) ||
+          (e.key === 'F12') ||
+          (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
+          (e.key === 'PrintScreen')) {
+        e.preventDefault();
+        showLockMsg();
+      }
+      // Win+Shift+S (Screenshot on Windows)
+      if (e.key === 'S' && e.shiftKey && e.metaKey) {
+        e.preventDefault();
+        showLockMsg();
+      }
+    });
+
+    // Attempt to blank clipboard on PrintScreen (not foolproof)
+    window.addEventListener('keyup', function(e) {
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText('Screenshot Disabled on this page!');
+        showLockMsg();
+      }
+    });
+
+    // Show lock overlay/message
+    function showLockMsg() {
+      document.getElementById('lockOverlay').style.display = 'block';
+      var msg = document.getElementById('lockMsg');
+      msg.style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('lockOverlay').style.display = 'none';
+        msg.style.display = 'none';
+      }, 1200);
+    }
+  </script>
 </body>
 </html>
