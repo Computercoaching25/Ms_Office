@@ -116,6 +116,7 @@
   .card:nth-child(7) { animation-delay: 1.4s;}
   .card:nth-child(8) { animation-delay: 1.6s;}
   .card:nth-child(9) { animation-delay: 1.8s;}
+  .card:nth-child(10) { animation-delay: 2s;}
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(40px);}
     to { opacity: 1; transform: translateY(0);}
@@ -169,6 +170,37 @@
   @keyframes imgPop {
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
+  }
+  .faq-list {
+    margin: 0.5rem 0 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.06em;
+  }
+  .faq-list li {
+    margin-bottom: 1.1em;
+    padding-left: 0.5em;
+    border-left: 4px solid #00c3ff;
+    background: #f8ffe7;
+    border-radius: 8px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    transition: border-color 0.2s;
+  }
+  .faq-list li:hover {
+    border-color: #ffff1c;
+    background: #e7f9ff;
+  }
+  .faq-q {
+    font-weight: 700;
+    color: #00c3ff;
+    margin-bottom: 0.2em;
+    display: block;
+  }
+  .faq-a {
+    color: #333;
+    margin-left: 0.2em;
+    display: block;
   }
   .back-btn {
     display: block;
@@ -345,6 +377,39 @@
         <li>Replace cartridges/toner when needed.</li>
         <li>Perform regular maintenance like print head cleaning.</li>
         <li>Keep firmware/software updated for best performance.</li>
+      </ul>
+    </section>
+    <section class="card" id="printer-faq">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <ul class="faq-list">
+        <li>
+          <span class="faq-q">Q1. What is the main function of a printer?</span>
+          <span class="faq-a">A printer produces a hard copy (physical print) of digital data, such as documents, images, or graphics from a computer.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q2. What is the difference between inkjet and laser printers?</span>
+          <span class="faq-a">Inkjet printers spray liquid ink onto paper, are good for color images, and are common for home use. Laser printers use toner powder and a laser, are faster, and are better for high-volume printing.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q3. What is DPI in printers?</span>
+          <span class="faq-a">DPI (dots per inch) measures print resolution. Higher DPI means sharper and more detailed prints.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q4. What is duplex printing?</span>
+          <span class="faq-a">Duplex printing is the ability of a printer to print on both sides of a sheet of paper automatically.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q5. What is an all-in-one printer?</span>
+          <span class="faq-a">An all-in-one printer combines printing, scanning, copying, and sometimes faxing in one device.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q6. How can you take care of your printer?</span>
+          <span class="faq-a">Keep it clean, use correct paper and ink/toner, perform regular maintenance, and update firmware/software for best performance.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q7. Why is printer connectivity important?</span>
+          <span class="faq-a">Connectivity (USB, Wi-Fi, Bluetooth, Ethernet) allows the printer to connect to different devices and networks for flexible and convenient printing.</span>
+        </li>
       </ul>
     </section>
   </main>
