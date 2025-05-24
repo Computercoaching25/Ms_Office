@@ -114,6 +114,7 @@
   .card:nth-child(5) { animation-delay: 1s;}
   .card:nth-child(6) { animation-delay: 1.2s;}
   .card:nth-child(7) { animation-delay: 1.4s;}
+  .card:nth-child(8) { animation-delay: 1.6s;}
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(40px);}
     to { opacity: 1; transform: translateY(0);}
@@ -167,6 +168,37 @@
   @keyframes imgPop {
     from { opacity: 0; transform: scale(0.8);}
     to { opacity: 1; transform: scale(1);}
+  }
+  .faq-list {
+    margin: 0.5rem 0 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.06em;
+  }
+  .faq-list li {
+    margin-bottom: 1.1em;
+    padding-left: 0.5em;
+    border-left: 4px solid #ffd200;
+    background: #fffbe7;
+    border-radius: 8px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    transition: border-color 0.2s;
+  }
+  .faq-list li:hover {
+    border-color: #f7971e;
+    background: #fffde7;
+  }
+  .faq-q {
+    font-weight: 700;
+    color: #f7971e;
+    margin-bottom: 0.2em;
+    display: block;
+  }
+  .faq-a {
+    color: #333;
+    margin-left: 0.2em;
+    display: block;
   }
   .back-btn {
     display: block;
@@ -327,6 +359,39 @@
         <li>Avoid eating or drinking near the keyboard to prevent spills.</li>
         <li>Use gentle pressure while typing to extend the lifespan of keys.</li>
         <li>Disconnect or turn off wireless keyboards when not in use to save battery.</li>
+      </ul>
+    </section>
+    <section class="card" id="keyboard-faq">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <ul class="faq-list">
+        <li>
+          <span class="faq-q">Q1. What is the function of a keyboard?</span>
+          <span class="faq-a">A keyboard is used to input text, numbers, and commands into a computer or device.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q2. What is the difference between a mechanical and a membrane keyboard?</span>
+          <span class="faq-a">Mechanical keyboards use individual switches for each key, giving tactile feedback and durability. Membrane keyboards use pressure pads and are quieter but less durable.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q3. What are function keys?</span>
+          <span class="faq-a">Function keys (F1–F12) are special keys that perform specific tasks in software, like refreshing a page (F5) or opening help (F1).</span>
+        </li>
+        <li>
+          <span class="faq-q">Q4. What is a wireless keyboard?</span>
+          <span class="faq-a">A wireless keyboard connects to the computer using Bluetooth or RF signals, without a physical wire.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q5. Why are ergonomic keyboards used?</span>
+          <span class="faq-a">Ergonomic keyboards are designed to reduce strain and provide comfort during long typing sessions, helping prevent repetitive strain injuries.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q6. How can you take care of your keyboard?</span>
+          <span class="faq-a">Keep it clean, avoid spills, use gentle typing, and disconnect it safely when not in use.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q7. What are shortcut keys? Give two examples.</span>
+          <span class="faq-a">Shortcut keys are combinations like Ctrl+C (copy) and Ctrl+V (paste) that perform quick actions in software.</span>
+        </li>
       </ul>
     </section>
   </main>
