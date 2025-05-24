@@ -84,7 +84,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 180px;
+      min-height: 240px;
       animation: popIn 0.7s;
       overflow: hidden;
       position: relative;
@@ -92,18 +92,17 @@
       backdrop-filter: blur(4px);
       will-change: transform;
     }
-    .timeline-card .icon {
-      font-size: 2.7rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-      transition: color 0.2s;
-      filter: drop-shadow(0 3px 8px #2d6cdf22);
+    .timeline-card .img-icon {
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
       background: var(--accent);
       border-radius: 50%;
-      padding: 0.3em;
+      margin-bottom: 0.4em;
       margin-top: -0.6em;
-      margin-bottom: 0.2em;
       box-shadow: 0 2px 12px #fdcb6e33;
+      border: 3px solid #e0e7ef;
+      transition: border 0.2s;
     }
     .timeline-card .title {
       font-family: 'Montserrat', sans-serif;
@@ -112,6 +111,7 @@
       margin-bottom: 0.2rem;
       font-weight: 700;
       letter-spacing: 1px;
+      margin-top: 0.2em;
     }
     .timeline-card .year {
       color: var(--secondary);
@@ -126,11 +126,8 @@
       background: var(--card-bg);
       outline: none;
     }
-    .timeline-card.open .icon {
-      color: var(--secondary);
-      background: var(--primary);
-      box-shadow: 0 4px 18px #2d6cdf55;
-      color: #fff;
+    .timeline-card.open .img-icon {
+      border: 3px solid var(--primary);
     }
     .timeline-details {
       max-height: 0;
@@ -176,7 +173,6 @@
       0% {transform: scale(0.7);}
       100% {transform: scale(1);}
     }
-    /* Mobile styles */
     @media (max-width: 900px) {
       .timeline {
         grid-template-columns: 1fr 1fr;
@@ -253,9 +249,8 @@
     <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
   </header>
   <div class="timeline" id="timeline">
-    <!-- Abacus -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🧮</span>
+      <img class="img-icon" src="https://img.icons8.com/color/96/000000/abacus.png" alt="Abacus">
       <div class="title">Abacus</div>
       <div class="year">16th Century BC</div>
       <div class="timeline-details">
@@ -267,9 +262,8 @@
         <div class="impact">Foundation for all future calculators.</div>
       </div>
     </div>
-    <!-- Pascal -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🧑‍🔬</span>
+      <img class="img-icon" src="https://media.sciencephoto.com/image/c0091238/800wm" alt="Pascal's Calculator">
       <div class="title">Pascal's Calculator</div>
       <div class="year">1642</div>
       <div class="timeline-details">
@@ -281,9 +275,8 @@
         <div class="impact">First step towards automation in calculation.</div>
       </div>
     </div>
-    <!-- Babbage -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">⚙️</span>
+      <img class="img-icon" src="https://cdn.britannica.com/10/23610-050-6E34CF6B/portion-Difference-Engine-Charles-Babbage-logarithm-tables-1832.jpg" alt="Babbage's Engine">
       <div class="title">Babbage’s Engines</div>
       <div class="year">1822-1833</div>
       <div class="timeline-details">
@@ -295,9 +288,8 @@
         <div class="impact">Babbage is the "Father of the Computer".</div>
       </div>
     </div>
-    <!-- Tabulating -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">💳</span>
+      <img class="img-icon" src="https://miro.medium.com/v2/resize:fit:1400/1*dBjMptscLuMN828muozxQw.jpeg" alt="Tabulating Machine">
       <div class="title">Tabulating Machine</div>
       <div class="year">1880</div>
       <div class="timeline-details">
@@ -309,9 +301,8 @@
         <div class="impact">Became IBM, revolutionized data processing.</div>
       </div>
     </div>
-    <!-- Mark-1 -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🔗</span>
+      <img class="img-icon" src="https://media.gettyimages.com/id/533665854/photo/a-vintage-1980s-osborne-1-portable-microcomputer-taken-on-may-22-2009.jpg?s=612x612&w=gi&k=20&c=kUMhngDYuYPBE3jYEWX4fp23amTajkOi-Gy-ql4Af5M=" alt="Mark-1">
       <div class="title">Mark-1</div>
       <div class="year">1930</div>
       <div class="timeline-details">
@@ -323,9 +314,8 @@
         <div class="impact">Bridge between mechanical and electronic computers.</div>
       </div>
     </div>
-    <!-- ENIAC -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">💡</span>
+      <img class="img-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk8tuSpGk0Lxa0WjxCWW9Lw4INbbsk7Ddq0A&s" alt="ENIAC">
       <div class="title">ENIAC</div>
       <div class="year">1946</div>
       <div class="timeline-details">
@@ -337,9 +327,8 @@
         <div class="impact">Start of the electronic computer era.</div>
       </div>
     </div>
-    <!-- 1st Gen -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🟦</span>
+      <img class="img-icon" src="https://www.techgeekbuzz.com/media/uploads/vijay/2023/07/27/first-generation_computers.jpg" alt="First Gen">
       <div class="title">First Gen</div>
       <div class="year">1940-1956</div>
       <div class="timeline-details">
@@ -352,9 +341,8 @@
         <div class="impact">Large-scale calculations possible, but unreliable and expensive.</div>
       </div>
     </div>
-    <!-- 2nd Gen -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🟩</span>
+      <img class="img-icon" src="https://www.tutorialspoint.com/computer_fundamentals/images/second_generation.jpg" alt="Second Gen">
       <div class="title">Second Gen</div>
       <div class="year">1956-1963</div>
       <div class="timeline-details">
@@ -366,9 +354,8 @@
         <div class="impact">Computing became more accessible and affordable.</div>
       </div>
     </div>
-    <!-- 3rd Gen -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🟨</span>
+      <img class="img-icon" src="https://www.tutorialspoint.com/computer_fundamentals/images/third_generation.jpg" alt="Third Gen">
       <div class="title">Third Gen</div>
       <div class="year">1964-1971</div>
       <div class="timeline-details">
@@ -380,9 +367,8 @@
         <div class="impact">Computers entered universities, banks, and large organizations.</div>
       </div>
     </div>
-    <!-- 4th Gen -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🟥</span>
+      <img class="img-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFkH8vNQq_ZkEaMaNG0oM9VP6TjVChq_XJog&s" alt="Fourth Gen">
       <div class="title">Fourth Gen</div>
       <div class="year">1971-Now</div>
       <div class="timeline-details">
@@ -394,9 +380,8 @@
         <div class="impact">Computers became part of daily life, revolutionizing everything.</div>
       </div>
     </div>
-    <!-- 5th Gen -->
     <div class="timeline-card" tabindex="0">
-      <span class="icon">🟪</span>
+      <img class="img-icon" src="https://media.geeksforgeeks.org/wp-content/uploads/20230427102232/AI-660.webp" alt="Fifth Gen">
       <div class="title">Fifth Gen</div>
       <div class="year">Now & Future</div>
       <div class="timeline-details">
@@ -411,10 +396,9 @@
   </div>
   <a href="javascript:history.back()" class="back-btn">⬅ Back</a>
   <footer>
-    &copy; 2025 | <span style="color:var(--primary);">Pawan Soni</span>
+    &copy; <span style="color:var(--primary);">Pawan Soni</span>
   </footer>
   <script>
-    // Timeline card toggle
     document.querySelectorAll('.timeline-card').forEach(card => {
       card.addEventListener('click', function(e) {
         if(e.target.closest('.timeline-details')) return;
