@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>History of Computers | Chitragupt Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/computer.png" />
+  <style>
+    :root {
+      --primary: #5f2eea;
+      --secondary: #00c9a7;
+      --bg: linear-gradient(120deg, #f8fafc 0%, #dbeafe 100%);
+      --card-bg: #fff;
+      --accent: #ffb300;
+      --shadow: 0 6px 32px 0 rgba(31,38,135,0.13);
+      --text: #23272f;
+      --text-light: #fff;
+      --faq-bg: #f3f6fd;
+      --faq-border: #e0e7ef;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+      user-select: none;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      background: linear-gradient(90deg, #5f2eea 0%, #00c9a7 100%);
+      color: #fff;
+      padding: 2.3rem 0 1.2rem 0;
+      letter-spacing: 1px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 8px 32px #5f2eea33;
+      position: relative;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 0 0 0.2rem 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #23272f33;
+    }
+    header .iso {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: 1.2px;
+    }
+    .timeline {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin: 2.2rem 0 2.5rem 0;
+      z-index: 1;
+    }
+    .timeline-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+      min-width: 170px;
+      max-width: 200px;
+      text-align: center;
+      position: relative;
+      border: 2.5px solid #e0e7ef;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.08em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timeline-card .icon {
+      font-size: 2.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .timeline-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 8px 32px #00c9a733;
+      border-color: var(--secondary);
+    }
+    .timeline-card .title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      font-size: 1.07em;
+      margin-bottom: 0.2rem;
+      font-weight: 700;
+    }
+    .timeline-card .year {
+      color: var(--secondary);
+      font-size: 0.97em;
+      font-weight: 500;
+    }
+    .main-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 2rem 2.2rem 1.5rem 2.2rem;
+      min-width: 320px;
+      max-width: 480px;
+      flex: 1 1 350px;
+      border: 2.5px solid #e0e7ef;
+      position: relative;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .info-card h2 {
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      border: none;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .info-card ul {
+      margin: 0.5rem 0 0.7rem 1.1rem;
+      font-size: 1.07rem;
+      line-height: 1.6;
+      padding-left: 1.1rem;
+    }
+    .info-card .examples {
+      margin-top: 0.3rem;
+      font-size: 1.05rem;
+      color: #23272f;
+      font-weight: 500;
+    }
+    .info-card .impact {
+      margin-top: 0.2rem;
+      font-size: 0.97rem;
+      color: var(--secondary);
+      font-style: italic;
+    }
+    .faq-section {
+      width: 100%;
+      max-width: 700px;
+      margin: 2.5rem auto 0 auto;
+      background: var(--faq-bg);
+      border-radius: 15px;
+      box-shadow: 0 2px 14px #5f2eea22;
+      border: 2.5px solid var(--faq-border);
+      padding: 1.7rem 2rem 1.3rem 2rem;
+      animation: fadeIn 1.6s;
+    }
+    .faq-section h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      margin-bottom: 1.4rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .faq {
+      background: #fff;
+      border-radius: 12px;
+      border: 1.5px solid #e0e7ef;
+      box-shadow: 0 2px 10px #00c9a71a;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      transition: box-shadow 0.18s, border 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+    .faq:hover, .faq.open {
+      box-shadow: 0 6px 22px #5f2eea22;
+      border-color: var(--primary);
+    }
+    .faq-question {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.09rem;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-toggle {
+      font-size: 1.4rem;
+      color: var(--secondary);
+      transition: transform 0.2s;
+      margin-left: 1rem;
+    }
+    .faq.open .faq-toggle {
+      transform: rotate(90deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.32s cubic-bezier(0.4,0,0.2,1);
+      font-size: 1.01rem;
+      color: #23272f;
+      margin-top: 0.2rem;
+      padding-left: 0.2rem;
+    }
+    .faq.open .faq-answer {
+      max-height: 80px;
+      margin-top: 0.5rem;
+    }
+    .back-btn {
+      display: block;
+      margin: 3.2rem auto 1.2rem auto;
+      padding: 0.8rem 2.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.13rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 18px #5f2eea33;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .back-btn:hover {
+      background: var(--secondary);
+      color: #23272f;
+      transform: scale(1.07);
+    }
+    footer {
+      text-align: center;
+      color: #5f2eea;
+      margin-top: 2.2rem;
+      font-size: 1.08rem;
+      background: #f3f6fd;
+      border-top: 2px solid #e0e7ef;
+      padding: 1rem 0 1rem 0;
+      letter-spacing: 1px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Lock overlay */
+    .lock-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(95,46,234,0.09);
+      z-index: 9999;
+      pointer-events: none;
+      display: none;
+    }
+    .lock-msg {
+      position: fixed;
+      top: 30%; left: 50%; transform: translate(-50%,-50%);
+      background: #fff;
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 1.5rem 2.5rem;
+      border-radius: 18px;
+      border: 3px solid var(--secondary);
+      box-shadow: 0 8px 32px #5f2eea33;
+      z-index: 10000;
+      display: none;
+      text-align: center;
+      animation: fadein 0.4s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translate(-50%,-65%) scale(0.95);}
+      to { opacity: 1; transform: translate(-50%,-50%) scale(1);}
+    }
+    @media(max-width: 900px) {
+      .main-content { flex-direction: column; gap: 1.2rem; }
+      .info-card { margin-bottom: 1.5rem; }
+      .timeline { gap: 1rem; }
+    }
+    @media(max-width: 600px) {
+      header h1 { font-size: 1.4rem;}
+      .timeline-card { min-width: 120px; max-width: 140px; padding: 0.8rem 0.5rem;}
+      .info-card { padding: 1.1rem 0.7rem 1rem 0.7rem;}
+      .faq-section { padding: 1rem 0.5rem 0.7rem 0.5rem;}
+    }
+    *::selection { background: #5f2eea33; color: #fff; }
+    body, .info-card, .timeline-card, .faq-section, h1, h2, h3, p, ul, li {
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+  <div class="lock-overlay" id="lockOverlay"></div>
+  <div class="lock-msg" id="lockMsg">🔒 Screenshot & Copy Disabled</div>
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <div class="iso">AN ISO CERTIFIED INSTITUTION</div>
+  </header>
+  <!-- Timeline Cards -->
+  <div class="timeline">
+    <div class="timeline-card">
+      <span class="icon">🧮</span>
+      <div class="title">Abacus</div>
+      <div class="year">16th Century BC</div>
+    </div>
+    <div class="timeline-card">
+      <span class="icon">🧑‍🔬</span>
+      <div class="title">Pascal</div>
+      <div class="year">1642</div>
+    </div>
+    <div class="timeline-card">
+      <span class="icon">⚙️</span>
+      <div class="title">Babbage</div>
+      <div class="year">1822-1833</div>
+    </div>
+    <div class="timeline-card">
+      <span class="icon">💳</span>
+      <div class="title">Tabulating</div>
+      <div class="year">1880</div>
+    </div>
+    <div class="timeline-card">
+      <span class="icon">🔗</span>
+      <div class="title">Mark-1</div>
+      <div class="year">1930</div>
+    </div>
+    <div class="timeline-card">
+      <span class="icon">💡</span>
+      <div class="title">ENIAC</div>
+      <div class="year">1946</div>
+    </div>
+    <div class="timeline-card">
+      <span class="icon">🤖</span>
+      <div class="title">Modern Era</div>
+      <div class="year">1970s-Present</div>
+    </div>
+  </div>
+  <!-- Main Content Cards -->
+  <div class="main-content">
+    <div class="info-card">
+      <h2>Abacus</h2>
+      <ul>
+        <li>Ancient Chinese tool using beads and rods for calculation.</li>
+        <li>Used for basic arithmetic like addition and subtraction.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> Wooden/metal abacus.</div>
+      <div class="impact">Foundation for all future calculators.</div>
+    </div>
+    <div class="info-card">
+      <h2>Pascal’s Calculator</h2>
+      <ul>
+        <li>Invented by Blaise Pascal in 1642 (France).</li>
+        <li>First mechanical calculator for addition, subtraction, multiplication, division.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> Pascaline calculator.</div>
+      <div class="impact">First step towards automation in calculation.</div>
+    </div>
+    <div class="info-card">
+      <h2>Babbage’s Engines</h2>
+      <ul>
+        <li>Charles Babbage designed Difference Engine (1822) and Analytical Engine (1833).</li>
+        <li>Introduced concepts of input, storage, processing, output.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> Analytical Engine.</div>
+      <div class="impact">Babbage is the "Father of the Computer".</div>
+    </div>
+    <div class="info-card">
+      <h2>Tabulating Machine</h2>
+      <ul>
+        <li>Invented by Herman Hollerith in 1880 (USA).</li>
+        <li>Used punched cards for data processing.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> Punched card tabulator.</div>
+      <div class="impact">Became IBM, revolutionized data processing.</div>
+    </div>
+    <div class="info-card">
+      <h2>Mark-1</h2>
+      <ul>
+        <li>Developed by Howard Aiken and IBM in 1930.</li>
+        <li>First electromechanical computer, used in WWII.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> Harvard Mark-1.</div>
+      <div class="impact">Bridge between mechanical and electronic computers.</div>
+    </div>
+    <div class="info-card">
+      <h2>ENIAC</h2>
+      <ul>
+        <li>Developed by Eckert & Mauchly in 1946 (USA).</li>
+        <li>First electronic general-purpose computer.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> ENIAC, EDVAC.</div>
+      <div class="impact">Start of the electronic computer era.</div>
+    </div>
+    <div class="info-card">
+      <h2>Modern Era</h2>
+      <ul>
+        <li>Microprocessors, AI, quantum computing (1970s–present).</li>
+        <li>Personal computers, smartphones, cloud, robotics.</li>
+      </ul>
+      <div class="examples"><b>Example:</b> IBM PC, Apple Mac, AI systems.</div>
+      <div class="impact">Computers are now everywhere and smarter than ever.</div>
+    </div>
+  </div>
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2>FAQs (Short Answers)</h2>
+    <div class="faq-list">
+      <div class="faq">
+        <div class="faq-question">Who is the Father of the Computer?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">Charles Babbage.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What was the first electronic computer?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">ENIAC.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What is the main difference between generations?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">Each uses a new technology (vacuum tube, transistor, IC, microprocessor, AI).</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What is AI in computers?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">AI means computers can learn and make decisions.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">What is quantum computing?<span class="faq-toggle">▶</span></div>
+        <div class="faq-answer">It uses quantum bits for super-fast calculations.</div>
+      </div>
+    </div>
+  </div>
+  <a href="javascript:history.back()" class="back-btn">⬅ Back</a>
+  <footer>
+    &copy; <span style="color:var(--primary);">Pawan Soni</span>
+  </footer>
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    // Disable copy, cut, paste, drag
+    ['copy','cut','paste','dragstart'].forEach(evt =>
+      document.addEventListener(evt, function(e) {
+        e.preventDefault();
+        showLockMsg();
+      })
+    );
+    // Disable keyboard shortcuts for copy, print, screenshot
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey && ['c','x','p','s','u'].includes(e.key.toLowerCase())) ||
+          (e.key === 'F12') ||
+          (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
+          (e.key === 'PrintScreen')) {
+        e.preventDefault();
+        showLockMsg();
+      }
+      if (e.key === 'S' && e.shiftKey && e.metaKey) {
+        e.preventDefault();
+        showLockMsg();
+      }
+    });
+    window.addEventListener('keyup', function(e) {
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText('Screenshot Disabled on this page!');
+        showLockMsg();
+      }
+    });
+    function showLockMsg() {
+      document.getElementById('lockOverlay').style.display = 'block';
+      var msg = document.getElementById('lockMsg');
+      msg.style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('lockOverlay').style.display = 'none';
+        msg.style.display = 'none';
+      }, 1200);
+    }
+    // FAQ toggle
+    document.querySelectorAll('.faq').forEach(faq => {
+      faq.addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.querySelectorAll('.faq').forEach(other => {
+          if (other !== this) other.classList.remove('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
