@@ -140,27 +140,59 @@
     }
   </style>
   <script>
+  // Disable right-click context menu
   document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Disable copy, cut, paste, drag
   document.addEventListener('copy', event => event.preventDefault());
   document.addEventListener('cut', event => event.preventDefault());
   document.addEventListener('paste', event => event.preventDefault());
   document.addEventListener('dragstart', event => event.preventDefault());
+
+  // Disable PrintScreen, Print, Save
   document.addEventListener('keydown', function(e) {
+    // Disable PrintScreen
     if (e.key === "PrintScreen") {
       navigator.clipboard.writeText('');
       alert('Screenshots are disabled on this page.');
       e.preventDefault();
     }
+    // Disable Ctrl+P (Print)
     if (e.ctrlKey && e.key.toLowerCase() === 'p') {
       alert('Printing is disabled on this page.');
       e.preventDefault();
     }
+    // Disable Ctrl+S (Save)
     if (e.ctrlKey && e.key.toLowerCase() === 's') {
       alert('Saving is disabled on this page.');
       e.preventDefault();
     }
   });
-  </script>
+
+  // Extra: Hide content while PrintScreen is pressed (for some browsers)
+  window.addEventListener('keyup', function(e) {
+    if (e.key === "PrintScreen") {
+      document.body.style.visibility = 'hidden';
+      setTimeout(() => {
+        document.body.style.visibility = 'visible';
+      }, 1000);
+    }
+  });
+
+  // Extra: Prevent screen capture via CSS (not 100% foolproof)
+  document.addEventListener('DOMContentLoaded', function() {
+    let style = document.createElement('style');
+    style.innerHTML = `
+      body, * {
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+        user-select: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
+
 </head>
 <body>
   <div class="header">
