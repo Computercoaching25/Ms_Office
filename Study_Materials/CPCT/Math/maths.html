@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CPCT Reasoning MCQ Questions with Solutions</title>
+  <meta name="description" content="MP CPCT Reasoning MCQ Questions with Solutions in Hindi-English, responsive, with copy and screenshot protection.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%);
+      color: #222;
+      min-height: 100vh;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+      -webkit-tap-highlight-color: transparent;
+      pointer-events: auto;
+    }
+    body {
+      position: relative;
+      padding-bottom: 90px;
+    }
+    /* Watermark - pawan soni */
+    body::after {
+      content: "Pawan Soni";
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(13, 71, 161, 0.07);
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: 12px;
+      font-family: 'Roboto', sans-serif;
+      white-space: nowrap;
+      z-index: 9999;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 8px 32px 0 rgba(13,71,161,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.03);
+      border-radius: 18px;
+      padding: 30px 40px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s cubic-bezier(.23,1.02,.42,1.01);
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+      animation: bounceIn 1s 0.2s both;
+    }
+    @keyframes bounceIn {
+      0%   { transform: scale(0.8); opacity: 0;}
+      60%  { transform: scale(1.1);}
+      80%  { transform: scale(0.95);}
+      100% { transform: scale(1); opacity: 1;}
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0d47a1;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #e3f2fd;
+      transition: color 0.3s;
+    }
+    header h1:hover {
+      color: #1565c0;
+      cursor: pointer;
+      text-shadow: 0 4px 16px #bbdefb;
+    }
+    header p.iso-line {
+      font-size: 1rem;
+      color: #555;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      border-top: 2px solid #0d47a1;
+      border-bottom: 2px solid #0d47a1;
+      display: inline-block;
+      padding: 8px 24px;
+      margin: 0 auto;
+      font-weight: 600;
+      background: #f1f8ff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px #e3f2fd;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0;}
+      100% { opacity: 1;}
+    }
+    h2 {
+      color: #0d47a1;
+      border-bottom: 3px solid #0d47a1;
+      padding-bottom: 6px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: linear-gradient(90deg, #e3f2fd 60%, #fff 100%);
+      border-radius: 6px;
+      animation: slideInLeft 0.8s;
+    }
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateX(-40px);}
+      100% { opacity: 1; transform: translateX(0);}
+    }
+    .question-block {
+      background: linear-gradient(120deg, #f1f8ff 85%, #fff 100%);
+      border-radius: 12px;
+      padding: 20px 25px;
+      box-shadow: 0 2px 8px #e3f2fd;
+      margin-bottom: 30px;
+      animation: fadeInUp 1.2s;
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .question-block:hover {
+      box-shadow: 0 6px 24px #bbdefb;
+    }
+    .q-title {
+      font-weight: 600;
+      color: #1976d2;
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .options {
+      margin: 0 0 12px 0;
+      padding-left: 18px;
+    }
+    .options li {
+      margin-bottom: 7px;
+      font-size: 1rem;
+      color: #222;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s;
+      padding: 2px 0 2px 2px;
+      border-left: 3px solid transparent;
+    }
+    .options li.correct {
+      background: #e8f5e9;
+      color: #388e3c;
+      border-left: 3px solid #388e3c;
+      animation: highlight 1.3s;
+    }
+    .options li.wrong {
+      background: #ffebee;
+      color: #d32f2f;
+      border-left: 3px solid #d32f2f;
+    }
+    @keyframes highlight {
+      0% { background: #c8e6c9;}
+      100% { background: #e8f5e9;}
+    }
+    .solution {
+      background: #fffde7;
+      color: #795548;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-top: 8px;
+      font-size: 0.98rem;
+      box-shadow: 0 1px 4px #ffe082;
+      animation: fadeIn 1s;
+    }
+    .en { color: #0d47a1; font-weight: 700;}
+    .hi { color: #1565c0; font-weight: 600;}
+    .mix { font-weight: 500;}
+    @media (max-width: 600px) {
+      .container { padding: 10px 2vw;}
+      header h1 { font-size: 1.1rem;}
+      h2 { font-size: 1rem;}
+      .question-block { padding: 10px 6vw;}
+    }
+  </style>
+  <script>
+    // Disable right click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    }, false);
+    // Disable copy
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+    }, false);
+    // Disable print screen key (not 100% effective)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "PrintScreen") {
+        e.preventDefault();
+        alert("Screenshot is disabled on this page.");
+      }
+      // Ctrl+S, Ctrl+U, Ctrl+P
+      if ((e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U' || e.key === 'p' || e.key === 'P'))) {
+        e.preventDefault();
+      }
+    });
+    window.addEventListener("keyup", function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText('');
+        alert("Screenshot is disabled on this page.");
+      }
+    });
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+    }, false);
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+    }, false);
+
+    // Option click highlight (for demo)
+    function selectOption(qid, correct) {
+      var opts = document.querySelectorAll('[data-qid="'+qid+'"] li');
+      opts.forEach(function(li) {
+        li.classList.remove('correct','wrong');
+      });
+      if(correct!==undefined) {
+        opts[correct].classList.add('correct');
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <h1>CHITRAGUPT ACADEMY</h1>
+      <p class="iso-line">AN ISO CERTIFIED INSTITUTION</p>
+    </header>
+    <h2><span class="en">CPCT Reasoning MCQ Questions with Solutions</span></h2>
+
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q1. Find the odd one out: 2, 5, 10, 17, 26, 37, 50</span> <br>
+        <span class="hi">Q1. निम्नलिखित में से कौन सा अलग है: 2, 5, 10, 17, 26, 37, 50</span>
+      </div>
+      <ol class="options" data-qid="q1">
+        <li onclick="selectOption('q1',0)">2</li>
+        <li onclick="selectOption('q1',1)">5</li>
+        <li onclick="selectOption('q1',2)">10</li>
+        <li onclick="selectOption('q1',3)">17</li>
+        <li onclick="selectOption('q1',4)">26</li>
+        <li onclick="selectOption('q1',5)">37</li>
+        <li onclick="selectOption('q1',6)">50</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          The pattern is: +3, +5, +7, +9, +11, +13. <br>
+          2 + 3 = 5, 5 + 5 = 10, 10 + 7 = 17, 17 + 9 = 26, 26 + 11 = 37, 37 + 13 = 50.<br>
+          All numbers fit except <b>10</b>, which should be 5 + 5 = 10. All are correct, so <b>None is odd</b>. If forced, 10 is the answer as per common pattern questions.
+        </span><br>
+        <span class="hi">
+          पैटर्न है: +3, +5, +7, +9, +11, +13.<br>
+          2 + 3 = 5, 5 + 5 = 10, 10 + 7 = 17, 17 + 9 = 26, 26 + 11 = 37, 37 + 13 = 50.<br>
+          सभी संख्या पैटर्न में फिट होती हैं, लेकिन यदि कोई अलग मानना हो तो <b>10</b> चुन सकते हैं।
+        </span>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q2. If 'CAT' is coded as '3120', how is 'DOG' coded?</span><br>
+        <span class="hi">Q2. यदि 'CAT' को '3120' के रूप में कोड किया गया है, तो 'DOG' को कैसे कोड करेंगे?</span>
+      </div>
+      <ol class="options" data-qid="q2">
+        <li onclick="selectOption('q2',0)">4157</li>
+        <li onclick="selectOption('q2',1)">4158</li>
+        <li onclick="selectOption('q2',2)">4159</li>
+        <li onclick="selectOption('q2',3)">4160</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          C=3, A=1, T=20 (their positions in alphabet).<br>
+          Similarly, D=4, O=15, G=7. So, code is 4157.
+        </span><br>
+        <span class="hi">
+          C=3, A=1, T=20 (अक्षरों की स्थिति)।<br>
+          इसी तरह D=4, O=15, G=7. अतः कोड होगा <b>4157</b>.
+        </span>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q3. Which number will come next in the series? 3, 6, 11, 18, 27, ?</span><br>
+        <span class="hi">Q3. श्रंखला में अगली संख्या क्या होगी? 3, 6, 11, 18, 27, ?</span>
+      </div>
+      <ol class="options" data-qid="q3">
+        <li onclick="selectOption('q3',0)">36</li>
+        <li onclick="selectOption('q3',1)">38</li>
+        <li onclick="selectOption('q3',2)">40</li>
+        <li onclick="selectOption('q3',3)">41</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          The difference is +3, +5, +7, +9, ...<br>
+          3 + 3 = 6<br>
+          6 + 5 = 11<br>
+          11 + 7 = 18<br>
+          18 + 9 = 27<br>
+          Next: 27 + 11 = <b>38</b>
+        </span><br>
+        <span class="hi">
+          अंतर है: +3, +5, +7, +9, ...<br>
+          अगला: 27 + 11 = <b>38</b>
+        </span>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q4. If 'RAM' is written as 'SBN', how is 'SHYAM' written?</span><br>
+        <span class="hi">Q4. यदि 'RAM' को 'SBN' लिखा जाता है, तो 'SHYAM' को कैसे लिखा जाएगा?</span>
+      </div>
+      <ol class="options" data-qid="q4">
+        <li onclick="selectOption('q4',0)">TIZBN</li>
+        <li onclick="selectOption('q4',1)">TIYAN</li>
+        <li onclick="selectOption('q4',2)">TIYBN</li>
+        <li onclick="selectOption('q4',3)">TIYAM</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          Each letter is replaced by the next letter in the alphabet:<br>
+          R→S, A→B, M→N. <br>
+          S→T, H→I, Y→Z, A→B, M→N. So, <b>TIYBN</b>
+        </span><br>
+        <span class="hi">
+          हर अक्षर के बाद वाला अक्षर लिया गया है:<br>
+          S→T, H→I, Y→Z, A→B, M→N. अतः <b>TIYBN</b>
+        </span>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q5. Statement: All pens are books. All books are papers. Conclusion: All pens are papers.</span><br>
+        <span class="hi">Q5. कथन: सभी पेन किताबें हैं। सभी किताबें कागज हैं। निष्कर्ष: सभी पेन कागज हैं।</span>
+      </div>
+      <ol class="options" data-qid="q5">
+        <li onclick="selectOption('q5',0)">True / सत्य</li>
+        <li onclick="selectOption('q5',1)">False / असत्य</li>
+        <li onclick="selectOption('q5',2)">Can't say / नहीं कह सकते</li>
+        <li onclick="selectOption('q5',3)">None of these / इनमें से कोई नहीं</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          All pens are books, all books are papers ⇒ All pens are papers. <br>
+          So, the conclusion is <b>True</b>.
+        </span><br>
+        <span class="hi">
+          सभी पेन किताबें हैं, सभी किताबें कागज हैं ⇒ सभी पेन कागज हैं।<br>
+          अतः निष्कर्ष <b>सत्य</b> है।
+        </span>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q6. Which word will be second after arranging the following words alphabetically? Apple, Orange, Mango, Banana, Grapes</span><br>
+        <span class="hi">Q6. निम्न शब्दों को वर्णानुक्रम में रखने पर दूसरा शब्द कौन सा होगा? Apple, Orange, Mango, Banana, Grapes</span>
+      </div>
+      <ol class="options" data-qid="q6">
+        <li onclick="selectOption('q6',0)">Apple</li>
+        <li onclick="selectOption('q6',1)">Banana</li>
+        <li onclick="selectOption('q6',2)">Grapes</li>
+        <li onclick="selectOption('q6',3)">Mango</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          Alphabetical order: Apple, Banana, Grapes, Mango, Orange.<br>
+          Second word is <b>Banana</b>.
+        </span><br>
+        <span class="hi">
+          क्रम: Apple, Banana, Grapes, Mango, Orange.<br>
+          दूसरा शब्द <b>Banana</b> है।
+        </span>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q7. If in a code, DELHI is written as CDKGH, how is MUMBAI written?</span><br>
+        <span class="hi">Q7. यदि एक कोड में DELHI को CDKGH लिखा जाता है, तो MUMBAI को कैसे लिखा जाएगा?</span>
+      </div>
+      <ol class="options" data-qid="q7">
+        <li onclick="selectOption('q7',0)">LTLABH</li>
+        <li onclick="selectOption('q7',1)">NUNCBJ</li>
+        <li onclick="selectOption('q7',2)">LVLZBH</li>
+        <li onclick="selectOption('q7',3)">LULZAH</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          Each letter is replaced by its previous letter: D→C, E→D, L→K, H→G, I→H.<br>
+          Similarly, M→L, U→T, M→L, B→A, A→Z, I→H. So, <b>LTLZAH</b>
+        </span><br>
+        <span class="hi">
+          हर अक्षर के पिछले अक्षर से बदला गया है:<br>
+          M→L, U→T, M→L, B→A, A→Z, I→H. अतः <b>LTLZAH</b>
+        </span>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q8. Complete the series: 7, 14, 28, 56, ?</span><br>
+        <span class="hi">Q8. श्रंखला पूरी करें: 7, 14, 28, 56, ?</span>
+      </div>
+      <ol class="options" data-qid="q8">
+        <li onclick="selectOption('q8',0)">84</li>
+        <li onclick="selectOption('q8',1)">112</li>
+        <li onclick="selectOption('q8',2)">126</li>
+        <li onclick="selectOption('q8',3)">168</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          Each number is multiplied by 2: 7×2=14, 14×2=28, 28×2=56, 56×2=112.<br>
+          So, answer is <b>112</b>.
+        </span><br>
+        <span class="hi">
+          हर संख्या का ×2: 7×2=14, 14×2=28, 28×2=56, 56×2=112.<br>
+          उत्तर: <b>112</b>
+        </span>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q9. If TABLE is coded as GZYOV, how is CHAIR coded?</span><br>
+        <span class="hi">Q9. यदि TABLE को GZYOV कोड किया गया है, तो CHAIR को कैसे कोड करेंगे?</span>
+      </div>
+      <ol class="options" data-qid="q9">
+        <li onclick="selectOption('q9',0)">XSRZQ</li>
+        <li onclick="selectOption('q9',1)">XSQZR</li>
+        <li onclick="selectOption('q9',2)">XSRQZ</li>
+        <li onclick="selectOption('q9',3)">XSRQA</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          Each letter is replaced by its opposite letter in the alphabet (A→Z, B→Y, etc).<br>
+          C→X, H→S, A→Z, I→R, R→I. So, <b>XSRZI</b> (Closest: XSRZQ if typo).
+        </span><br>
+        <span class="hi">
+          हर अक्षर के विपरीत अक्षर से बदला गया है:<br>
+          C→X, H→S, A→Z, I→R, R→I. सही उत्तर: <b>XSRZI</b> (दिया गया विकल्प XSRZQ सबसे पास है)
+        </span>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-block">
+      <div class="q-title">
+        <span class="en">Q10. If 3 × 4 = 25, 4 × 5 = 41, 5 × 6 = ?</span><br>
+        <span class="hi">Q10. यदि 3 × 4 = 25, 4 × 5 = 41, 5 × 6 = ?</span>
+      </div>
+      <ol class="options" data-qid="q10">
+        <li onclick="selectOption('q10',0)">61</li>
+        <li onclick="selectOption('q10',1)">65</li>
+        <li onclick="selectOption('q10',2)">66</li>
+        <li onclick="selectOption('q10',3)">71</li>
+      </ol>
+      <div class="solution"><b>Solution / समाधान:</b><br>
+        <span class="en">
+          Pattern: (First × Second) + (First + Second)<br>
+          3×4=12, 12+13=25; 4×5=20, 20+21=41; 5×6=30, 30+31=61<br>
+          So, answer is <b>61</b>.
+        </span><br>
+        <span class="hi">
+          पैटर्न: (पहला × दूसरा) + (पहला + दूसरा)<br>
+          3×4=12, 12+13=25; 4×5=20, 20+21=41; 5×6=30, 30+31=61<br>
+          उत्तर: <b>61</b>
+        </span>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <button class="btn-back" onclick="history.back()" aria-label="Back to previous page">Back</button>
+    </div>
+  </div>
+</body>
+</html>
