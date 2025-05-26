@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MS Office & Computer MCQ Revision</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #43cea2, #185a9d 100%);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: #222;
+      min-height: 100vh;
+      padding: 1.5rem 0 0 0;
+    }
+    .header {
+      width: 100vw;
+      background: rgba(24,90,157,0.97);
+      padding: 1.2em 0 0.5em 0;
+      text-align: center;
+      box-shadow: 0 4px 24px #185a9d44;
+      margin-bottom: 0.3em;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      animation: fadeInDown 1.1s;
+    }
+    .header h1 {
+      font-size: 2.1em;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 0.2em;
+      text-shadow: 0 2px 18px #43cea288;
+      animation: glow 2s infinite alternate;
+    }
+    .header h2 {
+      font-size: 1.02em;
+      color: #ffe066;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 0.4em;
+      text-shadow: 0 1px 8px #fff7;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #fff, 0 0 16px #185a9d; }
+      to   { text-shadow: 0 0 24px #fff, 0 0 32px #43cea2; }
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.2em;
+    }
+    .mcq-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px #43cea233;
+      margin-bottom: 1.5em;
+      padding: 1.4em 1.2em 1.1em 1.2em;
+      border-left: 6px solid #43cea2;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .mcq-card:hover {
+      box-shadow: 0 8px 32px #185a9d33;
+      transform: scale(1.02);
+      border-left: 6px solid #185a9d;
+    }
+    .mcq-q {
+      font-weight: 700;
+      color: #185a9d;
+      margin-bottom: 0.5em;
+      font-size: 1.07em;
+    }
+    .mcq-options {
+      margin-bottom: 0.5em;
+    }
+    .mcq-options label {
+      display: block;
+      margin-bottom: 0.4em;
+      cursor: pointer;
+      font-size: 1em;
+      padding-left: 0.5em;
+      transition: color 0.18s;
+      border-radius: 6px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+    .mcq-options .correct {
+      background: #eafaf1;
+      color: #1e7d4a;
+      font-weight: 700;
+    }
+    .back-btn {
+      display: block;
+      margin: 3em auto 0 auto;
+      padding: 13px 38px;
+      background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.12em;
+      letter-spacing: 1.5px;
+      box-shadow: 0 8px 32px 0 #185a9d55;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+      outline: none;
+      min-width: 120px;
+      text-align: center;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+      color: #fff;
+      transform: scale(1.06);
+      box-shadow: 0 12px 36px 0 #43cea288;
+    }
+    .watermark {
+      width: 100vw;
+      text-align: center;
+      color: #185a9d;
+      font-size: 1.02em;
+      letter-spacing: 1.3px;
+      margin: 34px auto 0 auto;
+      opacity: 0.7;
+      text-shadow: 0 2px 10px #43cea299;
+      font-weight: 600;
+      padding-bottom: 14px;
+      user-select: none;
+      pointer-events: none;
+    }
+    @media (max-width: 500px) {
+      .mcq-card { padding: 1em 0.7em;}
+      .header h1 { font-size: 1.2em;}
+    }
+  </style>
+  <script>
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Disable copy, cut, paste, drag
+  document.addEventListener('copy', event => event.preventDefault());
+  document.addEventListener('cut', event => event.preventDefault());
+  document.addEventListener('paste', event => event.preventDefault());
+  document.addEventListener('dragstart', event => event.preventDefault());
+
+  // Disable PrintScreen, Print, Save
+  document.addEventListener('keydown', function(e) {
+    // Disable PrintScreen
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert('Screenshots are disabled on this page.');
+      e.preventDefault();
+    }
+    // Disable Ctrl+P (Print)
+    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
+      alert('Printing is disabled on this page.');
+      e.preventDefault();
+    }
+    // Disable Ctrl+S (Save)
+    if (e.ctrlKey && e.key.toLowerCase() === 's') {
+      alert('Saving is disabled on this page.');
+      e.preventDefault();
+    }
+  });
+
+  // Extra: Hide content while PrintScreen is pressed (for some browsers)
+  window.addEventListener('keyup', function(e) {
+    if (e.key === "PrintScreen") {
+      document.body.style.visibility = 'hidden';
+      setTimeout(() => {
+        document.body.style.visibility = 'visible';
+      }, 1000);
+    }
+  });
+
+  // Extra: Prevent screen capture via CSS (not 100% foolproof)
+  document.addEventListener('DOMContentLoaded', function() {
+    let style = document.createElement('style');
+    style.innerHTML = `
+      body, * {
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+        user-select: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
+
+</head>
+<body>
+  <div class="header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTE</h2>
+    <H3>MS Office & Computer MCQ Revision</H3>
+  </div>
+  <div class="container">
+
+    <!-- Q1 -->
+    <div class="mcq-card">
+      <div class="mcq-q">1. MS-Office is a __________.</div>
+      <div class="mcq-options">
+        <label>Application software</label>
+        <label class="correct">System Software</label>
+        <label>Utility Software</label>
+        <label>Programming Software</label>
+      </div>
+    </div>
+    <!-- Q2 -->
+    <div class="mcq-card">
+      <div class="mcq-q">2. F1 to F12 are called _____ Keys.</div>
+      <div class="mcq-options">
+        <label>Special</label>
+        <label>Control</label>
+        <label class="correct">Function</label>
+        <label>Navigation</label>
+      </div>
+    </div>
+    <!-- Q3 -->
+    <div class="mcq-card">
+      <div class="mcq-q">3. What is the shortcut key to open an existing file?</div>
+      <div class="mcq-options">
+        <label>Ctrl + N</label>
+        <label class="correct">Ctrl + O</label>
+        <label>Ctrl + S</label>
+        <label>Ctrl + F</label>
+      </div>
+    </div>
+    <!-- Q4 -->
+    <div class="mcq-card">
+      <div class="mcq-q">4. What is the shortcut key to open the Run Command Dialog Box?</div>
+      <div class="mcq-options">
+        <label>Ctrl + R</label>
+        <label>Alt + R</label>
+        <label class="correct">Win + R</label>
+        <label>Shift + R</label>
+      </div>
+    </div>
+    <!-- Q5 -->
+    <div class="mcq-card">
+      <div class="mcq-q">5. Which tool is used to take screenshot in computer?</div>
+      <div class="mcq-options">
+        <label>Paint</label>
+        <label class="correct">Snipping Tool</label>
+        <label>Calculator</label>
+        <label>Sticky Notes</label>
+      </div>
+    </div>
+    <!-- Q6 -->
+    <div class="mcq-card">
+      <div class="mcq-q">6. Which of the following is MS Office Suite's software program?</div>
+      <div class="mcq-options">
+        <label>Notepad</label>
+        <label>Calculator</label>
+        <label class="correct">MS PowerPoint</label>
+        <label>Paint</label>
+      </div>
+    </div>
+    <!-- Q7 -->
+    <div class="mcq-card">
+      <div class="mcq-q">7. Documents can be ____ with MS Word.</div>
+      <div class="mcq-options">
+        <label>Deleted</label>
+        <label>Copied</label>
+        <label>Moved</label>
+        <label class="correct">Created</label>
+      </div>
+    </div>
+    <!-- Q8 -->
+    <div class="mcq-card">
+      <div class="mcq-q">8. Where is File Tab/Office Button located in MS Word?</div>
+      <div class="mcq-options">
+        <label>Right Top Corner</label>
+        <label class="correct">Left Top Corner</label>
+        <label>Bottom Left Corner</label>
+        <label>Bottom Right Corner</label>
+      </div>
+    </div>
+    <!-- Q9 -->
+    <div class="mcq-card">
+      <div class="mcq-q">9. Which of the following is a tab in Ribbon in MS Word?</div>
+      <div class="mcq-options">
+        <label>Font</label>
+        <label>Paragraph</label>
+        <label class="correct">View</label>
+        <label>Clipboard</label>
+      </div>
+    </div>
+    <!-- Q10 -->
+    <div class="mcq-card">
+      <div class="mcq-q">10. Which of the following is not present as a command/button in Home Tab?</div>
+      <div class="mcq-options">
+        <label class="correct">No Answer</label>
+        <label>Font</label>
+        <label>Paragraph</label>
+        <label>Clipboard</label>
+      </div>
+    </div>
+    <!-- Q11 -->
+    <div class="mcq-card">
+      <div class="mcq-q">11. Which of the following is the 2nd tab in the Ribbon?</div>
+      <div class="mcq-options">
+        <label>Home Tab</label>
+        <label class="correct">Insert Tab</label>
+        <label>Design Tab</label>
+        <label>View Tab</label>
+      </div>
+    </div>
+    <!-- Q12 -->
+    <div class="mcq-card">
+      <div class="mcq-q">12. Which of the following can be added using Insert tab?</div>
+      <div class="mcq-options">
+        <label>Header</label>
+        <label>Footer</label>
+        <label class="correct">Picture</label>
+        <label>References</label>
+      </div>
+    </div>
+    <!-- Q13 -->
+    <div class="mcq-card">
+      <div class="mcq-q">13. How many types of orientations are there in MS Word?</div>
+      <div class="mcq-options">
+        <label>2</label>
+        <label>3</label>
+        <label class="correct">2</label>
+        <label>4</label>
+      </div>
+    </div>
+    <!-- Q14 -->
+    <div class="mcq-card">
+      <div class="mcq-q">14. What is the keyboard shortcut to Open Font Dialog Box in Ms Word?</div>
+      <div class="mcq-options">
+        <label>Ctrl + F</label>
+        <label class="correct">Ctrl + D</label>
+        <label>Ctrl + P</label>
+        <label>Ctrl + O</label>
+      </div>
+    </div>
+    <!-- Q15 -->
+    <div class="mcq-card">
+      <div class="mcq-q">15. In which tab are End Note and Foot Note located?</div>
+      <div class="mcq-options">
+        <label>Insert Tab</label>
+        <label class="correct">Reference Tab</label>
+        <label>Review Tab</label>
+        <label>View Tab</label>
+      </div>
+    </div>
+    <!-- Q16 -->
+    <div class="mcq-card">
+      <div class="mcq-q">16. Which of the following keyboard shortcut is used to select the text in the direction of the arrow key?</div>
+      <div class="mcq-options">
+        <label>Ctrl + Shift</label>
+        <label class="correct">Shift + Arrow</label>
+        <label>Ctrl + Arrow</label>
+        <label>Alt + Arrow</label>
+      </div>
+    </div>
+    <!-- Q17 -->
+    <div class="mcq-card">
+      <div class="mcq-q">17. What is the shortcut key of Print Preview?</div>
+      <div class="mcq-options">
+        <label>Ctrl + P</label>
+        <label class="correct">Ctrl + F2</label>
+        <label>Ctrl + F1</label>
+        <label>Ctrl + S</label>
+      </div>
+    </div>
+    <!-- Q18 -->
+    <div class="mcq-card">
+      <div class="mcq-q">18. In order to change the font to Bold, click ________ and in order to change the font to italic, click ________.</div>
+      <div class="mcq-options">
+        <label>Ctrl + U, Ctrl + I</label>
+        <label class="correct">Ctrl + B, Ctrl + I</label>
+        <label>Ctrl + B, Ctrl + U</label>
+        <label>Ctrl + I, Ctrl + B</label>
+      </div>
+    </div>
+    <!-- Q19 -->
+    <div class="mcq-card">
+      <div class="mcq-q">19. Which of the following is present in Case Menu Button?</div>
+      <div class="mcq-options">
+        <label>Sentence Case</label>
+        <label class="correct">Capitalize Each Word</label>
+        <label>Lowercase</label>
+        <label>Uppercase</label>
+      </div>
+    </div>
+    <!-- Q20 -->
+    <div class="mcq-card">
+      <div class="mcq-q">20. In which group are the buttons for align text located in MS Word?</div>
+      <div class="mcq-options">
+        <label>Font</label>
+        <label>Clipboard</label>
+        <label class="correct">Paragraph</label>
+        <label>Editing</label>
+      </div>
+    </div>
+    <!-- Q21 -->
+    <div class="mcq-card">
+      <div class="mcq-q">21. Word documents contain ________________, which appear at the top and bottom of the document, respectively.</div>
+      <div class="mcq-options">
+        <label>Title and Footer</label>
+        <label>Header and Endnote</label>
+        <label class="correct">Header and Footer</label>
+        <label>Title and Endnote</label>
+      </div>
+    </div>
+    <!-- Q22 -->
+    <div class="mcq-card">
+      <div class="mcq-q">22. What is the shortcut key to add Present Date and Present Time in MS Word Document?</div>
+      <div class="mcq-options">
+        <label>Ctrl + Shift + D, Ctrl + Shift + T</label>
+        <label>Alt + Shift + D, Ctrl + Shift + T</label>
+        <label class="correct">Alt + Shift + D, Shift + Alt + T</label>
+        <label>Ctrl + Alt + D, Ctrl + Alt + T</label>
+      </div>
+    </div>
+    <!-- Q23 -->
+    <div class="mcq-card">
+      <div class="mcq-q">23. Ctrl + U is a Shortcut of _______.</div>
+      <div class="mcq-options">
+        <label>Italics</label>
+        <label>Bold</label>
+        <label class="correct">Underline</label>
+        <label>Undo</label>
+      </div>
+    </div>
+    <!-- Q24 -->
+    <div class="mcq-card">
+      <div class="mcq-q">24. What is the size of A4 paper in inches?</div>
+      <div class="mcq-options">
+        <label>8.5 x 11 inch</label>
+        <label>8 x 12 inch</label>
+        <label class="correct">8.27 x 11.69 inch</label>
+        <label>9 x 12 inch</label>
+      </div>
+    </div>
+    <!-- Q25 -->
+    <div class="mcq-card">
+      <div class="mcq-q">25. Why is Ctrl + U shortcut key used in Calculator?</div>
+      <div class="mcq-options">
+        <label>Underline Calculator</label>
+        <label>Unit Conversion</label>
+        <label class="correct">Underline</label>
+        <label>Undo</label>
+      </div>
+    </div>
+    <!-- Q26 -->
+    <div class="mcq-card">
+      <div class="mcq-q">26. What is the shortcut key of New Page?</div>
+      <div class="mcq-options">
+        <label>Ctrl + O</label>
+        <label>Ctrl + F</label>
+        <label class="correct">Ctrl + N</label>
+        <label>Ctrl + P</label>
+      </div>
+    </div>
+    <!-- Q27 -->
+    <div class="mcq-card">
+      <div class="mcq-q">27. What is the use of Ctrl + R in MS Paint?</div>
+      <div class="mcq-options">
+        <label>Show & Hide Grid Line</label>
+        <label class="correct">Show & Hide Ruler Line</label>
+        <label>Show & Hide Status Bar</label>
+        <label>Show & Hide Tool Bar</label>
+      </div>
+    </div>
+    <!-- Q28 -->
+    <div class="mcq-card">
+      <div class="mcq-q">28. What is the shortcut key to close any open software?</div>
+      <div class="mcq-options">
+        <label>Ctrl + Q</label>
+        <label>Alt + F4</label>
+        <label class="correct">Ctrl + W</label>
+        <label>Ctrl + E</label>
+      </div>
+    </div>
+    <!-- Q29 -->
+    <div class="mcq-card">
+      <div class="mcq-q">29. What is the shortcut key to show or hide the Ribbon?</div>
+      <div class="mcq-options">
+        <label>Ctrl + R</label>
+        <label>Alt + F1</label>
+        <label class="correct">Ctrl + F1</label>
+        <label>Ctrl + Shift + F1</label>
+      </div>
+    </div>
+    <!-- Q30 -->
+    <div class="mcq-card">
+      <div class="mcq-q">30. Ctrl+ X is a shortcut key of _____.</div>
+      <div class="mcq-options">
+        <label>Copy</label>
+        <label>Paste</label>
+        <label class="correct">Cut</label>
+        <label>Undo</label>
+      </div>
+    </div>
+    <!-- Q31 -->
+    <div class="mcq-card">
+      <div class="mcq-q">31. Which shortcut key is used to open the Resize and Skew Dialog Box in MS Paint?</div>
+      <div class="mcq-options">
+        <label>Ctrl + E</label>
+        <label>Ctrl + G</label>
+        <label class="correct">Ctrl + W</label>
+        <label>Ctrl + R</label>
+      </div>
+    </div>
+    <!-- Q32 -->
+    <div class="mcq-card">
+      <div class="mcq-q">32. CU Stands for ______.</div>
+      <div class="mcq-options">
+        <label>Central Unit</label>
+        <label class="correct">Control Unit</label>
+        <label>Centralized Unit</label>
+        <label>Computer Unit</label>
+      </div>
+    </div>
+    <!-- Q33 -->
+    <div class="mcq-card">
+      <div class="mcq-q">33. CPU Stands for ________.</div>
+      <div class="mcq-options">
+        <label>Centralized Processing Unit</label>
+        <label class="correct">Central Processing Unit</label>
+        <label>Computer Processing Unit</label>
+        <label>Control Processing Unit</label>
+      </div>
+    </div>
+    <!-- Q34 -->
+    <div class="mcq-card">
+      <div class="mcq-q">34. How many types of computers are there based on their function?</div>
+      <div class="mcq-options">
+        <label>2</label>
+        <label class="correct">3</label>
+        <label>4</label>
+        <label>5</label>
+      </div>
+    </div>
+    <!-- Q35 -->
+    <div class="mcq-card">
+      <div class="mcq-q">35. PC Stands for _______.</div>
+      <div class="mcq-options">
+        <label>Personal Calculator</label>
+        <label class="correct">Personal Computer</label>
+        <label>Private Computer</label>
+        <label>Public Computer</label>
+      </div>
+    </div>
+    <!-- Q36 -->
+    <div class="mcq-card">
+      <div class="mcq-q">36. What is COMPUTER called in Hindi?</div>
+      <div class="mcq-options">
+        <label>संगणक</label>
+        <label class="correct">संगणक</label>
+        <label>कम्प्यूटर</label>
+        <label>गणना यंत्र</label>
+      </div>
+    </div>
+    <!-- Q37 -->
+    <div class="mcq-card">
+      <div class="mcq-q">37. The data that goes into the computer is called….</div>
+      <div class="mcq-options">
+        <label>Output</label>
+        <label class="correct">Input</label>
+        <label>Process</label>
+        <label>Result</label>
+      </div>
+    </div>
+    <!-- Q38 -->
+    <div class="mcq-card">
+      <div class="mcq-q">38. What is the brain of the computer?</div>
+      <div class="mcq-options">
+        <label>Monitor</label>
+        <label>Keyboard</label>
+        <label class="correct">CPU</label>
+        <label>Mouse</label>
+      </div>
+    </div>
+    <!-- Q39 -->
+    <div class="mcq-card">
+      <div class="mcq-q">39. How many types of ROM?</div>
+      <div class="mcq-options">
+        <label>2</label>
+        <label>3</label>
+        <label class="correct">4</label>
+        <label>5</label>
+      </div>
+    </div>
+    <!-- Q40 -->
+    <div class="mcq-card">
+      <div class="mcq-q">40. What is Microsoft PowerPoint used for?</div>
+      <div class="mcq-options">
+        <label>Word Processing</label>
+        <label>Calculations</label>
+        <label class="correct">Creating presentations</label>
+        <label>Database Management</label>
+      </div>
+    </div>
+    <!-- Q41 -->
+    <div class="mcq-card">
+      <div class="mcq-q">41. Which tab is used to insert a new slide in PowerPoint?</div>
+      <div class="mcq-options">
+        <label>Home</label>
+        <label class="correct">Insert</label>
+        <label>Design</label>
+        <label>Animations</label>
+      </div>
+    </div>
+    <!-- Q42 -->
+    <div class="mcq-card">
+      <div class="mcq-q">42. What is the shortcut key to start a slideshow from the beginning?</div>
+      <div class="mcq-options">
+        <label>F4</label>
+        <label>F2</label>
+        <label class="correct">F5</label>
+        <label>F1</label>
+      </div>
+    </div>
+    <!-- Q43 -->
+    <div class="mcq-card">
+      <div class="mcq-q">43. Which key combination is used to duplicate a slide?</div>
+      <div class="mcq-options">
+        <label>Ctrl + C</label>
+        <label>Ctrl + V</label>
+        <label class="correct">Ctrl + D</label>
+        <label>Ctrl + X</label>
+      </div>
+    </div>
+    <!-- Q44 -->
+    <div class="mcq-card">
+      <div class="mcq-q">44. What is the file extension for an Excel workbook in Office 2007 and later?</div>
+      <div class="mcq-options">
+        <label>.xls</label>
+        <label>.xlsx</label>
+        <label class="correct">.xlsx</label>
+        <label>.xlsm</label>
+      </div>
+    </div>
+    <!-- Q45 -->
+    <div class="mcq-card">
+      <div class="mcq-q">45. Which function is used to calculate the sum of a range of cells?</div>
+      <div class="mcq-options">
+        <label>=COUNT()</label>
+        <label>=MAX()</label>
+        <label class="correct">=SUM()</label>
+        <label>=MIN()</label>
+      </div>
+    </div>
+    <!-- Q46 -->
+    <div class="mcq-card">
+      <div class="mcq-q">46. What is the maximum number of rows in Excel 2007?</div>
+      <div class="mcq-options">
+        <label>65536</label>
+        <label>100000</label>
+        <label class="correct">1,048,576</label>
+        <label>16,384</label>
+      </div>
+    </div>
+    <!-- Q47 -->
+    <div class="mcq-card">
+      <div class="mcq-q">47. Which key is used to edit the content of a cell in Excel?</div>
+      <div class="mcq-options">
+        <label>F1</label>
+        <label>F4</label>
+        <label class="correct">F2</label>
+        <label>F5</label>
+      </div>
+    </div>
+<!-- Q48 -->
+    <div class="mcq-card">
+      <div class="mcq-q">48. Which function is used to find the largest number in a range of cells?</div>
+      <div class="mcq-options">
+        <label>=MIN()</label>
+        <label>=COUNT()</label>
+        <label class="correct">=MAX()</label>
+        <label>=SUM()</label>
+      </div>
+    </div>
+    <!-- Q49 -->
+    <div class="mcq-card">
+      <div class="mcq-q">49. What is the total number of columns in Excel 2007?</div>
+      <div class="mcq-options">
+        <label>256</label>
+        <label>1024</label>
+        <label>8192</label>
+        <label class="correct">16,384</label>
+      </div>
+    </div>
+    <!-- Q50 -->
+    <div class="mcq-card">
+      <div class="mcq-q">50. There is a Bar Chart in MS Word.</div>
+      <div class="mcq-options">
+        <label>Option 1</label>
+        <label>Option 2</label>
+        <label class="correct">Option 2</label>
+        <label>Option 3</label>
+      </div>
+    </div>
+
+    <a href="javascript:history.back()" class="back-btn">Back</a>
+    <div class="watermark">
+      &copy; Pawan Soni
+    </div>
+  </div>
+</body>
+</html>
