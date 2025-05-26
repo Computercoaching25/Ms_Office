@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CPCT Syllabus 2025 - Chitragupt Academy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #f7fafc 0%, #e9ecef 100%);
+      color: #222;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    header {
+      text-align: center;
+      padding: 38px 20px 18px;
+      background: rgba(35,78,112,0.13);
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 8px 32px 0 rgba(35,78,112,0.10);
+      backdrop-filter: blur(6px);
+      margin-bottom: 24px;
+      animation: slideDown 1s cubic-bezier(.4,2,.6,1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.7em;
+      color: #234E70;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 16px #43B97F22;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 7px;
+      letter-spacing: 1px;
+      color: #234E70;
+      text-shadow: 0 2px 8px #43B97F11;
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      padding: 40px 10px 30px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 30px;
+      box-shadow: 0 8px 32px 0 rgba(35,78,112,0.10);
+      backdrop-filter: blur(5px);
+      margin: 0 12px 32px;
+      animation: fadeIn 1.5s cubic-bezier(.4,2,.6,1);
+    }
+    .btn {
+      position: relative;
+      background: linear-gradient(90deg, #234E70 60%, #43B97F 100%);
+      color: #fff;
+      padding: 18px 32px;
+      border: none;
+      border-radius: 16px;
+      font-size: 1.12em;
+      font-weight: bold;
+      cursor: pointer;
+      min-width: 230px;
+      text-align: center;
+      box-shadow: 0 4px 18px 0 rgba(67,185,127,0.14);
+      overflow: hidden;
+      transition: all 0.22s cubic-bezier(.4,2,.6,1);
+      outline: none;
+      z-index: 1;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .btn:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,214,0,0.18);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s cubic-bezier(.55,0,.1,1), height 0.4s cubic-bezier(.55,0,.1,1);
+      z-index: -1;
+    }
+    .btn:hover, .btn:focus {
+      color: #234E70;
+      background: linear-gradient(90deg, #FFD600 0%, #43B97F 100%);
+      box-shadow: 0 8px 32px 0 #FFD60044, 0 1.5px 12px #43B97F55;
+      transform: translateY(-6px) scale(1.05) rotate(-1deg);
+    }
+    .btn:hover:before, .btn:focus:before {
+      width: 260%;
+      height: 260%;
+      background: rgba(255,214,0,0.25);
+    }
+    .btn:active::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: ripple 0.5s linear;
+      z-index: 2;
+    }
+    @keyframes ripple {
+      to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+      }
+    }
+    .back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin: 0 auto 30px;
+      background: linear-gradient(90deg, #43B97F 0%, #234E70 100%);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 13px 32px;
+      box-shadow: 0 4px 18px #234E7044;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(.4,2,.6,1);
+      outline: none;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .back-btn:hover {
+      background: linear-gradient(90deg, #FFD600 0%, #43B97F 100%);
+      color: #234E70;
+      transform: scale(1.07);
+      box-shadow: 0 8px 32px 0 #FFD60066;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 10px 12px;
+      font-size: 0.98em;
+      color: #234E70;
+      text-shadow: 1px 1px 3px #fff;
+      background: rgba(255,255,255,0.85);
+      border-radius: 18px 18px 0 0;
+      margin: 0 10px;
+      backdrop-filter: blur(2px);
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    *::selection {
+      background: transparent;
+      color: inherit;
+    }
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.4em;
+      }
+      .btn {
+        font-size: 1em;
+        min-width: 98vw;
+        padding: 16px 10px;
+      }
+      .button-container {
+        gap: 16px;
+        padding: 20px 2px 16px;
+      }
+      .back-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+      footer {
+        font-size: 0.89em;
+      }
+    }
+  </style>
+  <script>
+    // Disable right click, copy, cut, paste, select, print
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('paste', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['p','s','u','c','v','x'].includes(e.key.toLowerCase())) ||
+        (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
+        (e.key === 'PrintScreen')
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+    window.addEventListener('keyup', function(e) {
+      if (e.key === 'PrintScreen') {
+        document.body.style.filter = 'blur(12px)';
+        setTimeout(()=>{document.body.style.filter='none';},700);
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>MP CPCT PREPARATION 2025</p>
+    <p><em>AN ISO CERTIFIED INSTITUTION</em></p>
+  </header>
+  <div class="button-container">
+    <button class="btn" onclick="location.href='cpct-syllabus.html'">📝 CPCT Syllabus</button>
+    <button class="btn" onclick="location.href='basic-operations.html'">🛠️ Basic Operations</button>
+    <button class="btn" onclick="location.href='general-it-skills.html'">🌐 General IT Skills</button>
+    <button class="btn" onclick="location.href='reading-comprehension.html'">📖 Reading Comprehension</button>
+    <button class="btn" onclick="location.href='math-reasoning.html'">🧠 Math & Reasoning</button>
+    <button class="btn" onclick="location.href='general-awareness.html'">🌏 General Awareness</button>
+    <button class="btn" onclick="location.href='keyboard-skills.html'">⌨️ Keyboard Skills</button>
+    <button class="btn" onclick="location.href='exam-pattern.html'">📋 Exam Pattern</button>
+    <button class="btn" onclick="location.href='typing-practice.html'">⌨️ Typing Practice</button>
+  </div>
+  <button class="back-btn" onclick="history.back()">⬅️ Back</button>
+  <footer>© Pawan Soni | CHITRAGUPT ACADEMY</footer>
+</body>
+</html>
