@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Run Command Detailed Notes - Chitragupt Academy</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Mono&display=swap');
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #3b82f6, #9333ea);
+        color: #f0f0f7;
+        user-select: none;
+        overflow-x: hidden;
+    }
+    .container {
+        max-width: 900px;
+        margin: 2rem auto 9rem;
+        background: rgba(255 255 255 / 0.07);
+        border-radius: 1rem;
+        padding: 2.5rem 2.5rem 4rem;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255 255 255 / 0.15);
+        animation: containerFadeIn 1.3s ease forwards;
+    }
+    header {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: 2.5px;
+        margin: 0;
+        text-transform: uppercase;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        animation: slideInDown 1.3s ease forwards;
+    }
+    header h2 {
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin: 6px 0 0;
+        color: #ffffff;
+        animation: slideInDown 1.5s ease forwards;
+        user-select: text;
+    }
+    main {
+        font-size: 1.12rem;
+        line-height: 1.75;
+        color: #e3ddff;
+        animation: fadeInUp 1.4s ease forwards;
+    }
+    main h3 {
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: #d1c4e9;
+        text-transform: uppercase;
+        border-left: 6px solid #7c4dff;
+        padding-left: 12px;
+        letter-spacing: 1.3px;
+    }
+    main p { margin: 0 0 1rem; user-select: none; }
+    main ul { margin: 0 0 1.5rem 1.5rem; list-style-type: disc; }
+    main ul li { margin-bottom: 0.6rem; }
+    .tools-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .tool-card {
+        background: rgba(18, 8, 46, 0.2);
+        flex: 2 1 280px;
+        border-radius: 14px;
+        padding: 1.5rem 1.6rem;
+        box-shadow: 0 6px 20px rgba(105, 56, 240, 0.35);
+        user-select: none;
+        color: #ffffff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: default;
+    }
+    .tool-card:hover {
+        box-shadow: 0 12px 30px rgba(17, 10, 36, 0.6);
+        transform: translateY(-6px);
+    }
+    .tool-icon {
+        font-size: 3.6rem;
+        margin-bottom: 1rem;
+        color: #eaa4fc;
+        filter: drop-shadow(0 0 4px #bb6eda9c);
+    }
+    .tool-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.6rem;
+        text-align: center;
+        text-shadow: 0 0 8px #c0adff99;
+    }
+    .tool-desc {
+        font-weight: 400;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 1.5;
+        color: #d1c4e9dd;
+        user-select: none;
+    }
+    .screenshot-container {
+        position: relative;
+        max-width: 600px;
+        margin: 3rem auto 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+        cursor: not-allowed;
+        user-select: none;
+        animation: zoomIn 1.5s ease forwards;
+    }
+    .screenshot-container img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+        pointer-events: none;
+    }
+    .lock-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: #b39ddb99;
+        pointer-events: none;
+        user-select: none;
+        animation: pulseLock 3s ease-in-out infinite;
+        text-shadow: 0 0 10px #b39ddbbb, 0 0 18px #7c4dffcc;
+    }
+    .back-button {
+        position: fixed;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #7c4dff;
+        color: white;
+        font-weight: 700;
+        padding: 14px 36px;
+        border-radius: 30px;
+        border: none;
+        box-shadow: 0 10px 30px #7c4dffbb;
+        font-size: 1.25rem;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.35s ease, box-shadow 0.35s ease;
+        text-align: center;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        z-index: 999;
+    }
+    .back-button:hover, .back-button:focus {
+        background: #632ecd;
+        box-shadow: 0 14px 40px #632ecdcc;
+        outline: none;
+    }
+    .watermark {
+        position: fixed;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Roboto Mono', monospace;
+        font-size: 14px;
+        color: rgb(179, 241, 137);
+        letter-spacing: 2px;
+        user-select: none;
+        pointer-events: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        z-index: 1;
+    }
+    @keyframes containerFadeIn {
+        from {opacity: 0; transform: translateY(40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+        from {opacity: 0; transform: translateY(24px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInDown {
+        from {opacity: 0; transform: translateY(-40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes zoomIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
+    }
+    @keyframes pulseLock {
+        0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+        50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
+    }
+    @media (max-width: 400px) {
+        .container {
+            margin: 1rem 1rem 7rem;
+            padding: 2rem 1.5rem 3.5rem;
+        }
+        header h1 { font-size: 2.2rem; }
+        header h2 { font-size: 1rem; }
+        .tool-card { flex: 1 1 100%; }
+        .back-button {
+            font-size: 1rem;
+            padding: 12px 28px;
+            bottom: 3.8rem;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('paste', e => e.preventDefault());
+</script>
+</head>
+<body>
+    <div class="container" role="main">
+        <header>
+            <h1>CHITRAGUPT ACADEMY</h1>
+            <h2>AN ISO CERTIFIED INSTITUTE</h2>
+        </header>
+        <main>
+            <h3>Run Command - Detailed Explanation</h3>
+            <p>The Run Command in Windows is a quick-access dialog box that allows users to open programs, files, folders, and internet resources directly by typing a command. It is a powerful tool for both beginners and advanced users to speed up tasks and access system features efficiently.</p>
+
+            <div class="tools-grid" aria-label="Run Command tool descriptions">
+                <article class="tool-card" tabindex="0" aria-describedby="tool-open-desc">
+                    <div class="tool-icon" aria-hidden="true">🚀</div>
+                    <div class="tool-title">Quick Program Launch</div>
+                    <p class="tool-desc" id="tool-open-desc">Open any application instantly by typing its executable name (e.g., <b>notepad</b>, <b>calc</b>, <b>cmd</b>).</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-folder-desc">
+                    <div class="tool-icon" aria-hidden="true">📁</div>
+                    <div class="tool-title">Open Files & Folders</div>
+                    <p class="tool-desc" id="tool-folder-desc">Directly access files or folders by typing their path (e.g., <b>C:\Windows</b> or <b>notepad C:\file.txt</b>).</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-system-desc">
+                    <div class="tool-icon" aria-hidden="true">⚙️</div>
+                    <div class="tool-title">System Utilities</div>
+                    <p class="tool-desc" id="tool-system-desc">Launch system tools like <b>msconfig</b>, <b>regedit</b>, <b>services.msc</b>, <b>control</b>, and more for quick configuration.</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-internet-desc">
+                    <div class="tool-icon" aria-hidden="true">🌐</div>
+                    <div class="tool-title">Open Websites</div>
+                    <p class="tool-desc" id="tool-internet-desc">Type a website URL (e.g., <b>www.google.com</b>) to open it directly in your default browser.</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-shortcut-desc">
+                    <div class="tool-icon" aria-hidden="true">⌨️</div>
+                    <div class="tool-title">Keyboard Shortcut</div>
+                    <p class="tool-desc" id="tool-shortcut-desc">Open the Run dialog quickly by pressing <b>Windows Key + R</b> on your keyboard.</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-history-desc">
+                    <div class="tool-icon" aria-hidden="true">🕑</div>
+                    <div class="tool-title">Command History</div>
+                    <p class="tool-desc" id="tool-history-desc">Run remembers your previous commands. Use the drop-down or arrow keys to access recent entries.</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-accessibility-desc">
+                    <div class="tool-icon" aria-hidden="true">♿</div>
+                    <div class="tool-title">Accessibility</div>
+                    <p class="tool-desc" id="tool-accessibility-desc">Helps users who have difficulty navigating menus by providing direct access to system features.</p>
+                </article>
+                <article class="tool-card" tabindex="0" aria-describedby="tool-advanced-desc">
+                    <div class="tool-icon" aria-hidden="true">💡</div>
+                    <div class="tool-title">Advanced Usage</div>
+                    <p class="tool-desc" id="tool-advanced-desc">Supports command-line parameters, environment variables (e.g., <b>%temp%</b>), and advanced scripts for power users.</p>
+                </article>
+            </div>
+
+            <div class="screenshot-container" aria-label="Run Command interface screenshot is locked and unavailable">
+                <img src="https://lh5.googleusercontent.com/-Ar0sTc7v31U/TYTKtiK6FkI/AAAAAAAAA-A/YfnWFKOnlsE/s1600/msconfig.PNG" alt="Run Command interface screenshot" draggable="false" />
+                <div class="lock-overlay" aria-hidden="true">🔒</div>
+            </div>
+        </main>
+        <br><br><br><br><br>
+        <a href="javascript:history.back()" class="back-button" aria-label="Go back to the previous page">Back</a>
+        <div class="watermark" aria-hidden="true">© COPYRIGHT PAWAN SONI</div>
+    </div>
+</body>
+  </html>
+  
