@@ -258,15 +258,15 @@
     };
     // Course id to syllabus page mapping
     const coursePages = {
-      "bcc": "syl/basic.html",
-      "advanced": "syl/advanced.html",
-      "cpct": "syl/cpct.html",
-      "internet": "syl/internet.html",
-      "tally": "syl/tally.html",
-      "graphic": "syl/graphic.html",
-      "powerbi": "syl/power.html",
-      "webdesign": "syl/web.html",
-      "exams": "syl/exam.html"
+      "bcc": "basic.html",
+      "advanced": "advanced.html",
+      "cpct": "cpct.html",
+      "internet": "internet.html",
+      "tally": "tally.html",
+      "graphic": "graphic.html",
+      "powerbi": "power.html",
+      "webdesign": "web.html",
+      "exams": "exam.html"
     };
     // Course list
     const courseOrder = [
@@ -338,7 +338,7 @@
   </div>
   <footer>
     &copy; <span id="year"></span> Pawan Soni<br>
-    <a href="home.html" class="back-home">Back to Home</a>
+     <a href="javascript:history.back()" class="back-btn">Back</a>
   </footer>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
