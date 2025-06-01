@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Electricity Bill Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            min-height: 100vh;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255,255,255,0.13);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            border-radius: 1rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+        h2 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 8px #0002;
+        }
+        .input-box {
+            margin-bottom: 1.2rem;
+            background: rgba(255,255,255,0.18);
+            border-radius: 0.7rem;
+            padding: 1rem;
+            box-shadow: 0 2px 12px #0001;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.07rem;
+            letter-spacing: 1px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1.1rem;
+            outline: none;
+            background: #f3e8ff;
+            color: #333;
+            margin-bottom: 0.2rem;
+            transition: box-shadow 0.2s;
+        }
+        input[type="number"]:focus {
+            box-shadow: 0 0 0 2px #7c4dff55;
+        }
+        button {
+            margin-top: 0.6rem;
+            padding: 0.8rem 2.2rem;
+            border: none;
+            border-radius: 2rem;
+            background: #7c4dff;
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px #7c4dff55;
+            transition: background 0.22s, box-shadow 0.22s;
+        }
+        button:hover {
+            background: #632ecd;
+            box-shadow: 0 6px 22px #632ecd77;
+        }
+        .result {
+            margin-top: 1.7rem;
+            background: rgba(255,255,255,0.19);
+            border-radius: 0.7rem;
+            padding: 1.1rem 0.5rem;
+            color: #fff;
+            font-size: 1.13rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 12px #0001;
+        }
+        @media (max-width: 500px) {
+            .container { padding: 1.2rem 0.5rem 1.5rem 0.5rem; }
+            h2 { font-size: 1.3rem; }
+        }
+        @media print {
+            body {
+                background: none;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                backdrop-filter: none;
+            }
+            button {
+                display: none;
+            }
+        }
+        .bill {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #000;
+            background: #fff;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Electricity Bill Calculator</h2>
+        <div class="input-box">
+            <label for="past">Past Bill Reading</label>
+            <input type="number" id="past" min="0" placeholder="Enter previous reading">
+        </div>
+        <div class="input-box">
+            <label for="present">Present Bill Reading</label>
+            <input type="number" id="present" min="0" placeholder="Enter current reading">
+        </div>
+        <button onclick="calculateBill()">Calculate</button>
+        <div class="result" id="result" style="display:none;"></div>
+        <button onclick="printBill()" style="display:none;" id="printButton">Print Bill</button>
+        <div class="bill" id="bill"></div>
+    </div>
+    <script>
+        function calculateBill() {
+            const past = parseFloat(document.getElementById('past').value);
+            const present = parseFloat(document.getElementById('present').value);
+            const resultBox = document.getElementById('result');
+            const printButton = document.getElementById('printButton');
+            const bill = document.getElementById('bill');
+
+            if (isNaN(past) || isNaN(present)) {
+                resultBox.style.display = "block";
+                resultBox.innerHTML = "Please enter both readings.";
+                printButton.style.display = "none";
+                return;
+            }
+            if (present < past) {
+                resultBox.style.display = "block";
+                resultBox.innerHTML = "Present reading should be greater than or equal to past reading.";
+                printButton.style.display = "none";
+                return;
+            }
+            const units = present - past;
+            const rate = 9; // Updated rate
+            const amount = units * rate;
+            resultBox.style.display = "block";
+            resultBox.innerHTML = `
+                <div>Units Consumed: <b>${units}</b></div>
+                <div>Total Amount (₹9/unit): <b>₹${amount.toFixed(2)}</b></div>
+            `;
+
+            // Prepare bill for printing
+            bill.style.display = "block";
+            bill.innerHTML = `
+                <h2>Electricity Bill</h2>
+                <p>Date: ${new Date().toLocaleDateString()}</p>
+                <p>Previous Reading: <b>${past}</b></p>
+                <p>Current Reading: <b>${present}</b></p>
+                <p>Units Consumed: <b>${units}</b></p>
+                <p>Total Amount: <b>₹${amount.toFixed(2)}</b></p>
+            `;
+            printButton.style.display = "block";
+        }
+
+        function printBill() {
+            const bill = document.getElementById('bill');
+            const printWindow = window.open('', '', 'height=600,width=800');
+            printWindow.document.write('<html><head><title>Print Bill</title>');
+            printWindow.document.write('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">');
+            printWindow.document.write('<style>body { font-family: "Poppins", sans-serif; } h2 { text-align: center; } </style>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(bill.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</body>
+</html>
