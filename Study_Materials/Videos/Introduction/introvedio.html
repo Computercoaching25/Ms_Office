@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Video - Play Only</title>
+    <style>
+        body { background: #f5f5f5; font-family: Arial; text-align: center; padding: 40px; }
+        .video-container { margin: 20px auto; max-width: 800px; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        video { width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Study Video</h1>
+    <div class="video-container">
+        <video id="studyVideo" controls autoplay controlsList="nodownload" oncontextmenu="return false;">
+            <source src="YOUR_VIDEO_FILE.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        // Optional: Disable keyboard shortcuts for screenshot (not very effective)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'PrintScreen' || (e.ctrlKey && e.key === 's') || (e.ctrlKey && e.key === 'p')) {
+                e.preventDefault();
+                alert('This action is not allowed.');
+            }
+        });
+    </script>
+</body>
+</html>
