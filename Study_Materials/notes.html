@@ -5,77 +5,155 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Course Notes & Videos - Chitragupt Academy</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e3f2fd, #bbdefb);
-      color: #2c3e50;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    * {
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
     }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      color: #2c3e50;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::selection {
+      background: none;
+    }
     header {
-      background-color: #ffffff;
-      padding: 20px;
+      background-color: rgba(255,255,255,0.95);
+      padding: 30px 20px;
       text-align: center;
-      border-bottom: 3px solid #007acc;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #007acc;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 10;
+      animation: fadeInDown 0.8s ease-out;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: #007acc;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     header p {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #333;
+      margin: 10px 0 0;
+      font-size: 1.3rem;
+      color: #555;
+      font-weight: 500;
+    }
+    .welcome-message {
+      font-size: 1.4rem;
+      margin: 15px auto 30px;
+      text-align: center;
+      color: #2c3e50;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 1s forwards;
+    }
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #007acc;
+      animation: typing 2s steps(30, end) 1s forwards, blink-caret 0.75s step-end infinite;
+      max-width: fit-content;
+      margin: 0 auto;
     }
     .notes-videos-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 30px auto 60px;
       gap: 30px;
+      padding: 0 20px;
+      animation: fadeInUp 0.8s ease-out 0.5s forwards;
+      opacity: 0;
+      transform: translateY(20px);
     }
     .notes-section, .videos-section {
       flex: 1;
       min-width: 480px;
-      padding: 0 20px;
-      background: rgba(255,255,255,0.8);
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .notes-section:hover, .videos-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #007acc;
-      margin: 20px 0 15px;
+      margin: 0 0 25px;
       text-align: center;
-      font-weight: bold;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #2ecc40;
+      border-radius: 3px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
     .course-link {
       background: white;
-      margin: 15px 0;
-      padding: 15px 25px;
+      margin: 0;
+      padding: 18px 25px;
       border-left: 8px solid #007acc;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
       color: #2c3e50;
       display: flex;
       align-items: center;
-      font-size: 18px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, background 0.2s;
+      font-size: 1.1rem;
+      font-weight: 500;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
       position: relative;
+      overflow: hidden;
       cursor: not-allowed;
       pointer-events: none;
-      user-select: none;
       opacity: 0.7;
     }
+    .course-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,122,204,0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .course-link:hover::before {
+      opacity: 1;
+    }
     .course-link .lock {
-      font-size: 1.2em;
-      margin-right: 12px;
+      font-size: 1.3em;
+      margin-right: 15px;
       color: #007acc;
-      transition: color 0.2s;
+      transition: color 0.3s ease;
     }
     .course-link.unlocked {
       border-left: 8px solid #2ecc40;
@@ -84,14 +162,15 @@
       cursor: pointer;
       pointer-events: auto;
       opacity: 1;
-      font-weight: bold;
+      font-weight: 600;
     }
     .course-link.unlocked .lock {
       color: #2ecc40;
     }
     .course-link.unlocked:hover {
-      transform: translateX(5px);
+      transform: translateX(8px);
       background-color: #d0f8ce;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
     .course-link.unlocked .lock-open {
       display: inline;
@@ -107,34 +186,103 @@
     }
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
+      padding: 25px 20px;
+      font-size: 0.95rem;
       color: #555;
       border-top: 1px solid #ccc;
+      background: rgba(255,255,255,0.9);
+      margin-top: 40px;
+      animation: fadeIn 0.8s ease-out;
     }
     .back-btn {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007acc;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #007acc 0%, #005fa3 100%);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
     .back-btn:hover {
-      background-color: #005fa3;
+      background: linear-gradient(135deg, #005fa3 0%, #004a7c 100%);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
     }
-    * {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    body::selection {
-      background: none;
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #007acc }
+    }
+    @media (max-width: 1000px) {
+      .notes-videos-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .notes-section, .videos-section {
+        min-width: 90%;
+      }
     }
   </style>
+</head>
+<body>
+
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+
+  <div class="welcome-message">
+    <div class="typing">Welcome to Your Learning Portal...</div>
+  </div>
+
+  <div class="notes-videos-container">
+    <div class="notes-section">
+      <h2 class="section-title">Course Notes</h2>
+      <div class="links"></div>
+    </div>
+    <div class="videos-section">
+      <h2 class="section-title">Course Videos</h2>
+      <div class="links"></div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Pawan Soni<br>
+    <a href="javascript:history.back()" class="back-btn">Back</a>
+  </footer>
+
   <script>
     // Course id to page mapping
     const coursePages = {
@@ -148,8 +296,6 @@
       "webdesign": "WebDesign.html",
       "exams": "Exams.html"
     };
-
-    // Videos page mapping (you can set your own)
     const videoPages = {
       "bcc": "Basic/basic_videos.html",
       "advanced": "Advance_Ms/advance_videos.html",
@@ -161,7 +307,6 @@
       "webdesign": "WebDesign_videos.html",
       "exams": "Exams_videos.html"
     };
-
     const courseOrder = [
       { id: "bcc", label: "Basic Computer Course" },
       { id: "advanced", label: "Advanced Computer Course" },
@@ -187,9 +332,7 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-      // Get which course is unlocked from localStorage
       const access = localStorage.getItem('courseAccess');
-      // Render all course links with correct lock/unlock state
       const notesSection = document.querySelector('.notes-section .links');
       const videosSection = document.querySelector('.videos-section .links');
       notesSection.innerHTML = '';
@@ -257,32 +400,7 @@
         videosSection.appendChild(videosLink);
       });
     });
-  </script>
-</head>
-<body>
 
-  <header>
-    <h1>CHITRAGUPT ACADEMY</h1>
-    <p>AN ISO CERTIFIED INSTITUTION</p>
-  </header>
-
-  <div class="notes-videos-container">
-    <div class="notes-section">
-      <h2 class="section-title">Course Notes</h2>
-      <div class="links"></div>
-    </div>
-    <div class="videos-section">
-      <h2 class="section-title">Course Videos</h2>
-      <div class="links"></div>
-    </div>
-  </div>
-
-  <footer>
-    &copy; <span id="year"></span> Pawan Soni<br>
-   <a href="javascript:history.back()" class="back-btn">Back</a>
-  </footer>
-
-  <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
