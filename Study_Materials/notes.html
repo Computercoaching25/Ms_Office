@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Course Notes - Chitragupt Academy</title>
+  <title>Course Notes & Videos - Chitragupt Academy</title>
   <style>
     body {
       margin: 0;
@@ -12,7 +12,6 @@
       color: #2c3e50;
       user-select: none;
     }
-
     header {
       background-color: #ffffff;
       padding: 20px;
@@ -20,25 +19,39 @@
       border-bottom: 3px solid #007acc;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
     header h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #007acc;
     }
-
     header p {
       margin: 0;
       font-size: 1.2rem;
       color: #333;
     }
-
-    .notes-section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+    .notes-videos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 30px;
     }
-
+    .notes-section, .videos-section {
+      flex: 1;
+      min-width: 480px;
+      padding: 0 20px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      color: #007acc;
+      margin: 20px 0 15px;
+      text-align: center;
+      font-weight: bold;
+    }
     .course-link {
       background: white;
       margin: 15px 0;
@@ -80,20 +93,18 @@
       transform: translateX(5px);
       background-color: #d0f8ce;
     }
-    .course-link.unlocked .lock {
-      content: "🔓";
+    .course-link.unlocked .lock-open {
+      display: inline;
     }
-
     .course-link .lock-open {
       display: none;
+    }
+    .course-link .lock-closed {
+      display: inline;
     }
     .course-link.unlocked .lock-closed {
       display: none;
     }
-    .course-link.unlocked .lock-open {
-      display: inline;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -101,7 +112,6 @@
       color: #555;
       border-top: 1px solid #ccc;
     }
-
     .back-btn {
       display: inline-block;
       margin-top: 10px;
@@ -112,18 +122,15 @@
       border-radius: 5px;
       font-weight: bold;
     }
-
     .back-btn:hover {
       background-color: #005fa3;
     }
-
     * {
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
     }
-
     body::selection {
       background: none;
     }
@@ -142,18 +149,29 @@
       "exams": "Exams.html"
     };
 
-    // Password to course id mapping (should be set at login page)
-    // e.g., localStorage.setItem('courseAccess', 'bcc');
+    // Videos page mapping (you can set your own)
+    const videoPages = {
+      "bcc": "Basic/basic_videos.html",
+      "advanced": "Advance_Ms/advance_videos.html",
+      "cpct": "CPCT/cpct_videos.html",
+      "internet": "Internet_videos.html",
+      "tally": "Tally_videos.html",
+      "graphic": "Graphic_videos.html",
+      "powerbi": "PowerBI_videos.html",
+      "webdesign": "WebDesign_videos.html",
+      "exams": "Exams_videos.html"
+    };
+
     const courseOrder = [
-      { id: "bcc", label: "Basic Computer Course Notes" },
-      { id: "advanced", label: "Advanced Computer Course Notes" },
-      { id: "cpct", label: "CPCT Preparation Notes" },
-      { id: "internet", label: "Internet & Email Notes" },
-      { id: "tally", label: "Tally with GST Notes" },
-      { id: "graphic", label: "Graphic Design Notes" },
-      { id: "powerbi", label: "MS Power BI Notes" },
-      { id: "webdesign", label: "Web Designing Notes" },
-      { id: "exams", label: "Competitive Exams Notes"}
+      { id: "bcc", label: "Basic Computer Course" },
+      { id: "advanced", label: "Advanced Computer Course" },
+      { id: "cpct", label: "CPCT Preparation" },
+      { id: "internet", label: "Internet & Email" },
+      { id: "tally", label: "Tally with GST" },
+      { id: "graphic", label: "Graphic Design" },
+      { id: "powerbi", label: "MS Power BI" },
+      { id: "webdesign", label: "Web Designing" },
+      { id: "exams", label: "Competitive Exams"}
     ];
 
     // Disable right click, dev tools, copy, etc.
@@ -172,27 +190,27 @@
       // Get which course is unlocked from localStorage
       const access = localStorage.getItem('courseAccess');
       // Render all course links with correct lock/unlock state
-      const section = document.querySelector('.notes-section');
-      section.innerHTML = '';
+      const notesSection = document.querySelector('.notes-section .links');
+      const videosSection = document.querySelector('.videos-section .links');
+      notesSection.innerHTML = '';
+      videosSection.innerHTML = '';
+      
       courseOrder.forEach(course => {
-        // Create link element
-        const a = document.createElement('a');
-        a.className = 'course-link';
-        a.id = 'course-' + course.id;
-        a.href = coursePages[course.id] || '#';
-        // Lock icons: closed and open
-        a.innerHTML = `
+        // Notes link
+        const notesLink = document.createElement('a');
+        notesLink.className = 'course-link';
+        notesLink.id = 'notes-' + course.id;
+        notesLink.href = coursePages[course.id] || '#';
+        notesLink.innerHTML = `
           <span class="lock lock-closed">🔒</span>
           <span class="lock lock-open">🔓</span>
-          ${course.label}
+          ${course.label} Notes
         `;
-        // If this is the unlocked course, enable it
         if (access === course.id) {
-          a.classList.add('unlocked');
-          a.tabIndex = 0;
-          a.addEventListener('click', function(e) {
-            // Only go to the page if the file exists (you can adjust as needed)
-            if (a.href.endsWith('.html')) {
+          notesLink.classList.add('unlocked');
+          notesLink.tabIndex = 0;
+          notesLink.addEventListener('click', function(e) {
+            if (notesLink.href.endsWith('.html')) {
               // Allow navigation
             } else {
               e.preventDefault();
@@ -200,14 +218,43 @@
             }
           });
         } else {
-          // Locked: prevent navigation
-          a.tabIndex = -1;
-          a.addEventListener('click', function(e) {
+          notesLink.tabIndex = -1;
+          notesLink.addEventListener('click', function(e) {
             e.preventDefault();
             alert('This course is locked for your account.');
           });
         }
-        section.appendChild(a);
+        notesSection.appendChild(notesLink);
+
+        // Videos link
+        const videosLink = document.createElement('a');
+        videosLink.className = 'course-link';
+        videosLink.id = 'videos-' + course.id;
+        videosLink.href = videoPages[course.id] || '#';
+        videosLink.innerHTML = `
+          <span class="lock lock-closed">🔒</span>
+          <span class="lock lock-open">🔓</span>
+          ${course.label} Videos
+        `;
+        if (access === course.id) {
+          videosLink.classList.add('unlocked');
+          videosLink.tabIndex = 0;
+          videosLink.addEventListener('click', function(e) {
+            if (videosLink.href.endsWith('.html')) {
+              // Allow navigation
+            } else {
+              e.preventDefault();
+              alert('Course videos coming soon!');
+            }
+          });
+        } else {
+          videosLink.tabIndex = -1;
+          videosLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This course is locked for your account.');
+          });
+        }
+        videosSection.appendChild(videosLink);
       });
     });
   </script>
@@ -219,8 +266,15 @@
     <p>AN ISO CERTIFIED INSTITUTION</p>
   </header>
 
-  <div class="notes-section">
-    <!-- Course links will be rendered by JS -->
+  <div class="notes-videos-container">
+    <div class="notes-section">
+      <h2 class="section-title">Course Notes</h2>
+      <div class="links"></div>
+    </div>
+    <div class="videos-section">
+      <h2 class="section-title">Course Videos</h2>
+      <div class="links"></div>
+    </div>
   </div>
 
   <footer>
