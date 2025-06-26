@@ -98,14 +98,17 @@
       display: inline-block;
       box-shadow: 0 2px 6px #2980b944;
     }
-    /* 3 lines (hamburger) icon for top navigation */
+    /* Hamburger icon: Always top-right */
     .top-nav-lines {
+      position: absolute;
+      right: 32px;
+      top: 24px;
+      z-index: 3;
+      margin: 0;
       display: flex;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      margin-left: 20px;
-      margin-right: 10px;
     }
     .top-nav-lines span {
       display: block;
@@ -373,9 +376,11 @@
       .academy-info p { font-size: 1rem; }
       .content { padding: 14px 4vw; }
       .gallery img { height: 110px; }
-      .hamburger { display: block; }
       .sidebar { padding-top: 120px; }
-      .top-nav-lines { margin: 0; }
+      .top-nav-lines {
+        right: 6vw;
+        top: 18px;
+      }
       .course-title { font-size: 1.1em; }
       .course-desc { font-size: 0.9em; line-height: 1.6; }
     }
@@ -399,7 +404,6 @@
       <span></span>
       <span></span>
     </div>
-   
   </header>
 
   <!-- Sidebar Navigation -->
@@ -538,7 +542,7 @@
       },
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
     });
 
@@ -546,7 +550,6 @@
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("open");
     }
-    document.getElementById("hamburger").addEventListener("click", toggleSidebar);
     document.getElementById("topNavLines").addEventListener("click", toggleSidebar);
 
     // Close Sidebar (for close button inside sidebar)
