@@ -335,31 +335,31 @@
       gap: 10px;
       background: linear-gradient(135deg, #ccf1ff, #fffd8f);
     }
-    .gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin: 0 auto 10px;
-      max-width: 1100px;
-    }
-    .gallery img {
-      width: 2dvw;
-      height: auto;
-      object-fit: fill;
-      border-radius: 14px;
-      box-shadow: 0 4px 18px #2980b944;
-      border: 2px solid #fff;
-      transition: 0.3s;
-      background: #fff;
-      filter: grayscale(0.08);
-    }
-    .gallery img:hover {
-      transform: scale(1.07) rotate(-2deg);
-      box-shadow: 0 8px 32px #6dd5fa99;
-      filter: grayscale(0);
-      border-color: #6dd5fa;
-    }
+   .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 0 auto 10px;
+  max-width: 1100px;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1; /* Square boxes (change as per your need) */
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px #2980b944;
+  border: 2px solid #fff;
+  transition: 0.3s;
+  background: #fff;
+  filter: grayscale(0.08);
+}
+.gallery img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 32px #6dd5fa99;
+  filter: grayscale(0);
+  border-color: #6dd5fa;
+}
     footer {
       text-align: center;
       padding: 24px 0 16px 0;
