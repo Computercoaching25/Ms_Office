@@ -37,12 +37,12 @@
       -moz-user-select: auto;
       -ms-user-select: auto;
     }
-     header {
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: linear-gradient(90deg, #2980b9 60%, #0d5772 100%);
-      padding: 50px 32px;
+      padding: 20px 32px; /* Adjusted padding for mobile */
       border-bottom: 4px solid #fff;
       box-shadow: var(--shadow);
       position: relative;
@@ -54,7 +54,7 @@
       gap: 18px;
     }
     .logo-box img {
-      height: 60px;
+      height: 50px; /* Smaller logo for mobile */
       border-radius: 60%;
       box-shadow: 0 4px 16px #8ee0fdc0;
       border: 3px solid #ffe3e3;
@@ -71,7 +71,6 @@
       color: #fff;
       text-shadow: 0 2px 8px #2980b966;
       flex: 1 1 0;
-      /* desktop centering */
       position: absolute;
       left: 50%;
       top: 50%;
@@ -81,7 +80,7 @@
       min-width: 220px;
     }
     .academy-info h1 {
-      font-size: 2.2rem;
+      font-size: 1.8rem; /* Adjusted font size for mobile */
       letter-spacing: 2px;
       font-weight: 900;
       margin-bottom: 2px;
@@ -91,18 +90,18 @@
       -webkit-text-fill-color: transparent;
     }
     .academy-info p {
-      font-size: 1.1rem;
+      font-size: 0.9rem; /* Adjusted font size for mobile */
       color: #f8f8f8;
       font-weight: 600;
       letter-spacing: 1px;
     }
     .welcome-time {
       margin-top: 6px;
-      font-size: 1rem;
+      font-size: 0.8rem; /* Adjusted font size for mobile */
       color: #e0eafc;
       font-weight: 700;
       background: rgba(255,255,255,0.08);
-      padding: 2px 10px;
+      padding: 2px 8px; /* Adjusted padding for mobile */
       border-radius: 8px;
       display: inline-block;
       box-shadow: 0 2px 6px #2980b944;
@@ -110,8 +109,8 @@
     /* Hamburger icon: Always top-right */
     .top-nav-lines {
       position: absolute;
-      right: 32px;
-      top: 20%px;
+      right: 20px; /* Adjusted position for mobile */
+      top: 25px; /* Adjusted position for mobile */
       z-index: 3;
       margin: 0;
       display: flex;
@@ -141,7 +140,7 @@
       padding-top: 80px;
     }
     .sidebar.open {
-      width: 280px;
+      width: 240px; /* Slightly smaller sidebar for mobile */
     }
     .sidebar .closebtn {
       position: absolute;
@@ -157,13 +156,13 @@
       background: #fff;
       color: var(--main-blue);
       border: 2px solid var(--main-blue);
-      margin: 16px auto;
+      margin: 12px auto; /* Adjusted margin for mobile */
       width: 90%;
       text-align: left;
-      padding: 12px 20px;
+      padding: 10px 15px; /* Adjusted padding for mobile */
       border-radius: 30px;
       font-weight: bold;
-      font-size: 1.05rem;
+      font-size: 0.95rem; /* Adjusted font size for mobile */
       letter-spacing: 1px;
       cursor: pointer;
       transition: 0.2s;
@@ -191,8 +190,8 @@
     }
     .content {
       max-width: 1100px;
-      margin: 40px auto 0 auto;
-      padding: 28px 24px 20px 24px;
+      margin: 20px auto 0 auto; /* Adjusted margin for mobile */
+      padding: 20px 15px 15px 15px; /* Adjusted padding for mobile */
       background: var(--glass-bg);
       border-radius: 18px;
       box-shadow: var(--shadow);
@@ -208,17 +207,17 @@
     .content h2 {
       background-color: #d6f0ff;
       color: var(--main-blue);
-      font-size: 2rem;
-      margin-bottom: 18px;
+      font-size: 1.5rem; /* Adjusted font size for mobile */
+      margin-bottom: 15px; /* Adjusted margin for mobile */
       letter-spacing: 1px;
       font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px; /* Adjusted gap for mobile */
     }
     .content h2 i {
       color: var(--accent-blue);
-      font-size: 1.3em;
+      font-size: 1.2em; /* Adjusted font size for mobile */
       animation: bounce 1.5s infinite alternate;
     }
     @keyframes bounce {
@@ -230,7 +229,7 @@
       background: linear-gradient(135deg, #6dd5fa, #2980b9);
       border-radius: 18px;
       box-shadow: var(--glow), 0 8px 32px rgba(0,0,0,0.1);
-      padding: 10px 16px 1px 16px;
+      padding: 8px 12px 1px 12px; /* Adjusted padding for mobile */
       margin-bottom: 8px;
       color: #fff;
     }
@@ -251,14 +250,14 @@
       border-radius: 16px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
       border: 1.5px solid rgba(255,255,255,0.3);
-      padding: 40px 60px 80px 60px;
+      padding: 30px 40px 60px 40px; /* Adjusted padding for mobile */
       width: 100%;
-      min-height: 180px;
+      min-height: 160px; /* Adjusted min-height for mobile */
       transition: 0.25s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      margin: 10px 0;
+      margin: 8px 0; /* Adjusted margin for mobile */
     }
     .course-card:hover {
       box-shadow: 0 2px 24px rgba(255,255,255,0.5), 0 0 12px rgba(41,128,185,0.6);
@@ -267,8 +266,8 @@
       background: #f4fbff;
     }
     .course-icon {
-      font-size: 2.900em;
-      margin-bottom: 10px;
+      font-size: 2.2em; /* Adjusted font size for mobile */
+      margin-bottom: 8px; /* Adjusted margin for mobile */
       color: var(--main-blue);
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
       animation: glowIcon 1.6s infinite alternate;
@@ -278,13 +277,13 @@
       to { filter: drop-shadow(0 2px 16px rgba(41,128,185,0.6));}
     }
     .course-title {
-      font-size: 3em;
+      font-size: 1.8em; /* Adjusted font size for mobile */
       font-weight: 800;
       color: #222;
-      margin-bottom: 6px;
+      margin-bottom: 4px; /* Adjusted margin for mobile */
     }
     .course-desc {
-      font-size: 2em;
+      font-size: 1.1em; /* Adjusted font size for mobile */
       color: #555;
       line-height: 1.6;
     }
@@ -297,18 +296,18 @@
       color: #fff;
       background: rgba(0,0,0,0.3);
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 35px; /* Smaller buttons for mobile */
+      height: 35px; /* Smaller buttons for mobile */
       box-shadow: 0 2px 12px rgba(0,0,0,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .swiper-button-prev { left: 0; }
-    .swiper-button-next { right: 0; }
+    .swiper-button-prev { left: 5px; } /* Adjusted position for mobile */
+    .swiper-button-next { right: 5px; } /* Adjusted position for mobile */
     .swiper-button-prev::after,
     .swiper-button-next::after {
-      font-size: 1.2rem;
+      font-size: 1rem; /* Smaller icon for mobile */
     }
     .swiper-pagination {
       position: relative;
@@ -322,212 +321,129 @@
       background: #fff;
       opacity: 1;
     }
-   
+
     .gallery-section {
-  padding: 20px 0 30px 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4eff9 100%);
-  border-radius: 16px;
-  margin: 30px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.gallery-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232980b9' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-  opacity: 0.6;
-}
-
-.gallery-title {
-  color: var(--main-blue);
-  font-size: 1.90rem;
-  font-weight: 600;
-  margin: 10px 0 30px 0;
-  text-align: center;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #2980b9, #6dd5fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-}
-
-.gallery-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #2980b9, #6dd5fa);
-  border-radius: 3px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 22px;
-  margin: 0 auto;
-  max-width: 1100px;
-  padding: 0 20px;
-}
-
-.certificate-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(41, 128, 185, 0.15);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: #fff;
-  height: 100%;
-}
-
-.certificate-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(41, 128, 185, 0.3);
-}
-
-.certificate-card::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background: linear-gradient(45deg, #2980b9, #6dd5fa, #2980b9);
-  z-index: -1;
-  border-radius: 16px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.certificate-card:hover::before {
-  opacity: 1;
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.certificate-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-  transition: all 0.3s ease;
-}
-
-.certificate-info {
-  padding: 15px;
-  background: #fff;
-  border-radius: 0 0 12px 12px;
-}
-
-.certificate-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #2980b9;
-  margin-bottom: 5px;
-}
-
-.certificate-course {
-  font-size: 0.85rem;
-  color: #555;
-}
-
-.certificate-date {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.certificate-date i {
-  color: #6dd5fa;
-}
-
-.certificate-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: linear-gradient(135deg, #2980b9, #6dd5fa);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.3);
-  z-index: 1;
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
-    padding: 0 10px;
-  }
-  
-  .certificate-name {
-    font-size: 0.9rem;
-  }
-  
-  .certificate-course, .certificate-date {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-  }
-  
-  .certificate-info {
-    padding: 10px;
-  }
-  
-  .certificate-badge {
-    font-size: 0.65rem;
-    padding: 3px 8px;
-  }
-}
-
-    footer {
-      text-align: center;
-      padding: 24px 0 16px 0;
-      font-size: 1rem;
-      color: #2980b9;
-      background: linear-gradient(90deg, #e0eafc 60%, #cfdef3 100%);
-      margin-top: 40px;
-      letter-spacing: 1px;
-      box-shadow: 0 -2px 12px #2980b922;
-      font-weight: 600;
+      padding: 15px 0 20px 0; /* Adjusted padding for mobile */
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4eff9 100%);
+      border-radius: 16px;
+      margin: 20px 0; /* Adjusted margin for mobile */
+      position: relative;
+      overflow: hidden;
     }
-    @media (max-width: 900px) {
-      .swiper-slide { padding: 0; }
-      .gallery img { width: 90vw; max-width: 320px; }
-      .course-desc { font-size: 0.95em; }
+
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232980b9' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+
+    .gallery-title {
+      color: var(--main-blue);
+      font-size: 1.5rem; /* Adjusted font size for mobile */
+      font-weight: 600;
+      margin: 8px 0 20px 0; /* Adjusted margin for mobile */
+      text-align: center;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px; /* Adjusted gap for mobile */
+      background: linear-gradient(135deg, #2980b9, #6dd5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .gallery-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; /* Adjusted position for mobile */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px; /* Adjusted width for mobile */
+      height: 2px; /* Adjusted height for mobile */
+      background: linear-gradient(90deg, #2980b9, #6dd5fa);
+      border-radius: 3px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Adjusted minmax for smaller screens */
+      gap: 15px; /* Adjusted gap for mobile */
+      margin: 0 auto;
+      max-width: 1100px;
+      padding: 0 10px; /* Adjusted padding for mobile */
+    }
+
+    .certificate-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(41, 128, 185, 0.15); /* Adjusted shadow for mobile */
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: #fff;
+      height: 100%;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-8px); /* Adjusted transform for mobile */
+      box-shadow: 0 12px 24px rgba(41, 128, 185, 0.3); /* Adjusted shadow for mobile */
+    }
+
+    .certificate-card::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: linear-gradient(45deg, #2980b9, #6dd5fa, #2980b9);
+      z-index: -1;
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .certificate-card:hover::before {
+      opacity: 1;
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .certificate-img {
+      width: 100%;
+      height: auto; /* Changed to auto for better responsiveness */
+      display: block;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive Fixes */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+        padding: 0 10px;
+      }
     }
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         gap: 10px;
         padding: 16px 6vw;
+      }
+      .logo-box img {
+        height: 45px;
       }
       .academy-info {
         position: static;
@@ -540,16 +456,56 @@
         width: 100%;
       }
       .academy-info h1 { font-size: 1.3rem; }
-      .academy-info p { font-size: 1rem; }
-      .content { padding: 14px 4vw; }
-      .gallery img { height: 110px; }
-      .sidebar { padding-top: 120px; }
+      .academy-info p { font-size: 0.9rem; }
+      .welcome-time { font-size: 0.75rem; }
+      .content { padding: 14px 4vw; margin: 15px auto 0 auto; }
+      .content h2 { font-size: 1.3rem; }
+      .course-card { padding: 25px 30px 50px 30px; min-height: 140px; }
+      .course-icon { font-size: 1.8em; }
+      .course-title { font-size: 1.4em; }
+      .course-desc { font-size: 1em; line-height: 1.5; }
+      .swiper-button-prev,
+      .swiper-button-next {
+        width: 30px;
+        height: 30px;
+      }
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 0.9rem;
+      }
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Further reduced minmax for smaller mobiles */
+        gap: 10px;
+      }
+      .certificate-img {
+        height: auto; /* Ensures images scale down properly */
+      }
+      .sidebar { padding-top: 100px; }
       .top-nav-lines {
         right: 6vw;
         top: 18px;
       }
-      .course-title { font-size: 1.1em; }
-      .course-desc { font-size: 0.9em; line-height: 1.6; }
+    }
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Even smaller grid for very small screens */
+        gap: 8px;
+      }
+      .certificate-card {
+        box-shadow: 0 6px 12px rgba(41, 128, 185, 0.1);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0 12px 0; /* Adjusted padding for mobile */
+      font-size: 0.9rem; /* Adjusted font size for mobile */
+      color: #2980b9;
+      background: linear-gradient(90deg, #e0eafc 60%, #cfdef3 100%);
+      margin-top: 30px; /* Adjusted margin for mobile */
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 10px #2980b922; /* Adjusted shadow for mobile */
+      font-weight: 600;
     }
   </style>
 </head>
@@ -573,7 +529,6 @@
     </div>
   </header>
 
-  <!-- Sidebar Navigation -->
   <div class="sidebar" id="sidebar">
     <button class="closebtn" id="closebtn">&times;</button>
     <a href="home.html">
@@ -599,7 +554,6 @@
     </button>
   </div>
 
-  <!-- Main Content -->
   <div class="content">
     <h2><i class="fas fa-graduation-cap"></i> Our Courses</h2>
     <div class="courses-container">
@@ -630,7 +584,7 @@
             <div class="course-card">
               <span class="course-icon"><i class="fas fa-globe"></i></span>
               <span class="course-title">Internet & Email</span>
-              <span class="course-desc">Internet Browsing, Email Handling, Online Safety & Etiquette.</span>
+              <span class="course-desc">Internet Browse, Email Handling, Online Safety & Etiquette.</span>
             </div>
           </div>
           <div class="swiper-slide">
@@ -669,10 +623,8 @@
             </div>
           </div>
         </div>
-        <!-- Add navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-        <!-- Add pagination -->
         <div class="swiper-pagination"></div>
       </div>
     </div>
@@ -682,31 +634,21 @@
       <i class="fas fa-images"></i> Student Certificates Gallery
     </div>
     <div class="gallery-section">
-
-  <div class="gallery">
-    <!-- Certificate 1 -->
-    <div class="certificate-card">
-      <img src="Student Certificates Gallery/Monika.jpg" alt="Certificate" class="certificate-img">    </div>
-    <br>
-    <!-- Certificate 2 -->
-    <div class="certificate-card">
-      <img src="Student Certificates Gallery/Lata.jpg" alt="Certificate" class="certificate-img">
+      <div class="gallery">
+        <div class="certificate-card">
+          <img src="Student Certificates Gallery/Monika.jpg" alt="Certificate" class="certificate-img"> 
+        </div>
+        <div class="certificate-card">
+          <img src="Student Certificates Gallery/Lata.jpg" alt="Certificate" class="certificate-img">
+        </div>
+        <div class="certificate-card">
+          <img src="certificate3.jpg" alt="Certificate" class="certificate-img">
+        </div>
+        <div class="certificate-card">
+          <img src="Monika.jpg" alt="Certificate" class="certificate-img">
+        </div>
+        </div>
     </div>
-    <br>
-    <!-- Certificate 3 -->
-    <div class="certificate-card">
-      <img src="certificate3.jpg" alt="Certificate" class="certificate-img">
-    </div>
-    <br>
-    <!-- Certificate 4 -->
-    <div class="certificate-card">
-      <img src="Monika.jpg" alt="Certificate" class="certificate-img">
-    </div>
-    
-    <!-- Add more certificates as needed -->
-  </div>
-</div>
-
   </div>
 
   <footer>
