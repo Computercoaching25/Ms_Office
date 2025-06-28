@@ -322,74 +322,191 @@
       background: #fff;
       opacity: 1;
     }
-    .gallery-title {
-      color: var(--main-blue);
-      font-size: 1.90rem;
-      font-weight: 600;
-      margin: 40px 0 18px 0;
-      text-align: center;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #ccf1ff, #fffd8f);
-    }
+   
+    .gallery-section {
+  padding: 20px 0 30px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4eff9 100%);
+  border-radius: 16px;
+  margin: 30px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232980b9' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
+.gallery-title {
+  color: var(--main-blue);
+  font-size: 1.90rem;
+  font-weight: 600;
+  margin: 10px 0 30px 0;
+  text-align: center;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #2980b9, #6dd5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.gallery-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2980b9, #6dd5fa);
+  border-radius: 3px;
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 18px;
-  margin: 0 auto 10px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+  margin: 0 auto;
   max-width: 1100px;
-  width: 100%;
+  padding: 0 20px;
 }
 
-.gallery img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;   /* contain instead of cover */
-  border-radius: 14px;
-  box-shadow: 0 4px 18px #2980b944;
-  border: 2px solid #fff;
-  transition: 0.3s;
+.certificate-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(41, 128, 185, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: #fff;
-  filter: grayscale(0.08);
+  height: 100%;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(41, 128, 185, 0.3);
+}
+
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #2980b9, #6dd5fa, #2980b9);
+  z-index: -1;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.certificate-card:hover::before {
+  opacity: 1;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.certificate-img {
+  width: 100%;
+  height: auto;
   display: block;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
 }
 
-.gallery img:hover {
-  transform: scale(1.07) rotate(-2deg);
-  box-shadow: 0 8px 32px #6dd5fa99;
-  filter: grayscale(0);
-  border-color: #6dd5fa;
+.certificate-info {
+  padding: 15px;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
 }
 
-/* Responsive Fix for Mobile */
-@media (max-width: 700px) {
+.certificate-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2980b9;
+  margin-bottom: 5px;
+}
+
+.certificate-course {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.certificate-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.certificate-date i {
+  color: #6dd5fa;
+}
+
+.certificate-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #2980b9, #6dd5fa);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.3);
+  z-index: 1;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
   .gallery {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 0 5vw;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
   }
-  .gallery img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 100px;
-    object-fit: contain;
+  
+  .certificate-name {
+    font-size: 0.9rem;
+  }
+  
+  .certificate-course, .certificate-date {
+    font-size: 0.75rem;
   }
 }
+
 @media (max-width: 480px) {
   .gallery {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 0 2vw;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
-  .gallery img {
-    min-height: 80px;
+  
+  .certificate-info {
+    padding: 10px;
+  }
+  
+  .certificate-badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
   }
 }
+
     footer {
       text-align: center;
       padding: 24px 0 16px 0;
@@ -564,13 +681,53 @@
     <div class="gallery-title">
       <i class="fas fa-images"></i> Student Certificates Gallery
     </div>
-    <div class="gallery">
-      <img src="Student Certificates Gallery/Monika.jpg" alt="Certificate 1">
-      <img src="Student Certificates Gallery/Lata.jpg" alt="Certificate 2">
-      <img src="certificate3.jpg" alt="Certificate 3">
-      <img src="certificate4.jpg" alt="Certificate 4">
-      <img src="certificate5.jpg" alt="Certificate 5">
+    <div class="gallery-section">
+  <div class="gallery">
+    <!-- Certificate 1 -->
+    <div class="certificate-card">
+      <img src="Student Certificates Gallery/Monika.jpg" alt="Certificate" class="certificate-img">
+      <div class="certificate-info">
+        <div class="certificate-name">Amit Kumar</div>
+        <div class="certificate-course">Advanced Computer Course</div>
+        <div class="certificate-date"><i class="far fa-calendar-alt"></i> June 2025</div>
+      </div>
     </div>
+    
+    <!-- Certificate 2 -->
+    <div class="certificate-card">
+      <img src="Student Certificates Gallery/Lata.jpg" alt="Certificate" class="certificate-img">
+      <div class="certificate-info">
+        <div class="certificate-name">Priya Sharma</div>
+        <div class="certificate-course">Tally with GST</div>
+        <div class="certificate-date"><i class="far fa-calendar-alt"></i> May 2025</div>
+      </div>
+    </div>
+    
+    <!-- Certificate 3 -->
+    <div class="certificate-card">
+      <img src="certificate3.jpg" alt="Certificate" class="certificate-img">
+      <div class="certificate-info">
+        <div class="certificate-name">Rahul Verma</div>
+        <div class="certificate-course">Web Designing</div>
+        <div class="certificate-date"><i class="far fa-calendar-alt"></i> April 2025</div>
+      </div>
+    </div>
+    
+    <!-- Certificate 4 -->
+    <div class="certificate-card">
+      <span class="certificate-badge">Excellence</span>
+      <img src="Monika.jpg" alt="Certificate" class="certificate-img">
+      <div class="certificate-info">
+        <div class="certificate-name">Sneha Singh</div>
+        <div class="certificate-course">Graphic Design</div>
+        <div class="certificate-date"><i class="far fa-calendar-alt"></i> June 2025</div>
+      </div>
+    </div>
+    
+    <!-- Add more certificates as needed -->
+  </div>
+</div>
+
   </div>
 
   <footer>
