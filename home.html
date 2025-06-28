@@ -374,86 +374,54 @@
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 0 16px;
   max-width: 1100px;
-  padding: 0 20px;
+  margin: 0 auto;
 }
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  .certificate-img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+}
+
 
 .certificate-card {
   position: relative;
   overflow: hidden;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(41, 128, 185, 0.15);
-  transition: all 0.4s ease-in-out;
-  display: flex;
-  flex-direction: column;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(41, 128, 185, 0.18);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .certificate-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(41, 128, 185, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 16px 32px rgba(41, 128, 185, 0.35);
 }
 
 .certificate-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-  background: #f7f9fb;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
   transition: transform 0.3s ease;
 }
 
 .certificate-card:hover .certificate-img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
-
-.certificate-info {
-  padding: 14px 16px;
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-
-.certificate-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2980b9;
-  margin-bottom: 4px;
-}
-
-.certificate-course {
-  font-size: 0.9rem;
-  color: #444;
-}
-
-.certificate-date {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.certificate-date i {
-  color: #6dd5fa;
-}
-
-.certificate-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: linear-gradient(135deg, #2980b9, #6dd5fa);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.3);
-}
-
 
 /* Responsive Fixes */
 @media (max-width: 768px) {
@@ -667,42 +635,27 @@
     <!-- Certificate 1 -->
     <div class="certificate-card">
       <img src="Student Certificates Gallery/Monika.jpg" alt="Certificate" class="certificate-img">
-      <div class="certificate-info">
-        <div class="certificate-name">Amit Kumar</div>
-        <div class="certificate-course">Advanced Computer Course</div>
-        <div class="certificate-date"><i class="far fa-calendar-alt"></i> June 2025</div>
-      </div>
     </div>
-    
+
     <!-- Certificate 2 -->
     <div class="certificate-card">
       <img src="Student Certificates Gallery/Lata.jpg" alt="Certificate" class="certificate-img">
-      <div class="certificate-info">
-        <div class="certificate-name">Priya Sharma</div>
-        <div class="certificate-course">Tally with GST</div>
-        <div class="certificate-date"><i class="far fa-calendar-alt"></i> May 2025</div>
-      </div>
     </div>
-    
+
     <!-- Certificate 3 -->
     <div class="certificate-card">
       <img src="certificate3.jpg" alt="Certificate" class="certificate-img">
-      <div class="certificate-info">
-        <div class="certificate-name">Rahul Verma</div>
-        <div class="certificate-course">Web Designing</div>
-        <div class="certificate-date"><i class="far fa-calendar-alt"></i> April 2025</div>
-      </div>
     </div>
-    
+
     <!-- Certificate 4 -->
     <div class="certificate-card">
-      <span class="certificate-badge">Excellence</span>
       <img src="Monika.jpg" alt="Certificate" class="certificate-img">
-      <div class="certificate-info">
-        <div class="certificate-name">Sneha Singh</div>
-        <div class="certificate-course">Graphic Design</div>
-        <div class="certificate-date"><i class="far fa-calendar-alt"></i> June 2025</div>
-      </div>
+    </div>
+    
+    <!-- Add more certificates if needed -->
+  </div>
+</div>
+
     </div>
     
     <!-- Add more certificates as needed -->
